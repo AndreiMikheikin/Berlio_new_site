@@ -1,0 +1,20 @@
+// _variables.scss
+
+@use './tokens' as aam;  // Подключаем _tokens.scss и задаем префикс aam
+
+// Основные цвета
+$background-color: aam.$aam_background-color;
+$background-hover: aam.$aam_background-hover;
+$error-color: aam.$aam_error-color;
+$white: aam.$aam_white;
+
+// Цвета текста и рамок по приоритетности
+$text-primary: aam.$aam_text-primary;
+$text-secondary: aam.$aam_text-secondary;
+$text-tertiary: aam.$aam_text-tertiary;
+$text-quaternary: aam.$aam_text-quaternary;
+$text-disabled: aam.$aam_text-disabled;
+
+// Цвета для рамок и теней
+$border-primary: aam.$aam_border-primary;
+$shadow-primary: aam.$aam_shadow-primary;

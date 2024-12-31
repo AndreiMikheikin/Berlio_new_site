@@ -1,0 +1,18 @@
+// _tokens.scss
+
+// Основные цвета
+$aam_background-color: #48AE5A;   // Фон, текст, иконки
+$aam_background-hover: #176224;   // Фон, текст:hover
+$aam_error-color: #F24942;        // Ошибки
+$aam_white: #FFFFFF;              // Основной цвет фона
+
+// Цвета текста и рамок по приоритетности
+$aam_text-primary: #000000;       // Основной текст
+$aam_text-secondary: #1F1F1F;     // Вторичный текст
+$aam_text-tertiary: #4D4D4D;      // Третичный текст
+$aam_text-quaternary: #949494;    // Четверичный текст
+$aam_text-disabled: #A3A3A3;      // Текст, который неактивен или отключен
+
+// Цвета для рамок и теней
+$aam_border-primary: #000000;     // Рамки
+$aam_shadow-primary: #1F1F1F;     // Тень

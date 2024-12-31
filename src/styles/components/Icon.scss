@@ -1,0 +1,20 @@
+.aam_icon {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'Material Icons', sans-serif;
+    font-size: 24px;
+    color: #333;
+  
+    &.aam_icon-home {
+      content: '\e88a'; /* Код иконки из Material Icons */
+    }
+  
+    &.aam_icon-phone {
+      content: '\e0cd';
+    }
+
+    &.aam_icon-arrow_down {
+      content: '\25BC'; /* Unicode стрелки вниз */
+    }
+  }
+  

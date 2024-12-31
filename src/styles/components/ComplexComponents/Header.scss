@@ -1,0 +1,20 @@
+@use '../../variables' as *;  // Подключаем _variables.scss
+
+.aam_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: $white;
+  
+    &__logo {
+      flex: 1;
+    }
+  
+    &__dropdown {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  
