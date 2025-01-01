@@ -63,6 +63,7 @@ module.exports = {
     port: 3000,
     hot: true,
     open: true,
+    historyApiFallback: true,
   },
   mode: 'development',
 };

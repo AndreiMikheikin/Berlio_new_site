@@ -1,20 +1,49 @@
-@use '../../variables' as *;  // Подключаем _variables.scss
+@use '../../variables' as *; // Подключаем _variables.scss
 
 .aam_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1280px;
+  height: 118px;
+  gap: 45px;
+  background-color: $white;
+
+  &__logo {
+    flex: 0 1 200px; // Фиксированная ширина для логотипа
+    width: 271.54px;
+    height: 66px;
+  }
+
+  &__dropdown {
+    flex: 1; // Остальная часть для выпадающего списка
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: $white;
-  
+    justify-content: flex-end; // Выпадающий список вправо
+    width: auto;
+    height: auto;
+    gap: 10px;
+  }
+
+  &__contactinfo {
+    flex: 0 1 300px; // Фиксированная ширина для блока с контактной информацией
+    display: flex;
+    justify-content: flex-end; // Выравнивание контактной информации по правому краю
+    padding-left: 20px; // Если нужно отступить от других элементов
+  }
+
+  // Пример медиазапроса для маленьких экранов
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+
     &__logo {
-      flex: 1;
+      margin-bottom: 10px;
     }
-  
-    &__dropdown {
+
+    &__dropdown,
+    &__contactinfo {
       flex: 1;
-      display: flex;
-      justify-content: flex-end;
+      margin-top: 10px;
     }
   }
-  
+}

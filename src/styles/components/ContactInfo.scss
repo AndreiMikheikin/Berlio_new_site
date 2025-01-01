@@ -1,0 +1,44 @@
+//ContactInfo.scss
+
+@use '../variables' as *;  // Подключаем _variables.scss
+
+.aam_contact-info {
+    display: flex;
+    flex-direction: column; // Располагаем элементы в колонку
+    align-items: flex-end; // Выравниваем элементы по левому краю
+    gap: 4px; // Расстояние между строками
+  
+    .aam_service-location {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19.07px;
+      text-align: left;
+      color: $background-color;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+    }
+  
+    .aam_contact-details {
+      display: flex;
+      align-items: center; // Центрируем содержимое строки
+      gap: 10px; // Расстояние между иконкой и номером телефона
+  
+      .aam_phone-icon {
+        width: 24px;
+        height: 22px;
+      }
+  
+      .aam_phone-number {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 19.07px;
+        text-align: left;
+        color: $text-primary;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+      }
+    }
+  }
+  

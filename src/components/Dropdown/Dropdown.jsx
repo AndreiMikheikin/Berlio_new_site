@@ -1,57 +1,76 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/components/Dropdown.scss';
 import DropdownIcon from '../SVGIcons/DropdownIcon';
 import LinkTo from '../LinkTo/LinkTo';
-import DepartmentAdresses from '../../data/departmentAdresses.json'
+import DepartmentAdresses from '../../data/departmentAdresses.json';
 
-const Dropdown = ({ label, items, onSelect, linkText, linkHref, className = '' }) => {
+const Dropdown = ({ label, onSelect, linkText, linkHref, className = '' }) => {
+  const defaultItem = useMemo(() => DepartmentAdresses.find((item) => item.id === 1), []); // Находим элемент с id = 1 и кэшируем
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [fillColor, setFillColor] = useState('black');
+  const [selectedItem, setSelectedItem] = useState(defaultItem || null);
+  const [fillColor, setFillColor] = useState('black'); // Изначально черный цвет
 
-  const handleToggle = () => setIsOpen(!isOpen);
+  // Эффект для закрытия Dropdown при клике за пределы компонента
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (!e.target.closest('.aam_dropdown')) {
+        setIsOpen(false); // Закрытие выпадающего списка при клике вне
+        setFillColor('black'); // Возвращаем цвет иконки в черный при закрытии
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (selectedItem) {
+      onSelect(selectedItem); // Передаем выбранный элемент в onSelect
+    }
+  }, [selectedItem, onSelect]);
+
+  const handleToggle = (e) => {
+    e.stopPropagation(); // Останавливаем всплытие события, чтобы не сработал handleClickOutside
+    setIsOpen(!isOpen);
+    setFillColor(isOpen ? 'black' : '#48AE5AFF'); // Меняем цвет иконки на зеленоватый при открытии, и на черный при закрытии
+  };
+
   const handleSelect = (item) => {
     setSelectedItem(item);
-    onSelect(item);
     setIsOpen(false);
   };
-  const handleChangeColor = (e) => {
-    e.stopPropagation(); // Останавливаем всплытие события
-    setFillColor(fillColor === 'black' ? '#48AE5AFF' : 'black');
-  };
 
-  // Функция для обработки клика на ссылке (предотвращаем изменение цвета иконки кнопки)
   const handleLinkClick = (e) => {
-    e.stopPropagation(); // Останавливаем всплытие события, чтобы не изменился цвет
+    e.stopPropagation();
   };
 
   return (
-    <div className={`aam_dropdown ${className}`} onClick={handleToggle}>
+    <div className={`aam_dropdown ${className}`}>
       <button
         className={`aam_dropdown-toggle ${isOpen ? 'open' : ''}`}
-        onClick={(e) => {
-          handleToggle();
-          handleChangeColor(e); // Меняем цвет при клике на кнопку
-        }}
+        onClick={handleToggle}
       >
-        {/* // Устанавливаем {selectedItem || label} если нужно отобразить выбранный элемент */}
-        {label} 
-        <DropdownIcon 
+        {label}
+        <DropdownIcon
           className={`aam_dropdown-icon ${isOpen ? 'open' : ''}`}
-          fillColor={fillColor} width="17" height="9"
-          />
+          fillColor={fillColor}
+          width="17"
+          height="9"
+        />
       </button>
       {isOpen && (
         <ul className="aam_dropdown-menu">
-          {DepartmentAdresses.map((item, index) => (
+          {DepartmentAdresses.map((item) => (
             <li
-              key={index}
+              key={item.id}
               className="aam_dropdown-item"
               onClick={() => handleSelect(item)}
             >
-              <span className="address">{item.address}</span>
-              <span className="phone">{item.phoneNumber}</span>
+              <span className="aam_dropdown-item__address">{item.address}</span>
+              <span className="aam_dropdown-item__phone">{item.phoneNumber}</span>
             </li>
           ))}
           {linkText && linkHref && (
@@ -67,7 +86,6 @@ const Dropdown = ({ label, items, onSelect, linkText, linkHref, className = '' }
 
 Dropdown.propTypes = {
   label: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.string).isRequired,
   onSelect: PropTypes.func.isRequired,
   linkText: PropTypes.string,
   linkHref: PropTypes.string,
