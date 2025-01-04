@@ -1,9 +1,10 @@
 import React from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import Header from '../../components/ComplexComponents/Header/Header'
+import Navigation from '../../components/ComplexComponents/Navigation/Navigation';
 
 const Home = () => {
-  
+
   return (
     <>
       {/* Мета-теги и заголовок страницы */}
@@ -16,6 +17,7 @@ const Home = () => {
 
       {/* Содержимое страницы */}
       <Header />
+      <Navigation />
     </>
   );
 };

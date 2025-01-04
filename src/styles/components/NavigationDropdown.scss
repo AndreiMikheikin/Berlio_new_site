@@ -1,0 +1,32 @@
+@use '../variables' as *; // Подключаем _variables.scss
+
+.aam_navigation-dropdown {
+    display: inline-block;
+
+    &__toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: $font-family-secondary;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-regular;
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: $white;
+        transition: color 0.3s;
+        gap: 8px;
+
+        &:hover {
+            color: $background-hover;
+        }
+    }
+
+    &__icon {
+        transition: transform 0.3s ease;
+
+        &.open {
+            transform: rotate(180deg);
+        }
+    }
+}

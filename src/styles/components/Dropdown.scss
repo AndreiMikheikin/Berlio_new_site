@@ -1,6 +1,6 @@
 // Dropdown.scss
 
-@use '../variables' as *;  // Подключаем _variables.scss
+@use '../variables' as *; // Подключаем _variables.scss
 
 .aam_dropdown {
   position: relative;
@@ -10,11 +10,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 15px;
-    font-size: 14px;
+    font-family: $font-family-primary;
+    font-weight: $font-weight-regular;
+    font-size: $font-size-regular;
     border: none;
-    border-radius: 5px;
-    background-color: $white;  // Используем переменную для фона
+    background-color: $white; // Используем переменную для фона
     cursor: pointer;
     color: $text-primary;
     transition: color 0.3s;
@@ -22,7 +22,7 @@
 
     // Меняем цвет текста и иконки, если меню открыто
     &.open {
-      color: $background-color;  // Цвет текста при открытии
+      color: $background-color; // Цвет текста при открытии
     }
   }
 
@@ -32,55 +32,51 @@
 
     &.open {
       transform: rotate(180deg);
-      fill: $background-color;  // Цвет иконки при открытии
+      fill: $background-color; // Цвет иконки при открытии
     }
   }
 
   &-menu {
     position: absolute;
-    display:flex;
+    display: flex;
     flex-direction: column;
     gap: 20px;
     top: 100%;
     left: 0;
-    margin-top: 5px;
-    padding: 0;
+    margin-top: 15px;
+    padding: 40px 31px 40px 32px;
     width: 677px;
     border: none;
-    border-radius: 4px;
-    background-color: $white;  // Используем переменную для фона
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: $white; // Используем переменную для фона
+    box-shadow: $shadow-primary;
     z-index: 1000;
-    cursor: pointer;
     list-style: none;
   }
 
   &-item {
     display: flex;
     justify-content: space-between;
-    padding: 10px 15px;
     font-size: 14px;
     transition: background-color 0.3s;
+    cursor: pointer;
 
     &:hover {
-      background-color: $background-color;  // Используем переменную для фона на hover
+      background-color: $background-color; // Используем переменную для фона на hover
     }
 
-    &.address {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 19.07px;
+    &__address {
+      font-family: $font-family-primary;
+      font-size: $font-size-small;
+      font-weight: $font-weight-regular;
+      line-height: 19px;
       text-align: left;
       text-underline-position: from-font;
       text-decoration-skip-ink: none;
-      color: $text-secondary;
+      color: $text-tertiary-dark;
     }
 
-    &.phone {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
+    &__phone {
       line-height: 19.07px;
       text-align: right;
       text-underline-position: from-font;
@@ -90,7 +86,6 @@
   }
 
   &__footer {
-    padding: 8px 12px;
     text-align: right;
 
     a {

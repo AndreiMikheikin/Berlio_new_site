@@ -1,0 +1,42 @@
+//Navigation.scss
+@use '../../variables' as *; // Подключаем _variables.scss
+
+.aam_navigation {
+    width: 1280px; // фиксированная ширина
+    padding: 23px 63px 23px 64px; // отступы
+    display: flex;
+    align-items: center; // элементы по центру по вертикали
+    background-color: $background-color;
+
+    .aam_navigation__list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; // элементы распределяются по всему контейнеру
+        list-style: none;
+        width: 100%;
+        color: $white;
+    }
+
+    .aam_navigation__list li {
+        display: inline-block;
+    }
+
+    .aam_navigation__list a {
+        color: $white;
+        font-family: $font-family-secondary;
+        font-size: $font-size-regular;
+        font-weight: $font-weight-semibold;
+        line-height: 21.15px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration: none;
+
+        &:hover {
+            color: $background-hover; // цвет текста при наведении
+        }
+    }
+
+    .aam_navigation__dropdown {
+        display: inline-block;
+    }
+}

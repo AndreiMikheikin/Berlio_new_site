@@ -15,12 +15,12 @@ const ContactInfo = ({ item }) => {
   return (
     <div className="aam_contact-info">
       <div className="aam_service-location">
-        Обслуживание клиентов {displayedItem.inCity}
+        обслуживание клиентов {displayedItem.inCity}
       </div>
-      <div className="aam_contact-details">
+      <a href={`tel:${displayedItem.phoneNumber}`} className="aam_contact-details">
         <PhoneIcon className="aam_phone-icon" />
         <div className="aam_phone-number">{displayedItem.phoneNumber}</div>
-      </div>
+      </a>
     </div>
   );
 };

@@ -11,10 +11,35 @@ $white: aam.$aam_white;
 // Цвета текста и рамок по приоритетности
 $text-primary: aam.$aam_text-primary;
 $text-secondary: aam.$aam_text-secondary;
+$text-secondary-dark: aam.$aam_text-secondary-dark;
 $text-tertiary: aam.$aam_text-tertiary;
+$text-tertiary-dark: aam.$aam_text-tertiary-dark;
 $text-quaternary: aam.$aam_text-quaternary;
 $text-disabled: aam.$aam_text-disabled;
+$text-light: aam.$aam_text-light;
 
 // Цвета для рамок и теней
 $border-primary: aam.$aam_border-primary;
 $shadow-primary: aam.$aam_shadow-primary;
+
+// Токены шрифтов
+
+// Семейство шрифтов
+$font-family-primary: aam.$aam_font-family-primary; // Основное семейство шрифтов
+$font-family-secondary: aam.$aam_font-family-secondary;
+
+// Начертания шрифтов
+$font-weight-regular: aam.$aam_font-weight-regular;  // Обычный
+$font-weight-semibold: aam.$aam_font-weight-semibold; // Полужирный
+$font-weight-bold: aam.$aam_font-weight-bold;         // Жирный
+
+// Размеры шрифтов
+$font-size-small: aam.$aam_font-size-small;       // Маленький текст
+$font-size-regular: aam.$aam_font-size-regular;   // Стандартный текст
+$font-size-large: aam.$aam_font-size-large;       // Крупный текст
+$font-size-heading: aam.$aam_font-size-heading;   // Заголовки
+
+// Межстрочный интервал
+$line-height-small: aam.$aam_line-height-small;      // Маленький интервал
+$line-height-regular: aam.$aam_line-height-regular;  // Стандартный интервал
+$line-height-large: aam.$aam_line-height-large;      // Крупный интервал
