@@ -139,7 +139,7 @@
                     li {
                         font-family: $font-family-primary;
                         font-size: $font-size-small - 2px;
-                        font-weight: font-weight-regular;
+                        font-weight: $font-weight-regular;
                         line-height: 20px;
                         text-align: left;
                         text-underline-position: from-font;
@@ -152,22 +152,38 @@
             .aam_navigation-dropdown-menu__block:first-child {
                 width: 263px;
                 gap: 10px;
+
+                li {
+                    width: 180px;
+                }
             }
 
             .aam_navigation-dropdown-menu__block:nth-child(2) {
                 width: 225px;
+
+                li {
+                    width: 150px;
+                }
             }
 
             .aam_navigation-dropdown-menu__block:nth-child(3) {
                 width: 304px;
+
+                li {
+                    width: 200px;
+                }
             }
 
             .aam_navigation-dropdown-menu__block:nth-child(4) {
                 width: 187px;
+
+                li {
+                    width: 160px;
+                }
             }
 
             .aam_navigation-dropdown-menu__block:not(:first-child) {
-                gap: 57px;
+                gap: 35px;
             }
 
             // Когда меню открыто

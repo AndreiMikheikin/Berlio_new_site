@@ -5,7 +5,11 @@ import DropdownIcon from '../SVGIcons/DropdownIcon';
 import LinkTo from '../LinkTo/LinkTo';
 import DepartmentAdresses from '../../data/departmentAdresses.json';
 
+import { useTranslation } from 'react-i18next';
+
 const Dropdown = ({ label, onSelect, linkText, linkHref, className = '' }) => {
+  const { t } = useTranslation();
+
   const defaultItem = useMemo(() => DepartmentAdresses.find((item) => item.id === 1), []); // Находим элемент с id = 1 и кэшируем
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(defaultItem || null);
@@ -69,7 +73,7 @@ const Dropdown = ({ label, onSelect, linkText, linkHref, className = '' }) => {
               className="aam_dropdown-item"
               onClick={() => handleSelect(item)}
             >
-              <span className="aam_dropdown-item__address">{item.address}</span>
+              <span className="aam_dropdown-item__address">{t(item.address)}</span>
               <span className="aam_dropdown-item__phone">{item.phoneNumber}</span>
             </li>
           ))}

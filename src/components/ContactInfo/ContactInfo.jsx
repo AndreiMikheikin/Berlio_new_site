@@ -4,7 +4,11 @@ import '../../styles/components/ContactInfo.scss';
 import PhoneIcon from '../SVGIcons/PhoneIcon';
 import DepartmentAdresses from '../../data/departmentAdresses.json';
 
+import { useTranslation } from 'react-i18next';
+
 const ContactInfo = ({ item }) => {
+  const { t } = useTranslation();
+
   const defaultItem = DepartmentAdresses.find((entry) => entry.id === 1);
   const displayedItem = item || defaultItem; // Используем выбранный элемент или дефолтный
 
@@ -15,7 +19,7 @@ const ContactInfo = ({ item }) => {
   return (
     <div className="aam_contact-info">
       <div className="aam_service-location">
-        обслуживание клиентов {displayedItem.inCity}
+        {t('customerService')} {t(displayedItem.inCity)}
       </div>
       <a href={`tel:${displayedItem.phoneNumber}`} className="aam_contact-details">
         <PhoneIcon className="aam_phone-icon" />

@@ -1,6 +1,16 @@
 @use '../../variables' as *; // Подключаем _variables.scss
 
+.aam_locale-switcher {
+  position: absolute;
+  top: 10px; // Отступ от верхнего края
+  right: 10px; // Отступ от правого края
+  display: flex;
+  gap: 10px; // Расстояние между кнопками
+  z-index: 100; // Поверх других элементов, если необходимо
+}
+
 .aam_header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;

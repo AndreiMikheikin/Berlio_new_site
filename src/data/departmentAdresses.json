@@ -1,39 +1,38 @@
 [
-    {
-      "id": 1,
-      "address": "Минская область, г. Минск, ул. Быховская 55",
-      "inCity": "в Минске",
-      "phoneNumber": "+375 29 623 08 88"
-    },
-    {
-      "id": 2,
-      "address": "Брестская область, г. Брест, ул. Карла Маркса, 33 – 43",
-      "inCity": "в Бресте",
-      "phoneNumber": "+375 29 720-07-87"
-    },
-    {
-      "id": 3,
-      "address": "Витебская область, г. Витебск, ул. Правды 37, корп. 2",
-      "inCity": "в Витебске",
-      "phoneNumber": "+375 29 199 96 32"
-    },
-    {
-      "id": 4,
-      "address": "Гомельская область, г. Гомель, ул. Речицкая 1А",
-      "inCity": "в Гомеле",
-      "phoneNumber": "+375 33 320 00 34"
-    },
-    {
-      "id": 5,
-      "address": "Гродненская область, г. Гродно, ул. Победы 17 - 7",
-      "inCity": "в Гродно",
-      "phoneNumber": "+375 29 587 69 36"
-    },
-    {
-      "id": 6,
-      "address": "Могилевская область, г. Могилев, ул. Челюскинцев 105В",
-      "inCity": "в Могилеве",
-      "phoneNumber": "+375 29 742 79 13"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "address": "minskAddress",
+    "inCity": "inMinskCity",
+    "phoneNumber": "+375 29 623 08 88"
+  },
+  {
+    "id": 2,
+    "address": "brestAddress",
+    "inCity": "inBrestCity",
+    "phoneNumber": "+375 29 720-07-87"
+  },
+  {
+    "id": 3,
+    "address": "vitebskAddress",
+    "inCity": "inVitebskCity",
+    "phoneNumber": "+375 29 199 96 32"
+  },
+  {
+    "id": 4,
+    "address": "gomelAddress",
+    "inCity": "inGomelCity",
+    "phoneNumber": "+375 33 320 00 34"
+  },
+  {
+    "id": 5,
+    "address": "grodnoAddress",
+    "inCity": "inGrodnoCity",
+    "phoneNumber": "+375 29 587 69 36"
+  },
+  {
+    "id": 6,
+    "address": "mogilevAddress",
+    "inCity": "inMogilevCity",
+    "phoneNumber": "+375 29 742 79 13"
+  }
+]
