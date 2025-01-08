@@ -6,7 +6,6 @@ import LinkTo from '../LinkTo/LinkTo';
 import DepartmentAdresses from '../../data/departmentAdresses.json';
 
 import { useTranslation } from 'react-i18next';
-import { SelectedItemContext } from '../../contexts/SelectedItemContext'; // Импортируем контекст
 
 const Dropdown = ({ label, onSelect, linkText, linkHref, className = '' }) => {
   const { t } = useTranslation();

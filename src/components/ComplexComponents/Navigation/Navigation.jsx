@@ -52,7 +52,7 @@ const Navigation = () => {
             <Link to="/news">{t('news')}</Link>
           </li>
           <li>
-            <Link to="/equipment">{t('equipmentAndSoftware')}</Link> {/* Новый пункт */}
+            <Link to="/equipment">{t('equipmentAndSoftware')}</Link>
           </li>
           <li>
             <Link to="/contacts">{t('contacts')}</Link>

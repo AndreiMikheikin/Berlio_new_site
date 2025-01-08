@@ -96,12 +96,19 @@ const en = {
         tatneftApp: "Tatneft GS App BY",
         clientCabinetSoftware: "Client Cabinet Software",
 
-        //For Footer
+        // For Footer
         telFax: "(tel / fax)",
         fax: "(fax)",
         "forOrganizations": "For Organizations",
         "forClientInquiries": "For Client Inquiries",
         "technicalSupport": "Technical Support",
+
+        // For SecondaryFooter
+        rulesOfUse: "Rules of Use",
+        offerAgreement: "Offer Agreement",
+        privacy: "Privacy Policy",
+        help: "Help",
+        copyright: "© {{year}} S&P LLC “BERLIO”",
     },
 };
 

@@ -9,18 +9,18 @@ import { SelectedItemProvider } from '../../contexts/SelectedItemContext';
 
 import { useTranslation } from 'react-i18next';
 
-const ForPartners = () => {
+const Equipment = () => {
   const { t } = useTranslation();
-  
+
   return (
     <>
       <SelectedItemProvider>
         <HelmetProvider>
           <Helmet>
-          <title>НП ООО "Берлио" - Для партнеров</title>
-        <meta name="description" content="Описание производимого оборудования и выпускаемого программного обеспечения, предоставляемого партнерам" />
-        <meta name="keywords" content="Берлио, Для партнеров, Оборудование, Программное обеспечение" />
-        <meta name="author" content="AndreiMikheikin" />
+            <title>НП ООО "Берлио" - Оборудование и ПО</title>
+            <meta name="description" content="Описание производимого оборудования и выпускаемого программного обеспечения" />
+            <meta name="keywords" content="Берлио, Оборудование, Программное обеспечение" />
+            <meta name="author" content="AndreiMikheikin" />
           </Helmet>
         </HelmetProvider>
 
@@ -34,4 +34,4 @@ const ForPartners = () => {
   );
 };
 
-export default ForPartners;
+export default Equipment;

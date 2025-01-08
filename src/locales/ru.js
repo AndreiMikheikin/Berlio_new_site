@@ -7,7 +7,7 @@ const ru = {
         searchAzs: "Поиск АЗС",
         personalAccount: "Личный кабинет",
         customerService: "Обслуживание клиентов",
-        
+
         // Minsk
         companyName: "НП ООО «БЕРЛИО»",
         minskName: "Головной офис",
@@ -52,7 +52,7 @@ const ru = {
         news: "Новости",
         equipmentAndSoftware: "Оборудование и ПО",
         contacts: "Контакты",
-        
+
         // Для search
         noResult: "По вашему запросу \"{{query}}\" ничего не найдено.",
         search: "Поиск по сайту",
@@ -96,12 +96,19 @@ const ru = {
         tatneftApp: "Приложение “АЗС ТАТНЕФТЬ BY”",
         clientCabinetSoftware: "ПО “Личный кабинет клиента”",
 
-        //Для Footer
+        // Для Footer
         telFax: "(тел / факс)",
         fax: "(факс)",
         forOrganizations: "Для организаций",
         forClientInquiries: "Для обращения клиентов",
         technicalSupport: "Техническое обслуживание",
+
+        // Для SecodaryFooter
+        rulesOfUse: "Правила использования",
+        offerAgreement: "Договор оферты",
+        privacy: "Конфиденциальность",
+        help: "Помощь",
+        copyright: "© {{year}} НП ООО «Берлио»",
     },
 };
 

@@ -31,7 +31,7 @@ const Header = () => {
             label={t('departmentsPhone')}
             onSelect={handleSelect}
             linkText={t('allContacts')}
-            linkHref="/Contacts"
+            linkHref="/contacts"
           />
         </div>
         <div className="aam_header__contactinfo">

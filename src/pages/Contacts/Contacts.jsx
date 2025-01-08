@@ -4,6 +4,7 @@ import Header from '../../components/ComplexComponents/Header/Header';
 import Navigation from '../../components/ComplexComponents/Navigation/Navigation';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import Footer from '../../components/ComplexComponents/Footer/Footer';
+import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 import { SelectedItemProvider } from '../../contexts/SelectedItemContext';
 
 import { useTranslation } from 'react-i18next';
@@ -27,6 +28,7 @@ const Contacts = () => {
         <Navigation />
         <SearchInput placeholder={t('search')} />
         <Footer />
+        <SecondaryFooter />
       </SelectedItemProvider>
     </>
   );
