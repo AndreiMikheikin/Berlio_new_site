@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/components/Dropdown.scss';
 import DropdownIcon from '../SVGIcons/DropdownIcon';
@@ -10,8 +10,14 @@ import { SelectedItemContext } from '../../contexts/SelectedItemContext'; // И�
 
 const Dropdown = ({ label, onSelect, linkText, linkHref, className = '' }) => {
   const { t } = useTranslation();
-  const { selectedItem, setSelectedItem } = useContext(SelectedItemContext); // Используем контекст
 
+  const defaultItem = useMemo(() => DepartmentAdresses.find((item) => item.id === 1), []);
+  
+  // Попытаться загрузить сохраненный элемент из sessionStorage, если он есть
+  const savedItem = JSON.parse(sessionStorage.getItem('selectedItem'));
+  
+  // Если есть сохраненный элемент, используем его, иначе используем defaultItem
+  const [selectedItem, setSelectedItem] = useState(savedItem || defaultItem);
   const [isOpen, setIsOpen] = useState(false);
   const [fillColor, setFillColor] = useState('black'); // Изначально черный цвет
 
@@ -30,11 +36,13 @@ const Dropdown = ({ label, onSelect, linkText, linkHref, className = '' }) => {
     };
   }, []);
 
+  // Эффект для сохранения выбранного элемента в sessionStorage
   useEffect(() => {
     if (selectedItem) {
-      setSelectedItem(selectedItem); // Передаем выбранный элемент в контекст
+      sessionStorage.setItem('selectedItem', JSON.stringify(selectedItem)); // Сохраняем выбранный элемент
+      onSelect(selectedItem); // Передаем выбранный элемент в контекст
     }
-  }, [selectedItem, setSelectedItem]); // Убедитесь, что update происходит только если выбран новый элемент
+  }, [selectedItem, onSelect]);
 
   const handleToggle = (e) => {
     e.stopPropagation(); // Останавливаем всплытие события, чтобы не сработал handleClickOutside
@@ -43,8 +51,8 @@ const Dropdown = ({ label, onSelect, linkText, linkHref, className = '' }) => {
   };
 
   const handleSelect = (item) => {
-    onSelect(item); // Передаем выбранный элемент в контекст
-    setIsOpen(false);
+    setSelectedItem(item); // Обновляем выбранный элемент
+    setIsOpen(false); // Закрываем меню после выбора
   };
 
   const handleLinkClick = (e) => {
