@@ -1,16 +1,27 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 export const SelectedItemContext = createContext({
-    selectedItem: 'defaultItem', // Задайте значение по умолчанию
-    setSelectedItem: () => {}, // Заглушка для setSelectedItem
-  });
+  selectedItem: 'defaultItem',
+  setSelectedItem: () => {},
+});
 
 export const SelectedItemProvider = ({ children }) => {
-    const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(() => {
+    // Проверяем наличие сохраненного значения в sessionStorage
+    const savedItem = sessionStorage.getItem('selectedItem');
+    return savedItem ? JSON.parse(savedItem) : null; // Если есть, восстанавливаем, иначе - null
+  });
 
-    return (
-        <SelectedItemContext.Provider value={{ selectedItem, setSelectedItem }}>
-            {children}
-        </SelectedItemContext.Provider>
-    );
+  useEffect(() => {
+    if (selectedItem) {
+      // Сохраняем состояние в sessionStorage, если оно изменилось
+      sessionStorage.setItem('selectedItem', JSON.stringify(selectedItem));
+    }
+  }, [selectedItem]);
+
+  return (
+    <SelectedItemContext.Provider value={{ selectedItem, setSelectedItem }}>
+      {children}
+    </SelectedItemContext.Provider>
+  );
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/components/Dropdown.scss';
 import DropdownIcon from '../SVGIcons/DropdownIcon';
@@ -6,13 +6,13 @@ import LinkTo from '../LinkTo/LinkTo';
 import DepartmentAdresses from '../../data/departmentAdresses.json';
 
 import { useTranslation } from 'react-i18next';
+import { SelectedItemContext } from '../../contexts/SelectedItemContext'; // Импортируем контекст
 
 const Dropdown = ({ label, onSelect, linkText, linkHref, className = '' }) => {
   const { t } = useTranslation();
+  const { selectedItem, setSelectedItem } = useContext(SelectedItemContext); // Используем контекст
 
-  const defaultItem = useMemo(() => DepartmentAdresses.find((item) => item.id === 1), []); // Находим элемент с id = 1 и кэшируем
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(defaultItem || null);
   const [fillColor, setFillColor] = useState('black'); // Изначально черный цвет
 
   // Эффект для закрытия Dropdown при клике за пределы компонента
@@ -32,18 +32,18 @@ const Dropdown = ({ label, onSelect, linkText, linkHref, className = '' }) => {
 
   useEffect(() => {
     if (selectedItem) {
-      onSelect(selectedItem); // Передаем выбранный элемент в onSelect
+      setSelectedItem(selectedItem); // Передаем выбранный элемент в контекст
     }
-  }, [selectedItem, onSelect]);
+  }, [selectedItem, setSelectedItem]); // Убедитесь, что update происходит только если выбран новый элемент
 
   const handleToggle = (e) => {
     e.stopPropagation(); // Останавливаем всплытие события, чтобы не сработал handleClickOutside
     setIsOpen(!isOpen);
-    setFillColor(isOpen ? 'black' : '#48AE5AFF'); // Меняем цвет иконки на зеленоватый при открытии, и на черный при закрытии
+    setFillColor(isOpen ? 'black' : '#48AE5AFF'); // Меняем цвет иконки на зеленоватый при открытии
   };
 
   const handleSelect = (item) => {
-    setSelectedItem(item);
+    onSelect(item); // Передаем выбранный элемент в контекст
     setIsOpen(false);
   };
 
@@ -90,7 +90,6 @@ const Dropdown = ({ label, onSelect, linkText, linkHref, className = '' }) => {
 
 Dropdown.propTypes = {
   label: PropTypes.string.isRequired,
-  onSelect: PropTypes.func.isRequired,
   linkText: PropTypes.string,
   linkHref: PropTypes.string,
   className: PropTypes.string,

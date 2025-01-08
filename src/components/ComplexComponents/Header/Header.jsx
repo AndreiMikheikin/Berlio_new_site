@@ -1,5 +1,3 @@
-// Header.jsx
-
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import '../../../styles/components/ComplexComponents/Header.scss';
@@ -16,7 +14,7 @@ const Header = () => {
   const { selectedItem, setSelectedItem } = useContext(SelectedItemContext);
 
   const handleSelect = (item) => {
-    setSelectedItem(item);
+    setSelectedItem(item); // Обновляем состояние через контекст
   };
 
   return (

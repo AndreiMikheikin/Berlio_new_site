@@ -1,19 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import '../../styles/components/ContactInfo.scss';
 import PhoneIcon from '../SVGIcons/PhoneIcon';
 import DepartmentAdresses from '../../data/departmentAdresses.json';
 
 import { useTranslation } from 'react-i18next';
+import { SelectedItemContext } from '../../contexts/SelectedItemContext'; // Импортируем контекст
 
-const ContactInfo = ({ item }) => {
+const ContactInfo = () => {
   const { t } = useTranslation();
+  const { selectedItem } = useContext(SelectedItemContext); // Получаем значение из контекста
 
   const defaultItem = DepartmentAdresses.find((entry) => entry.id === 1);
-  const displayedItem = item || defaultItem; // Используем выбранный элемент или дефолтный
+  const displayedItem = selectedItem || defaultItem; // Используем выбранный элемент из контекста или дефолтный
 
   if (!displayedItem) {
-    return null;
+    return null; // Если нет данных для отображения, ничего не рендерим
   }
 
   return (
@@ -27,13 +28,6 @@ const ContactInfo = ({ item }) => {
       </a>
     </div>
   );
-};
-
-ContactInfo.propTypes = {
-  item: PropTypes.shape({
-    inCity: PropTypes.string.isRequired,
-    phoneNumber: PropTypes.arrayOf(PropTypes.string).isRequired, // Исправлено на массив строк
-  }),
 };
 
 export default ContactInfo;
