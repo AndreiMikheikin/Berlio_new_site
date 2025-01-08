@@ -1,5 +1,16 @@
 const en = {
     translation: {
+        // Page titles
+        pageTitles: {
+            home: "S&P LLC 'Berlio' - Home",
+            about: "S&P LLC 'Berlio' - About Berlio",
+            contacts: "S&P LLC 'Berlio' - Contacts",
+            news: "S&P LLC 'Berlio' - News",
+            equipment: "S&P LLC 'Berlio' - Equipment and Software",
+            forClients: "S&P LLC 'Berlio' - For Clients",
+            forPartners: "S&P LLC 'Berlio' - For Partners",
+            detailedNews: "S&P LLC 'Berlio' - News Details",
+        },
 
         // For Header
         departmentsPhone: "Departments' Phones",

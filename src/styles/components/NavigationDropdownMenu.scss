@@ -20,6 +20,7 @@
         opacity: 1; // Полная видимость
         pointer-events: auto; // Делаем кликабельным
         height: auto; // Высота меню будет автоопределяться содержимым
+        transition: all 0.3s;
     }
 
     &.hidden {
@@ -27,6 +28,7 @@
         opacity: 0;
         pointer-events: none;
         padding: 0;
+        transition: all 0.3s;
     }
 
     // Контент блока партнеров
@@ -74,7 +76,7 @@
                     li {
                         font-family: $font-family-primary;
                         font-size: $font-size-small - 2px;
-                        font-weight: font-weight-regular;
+                        font-weight: $font-weight-regular;
                         line-height: 20px;
                         text-align: left;
                         text-underline-position: from-font;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { SelectedItemProvider } from './contexts/SelectedItemContext';
+import { HelmetProvider } from 'react-helmet-async';
 
 // Импорты страниц
 import Home from './pages/Home/Home';
@@ -13,21 +14,25 @@ import ForPartners from './pages/ForPartners/ForPartners';
 import News from './pages/News/News';
 
 const App = () => (
-  <SelectedItemProvider>
-    <Router>
-      <Routes>
-        {/* Определение маршрутов */}
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/news/:id" element={<DetailedNews />} />
-        <Route path="/equipment" element={<Equipment />} />
-        <Route path="/clients" element={<ForClients />} />
-        <Route path="/partners" element={<ForPartners />} />
-      </Routes>
-    </Router>
-  </SelectedItemProvider>
+  <HelmetProvider>
+    <SelectedItemProvider>
+
+      <Router>
+        <Routes>
+          {/* Определение маршрутов */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/news/:id" element={<DetailedNews />} />
+          <Route path="/equipment" element={<Equipment />} />
+          <Route path="/clients" element={<ForClients />} />
+          <Route path="/partners" element={<ForPartners />} />
+        </Routes>
+      </Router>
+
+    </SelectedItemProvider>
+  </HelmetProvider>
 );
 
 export default App;
