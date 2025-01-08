@@ -3,86 +3,202 @@ import PropTypes from 'prop-types';
 import CloseIcon from '../SVGIcons/CloseIcon'; // Импорт иконки закрытия
 import '../../styles/components/NavigationDropdownMenu.scss';
 
+import { useTranslation } from 'react-i18next';
+
 const menuContent = {
-    partners: [
-      {
-        title: "Прикладные программы и ПО",
-        links: [
-          { href: "https://berliosoft.by/webcenterberlio/#block744", text: "ПО “Веб Центр БЕРЛИО”", target: "_blank" },
-          { href: "https://berliosoft.by/neftikapital/", text: "ППП “НЕФТЬ И КАПИТАЛ”", target: "_blank" },
-          { href: "https://berliosoft.by/kassasamoobsluzhivaniyadlyaazs/#b1316", text: "Касса самообслуживания для сетей АЗС", target: "_blank" },
-          { href: "https://berliosoft.by/sistemaatomatizatsiiazs/#block840", text: "ППП “Система автоматизации АЗС”", target: "_blank" },
-          { href: "https://berliosoft.by/ETF/", text: "Сайт для выставления счетов-фактур", target: "_blank" }
-        ]
-      },
-      {
-        title: "Полезная информация",
-        links: [
-          { href: "/NOLINK", text: "Голосовая справочно-информационная служба", target: "" },
-          { href: "/NOLINK", text: "Программа лояльности", target: "" },
-          { href: "/NOLINK", text: "Документы для скачивания", target: "" },
-          { href: "/NOLINK", text: "Правила платежной системы электронных денег «БЕРЛИО»", target: "" },
-          { href: "/NOLINK", text: "Информация для банка", target: "" }
-        ]
-      }
-    ],
-    clients: [
-      {
-        title: "Электронная платежная система",
-        links: [
-          { href: "#link1", text: "Заключение и перезаключение договора", target: "" },
-          { href: "#link2", text: "Получение эл.карточки", target: "" },
-          { href: "#link3", text: "Использование эл.карточки", target: "" },
-          { href: "#link4", text: "Расторжение договора", target: "" },
-          { href: "#link5", text: "Прейскурант и тарифы", target: "" },
-          { href: "#link6", text: "Работа с личным кабинетом", target: "" },
-          { href: "#link7", text: "Документы для скачивания", target: "" }
-        ]
-      },
-      {
-        title: "Топливные карты и АЗС",
-        links: [
-          { href: "https://map.berlio.by", text: "АЗС и маршруты", target: "_blank" },
-          { href: "#link9", text: "Использование топливных карт", target: "" },
-          { href: "#link10", text: "Платные дороги (BelToll)", target: "" },
-          { href: "#link11", text: "Оплата за топливо", target: "" }
-        ]
-      },
-      {
-        title: "Нормативные документы",
-        links: [
-          { href: "#link12", text: "Электронные деньги “БЕРЛИО” ОАО “Белгазпромбанк”. Правила", target: "" },
-          { href: "#link13", text: "Регламент использования электронных денег “БЕРЛИО” 2", target: "" }
-        ]
-      },
-      {
-        title: "Сервисы и ПО",
-        links: [
-          { href: "#link14", text: "Приложение “Berlio Internet client”", target: "" },
-          { href: "https://berliosoft.by/berliocardpay/", text: "Приложение “BERLIOCARDPAY”", target: "_blank" },
-          { href: "https://tatbelneft.by/news/?ELEMENT_ID=174", text: "Приложение “АЗС ТАТНЕФТЬ BY”", target: "_blank" },
-          { href: "https://berliosoft.by/kassasamoobsluzhivaniyadlyaazs/#b1316", text: "Касса самообслуживания для сетей АЗС", target: "_blank" },
-          { href: "https://berliosoft.by/polichnyykabinetklienta/", text: "ПО “Личный кабинет клиента”", target: "_blank" }
-        ]
-      }
-    ]
-  };
+  "partners": [
+    {
+      "title": "appliedProgramsAndSoftware",
+      "links": [
+        {
+          "href": "https://berliosoft.by/webcenterberlio/#block744",
+          "text": "webCenterBerlio",
+          "target": "_blank"
+        },
+        {
+          "href": "https://berliosoft.by/neftikapital/",
+          "text": "oilAndCapital",
+          "target": "_blank"
+        },
+        {
+          "href": "https://berliosoft.by/kassasamoobsluzhivaniyadlyaazs/#b1316",
+          "text": "selfServiceCashRegister",
+          "target": "_blank"
+        },
+        {
+          "href": "https://berliosoft.by/sistemaatomatizatsiiazs/#block840",
+          "text": "gasStationAutomationSystem",
+          "target": "_blank"
+        },
+        {
+          "href": "https://berliosoft.by/ETF/",
+          "text": "invoiceWebsite",
+          "target": "_blank"
+        }
+      ]
+    },
+    {
+      "title": "usefulInformation",
+      "links": [
+        {
+          "href": "/NOLINK",
+          "text": "voiceInfoService",
+          "target": ""
+        },
+        {
+          "href": "/NOLINK",
+          "text": "loyaltyProgram",
+          "target": ""
+        },
+        {
+          "href": "/NOLINK",
+          "text": "downloadableDocuments",
+          "target": ""
+        },
+        {
+          "href": "/NOLINK",
+          "text": "berlioPaymentRules",
+          "target": ""
+        },
+        {
+          "href": "/NOLINK",
+          "text": "bankInformation",
+          "target": ""
+        }
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "title": "electronicPaymentSystem",
+      "links": [
+        {
+          "href": "#link1",
+          "text": "contractConclusion",
+          "target": ""
+        },
+        {
+          "href": "#link2",
+          "text": "eCardReceipt",
+          "target": ""
+        },
+        {
+          "href": "#link3",
+          "text": "eCardUsage",
+          "target": ""
+        },
+        {
+          "href": "#link4",
+          "text": "contractTermination",
+          "target": ""
+        },
+        {
+          "href": "#link5",
+          "text": "ratesAndTariffs",
+          "target": ""
+        },
+        {
+          "href": "#link6",
+          "text": "personalAccountUsage",
+          "target": ""
+        },
+        {
+          "href": "#link7",
+          "text": "downloadableDocuments",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "title": "fuelCardsAndGasStations",
+      "links": [
+        {
+          "href": "https://map.berlio.by",
+          "text": "gasStationsAndRoutes",
+          "target": "_blank"
+        },
+        {
+          "href": "#link9",
+          "text": "fuelCardUsage",
+          "target": ""
+        },
+        {
+          "href": "#link10",
+          "text": "tollRoads",
+          "target": ""
+        },
+        {
+          "href": "#link11",
+          "text": "fuelPayment",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "title": "regulatoryDocuments",
+      "links": [
+        {
+          "href": "#link12",
+          "text": "berlioEWalletRules",
+          "target": ""
+        },
+        {
+          "href": "#link13",
+          "text": "berlioUsageRegulations",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "title": "servicesAndSoftware",
+      "links": [
+        {
+          "href": "#link14",
+          "text": "berlioInternetClient",
+          "target": ""
+        },
+        {
+          "href": "https://berliosoft.by/berliocardpay/",
+          "text": "berlioCardPayApp",
+          "target": "_blank"
+        },
+        {
+          "href": "https://tatbelneft.by/news/?ELEMENT_ID=174",
+          "text": "tatneftApp",
+          "target": "_blank"
+        },
+        {
+          "href": "https://berliosoft.by/kassasamoobsluzhivaniyadlyaazs/#b1316",
+          "text": "selfServiceCashRegister",
+          "target": "_blank"
+        },
+        {
+          "href": "https://berliosoft.by/polichnyykabinetklienta/",
+          "text": "clientCabinetSoftware",
+          "target": "_blank"
+        }
+      ]
+    }
+  ]
+};
 
 const NavigationDropdownMenu = ({ isOpen, menuId, currentOpenMenu, onClose }) => {
-    const [isContentVisible, setContentVisible] = useState(false);
+  const { t } = useTranslation();
 
-    const isVisible = isOpen && currentOpenMenu === menuId;
+  const [isContentVisible, setContentVisible] = useState(false);
 
-    useEffect(() => {
-        if (isVisible) {
-            // Показываем контент после раскрытия меню
-            setTimeout(() => setContentVisible(true), 300); // Задержка для анимации
-        } else {
-            setContentVisible(false); // Скрываем контент при закрытии меню
-        }
-    }, [isVisible]);
+  const isVisible = isOpen && currentOpenMenu === menuId;
 
-    const content = menuContent[menuId]; // Получаем контент для текущего меню
+  useEffect(() => {
+    if (isVisible) {
+      // Показываем контент после раскрытия меню
+      setTimeout(() => setContentVisible(true), 300); // Задержка для анимации
+    } else {
+      setContentVisible(false); // Скрываем контент при закрытии меню
+    }
+  }, [isVisible]);
+
+  const content = menuContent[menuId]; // Получаем контент для текущего меню
 
   if (!content) {
     return null; // Если меню не найдено, ничего не отображаем
@@ -101,10 +217,10 @@ const NavigationDropdownMenu = ({ isOpen, menuId, currentOpenMenu, onClose }) =>
       <div className={`aam_navigation-dropdown-menu__content ${isContentVisible ? 'is-visible' : ''}`}>
         {content.map((section, index) => (
           <div key={index} className="aam_navigation-dropdown-menu__block">
-            <h2>{section.title}</h2>
+            <h2>{t(section.title)}</h2>
             <ul>
               {section.links.map((link, idx) => (
-                <li key={idx}><a href={link.href}>{link.text}</a></li>
+                <li key={idx}><a href={link.href}>{t(link.text)}</a></li>
               ))}
             </ul>
           </div>
@@ -115,10 +231,10 @@ const NavigationDropdownMenu = ({ isOpen, menuId, currentOpenMenu, onClose }) =>
 };
 
 NavigationDropdownMenu.propTypes = {
-    isOpen: PropTypes.bool.isRequired, // Общее состояние, открыт ли какой-либо Dropdown
-    menuId: PropTypes.string.isRequired, // Уникальный идентификатор этого меню
-    currentOpenMenu: PropTypes.string, // Идентификатор текущего открытого меню
-    onClose: PropTypes.func.isRequired, // Функция для закрытия меню
+  isOpen: PropTypes.bool.isRequired, // Общее состояние, открыт ли какой-либо Dropdown
+  menuId: PropTypes.string.isRequired, // Уникальный идентификатор этого меню
+  currentOpenMenu: PropTypes.string, // Идентификатор текущего открытого меню
+  onClose: PropTypes.func.isRequired, // Функция для закрытия меню
 };
 
 export default NavigationDropdownMenu;

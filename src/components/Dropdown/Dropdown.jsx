@@ -74,7 +74,7 @@ const Dropdown = ({ label, onSelect, linkText, linkHref, className = '' }) => {
               onClick={() => handleSelect(item)}
             >
               <span className="aam_dropdown-item__address">{t(item.address)}</span>
-              <span className="aam_dropdown-item__phone">{item.phoneNumber}</span>
+              <span className="aam_dropdown-item__phone">{item.phoneNumber[0]}</span>
             </li>
           ))}
           {linkText && linkHref && (

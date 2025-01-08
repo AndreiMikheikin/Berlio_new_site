@@ -12,7 +12,7 @@
     padding: 20.2px 50px 100px 50px;
 
     // Плавный переход
-    transition: height 0.3s ease, opacity 0.3s ease;
+    transition: height 0.5s ease, opacity 0.3s ease;
 
     // Стили для каждого меню
     &.aam_navigation-dropdown-menu__partners,
@@ -150,7 +150,7 @@
             }
 
             .aam_navigation-dropdown-menu__block:first-child {
-                width: 263px;
+                width: 231px;
                 gap: 10px;
 
                 li {
@@ -167,7 +167,7 @@
             }
 
             .aam_navigation-dropdown-menu__block:nth-child(3) {
-                width: 304px;
+                width: 250px;
 
                 li {
                     width: 200px;

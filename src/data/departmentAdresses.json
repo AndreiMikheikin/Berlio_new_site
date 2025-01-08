@@ -1,38 +1,62 @@
 [
   {
     "id": 1,
+    "departmentsName": "minskName",
     "address": "minskAddress",
+    "footerAddress": "minskFooterAddress",
     "inCity": "inMinskCity",
-    "phoneNumber": "+375 29 623 08 88"
+    "phoneNumber": ["+375 29 623 08 88", "+375 29 773 08 88", "+375 17 369 12 75 {{fax}}"],
+    "email": ["berlio@berlio.by", "info_minsk@berlio.by", "cto_minsk@berlio.by"],
+    "workingHours": ["workingHours", "daysOff"]
   },
   {
     "id": 2,
+    "departmentsName": "brestName",
     "address": "brestAddress",
+    "footerAddress": "brestFooterAddress",
     "inCity": "inBrestCity",
-    "phoneNumber": "+375 29 720-07-87"
+    "phoneNumber": ["+375 29 720 07 87", "+375 162 52 12 15 {{telFax}}"],
+    "email": ["brest@berlio.by", "info_brest@berlio.by", "cto_brest@berlio.by"],
+    "workingHours": ["workingHours", "daysOff"]
   },
   {
     "id": 3,
+    "departmentsName": "vitebskName",
     "address": "vitebskAddress",
+    "footerAddress": "vitebskFooterAddress",
     "inCity": "inVitebskCity",
-    "phoneNumber": "+375 29 199 96 32"
+    "phoneNumber": ["+375 29 199 96 32", "+375 212 67 59 33 {{telFax}}", "+375 212 67 59 34 {{telFax}}"],
+    "email": ["vitebsk@berlio.by", "info_vitebsk@berlio.by", "cto_vitebsk@berlio.by"],
+    "workingHours": ["workingHours", "daysOff"]
   },
   {
     "id": 4,
+    "departmentsName": "gomelName",
     "address": "gomelAddress",
+    "footerAddress": "gomelFooterAddress",
     "inCity": "inGomelCity",
-    "phoneNumber": "+375 33 320 00 34"
+    "phoneNumber": ["+375 33 320 00 34", "+375 232 50 98 64", "+375 232 50 98 65"],
+    "email": ["gomel@berlio.by", "info_gomel@berlio.by", "cto_gomel@berlio.by"],
+    "workingHours": ["workingHours", "daysOff"]
   },
   {
     "id": 5,
+    "departmentsName": "grodnoName",
     "address": "grodnoAddress",
+    "footerAddress": "grodnoFooterAddress",
     "inCity": "inGrodnoCity",
-    "phoneNumber": "+375 29 587 69 36"
+    "phoneNumber": ["+375 29 587 69 36", "+375 152 31 10 00 {{telFax}}", "+375 44 791 02 34"],
+    "email": ["grodno@berlio.by", "info_grodno@berlio.by", "cto_grodno@berlio.by"],
+    "workingHours": ["workingHours", "daysOff"]
   },
   {
     "id": 6,
+    "departmentsName": "mogilevName",
     "address": "mogilevAddress",
+    "footerAddress": "mogilevFooterAddress",
     "inCity": "inMogilevCity",
-    "phoneNumber": "+375 29 742 79 13"
+    "phoneNumber": ["+375 29 742 79 13", "+375 29 741 01 85"],
+    "email": ["mogilev@berlio.by", "info_mogilev@berlio.by", "cto_mogilev@berlio.by"],
+    "workingHours": ["workingHours", "daysOff"]
   }
 ]

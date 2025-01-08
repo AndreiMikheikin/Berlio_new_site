@@ -7,6 +7,19 @@
   display: flex;
   gap: 10px; // Расстояние между кнопками
   z-index: 100; // Поверх других элементов, если необходимо
+
+  button {
+    color: $text-disabled;
+    font-size: calc($font-size-small / 2 + 1px);
+    font-weight: $font-weight-regular;
+    transition: font-size 0.3s, font-weight 0.3s, color 0.3s;
+
+    &.active {
+      color: $text-secondary;
+      font-size: calc($font-size-regular / 2 + 1px);
+      font-weight: $font-weight-semibold;
+    }
+  }
 }
 
 .aam_header {
@@ -16,7 +29,7 @@
   align-items: center;
   width: 1280px;
   height: 118px;
-  gap: 30px;
+  gap: 29px;
   padding: 0 40px;
   background-color: $white;
 

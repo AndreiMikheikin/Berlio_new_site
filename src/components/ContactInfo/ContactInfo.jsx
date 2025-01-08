@@ -21,9 +21,9 @@ const ContactInfo = ({ item }) => {
       <div className="aam_service-location">
         {t('customerService')} {t(displayedItem.inCity)}
       </div>
-      <a href={`tel:${displayedItem.phoneNumber}`} className="aam_contact-details">
+      <a href={`tel:${displayedItem.phoneNumber[0]}`} className="aam_contact-details">
         <PhoneIcon className="aam_phone-icon" />
-        <div className="aam_phone-number">{displayedItem.phoneNumber}</div>
+        <div className="aam_phone-number">{displayedItem.phoneNumber[0]}</div>
       </a>
     </div>
   );
@@ -32,7 +32,7 @@ const ContactInfo = ({ item }) => {
 ContactInfo.propTypes = {
   item: PropTypes.shape({
     inCity: PropTypes.string.isRequired,
-    phoneNumber: PropTypes.string.isRequired,
+    phoneNumber: PropTypes.arrayOf(PropTypes.string).isRequired, // Исправлено на массив строк
   }),
 };
 

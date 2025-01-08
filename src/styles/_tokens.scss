@@ -26,13 +26,16 @@ $aam_shadow-primary: 0px 7px 35px 0px #5F5F5F1F;     // Тень
 // Семейство шрифтов
 $aam_font-family-primary: 'Open Sans', Arial, sans-serif; // Основное семейство шрифтов
 $aam_font-family-secondary: 'Public Sans', Arial, sans-serif;
+$aam_font-family-tertiary: 'Roboto', Arial, sans-serif;
 
 // Начертания шрифтов
+$aam_font-weight-light: 300;  // Обычный
 $aam_font-weight-regular: 400;  // Обычный
 $aam_font-weight-semibold: 600; // Полужирный
 $aam_font-weight-bold: 700;     // Жирный
 
 // Размеры шрифтов
+$aam_font-size-x-small: 12px;   // Очень маленький текст
 $aam_font-size-small: 14px;     // Маленький текст
 $aam_font-size-regular: 18px;   // Стандартный текст
 $aam_font-size-large: 20px;     // Крупный текст

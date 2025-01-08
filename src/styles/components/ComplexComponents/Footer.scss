@@ -1,0 +1,23 @@
+@use '../../variables' as *; // Подключаем _variables.scss
+
+.aam_footer {
+    position: relative;
+    width: 1280px;
+    height: 326px;
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    padding: 60px 50px 44px 50px;
+    background: #48AE5A;
+
+    &__contacts {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        .aam_footer__contactslink>.aam_link-to>span {
+            color: $white;
+        }
+    }
+}

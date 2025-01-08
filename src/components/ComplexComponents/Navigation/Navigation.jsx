@@ -6,7 +6,11 @@ import '../../../styles/components/ComplexComponents/Navigation.scss';
 import NavigationDropdown from '../../NavigationDropdown/NavigationDropdown';
 import NavigationDropdownMenu from '../../NavigationDropdownMenu/NavigationDropdownMenu';
 
+import { useTranslation } from 'react-i18next';
+
 const Navigation = () => {
+  const { t } = useTranslation();
+
   const [openDropdown, setOpenDropdown] = useState(null); // Хранение состояния открытого меню
 
   // Открытие/закрытие меню
@@ -19,11 +23,11 @@ const Navigation = () => {
       <nav className="aam_navigation">
         <ul className="aam_navigation__list">
           <li>
-            <Link to="/about">О Берлио</Link>
+            <Link to="/about">{t('aboutBerlio')}</Link>
           </li>
           <li>
             <NavigationDropdown
-              label="Для партнеров"
+              label={t('forPartners')}
               closedColor="#FFFFFF"
               openColor="#176224"
               isOpen={openDropdown === 'partners'}
@@ -35,7 +39,7 @@ const Navigation = () => {
           </li>
           <li>
             <NavigationDropdown
-              label="Для клиентов"
+              label={t('forClients')}
               closedColor="#FFFFFF"
               openColor="#176224"
               isOpen={openDropdown === 'clients'}
@@ -45,13 +49,13 @@ const Navigation = () => {
             />
           </li>
           <li>
-            <Link to="/news">Новости</Link>
+            <Link to="/news">{t('news')}</Link>
           </li>
           <li>
-            <Link to="/equipment">Оборудование и ПО</Link> {/* Новый пункт */}
+            <Link to="/equipment">{t('equipmentAndSoftware')}</Link> {/* Новый пункт */}
           </li>
           <li>
-            <Link to="/contacts">Контакты</Link>
+            <Link to="/contacts">{t('contacts')}</Link>
           </li>
         </ul>
       </nav>

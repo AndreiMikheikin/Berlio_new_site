@@ -1,0 +1,37 @@
+@use '../variables' as *;
+
+.aam_footer__address {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .aam_contact-name {
+        color: $white;
+        font-family: $font-family-primary;
+        font-size: $font-size-small;
+        font-weight: $font-weight-semibold;
+        line-height: 19.07px;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+
+    }
+
+    .aam_contact-address {
+        color: $white;
+        font-family: $font-family-primary;
+        font-size: $font-size-x-small;
+        font-weight: $font-weight-regular;
+        line-height: 16.34px;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+
+        &__section:last-child {
+            margin-top: 15px;
+
+            .aam_contact-address__email>span {
+                font-weight: $font-weight-light;
+            }
+        }
+    }
+}

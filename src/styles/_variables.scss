@@ -27,13 +27,16 @@ $shadow-primary: aam.$aam_shadow-primary;
 // Семейство шрифтов
 $font-family-primary: aam.$aam_font-family-primary; // Основное семейство шрифтов
 $font-family-secondary: aam.$aam_font-family-secondary;
+$font-family-tertiary: aam.$aam_font-family-tertiary;
 
 // Начертания шрифтов
+$font-weight-light: aam.$aam_font-weight-light;  // Обычный
 $font-weight-regular: aam.$aam_font-weight-regular;  // Обычный
 $font-weight-semibold: aam.$aam_font-weight-semibold; // Полужирный
 $font-weight-bold: aam.$aam_font-weight-bold;         // Жирный
 
 // Размеры шрифтов
+$font-size-x-small: aam.$aam_font-size-x-small;   // Очень маленький текст
 $font-size-small: aam.$aam_font-size-small;       // Маленький текст
 $font-size-regular: aam.$aam_font-size-regular;   // Стандартный текст
 $font-size-large: aam.$aam_font-size-large;       // Крупный текст
