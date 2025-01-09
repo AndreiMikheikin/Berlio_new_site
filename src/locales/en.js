@@ -107,6 +107,18 @@ const en = {
         tatneftApp: "Tatneft GS App BY",
         clientCabinetSoftware: "Client Cabinet Software",
 
+        // For MainBlock
+        mainBlock: {
+            companyName: "Company S&P LLC «BERLIO»",
+            headline: "Electronic payment system at gas stations",
+            tagline: "Use the electronic card «BERLIO» and refuel in just 3 minutes",
+            fuelCardUsage: "Additional Berlio fuel card usage",
+            belTollServices: "Allows you to pay for services in the BelToll system (toll road payments)",
+            nonResidentServices: "Services for non-residents of Belarus",
+            nonResidentSupport: "The company also supports clients from neighboring countries",
+            readMore: "Read more",
+        },
+
         // For Footer
         telFax: "(tel / fax)",
         fax: "(fax)",

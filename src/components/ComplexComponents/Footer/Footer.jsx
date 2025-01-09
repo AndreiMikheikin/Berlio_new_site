@@ -30,7 +30,7 @@ const Footer = () => {
                     <ContactAddress item={displayedItem} />
                 </div>
                 <div className="aam_footer__contactslink">
-                    <LinkTo href="/contacts" text={t('ourBranchesAndContacts')} iconColor='white'/>
+                    <LinkTo href="/contacts" text={t('ourBranchesAndContacts')} iconColor='white' />
                 </div>
                 <div className="aam_footer__phones">
                     <ContactPhones item={displayedItem} />

@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Header from '../../components/ComplexComponents/Header/Header';
 import Navigation from '../../components/ComplexComponents/Navigation/Navigation';
 import SearchInput from '../../components/SearchInput/SearchInput';
+import MainBlock from '../../components/ComplexComponents/MainBlock/MainBlock';
 import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 
@@ -23,6 +24,7 @@ const Home = () => {
             <Header />
             <Navigation />
             <SearchInput placeholder={t('search')} />
+            <MainBlock />
             <Footer />
             <SecondaryFooter />
         </>

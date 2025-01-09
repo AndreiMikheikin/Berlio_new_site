@@ -1,3 +1,5 @@
+import MainBlock from "../components/ComplexComponents/MainBlock/MainBlock";
+
 const ru = {
     translation: {
         // Заголовки страниц
@@ -106,6 +108,18 @@ const ru = {
         berlioCardPayApp: "Приложение “BERLIOCARDPAY”",
         tatneftApp: "Приложение “АЗС ТАТНЕФТЬ BY”",
         clientCabinetSoftware: "ПО “Личный кабинет клиента”",
+
+        // Для MainBlock
+        mainBlock: {
+            companyName: "Компания НП ООО «БЕРЛИО»",
+            headline: "Система электронных расчетов на АЗС",
+            tagline: "используйте электронную карту «БЕРЛИО» и заправляйтесь за 3 минуты",
+            fuelCardUsage: "Использование топливных карт",
+            belTollServices: "позволяет оплачивать услуги в системе BelToll (оплата платных дорог)",
+            nonResidentServices: "Услуги в отношении нерезидентов РБ",
+            nonResidentSupport: "компания также поддерживает клиентов из ближнего зарубежья",
+            readMore: "Подробнее",
+        },
 
         // Для Footer
         telFax: "(тел / факс)",
