@@ -8,6 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     clean: true,
+    publicPath: '/Berlio_new_site/',
   },
   module: {
     rules: [
@@ -39,7 +40,7 @@ module.exports = {
             type: 'asset/resource', // В остальных случаях (например, как URL)
           },
         ],
-      },      
+      },
     ],
   },
   resolve: {
@@ -65,5 +66,5 @@ module.exports = {
     open: true,
     historyApiFallback: true,
   },
-  mode: 'development',
+  mode: 'production',
 };

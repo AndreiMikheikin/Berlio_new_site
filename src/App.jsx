@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';  // заменили BrowserRouter на HashRouter
 import { SelectedItemProvider } from './contexts/SelectedItemContext';
 import { HelmetProvider } from 'react-helmet-async';
 
