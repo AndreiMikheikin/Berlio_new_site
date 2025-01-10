@@ -119,6 +119,15 @@ const en = {
             readMore: "Read more",
         },
 
+        // For PaymentSystem
+        paymentSystem: {
+            name: "Electronic Payment System 'BERLIO'",
+            coverage: "The system is supported by 97% of gas stations in Belarus, as well as gas stations in Russia.",
+            cardDescription: "Payments for fuel, goods, and services are made using the BERLIO electronic card, which is a plastic card.",
+            actionSignContract: "Sign a contract",
+            gasStations: "Gas stations",
+        },
+
         // For Footer
         telFax: "(tel / fax)",
         fax: "(fax)",

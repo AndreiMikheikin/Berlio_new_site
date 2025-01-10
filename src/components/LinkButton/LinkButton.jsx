@@ -6,7 +6,6 @@ const LinkButton = ({
   children, 
   href = '#', 
   target = '', 
-  color = '', 
   className = '' 
 }) => {
   const [isActive, setIsActive] = useState(false);
@@ -14,8 +13,6 @@ const LinkButton = ({
   const handleMouseDown = () => setIsActive(true);
   const handleMouseUp = () => setIsActive(false);
   const handleMouseLeave = () => setIsActive(false);
-
-  const buttonClass = `aam_link-button aam_link-button--${color} ${className} ${isActive ? 'aam_link-button--active' : ''}`;
 
   return (
     <a

@@ -4,6 +4,7 @@ import Header from '../../components/ComplexComponents/Header/Header';
 import Navigation from '../../components/ComplexComponents/Navigation/Navigation';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import MainBlock from '../../components/ComplexComponents/MainBlock/MainBlock';
+import PaymentSystem from '../../components/ComplexComponents/PaymentSystem/PaymentSystem';
 import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 
@@ -25,6 +26,7 @@ const Home = () => {
             <Navigation />
             <SearchInput placeholder={t('search')} />
             <MainBlock />
+            <PaymentSystem />
             <Footer />
             <SecondaryFooter />
         </>
