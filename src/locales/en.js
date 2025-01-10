@@ -128,6 +128,15 @@ const en = {
             gasStations: "Gas stations",
         },
 
+        // For FuelCards
+        fuelCards: {
+            name: "Fuel cards",
+            fuelCardsDescription1: "Payment for vehicle passage on toll roads",
+            fuelCardsDescription2: "Deposit cost of the electronic payment device (on-board unit)",
+            road: "Road",
+            cardTitle: "Issuance and use of fuel cards",
+          },
+
         // For Footer
         telFax: "(tel / fax)",
         fax: "(fax)",

@@ -9,6 +9,7 @@ import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 
 import { useTranslation } from 'react-i18next';
+import FuelCards from '../../components/ComplexComponents/FuelCards/FuelCards';
 
 const Home = () => {
     const { t } = useTranslation();
@@ -27,6 +28,7 @@ const Home = () => {
             <SearchInput placeholder={t('search')} />
             <MainBlock />
             <PaymentSystem />
+            <FuelCards />
             <Footer />
             <SecondaryFooter />
         </>
