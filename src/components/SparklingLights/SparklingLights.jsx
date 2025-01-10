@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import '../../styles/components/SparklingLights.scss';
+import mainBlockJPG from '../../assets/images/mainBlock.jpg';
+
 
 const SparklingLights = () => {
     const canvasRef = useRef(null);
@@ -11,7 +13,7 @@ const SparklingLights = () => {
       const height = canvas.height = 464;
   
       const backgroundImage = new Image();
-      backgroundImage.src = '/assets/images/mainBlock.jpg'; // Замените на путь к вашему изображению
+      backgroundImage.src = {mainBlockJPG}; // Замените на путь к вашему изображению
   
       // Координаты фонарей (примерные значения)
       const lightSources = [

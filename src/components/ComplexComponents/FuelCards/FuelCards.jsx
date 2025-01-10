@@ -2,6 +2,7 @@ import React from 'react';
 import '../../../styles/components/ComplexComponents/FuelCards.scss';
 import ServiceCard from '../../ServiceCard/ServiceCard';
 import PdfIcon from '../../SVGIcons/PdfIcon';
+import RoadJPG from '../../../assets/images/road.jpg';
 
 import { useTranslation } from 'react-i18next';
 
@@ -23,7 +24,7 @@ const FuelCards = () => {
         {t('fuelCards.fuelCardsDescription2')}
         </div>
       </div>
-      <div className="aam_fuel-cards__image"><img src='/assets/images/road.jpg' alt={t('fuelCards.road')} /></div>
+      <div className="aam_fuel-cards__image"><img src={RoadJPG} alt={t('fuelCards.road')} /></div>
       <ServiceCard
         Icon={PdfIcon}
         title={t('fuelCards.cardTitle')}

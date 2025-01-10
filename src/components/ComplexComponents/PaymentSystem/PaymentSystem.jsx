@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../styles/components/ComplexComponents/PaymentSystem.scss';
 import Button from '../../Button/Button';
+import GasStationPNG from '../../../assets/images/gas-station.png';
 
 import { useTranslation } from 'react-i18next';
 
@@ -24,7 +25,7 @@ const PaymentSystem = () => {
                 onClick={handleButtonClick}
                 className="green"
             />
-            <div className="aam_payment-system__image"><img src="/assets/images/gas-station.png" alt={t('paymentSystem.gasStations')} /></div>
+            <div className="aam_payment-system__image"><img src={GasStationPNG} alt={t('paymentSystem.gasStations')} /></div>
         </section>
     );
 };
