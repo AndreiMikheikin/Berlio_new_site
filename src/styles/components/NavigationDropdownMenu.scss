@@ -1,0 +1,206 @@
+@use '../variables' as *; // Подключаем _variables.scss
+
+.aam_navigation-dropdown-menu {
+    position: relative;
+    overflow: hidden; // Прячем содержимое за границами
+    height: 0; // По умолчанию высота 0
+    opacity: 0; // Прозрачное в свернутом состоянии
+    pointer-events: none; // Не кликабельно в свернутом состоянии
+    top: 100%;
+    left: 0;
+    width: 1280px; // Ширина меню
+    padding: 20.2px 50px 100px 50px;
+
+    // Плавный переход
+    transition: height 0.5s ease, opacity 0.3s ease;
+
+    // Стили для каждого меню
+    &.aam_navigation-dropdown-menu__partners,
+    &.aam_navigation-dropdown-menu__clients {
+        opacity: 1; // Полная видимость
+        pointer-events: auto; // Делаем кликабельным
+        height: auto; // Высота меню будет автоопределяться содержимым
+        transition: all 0.3s;
+    }
+
+    &.hidden {
+        height: 0;
+        opacity: 0;
+        pointer-events: none;
+        padding: 0;
+        transition: all 0.3s;
+    }
+
+    // Контент блока партнеров
+    &.aam_navigation-dropdown-menu__partners {
+
+        .aam_navigation-dropdown-menu__close {
+            width: 100%;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .aam_navigation-dropdown-menu__content {
+            display: flex;
+            justify-content: center;
+            gap: 400px; // Отступ между колонками
+            opacity: 0; // Начальное состояние скрыто
+            transition: opacity 0.5s ease, gap 0.3s;
+
+            // Блоки с ссылками
+            .aam_navigation-dropdown-menu__block {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                transition: opacity 0.5s ease;
+
+                &:nth-child(1) {
+                    transition-delay: 0.3s; // Задержка для первого блока
+                }
+
+                &:nth-child(2) {
+                    transition-delay: 0.3s; // Задержка для второго блока
+                }
+
+                h2 {
+                    font-family: $font-family-secondary;
+                    font-size: $font-size-regular;
+                    font-weight: $font-weight-semibold;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    li {
+                        font-family: $font-family-primary;
+                        font-size: $font-size-small - 2px;
+                        font-weight: $font-weight-regular;
+                        line-height: 20px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+
+                    }
+                }
+            }
+
+            // Когда меню открыто
+            &.is-visible {
+                opacity: 1; // Показываем контент
+                gap: 200px;
+            }
+        }
+    }
+
+    // Контент блока клиентов
+    &.aam_navigation-dropdown-menu__clients {
+
+        .aam_navigation-dropdown-menu__close {
+            width: 100%;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .aam_navigation-dropdown-menu__content {
+            display: flex;
+            justify-content: center;
+            opacity: 0; // Начальное состояние скрыто
+            transition: opacity 0.5s ease;
+
+            // Блоки с ссылками
+            .aam_navigation-dropdown-menu__block {
+                display: flex;
+                flex-direction: column;
+                transition: opacity 0.5s ease, transform 0.3s;;
+
+                &:nth-child(2) {
+                    transform: translateX(-100px);
+                    transition-delay: 0.3s; // Задержка для первого блока
+                    transition: transform 0.3s;
+                }
+
+                &:nth-child(3) {
+                    transform: translateX(100px);
+                    transition-delay: 0.3s; // Задержка для второго блока
+                    transition: transform 0.3s;
+                }
+
+                h2 {
+                    font-family: $font-family-secondary;
+                    font-size: $font-size-regular;
+                    font-weight: $font-weight-semibold;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    li {
+                        font-family: $font-family-primary;
+                        font-size: $font-size-small - 2px;
+                        font-weight: $font-weight-regular;
+                        line-height: 20px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+
+                    }
+                }
+            }
+
+            .aam_navigation-dropdown-menu__block:first-child {
+                width: 231px;
+                gap: 10px;
+
+                li {
+                    width: 180px;
+                }
+            }
+
+            .aam_navigation-dropdown-menu__block:nth-child(2) {
+                width: 225px;
+
+                li {
+                    width: 150px;
+                }
+            }
+
+            .aam_navigation-dropdown-menu__block:nth-child(3) {
+                width: 250px;
+
+                li {
+                    width: 200px;
+                }
+            }
+
+            .aam_navigation-dropdown-menu__block:nth-child(4) {
+                width: 187px;
+
+                li {
+                    width: 160px;
+                }
+            }
+
+            .aam_navigation-dropdown-menu__block:not(:first-child) {
+                gap: 35px;
+            }
+
+            // Когда меню открыто
+            &.is-visible {
+                opacity: 1; // Показываем контент
+                gap: 57px;
+
+                .aam_navigation-dropdown-menu__block:nth-child(2) {
+                    transform: translateX(0);
+                }
+
+                .aam_navigation-dropdown-menu__block:nth-child(3) {
+                    transform: translateX(0);
+                }
+            }
+        }
+    }
+}

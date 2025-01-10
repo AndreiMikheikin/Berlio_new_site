@@ -1,0 +1,42 @@
+@use '../../variables' as *;
+
+.aam_payment-system {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+    width: 1280px;
+    height: 599px;
+    padding: 60px 0 0 50px;
+
+    &__title {
+        font-family: $font-family-secondary;
+        font-size: $font-size-x-large;
+        font-weight: $font-weight-semibold;
+        line-height: 47px;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        margin-bottom: 25px;
+    }
+
+    &__description {
+        width: 700px;
+        font-family: $font-family-primary;
+        font-size: $font-size-regular;
+        font-weight: $font-weight-regular;
+        line-height: 24.51px;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        margin-bottom: 50px;
+        z-index: 1;
+    }
+
+    &__image {
+        position: absolute;
+        top: 113px;
+        left: 533px;
+        z-index: 0;
+    }
+}

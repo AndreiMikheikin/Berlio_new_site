@@ -1,0 +1,54 @@
+// SearchInput.scss
+
+@use '../variables' as *; // Подключаем _variables.scss
+
+.aam_search-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 1280px;
+
+    .aam_search-block {
+        position: relative;
+        width: 543px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        display: flex;
+        padding: 20px 15px 20px 15px;
+        gap: 10px;
+        border-radius: 10px;
+        border: 1px solid $text-disabled;
+
+        svg {
+            width: 21px;
+            height: 21px;
+        }
+
+        .aam_search-input {
+            border: none;
+            outline: none;
+            font-family: $font-family-primary;
+            font-size: $font-size-regular;
+            font-weight: $font-weight-regular;
+            line-height: 20px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+
+            &:focus {
+                border: none;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+.aam_no-results-message {
+    margin-top: 10px;
+    color: $error-color;
+    font-size: $font-size-small;
+    margin-top: -30px;
+    margin-bottom: 30px;
+}

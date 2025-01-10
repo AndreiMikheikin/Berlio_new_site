@@ -1,0 +1,46 @@
+@use './variables' as *;
+@use './tokens' as *;
+@use './fonts' as *;
+
+// Сброс стилей
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Корневой контейнер приложения
+#root {
+  position: relative;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; // Центрирование по горизонтали
+  padding: 0; // Исправлено: нет смысла использовать padding: 0 auto
+  box-sizing: border-box; // Учитываем паддинги в ширине
+  transition: all 0.3s ease;
+}
+
+// Глобальные стили
+body {
+  font-family: $font-family-primary;
+  background-color: $white; // Убедитесь, что переменная определена
+  color: $text-primary; // Цвет текста, связанный с основным фоном
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: $text-primary;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

@@ -1,0 +1,28 @@
+@use '../variables' as *;
+
+.aam_contact-phones {
+    position: relative;
+    width: 243px;
+    text-align: right;
+
+    &__title {
+        color: $white;
+        font-family: $font-family-primary;
+        font-size: $font-size-regular;
+        font-weight: $font-weight-semibold;
+        line-height: 24.51px;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        margin-bottom: 10px;
+    }
+
+    ul>li {
+        color: $white;
+        font-family: $font-family-primary;
+        font-size: calc($font-size-small + 2px);
+        font-weight: $font-weight-semibold;
+        line-height: 24.51px;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+    }
+}

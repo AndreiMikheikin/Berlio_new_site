@@ -1,0 +1,79 @@
+@use '../../variables' as *; // Подключаем _variables.scss
+
+.aam_locale-switcher {
+  position: absolute;
+  top: 10px; // Отступ от верхнего края
+  right: 10px; // Отступ от правого края
+  display: flex;
+  gap: 10px; // Расстояние между кнопками
+  z-index: 100; // Поверх других элементов, если необходимо
+
+  button {
+    color: $text-disabled;
+    font-size: calc($font-size-small / 2 + 1px);
+    font-weight: $font-weight-regular;
+    transition: font-size 0.3s, font-weight 0.3s, color 0.3s;
+
+    &.active {
+      color: $text-secondary;
+      font-size: calc($font-size-regular / 2 + 1px);
+      font-weight: $font-weight-semibold;
+    }
+  }
+}
+
+.aam_header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1280px;
+  height: 118px;
+  gap: 28px;
+  padding: 0 40px;
+  background-color: $white;
+
+  &__logo {
+    flex: 0 1 200px; // Фиксированная ширина для логотипа
+    width: 271.54px;
+    height: 66px;
+  }
+
+  &__dropdown {
+    flex: 1; // Остальная часть для выпадающего списка
+    display: flex;
+    justify-content: flex-start; // Выпадающий список вправо
+    width: auto;
+    gap: 10px;
+  }
+
+  &__contactinfo {
+    flex: 0 1 auto; // Фиксированная ширина для блока с контактной информацией
+    display: flex;
+    justify-content: flex-end; // Выравнивание контактной информации по правому краю
+  }
+
+  &__button-container {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end; // Выравнивание кнопок по правому краю
+    flex: 0 1 300px; // Можно настроить фиксированную ширину или оставлять гибким
+  }
+
+
+  // Пример медиазапроса для маленьких экранов
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__logo {
+      margin-bottom: 10px;
+    }
+
+    &__dropdown,
+    &__contactinfo {
+      flex: 1;
+      margin-top: 10px;
+    }
+  }
+}

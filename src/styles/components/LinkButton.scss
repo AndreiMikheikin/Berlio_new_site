@@ -1,0 +1,60 @@
+// LinkButton.scss
+
+@use '../variables' as *;  // Подключаем _variables.scss
+
+/* Общие стили для кнопок LinkButton */
+.aam_link-button {
+  display: inline-block;
+  padding: 11px 32px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: $font-size-small + 2px;
+  font-weight: $font-weight-semibold;
+  line-height: 21.79px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Общие hover-эффекты */
+.aam_link-button:hover {
+  background-color: $text-light; /* Для наглядности, замените на нужное */
+}
+
+/* Состояние active с изменением масштаба */
+.aam_link-button:active {
+  transform: scale(0.98); /* Уменьшаем размер кнопки */
+}
+
+/* Индивидуальные стили для зеленой кнопки */
+.aam_link-button--green {
+  border: 1.5px solid $background-color;
+  color: $background-color;
+}
+
+.aam_link-button--green:hover {
+  background-color: $background-color;
+  color: $white;
+}
+
+.aam_link-button--green:active {
+  transform: scale(0.98); /* Уменьшаем кнопку при активации */
+}
+
+/* Индивидуальные стили для серой кнопки */
+.aam_link-button--gray {
+  border: 1.5px solid $text-secondary-dark;
+  color: $text-secondary-dark;
+}
+
+.aam_link-button--gray:hover {
+  background-color: $text-secondary-dark;
+  color: $white;
+}
+
+.aam_link-button--gray:active {
+  transform: scale(0.98); /* Уменьшаем кнопку при активации */
+}
+

@@ -1,0 +1,28 @@
+//LinkTo.scss
+
+@use '../variables' as *;  // Подключаем _variables.scss
+
+.aam_link-to {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 600;
+    color: $text-quaternary;
+  
+    &__text {
+      margin-right: 8px;
+    }
+  
+    &__icon {
+      transition: transform 0.3s ease;
+    }
+  
+    &:hover .aam_link-to__icon {
+      transform: translateX(4px);
+    }
+  
+    &--highlighted {
+      color: $background-hover;
+      font-weight: 700;
+    }
+  }
