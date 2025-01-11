@@ -16,10 +16,8 @@ import News from './pages/News/News';
 const App = () => (
   <HelmetProvider>
     <SelectedItemProvider>
-      {/* Указываем basename */}
-      <Router basename="/Berlio_new_site">
+      <Router>
         <Routes>
-          {/* Определение маршрутов без повторного указания basename */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contacts" element={<Contacts />} />
