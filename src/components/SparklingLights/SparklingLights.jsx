@@ -13,7 +13,7 @@ const SparklingLights = () => {
       const height = canvas.height = 464;
   
       const backgroundImage = new Image();
-      backgroundImage.src = {mainBlockJPG}; // Замените на путь к вашему изображению
+      backgroundImage.src = mainBlockJPG; // Замените на путь к вашему изображению
   
       // Координаты фонарей (примерные значения)
       const lightSources = [

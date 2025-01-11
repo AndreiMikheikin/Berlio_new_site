@@ -17,17 +17,17 @@ const App = () => (
   <HelmetProvider>
     <SelectedItemProvider>
 
-      <Router>
+      <Router basename='/Berlio_new_site'>
         <Routes>
           {/* Определение маршрутов */}
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/news/:id" element={<DetailedNews />} />
-          <Route path="/equipment" element={<Equipment />} />
-          <Route path="/clients" element={<ForClients />} />
-          <Route path="/partners" element={<ForPartners />} />
+          <Route path="/Berlio_new_site/" element={<Home />} />
+          <Route path="/Berlio_new_site/about" element={<About />} />
+          <Route path="/Berlio_new_site/contacts" element={<Contacts />} />
+          <Route path="/Berlio_new_site/news" element={<News />} />
+          <Route path="/Berlio_new_site/news/:id" element={<DetailedNews />} />
+          <Route path="/Berlio_new_site/equipment" element={<Equipment />} />
+          <Route path="/Berlio_new_site/clients" element={<ForClients />} />
+          <Route path="/Berlio_new_site/partners" element={<ForPartners />} />
         </Routes>
       </Router>
 
