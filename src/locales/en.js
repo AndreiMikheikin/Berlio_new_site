@@ -135,7 +135,18 @@ const en = {
             fuelCardsDescription2: "Deposit cost of the electronic payment device (on-board unit)",
             road: "Road",
             cardTitle: "Issuance and use of fuel cards",
-          },
+        },
+
+        // For ActualSection
+        actualSection: {
+            name: "Actual",
+            actualBlockTitle1: "List of gas stations without fees",
+            actualBlockDescription1: "Something needs to be written!",
+            actualBlockTitle2: "Prompt assistance upon request",
+            actualBlockDescription2: "Something needs to be written!",
+            actualBlockTitle3: "Network of gas stations and routes",
+            actualBlockDescription3: "Something needs to be written!",
+        },
 
         // For Footer
         telFax: "(tel / fax)",

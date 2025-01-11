@@ -1,0 +1,89 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_actual-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 1280px;
+    height: 817px;
+    padding: 60px 50px 60px 50px;
+    gap: 40px;
+
+    &__title {
+        @include m.heading-h2;
+    }
+
+    &__blocks {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 1180px;
+        border-radius: 10px;
+
+        .aam_actual-block:nth-child(odd) {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .aam_actual-block:nth-child(even) {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .aam_actual-block {
+            position: relative;
+
+            &__content {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 35px 20px 20px 60px;
+                border: 1px solid #55555580;
+                width: 588px;
+                gap: 20px;
+
+                .aam_link-to__icon {
+                    position: absolute;
+                    right: 20px;
+                    bottom: 20px;
+                }
+            }
+
+            &__title {
+                @include m.heading-h3;
+            }
+
+            &__description {
+                @include m.text-p1;
+                color: $error-color;
+                transform: scale(1) rotateY(1deg);
+                transition: all 1.7s ease;
+            }
+
+            &__description:hover {
+                transform: scale(3) rotateY(719deg);
+            }
+        }
+
+        .aam_actual-block:first-of-type>.aam_actual-block__content {
+            border-top-left-radius: 10px;
+        }
+
+        .aam_actual-block:last-of-type>.aam_actual-block__content {
+            border-bottom-left-radius: 10px;
+        }
+
+
+
+
+
+    }
+}

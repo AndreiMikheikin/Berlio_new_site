@@ -139,6 +139,17 @@ const ru = {
             cardTitle: "Выпуск в обращение и использование топливных карт",
         },
 
+        // Для ActualSection
+        actualSection: {
+            name: "Актуальное",
+            actualBlockTitle1: "Перечень заправок без процентов",
+            actualBlockDescription1: "Нужно что-то написать!",
+            actualBlockTitle2: "Оперативная помощь при обращении",
+            actualBlockDescription2: "Нужно что-то написать!",
+            actualBlockTitle3: "Сеть АЗС и маршрутов",
+            actualBlockDescription3: "Нужно что-то написать!",
+        },
+
         // Для Footer
         telFax: "(тел / факс)",
         fax: "(факс)",

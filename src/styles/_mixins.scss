@@ -1,0 +1,31 @@
+@use './variables' as *;
+
+@mixin heading-h2 {
+    font-family: $font-family-secondary;
+    font-size: $font-size-x-large;
+    font-weight: $font-weight-semibold;
+    line-height: 47px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+@mixin heading-h3 {
+    font-family: $font-family-secondary;
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    line-height: 31.73px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+@mixin text-p1 {
+font-family: $font-family-primary;
+font-size: $font-size-regular;
+font-weight: $font-weight-regular;
+line-height: 20px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+}

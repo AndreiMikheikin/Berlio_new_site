@@ -1,4 +1,5 @@
 @use '../../variables' as *;
+@use '../../mixins' as m;
 
 .aam_fuel-cards {
     position: relative;
@@ -9,13 +10,8 @@
     padding: 50px 60px;
 
     &__title {
+        @include m.heading-h2;
         align-self: flex-start;
-        font-family: $font-family-secondary;
-        font-size: $font-size-x-large;
-        font-weight: $font-weight-semibold;
-        line-height: 47px;
-        text-underline-position: from-font;
-        text-decoration-skip-ink: none;
         margin-bottom: 40px;
     }
 

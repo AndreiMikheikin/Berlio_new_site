@@ -5,11 +5,13 @@ import Navigation from '../../components/ComplexComponents/Navigation/Navigation
 import SearchInput from '../../components/SearchInput/SearchInput';
 import MainBlock from '../../components/ComplexComponents/MainBlock/MainBlock';
 import PaymentSystem from '../../components/ComplexComponents/PaymentSystem/PaymentSystem';
+import FuelCards from '../../components/ComplexComponents/FuelCards/FuelCards';
+import ActualSection from '../../components/ComplexComponents/ActualSection/ActualSection';
 import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 
 import { useTranslation } from 'react-i18next';
-import FuelCards from '../../components/ComplexComponents/FuelCards/FuelCards';
+
 
 const Home = () => {
     const { t } = useTranslation();
@@ -29,6 +31,7 @@ const Home = () => {
             <MainBlock />
             <PaymentSystem />
             <FuelCards />
+            <ActualSection />
             <Footer />
             <SecondaryFooter />
         </>
