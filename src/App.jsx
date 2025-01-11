@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';  // заменили BrowserRouter на HashRouter
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'; // Используем HashRouter
 import { SelectedItemProvider } from './contexts/SelectedItemContext';
 import { HelmetProvider } from 'react-helmet-async';
 
@@ -16,21 +16,20 @@ import News from './pages/News/News';
 const App = () => (
   <HelmetProvider>
     <SelectedItemProvider>
-
-      <Router basename='/Berlio_new_site'>
+      {/* Указываем basename */}
+      <Router basename="/Berlio_new_site">
         <Routes>
-          {/* Определение маршрутов */}
-          <Route path="/Berlio_new_site/" element={<Home />} />
-          <Route path="/Berlio_new_site/about" element={<About />} />
-          <Route path="/Berlio_new_site/contacts" element={<Contacts />} />
-          <Route path="/Berlio_new_site/news" element={<News />} />
-          <Route path="/Berlio_new_site/news/:id" element={<DetailedNews />} />
-          <Route path="/Berlio_new_site/equipment" element={<Equipment />} />
-          <Route path="/Berlio_new_site/clients" element={<ForClients />} />
-          <Route path="/Berlio_new_site/partners" element={<ForPartners />} />
+          {/* Определение маршрутов без повторного указания basename */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/news/:id" element={<DetailedNews />} />
+          <Route path="/equipment" element={<Equipment />} />
+          <Route path="/clients" element={<ForClients />} />
+          <Route path="/partners" element={<ForPartners />} />
         </Routes>
       </Router>
-
     </SelectedItemProvider>
   </HelmetProvider>
 );
