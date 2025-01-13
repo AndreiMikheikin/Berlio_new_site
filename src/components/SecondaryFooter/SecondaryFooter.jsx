@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/components/SecondaryFooter.scss';
+import { Link } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
 
@@ -12,21 +13,21 @@ const SecondaryFooter = () => {
       <nav className="aam_footer-links">
         <ul>
           <li>
-            <a href="/rules">{t('rulesOfUse')}</a>
+            <Link to="/rules">{t('rulesOfUse')}</Link>
           </li>
           <li>
-            <a href="/offer">{t('offerAgreement')}</a>
+            <Link to="/offer">{t('offerAgreement')}</Link>
           </li>
           <li>
-            <a href="/privacy">{t('privacy')}</a>
+            <Link to="/privacy">{t('privacy')}</Link>
           </li>
           <li>
-            <a href="/help">{t('help')}</a>
+            <Link to="/help">{t('help')}</Link>
           </li>
         </ul>
       </nav>
       <div className="aam_footer-copyright">
-      {t('copyright', { year: currentYear })}
+        {t('copyright', { year: currentYear })}
       </div>
     </footer>
   );
