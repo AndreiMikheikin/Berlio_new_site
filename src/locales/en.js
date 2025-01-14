@@ -67,10 +67,7 @@ const en = {
         // For search
         noResult: "No results found for \"{{query}}\".",
         search: "Search the site",
-        ourBranchesAndContacts: "Our Branches and Contacts",
-        workingHours: "Mon - Fri: 08:30 AM - 05:30 PM",
-        daysOff: "Sat - Sun: Day Off",
-
+        
         // For partners
         appliedProgramsAndSoftware: "Applied Programs and Software",
         webCenterBerlio: "Web Center Berlio Software",
@@ -107,6 +104,12 @@ const en = {
         tatneftApp: "Tatneft GS App BY",
         clientCabinetSoftware: "Client Cabinet Software",
 
+        // For BreadCrumbs
+        breadCrumbs: {
+            home: "Home",
+            news: "News",
+        },
+
         // For MainBlock
         mainBlock: {
             companyName: "Company S&P LLC «BERLIO»",
@@ -117,6 +120,15 @@ const en = {
             nonResidentServices: "Services for non-residents of Belarus",
             nonResidentSupport: "The company also supports clients from neighboring countries",
             readMore: "Read more",
+        },
+
+        // For NewsBlock
+        newsBlock: {
+            sortBy: "Sort by:",
+            name: "News",
+            newFirst: "Newest first",
+            oldFirst: "Oldest first",
+            backHome: "Back to Home"
         },
 
         // For PaymentSystem
@@ -148,12 +160,24 @@ const en = {
             actualBlockDescription3: "Something needs to be written!",
         },
 
+        // Для NewsSection
+        newsSection: {
+            title: "Latest news",
+            linkToNews: "News details",
+            prev: "left",
+            next: "right",
+        },
+
         // For Footer
         telFax: "(tel / fax)",
         fax: "(fax)",
-        "forOrganizations": "For Organizations",
-        "forClientInquiries": "For Client Inquiries",
-        "technicalSupport": "Technical Support",
+        forOrganizations: "For Organizations",
+        forClientInquiries: "For Client Inquiries",
+        technicalSupport: "Technical Support",
+        ourBranchesAndContacts: "Our Branches and Contacts",
+        workingHours: "Mon - Fri: 08:30 AM - 05:30 PM",
+        daysOff: "Sat - Sun: Day Off",
+
 
         // For SecondaryFooter
         rulesOfUse: "Rules of Use",

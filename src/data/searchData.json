@@ -1,0 +1,213 @@
+{
+    "companyName": {
+      "id": "companyName",
+      "text": {
+        "ru": "Компания НП ООО «БЕРЛИО»",
+        "en": "Company S&P LLC «BERLIO»"
+      }
+    },
+    "headline": {
+      "id": "headline",
+      "text": {
+        "ru": "Система электронных расчетов на АЗС",
+        "en": "Electronic payment system at gas stations"
+      }
+    },
+    "tagline": {
+      "id": "tagline",
+      "text": {
+        "ru": "используйте электронную карту «БЕРЛИО» и заправляйтесь за 3 минуты",
+        "en": "Use the electronic card «BERLIO» and refuel in just 3 minutes"
+      }
+    },
+    "fuelCardUsage": {
+      "id": "fuelCardUsage",
+      "text": {
+        "ru": "Использование топливных карт",
+        "en": "Additional Berlio fuel card usage"
+      }
+    },
+    "belTollServices": {
+      "id": "belTollServices",
+      "text": {
+        "ru": "позволяет оплачивать услуги в системе BelToll (оплата платных дорог)",
+        "en": "Allows you to pay for services in the BelToll system (toll road payments)"
+      }
+    },
+    "nonResidentServices": {
+      "id": "nonResidentServices",
+      "text": {
+        "ru": "Услуги в отношении нерезидентов РБ",
+        "en": "Services for non-residents of Belarus"
+      }
+    },
+    "nonResidentSupport": {
+      "id": "nonResidentSupport",
+      "text": {
+        "ru": "компания также поддерживает клиентов из ближнего зарубежья",
+        "en": "The company also supports clients from neighboring countries"
+      }
+    },
+    "readMore": {
+      "id": "readMore",
+      "text": {
+        "ru": "Подробнее",
+        "en": "Read more"
+      }
+    },
+    "sortBy": {
+      "id": "sortBy",
+      "text": {
+        "ru": "Упорядочить:",
+        "en": "Sort by:"
+      }
+    },
+    "newsName": {
+      "id": "newsName",
+      "text": {
+        "ru": "Новости",
+        "en": "News"
+      }
+    },
+    "newFirst": {
+      "id": "newFirst",
+      "text": {
+        "ru": "Сначала новые",
+        "en": "Newest first"
+      }
+    },
+    "oldFirst": {
+      "id": "oldFirst",
+      "text": {
+        "ru": "Сначала старые",
+        "en": "Oldest first"
+      }
+    },
+    "backHome": {
+      "id": "backHome",
+      "text": {
+        "ru": "На главную",
+        "en": "Back to Home"
+      }
+    },
+    "paymentSystemName": {
+      "id": "paymentSystemName",
+      "text": {
+        "ru": "Электронная платежная система «БЕРЛИО»",
+        "en": "Electronic Payment System 'BERLIO'"
+      }
+    },
+    "coverage": {
+      "id": "coverage",
+      "text": {
+        "ru": "Систему поддерживают 97% АЗС Беларуси, а также заправки России.",
+        "en": "The system is supported by 97% of gas stations in Belarus, as well as gas stations in Russia."
+      }
+    },
+    "cardDescription": {
+      "id": "cardDescription",
+      "text": {
+        "ru": "Расчет за приобретаемое топливо, товары и услуги производится посредством электронной карточки «BERLIO», которая представляет собой пластиковую карту.",
+        "en": "Payments for fuel, goods, and services are made using the BERLIO electronic card, which is a plastic card."
+      }
+    },
+    "actionSignContract": {
+      "id": "actionSignContract",
+      "text": {
+        "ru": "Заключить договор",
+        "en": "Sign a contract"
+      }
+    },
+    "gasStations": {
+      "id": "gasStations",
+      "text": {
+        "ru": "АЗС",
+        "en": "Gas stations"
+      }
+    },
+    "fuelCardsName": {
+      "id": "fuelCardsName",
+      "text": {
+        "ru": "Топливные карты",
+        "en": "Fuel cards"
+      }
+    },
+    "fuelCardsDescription1": {
+      "id": "fuelCardsDescription1",
+      "text": {
+        "ru": "Оплата проезда транспортных средств по платным автомобильным",
+        "en": "Payment for vehicle passage on toll roads"
+      }
+    },
+    "fuelCardsDescription2": {
+      "id": "fuelCardsDescription2",
+      "text": {
+        "ru": "Залоговая стоимость устройства электронной оплаты (бортового устройства)",
+        "en": "Deposit cost of the electronic payment device (on-board unit)"
+      }
+    },
+    "road": {
+      "id": "road",
+      "text": {
+        "ru": "Дорога",
+        "en": "Road"
+      }
+    },
+    "cardTitle": {
+      "id": "cardTitle",
+      "text": {
+        "ru": "Выпуск в обращение и использование топливных карт",
+        "en": "Issuance and use of fuel cards"
+      }
+    },
+    "actualName": {
+      "id": "actualName",
+      "text": {
+        "ru": "Актуальное",
+        "en": "Actual"
+      }
+    },
+    "actualBlockTitle1": {
+      "id": "actualBlockTitle1",
+      "text": {
+        "ru": "Перечень заправок без процентов",
+        "en": "List of gas stations without fees"
+      }
+    },
+    "actualBlockDescription1": {
+      "id": "actualBlockDescription1",
+      "text": {
+        "ru": "Нужно что-то написать!",
+        "en": "Something needs to be written!"
+      }
+    },
+    "actualBlockTitle2": {
+      "id": "actualBlockTitle2",
+      "text": {
+        "ru": "Оперативная помощь при обращении",
+        "en": "Prompt assistance upon request"
+      }
+    },
+    "actualBlockDescription2": {
+      "id": "actualBlockDescription2",
+      "text": {
+        "ru": "Нужно что-то написать!",
+        "en": "Something needs to be written!"
+      }
+    },
+    "actualBlockTitle3": {
+      "id": "actualBlockTitle3",
+      "text": {
+        "ru": "Сеть АЗС и маршрутов",
+        "en": "Network of gas stations and routes"
+      }
+    },
+    "actualBlockDescription3": {
+      "id": "actualBlockDescription3",
+      "text": {
+        "ru": "Нужно что-то написать!",
+        "en": "Something needs to be written!"
+      }
+    }
+  }
+  

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/components/Dropdown.scss';
 import DropdownIcon from '../SVGIcons/DropdownIcon';

@@ -1,0 +1,64 @@
+@use '../variables' as *;
+@use '../mixins' as m;
+
+.aam_sort-dropdown {
+    position: absolute;
+    top: 153px;
+    right: 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+
+    &__label {
+        @include m.text-p1;
+        color: $text-quaternary;
+        margin-right: 7px;
+    }
+
+
+    &__header {
+        display: flex;
+        cursor: pointer;
+        padding: 0 8px;
+        margin-bottom: 8px;
+
+        .aam_sort-dropdown__icon {
+            transition: transform 0.3s ease;
+
+            &.open {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__text {
+        @include m.text-p1;
+        width: 141px;
+        margin-right: 15px;
+        color: $text-primary;
+
+        &.open {
+            color: $background-color;
+          }
+    }
+
+    &__icon {
+        position: relative;
+        top: 5px;
+    }
+
+    &__item {
+        @include m.text-p1;
+        padding: 0 8px;
+        background-color: $white;
+        color: $text-tertiary;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $background-color;
+            color: $white;
+        }
+    }
+}

@@ -1,0 +1,82 @@
+{
+    "5": {
+        "priority": "B",
+        "dates": {
+            "date": "2025-01-05",
+            "startDate": "",
+            "expireDate": ""
+        },
+        "titles": {
+            "ru": "Новость 5",
+            "en": "News 5"
+        },
+        "descriptions": {
+            "ru": "",
+            "en": ""
+        }
+    },
+    "4": {
+        "priority": "B",
+        "dates": {
+            "date": "2025-01-04",
+            "startDate": "",
+            "expireDate": ""
+        },
+        "titles": {
+            "ru": "Новость 4",
+            "en": "News 4"
+        },
+        "descriptions": {
+            "ru": "",
+            "en": ""
+        }
+    },
+    "3": {
+        "priority": "A",
+        "dates": {
+            "date": "2025-01-03",
+            "startDate": "",
+            "expireDate": ""
+        },
+        "titles": {
+            "ru": "Новость 3",
+            "en": "News 3"
+        },
+        "descriptions": {
+            "ru": "",
+            "en": ""
+        }
+    },
+    "2": {
+        "priority": "B",
+        "dates": {
+            "date": "2025-01-02",
+            "startDate": "",
+            "expireDate": ""
+        },
+        "titles": {
+            "ru": "Новость 2",
+            "en": "News 2"
+        },
+        "descriptions": {
+            "ru": "",
+            "en": ""
+        }
+    },
+    "1": {
+        "priority": "B",
+        "dates": {
+            "date": "2025-01-01",
+            "startDate": "",
+            "expireDate": ""
+        },
+        "titles": {
+            "ru": "Новость 1",
+            "en": "News 1"
+        },
+        "descriptions": {
+            "ru": "",
+            "en": ""
+        }
+    }
+}

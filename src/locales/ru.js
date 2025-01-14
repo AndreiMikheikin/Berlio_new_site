@@ -1,5 +1,3 @@
-import MainBlock from "../components/ComplexComponents/MainBlock/MainBlock";
-
 const ru = {
     translation: {
         // Заголовки страниц
@@ -69,9 +67,6 @@ const ru = {
         // Для search
         noResult: "По вашему запросу \"{{query}}\" ничего не найдено.",
         search: "Поиск по сайту",
-        ourBranchesAndContacts: "Наши филиалы и контакты",
-        workingHours: "Пн - Пт: 08.30 -17.30",
-        daysOff: "Сб - Вс: выходной",
 
         // Для partners
         appliedProgramsAndSoftware: "Прикладные программы и ПО",
@@ -109,6 +104,12 @@ const ru = {
         tatneftApp: "Приложение “АЗС ТАТНЕФТЬ BY”",
         clientCabinetSoftware: "ПО “Личный кабинет клиента”",
 
+        // Для BreadCrumbs
+        breadCrumbs: {
+            home: "Главная",
+            news: "Новости",
+        },
+
         // Для MainBlock
         mainBlock: {
             companyName: "Компания НП ООО «БЕРЛИО»",
@@ -119,6 +120,15 @@ const ru = {
             nonResidentServices: "Услуги в отношении нерезидентов РБ",
             nonResidentSupport: "компания также поддерживает клиентов из ближнего зарубежья",
             readMore: "Подробнее",
+        },
+
+        // Для NewsBlock
+        newsBlock: {
+            sortBy: "Упорядочить:",
+            name: "Новости",
+            newFirst: "Сначала новые",
+            oldFirst: "Сначала старые",
+            backHome: "На главную",
         },
 
         // Для PaymentSystem
@@ -150,12 +160,23 @@ const ru = {
             actualBlockDescription3: "Нужно что-то написать!",
         },
 
+        // Для NewsSection
+        newsSection: {
+            name: "Последние новости",
+            linkToNews: "К деталям новости",
+            prev: "влево",
+            next: "вправо",
+        },
+
         // Для Footer
         telFax: "(тел / факс)",
         fax: "(факс)",
         forOrganizations: "Для организаций",
         forClientInquiries: "Для обращения клиентов",
         technicalSupport: "Техническое обслуживание",
+        ourBranchesAndContacts: "Наши филиалы и контакты",
+        workingHours: "Пн - Пт: 08.30 -17.30",
+        daysOff: "Сб - Вс: выходной",
 
         // Для SecodaryFooter
         rulesOfUse: "Правила использования",

@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../../styles/components/ServiceCard.scss';
 
-const ServiceCard = ({ Icon, title, description, link, onClick}) => {
+const ServiceCard = ({ Icon, title, description, link, onClick, id}) => {
   const isExternalLink = typeof link === 'string' && link.startsWith('http');
 
   const CardContent = (
-    <div className="aam_service-card__button">
+    <div id={id} className="aam_service-card__button">
       <div className="aam_service-card__icon">
         {Icon && <Icon />}
       </div>
@@ -37,6 +37,7 @@ ServiceCard.propTypes = {
   description: PropTypes.string.isRequired,
   link: PropTypes.string,
   onClick: PropTypes.func,
+  id: PropTypes.string,
 };
 
 export default ServiceCard;

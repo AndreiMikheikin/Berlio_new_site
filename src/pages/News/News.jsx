@@ -6,6 +6,7 @@ import SearchInput from '../../components/SearchInput/SearchInput';
 import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 import { useTranslation } from 'react-i18next';
+import NewsBlock from '../../components/ComplexComponents/NewsBlock/NewsBlock';
 
 const News = () => {
   const { t } = useTranslation();
@@ -22,6 +23,7 @@ const News = () => {
       <Header />
       <Navigation />
       <SearchInput placeholder={t('search')} />
+      <NewsBlock />
       <Footer />
       <SecondaryFooter />
     </>

@@ -11,6 +11,7 @@ import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 
 import { useTranslation } from 'react-i18next';
+import NewsSection from '../../components/ComplexComponents/NewsSection/NewsSection';
 
 
 const Home = () => {
@@ -32,6 +33,7 @@ const Home = () => {
             <PaymentSystem />
             <FuelCards />
             <ActualSection />
+            <NewsSection />
             <Footer />
             <SecondaryFooter />
         </>
