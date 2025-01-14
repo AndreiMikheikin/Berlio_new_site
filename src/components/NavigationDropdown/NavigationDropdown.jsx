@@ -7,8 +7,9 @@ import '../../styles/components/NavigationDropdown.scss';
 
 const NavigationDropdown = ({
     label,
-    closedColor = 'black',
-    openColor = 'blue',
+    closedColor = 'white',
+    openColor = '#176224',
+    hoverColor = '#176224',
     isOpen,
     onToggle,
     onClose,
@@ -23,7 +24,8 @@ const NavigationDropdown = ({
             <button
                 className="aam_navigation-dropdown__toggle"
                 onClick={handleToggle}
-                style={{ color: isOpen ? openColor : closedColor }}
+                style={{ color: isOpen ? openColor : closedColor,
+                    ':hover': { color: hoverColor }, }}
             >
                 {label}
                 <DropdownIcon
@@ -41,6 +43,7 @@ NavigationDropdown.propTypes = {
     label: PropTypes.string.isRequired,
     closedColor: PropTypes.string,
     openColor: PropTypes.string,
+    hoverColor: PropTypes.string,
     isOpen: PropTypes.bool.isRequired,
     onToggle: PropTypes.func.isRequired,
 };

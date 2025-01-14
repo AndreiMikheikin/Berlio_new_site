@@ -1,5 +1,3 @@
-// Navigation.jsx
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../../styles/components/ComplexComponents/Navigation.scss';
@@ -30,6 +28,7 @@ const Navigation = () => {
               label={t('forPartners')}
               closedColor="#FFFFFF"
               openColor="#176224"
+              hoverColor='#176224'
               isOpen={openDropdown === 'partners'}
               onToggle={() => handleToggle('partners')}
               onClose={() => setOpenDropdown(null)} // Закрытие при клике на элементе
@@ -42,10 +41,10 @@ const Navigation = () => {
               label={t('forClients')}
               closedColor="#FFFFFF"
               openColor="#176224"
+              hoverColor='#176224'
               isOpen={openDropdown === 'clients'}
               onToggle={() => handleToggle('clients')}
-              onClose={() => setOpenDropdown(null)} // Закрытие при клике на элементе
-              portalClassName="aam_clients-portal"
+              onClose={() => setOpenDropdown(null)}
             />
           </li>
           <li>

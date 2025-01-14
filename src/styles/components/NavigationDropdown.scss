@@ -14,19 +14,27 @@
         background: none;
         cursor: pointer;
         color: $white;
-        transition: color 0.3s;
+        transition: color 0.3s ease;
         gap: 8px;
 
         &:hover {
-            color: $background-hover;
+            color: $background-hover !important;
+
+            .aam_navigation-dropdown__icon path {
+                fill: $background-hover !important;
+            }
         }
     }
 
     &__icon {
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, fill 0.3s ease;
 
         &.open {
             transform: rotate(180deg);
+        }
+        
+        path {
+            transition: fill 0.3s ease; /* Совпадает с текстом */
         }
     }
 }
