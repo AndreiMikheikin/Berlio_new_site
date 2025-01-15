@@ -168,6 +168,14 @@ const ru = {
             next: "вправо",
         },
 
+        // Для Our Partners LogoSection
+        ourPartnersLogoSection: {
+            name: "Наши партнеры",
+            mapLink: "Перечень АЗС",
+            homeLink: "На главную",
+            upLink: "Наверх",
+        },
+
         // Для Footer
         telFax: "(тел / факс)",
         fax: "(факс)",

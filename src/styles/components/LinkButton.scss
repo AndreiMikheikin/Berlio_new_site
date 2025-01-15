@@ -58,3 +58,20 @@
   transform: scale(0.98); /* Уменьшаем кнопку при активации */
 }
 
+/* Индивидуальные стили для кнопки с зеленой заливкой*/
+.aam_link-button--fillGreen {
+  padding: 18px 149px;
+  border: 1.5px solid $background-color;
+  background-color: $background-color;
+  color: $white;
+}
+
+.aam_link-button--fillGreen:hover {
+  background-color: $white;
+  color: $background-color;
+}
+
+.aam_link-button--fillGreen:active {
+  transform: scale(0.98); /* Уменьшаем кнопку при активации */
+}
+

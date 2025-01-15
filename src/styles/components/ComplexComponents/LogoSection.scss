@@ -1,0 +1,103 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_logo-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1280px;
+    padding: 60px 50px;
+    gap: 40px;
+
+    &__title {
+        @include m.heading-h2;
+        align-self: flex-start;
+    }
+
+    .aam_logo-section__carousel {
+        overflow: hidden; // Скрываем лишние элементы
+        position: relative;
+        width: 100%;
+    }
+
+    .aam_logo-section__logos {
+        display: flex;
+        transition: transform 0.3s ease;
+    }
+
+    .aam_logo-section__logo {
+        flex-shrink: 0; // Предотвращаем сжатие
+        width: 25%; // Показываем 4 логотипа (100% / 4 = 25%)
+    }
+
+    .aam_logo-section__logo-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .aam_logo-section__controls {
+        display: flex;
+        align-self: flex-end;
+        justify-content: center;
+        margin-top: -10px;
+        margin-bottom: 10px;
+        gap: 16px;
+    }
+
+    .aam_logo-section__button {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .aam_logo-section__site-nav {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .aam_link-button {
+        margin-bottom: 50px;
+    }
+
+    .secondary-link {
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: $text-secondary;
+        transition: scale 0.3s ease;
+
+        &:hover {
+           svg {
+            scale: 1.07;
+           }
+
+            svg path {
+                fill: #48AE5A !important;
+            }
+
+            svg circle {
+                stroke: #48AE5A !important;
+            }
+        }
+    }
+
+    .home-link {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+        color: $text-secondary;
+    }
+}

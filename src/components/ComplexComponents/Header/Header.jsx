@@ -20,8 +20,8 @@ const Header = () => {
   return (
     <>
       <LocaleSwitcher className="aam_locale-switcher" />
-      <header className="aam_header">
-        <div className="aam_header__logo">
+      <header className="aam_header" id='header' >
+        <div className="aam_header__logo" >
           <Link to="/">
             <Logo />
           </Link>

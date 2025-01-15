@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../../styles/components/ComplexComponents/NewsBlock.scss';
 import SortDropdown from '../../SortDropdown/SortDropdown';
+
 import newsData from '../../../data/newsData.json';
 import { useTranslation } from 'react-i18next';
 
@@ -99,7 +100,7 @@ const NewsBlock = () => {
     };
 
     return (
-        <div className="aam_news-block">
+        <main className="aam_news-block">
             {/* Breadcrumbs */}
             <div className="aam_news-block__breadcrumbs">
                 <Link to="/">{t('breadCrumbs.home')}</Link> / {t('breadCrumbs.news')}
@@ -143,7 +144,7 @@ const NewsBlock = () => {
             <div className="aam_news-block__back">
                 <Link to="/">{t('newsBlock.backHome')}</Link>
             </div>
-        </div>
+        </main>
     );
 };
 

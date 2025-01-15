@@ -168,6 +168,14 @@ const en = {
             next: "right",
         },
 
+        // Для Our Partners LogoSection
+        ourPartnersLogoSection: {
+            name: "Our Partners",
+            mapLink: "GS List",
+            homeLink: "Home",
+            upLink: "Up",
+        },
+
         // For Footer
         telFax: "(tel / fax)",
         fax: "(fax)",
