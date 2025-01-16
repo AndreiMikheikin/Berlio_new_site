@@ -20,6 +20,8 @@ import { useTranslation } from 'react-i18next';
 const Home = () => {
     const { t } = useTranslation();
 
+    const isProduction = process.env.NODE_ENV === 'production';
+
     return (
         <>
             <Helmet>
@@ -40,7 +42,11 @@ const Home = () => {
             <LogoSection
                 title={t('ourPartnersLogoSection.name')}
                 logos={partnersLogos.logos}
-                logoBasePath="/assets/images"
+                logoBasePath={
+                    isProduction
+                        ? `${process.env.PUBLIC_URL}/assets/images`
+                        : '/assets/images'
+                }
             />
             <Footer />
             <SecondaryFooter />

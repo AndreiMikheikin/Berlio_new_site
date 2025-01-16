@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/index.jsx',
@@ -24,10 +26,16 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif)$/,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[name][ext][query]', // Путь в папке dist
+        },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)$/,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name][ext][query]', // Путь для шрифтов
+        },
       },
       {
         test: /\.svg$/,
@@ -55,6 +63,18 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'public/assets/images'), // Откуда копировать
+          to: 'assets/images', // Куда копировать в папке dist
+        },
+      ],
+    }),
+    new Dotenv({
+      path: './.env', // путь к .env файлу
+      safe: true, // проверка наличия всех переменных
+    }),
   ],
   devServer: {
     static: [
@@ -65,6 +85,6 @@ module.exports = {
     hot: true,
     open: true,
     historyApiFallback: true,
-  },
-  mode: 'production',
+  },  
+  mode: 'development',
 };

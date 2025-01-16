@@ -50,6 +50,7 @@ const LogoSection = ({ title, logos, logoBasePath }) => {
                             />
                         </div>
                     ))}
+                    
                 </div>
             </div>
 
