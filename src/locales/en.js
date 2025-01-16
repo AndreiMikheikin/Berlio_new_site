@@ -107,6 +107,7 @@ const en = {
         // For BreadCrumbs
         breadCrumbs: {
             home: "Home",
+            about: "About Berlio",
             news: "News",
         },
 
@@ -120,6 +121,26 @@ const en = {
             nonResidentServices: "Services for non-residents of Belarus",
             nonResidentSupport: "The company also supports clients from neighboring countries",
             readMore: "Read more",
+        },
+
+        // For SystemSection
+        systemSection: {
+            name: "BERLIO System",
+            listTitle: "as well as",
+            listItem1: "Development and support of custom software; development, production, installation, and maintenance of equipment",
+            listItem2: "Information and technical support for clients using the BERLIO cashless payment system at gas stations, stores, and service facilities in Belarus",
+            listItem3: "Development, production, installation, and maintenance of management equipment for gas stations, service stations, toll points, stores, and other retail facilities",
+            listItem4: "Development, production, installation, and maintenance of equipment for electronic card payment systems",
+            alt1: "BERLIO logo on a stelа",
+            alt2: "Car refueling",
+        },
+        
+
+        // For MainAbout
+        aboutBlock: {
+            name: "Our Company",
+            alt: "S&P LLC «BERLIO» office",
+            description: "The company has been operating in the market of manufacturers and services since 1992. The number of locations accepting «BERLIO» cards for payment: 804 — Belarus, 379 — Russia",
         },
 
         // For NewsBlock

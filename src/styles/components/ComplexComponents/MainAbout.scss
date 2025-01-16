@@ -1,0 +1,41 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_about-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 1280px;
+    padding: 60px 50px;
+    gap: 30px;
+
+    &__breadcrumbs {
+        align-self: flex-start;
+        @include m.text-p1;
+        color: $text-disabled;
+
+        a {
+            color: $background-color;
+            text-decoration: none;
+
+            &:hover {
+                color: $background-hover;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__title {
+        align-self: flex-start;
+        @include m.heading-h1;
+        margin-bottom: 10px;
+    }
+
+    &__image {
+        width: 1180px;
+    }
+
+    &__description {
+        @include m.text-p1;
+    }
+}
