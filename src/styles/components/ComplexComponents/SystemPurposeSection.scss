@@ -1,0 +1,75 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_purpose-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 1280px;
+    padding: 60px 50px;
+
+    &__title {
+        @include m.heading-h2;
+        align-self: flex-start;
+    }
+
+    &__description {
+        @include m.text-p1;
+        margin-bottom: 15px;
+    }
+
+    &__cards-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 20px;
+        margin-bottom: 25px;
+    }
+
+    &__card-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    &__icon {
+        height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__card-title {
+        @include m.heading-h3;
+    }
+
+    &__images {
+        margin-bottom: 25px;
+    }
+
+    &__card-purpose {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+
+            ol li{
+                @include m.text-p1;
+                list-style-type: decimal;
+            }
+        }
+    }
+
+    &__list-title {
+        @include m.heading-h3
+    }
+}

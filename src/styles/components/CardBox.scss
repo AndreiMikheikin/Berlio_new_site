@@ -1,0 +1,13 @@
+@use '../mixins' as m;
+
+.__card-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__card-title {
+        @include m.heading-h3;
+    }
+}
+
