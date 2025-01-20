@@ -1,0 +1,59 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_for-partners-main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 1280px;
+    padding: 60px 50px;
+
+    &__breadcrumbs {
+        align-self: flex-start;
+        @include m.text-p1;
+        color: $text-disabled;
+        margin-bottom: 5px;
+
+        a {
+            color: $background-color;
+            text-decoration: none;
+
+            &:hover {
+                color: $background-hover;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__title {
+        align-self: flex-start;
+        @include m.heading-h1;
+        margin-bottom: 10px;
+    }
+
+    &__description {
+        @include m.text-p1;
+        margin-bottom: 5px;
+    }
+
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: space-between;
+    }
+}
+
+
+.aam_for-partners-main__cards>.aam_information-card:last-child {
+    &:hover .aam_information-card__hover-overlay {
+        padding: 0;
+        background-color: #48ae5b40;
+
+        a {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

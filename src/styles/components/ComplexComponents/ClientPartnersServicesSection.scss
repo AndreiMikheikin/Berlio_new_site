@@ -1,0 +1,37 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_clients-partners-section {
+    position: relative;
+    width: 1280px;
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+
+    &__title {
+        @include m.heading-h2;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 15px;
+    }
+
+    &__item {
+        @include m.text-p1;
+        list-style-position: inside;
+        list-style-type: decimal;
+        line-height: 24.51px;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 25px;
+    }
+}

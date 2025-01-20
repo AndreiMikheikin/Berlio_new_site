@@ -17,7 +17,7 @@ const SystemPurposeSection = () => {
             <h2 className="aam_purpose-section__title">{t('purposeSection.name')}</h2>
 
             {/* Description */}
-            <p className="aam_purpose-section__description">{t('purposeSystem.description')}</p>
+            <p className="aam_purpose-section__description">{t('purposeSection.description')}</p>
 
             {/* System Purpose */}
             <div className="aam_purpose-section__cards-box">

@@ -3,10 +3,12 @@ import { Helmet } from 'react-helmet-async';
 import Header from '../../components/ComplexComponents/Header/Header';
 import Navigation from '../../components/ComplexComponents/Navigation/Navigation';
 import SearchInput from '../../components/SearchInput/SearchInput';
+import ForClientsMain from '../../components/ComplexComponents/FotClientsMain/ForClientsMain';
 import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 
 import { useTranslation } from 'react-i18next';
+
 
 const ForClients = () => {
   const { t } = useTranslation();
@@ -23,6 +25,7 @@ const ForClients = () => {
       <Header />
       <Navigation />
       <SearchInput placeholder={t('search')} />
+      <ForClientsMain />
       <Footer />
       <SecondaryFooter />
     </>

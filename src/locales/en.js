@@ -67,7 +67,7 @@ const en = {
         // For search
         noResult: "No results found for \"{{query}}\".",
         search: "Search the site",
-        
+
         // For partners
         appliedProgramsAndSoftware: "Applied Programs and Software",
         webCenterBerlio: "Web Center Berlio Software",
@@ -108,6 +108,7 @@ const en = {
         breadCrumbs: {
             home: "Home",
             about: "About Berlio",
+            forPartners: "For Partners",
             news: "News",
         },
 
@@ -123,6 +124,13 @@ const en = {
             readMore: "Read more",
         },
 
+        // For MainAbout
+        aboutBlock: {
+            name: "Our Company",
+            alt: "S&P LLC «BERLIO» office",
+            description: "The company has been operating in the market of manufacturers and services since 1992. The number of locations accepting «BERLIO» cards for payment: 804 — Belarus, 379 — Russia",
+        },
+
         // For SystemSection
         systemSection: {
             name: "BERLIO System",
@@ -134,13 +142,66 @@ const en = {
             alt1: "BERLIO logo on a stelа",
             alt2: "Car refueling",
         },
-        
 
-        // For MainAbout
-        aboutBlock: {
-            name: "Our Company",
-            alt: "S&P LLC «BERLIO» office",
-            description: "The company has been operating in the market of manufacturers and services since 1992. The number of locations accepting «BERLIO» cards for payment: 804 — Belarus, 379 — Russia",
+        // For PurposeSection
+        purposeSection: {
+            name: "System Purpose",
+            description: "The system is designed for efficient cashless payments using electronic cards. The main components of the system are:",
+            cardTitle1: "Settlement Center",
+            cardTitle2: "Terminals",
+            cardTitle3: "Electronic Cards",
+            fuelDispenser: "Fuel Dispenser",
+            listTitle: "Using BERLIO cards, you can pay for:",
+            listItem1: "fuel",
+            listItem2: "gas",
+            listItem3: "kerosene",
+            listItem4: "groceries",
+            listItem5: "non-food items",
+            listItem6: "oils",
+            listItem7: "service stations",
+            listItem8: "vehicle inspection",
+            listItem9: "road toll in the BelToll system",
+            listItem10: "road toll in the PLATON system",
+            listItem11: "car wash",
+            listItem12: "vacuum cleaner",
+            listItem13: "parking",
+            listItem14: "Velcom and MTS services",
+            listItem15: "customs agent services",
+        },
+
+        // For ClientPartnersServicesSection
+        cpsSection: {
+            name: "Services for Clients and Partners",
+            listItem1: "Quick contract execution",
+            listItem2: "Cashless payment",
+            listItem3: "Timely accounting reports",
+            listItem4: "Use of electronic cards",
+            listItem5: "Ability to access provided services (fueling of all types of fuel, purchasing consumer goods, paying for services, road tolls) with a single electronic card",
+            listItem6: "Ability to restrict types of provided services (e.g., fueling only a specific type of fuel) on a client-designated electronic card",
+            listItem7: "Ability to limit daily or monthly fuel quotas on a client-designated electronic card, robust metallic case in the form of a key fob, one-year warranty, individual password, reliable protection against forgery",
+            forClients: "For Clients",
+            forPartners: "For Partners",
+        },
+
+        // For ForPartnersMain
+        forPartnersMain: {
+            title: "For Partners",
+            description: "Choose a section and explore the necessary information",
+            partnerInfo: {
+                title1: "Applications and Software",
+                title2: "Useful Information",
+                title3: "Join the System",
+                label1: "Software 'Web Center BERLIO'",
+                label2: "PPP 'Oil and Capital'",
+                label3: "Self-service checkout for gas station networks",
+                label4: "PPP 'Gas Station Automation System'",
+                label5: "Website for issuing invoices",
+                label6: "Voice reference information service",
+                label7: "Documents for download",
+                label8: "Loyalty program",
+                label9: "Rules of the BERLIO electronic money payment system",
+                label10: "Information for the bank",
+            },
         },
 
         // For NewsBlock

@@ -1,0 +1,123 @@
+{
+  "forPartners": {
+    "num#1": {
+      "title": "forPartnersMain.partnerInfo.title1",
+      "bg-image": "BG1",
+      "links": [
+        {
+          "href": "#/partners/1",
+          "label": "forPartnersMain.partnerInfo.label1"
+        },
+        {
+          "href": "#/partners/2",
+          "label": "forPartnersMain.partnerInfo.label2"
+        },
+        {
+          "href": "#/partners/3",
+          "label": "forPartnersMain.partnerInfo.label3"
+        },
+        {
+          "href": "#/partners/4",
+          "label": "forPartnersMain.partnerInfo.label4"
+        },
+        {
+          "href": "#/partners/5",
+          "label": "forPartnersMain.partnerInfo.label5"
+        }
+      ]
+    },
+    "num#2": {
+      "title": "forPartnersMain.partnerInfo.title2",
+      "bg-image": "BG2",
+      "links": [
+        {
+          "href": "#/partners/6",
+          "label": "forPartnersMain.partnerInfo.label6"
+        },
+        {
+          "href": "#/partners/7",
+          "label": "forPartnersMain.partnerInfo.label7"
+        },
+        {
+          "href": "#/partners/8",
+          "label": "forPartnersMain.partnerInfo.label8"
+        },
+        {
+          "href": "#/partners/9",
+          "label": "forPartnersMain.partnerInfo.label9"
+        },
+        {
+          "href": "#/partners/10",
+          "label": "forPartnersMain.partnerInfo.label10"
+        }
+      ]
+    },
+    "num#3": {
+      "title": "forPartnersMain.partnerInfo.title3",
+      "bg-image": "BG3",
+      "links": [
+        {
+          "href": "#/partners/11"
+        }
+      ]
+    }
+  },
+  "forClients": {
+    "num#1": {
+      "title": "forClientsMain.clientInfo.title1",
+      "bg-image": "BG4",
+      "links": [
+        {
+          "href": "#/clients/1",
+          "label": "forClientsMain.clientInfo.label1"
+        },
+        {
+          "href": "#/clients/2",
+          "label": "forClientsMain.clientInfo.label2"
+        }
+      ]
+    },
+    "num#2": {
+      "title": "forClientsMain.clientInfo.title2",
+      "bg-image": "BG5",
+      "links": [
+        {
+          "href": "#/clients/3",
+          "label": "forClientsMain.clientInfo.label3"
+        },
+        {
+          "href": "#/clients/4",
+          "label": "forClientsMain.clientInfo.label4"
+        }
+      ]
+    },
+    "num#3": {
+      "title": "forClientsMain.clientInfo.title3",
+      "bg-image": "BG6",
+      "links": [
+        {
+          "href": "#/clients/5",
+          "label": "forClientsMain.clientInfo.label5"
+        },
+        {
+          "href": "#/clients/6",
+          "label": "forClientsMain.clientInfo.label6"
+        }
+      ]
+    },
+    "num#4": {
+      "title": "forClientsMain.clientInfo.title4",
+      "bg-image": "BG7",
+      "links": [
+        {
+          "href": "#/clients/7",
+          "label": "forClientsMain.clientInfo.label7"
+        },
+        {
+          "href": "#/clients/8",
+          "label": "forClientsMain.clientInfo.label8"
+        }
+      ]
+    }
+  }
+}
