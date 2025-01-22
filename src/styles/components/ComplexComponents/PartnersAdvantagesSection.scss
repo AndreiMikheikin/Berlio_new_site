@@ -1,0 +1,25 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_partners-advantages-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 1280px;
+    padding: 60px 50px;
+
+    &__title {
+        @include m.heading-h2;
+    }
+
+    &__cards-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 25px;
+    }
+
+    @include m.card-box-styles('aam_partners-advantages-section');
+}

@@ -27,24 +27,7 @@
         margin-bottom: 25px;
     }
 
-    &__card-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    &__icon {
-        height: 76px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    &__card-title {
-        @include m.heading-h3;
-    }
+    @include m.card-box-styles('aam_purpose-section');
 
     &__images {
         margin-bottom: 25px;

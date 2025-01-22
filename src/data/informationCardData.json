@@ -1,6 +1,7 @@
 {
   "forPartners": {
     "num#1": {
+      "icon": "LaptopIcon",
       "title": "forPartnersMain.partnerInfo.title1",
       "bg-image": "BG1",
       "links": [
@@ -27,6 +28,7 @@
       ]
     },
     "num#2": {
+      "icon": "DocumentIcon",
       "title": "forPartnersMain.partnerInfo.title2",
       "bg-image": "BG2",
       "links": [
@@ -53,6 +55,7 @@
       ]
     },
     "num#3": {
+      "icon": "DocumentIcon",
       "title": "forPartnersMain.partnerInfo.title3",
       "bg-image": "BG3",
       "links": [
@@ -64,6 +67,7 @@
   },
   "forClients": {
     "num#1": {
+      "icon": "ClientIcon",
       "title": "forClientsMain.clientInfo.title1",
       "bg-image": "BG4",
       "links": [
@@ -74,13 +78,7 @@
         {
           "href": "#/clients/2",
           "label": "forClientsMain.clientInfo.label2"
-        }
-      ]
-    },
-    "num#2": {
-      "title": "forClientsMain.clientInfo.title2",
-      "bg-image": "BG5",
-      "links": [
+        },
         {
           "href": "#/clients/3",
           "label": "forClientsMain.clientInfo.label3"
@@ -88,13 +86,7 @@
         {
           "href": "#/clients/4",
           "label": "forClientsMain.clientInfo.label4"
-        }
-      ]
-    },
-    "num#3": {
-      "title": "forClientsMain.clientInfo.title3",
-      "bg-image": "BG6",
-      "links": [
+        },
         {
           "href": "#/clients/5",
           "label": "forClientsMain.clientInfo.label5"
@@ -102,20 +94,75 @@
         {
           "href": "#/clients/6",
           "label": "forClientsMain.clientInfo.label6"
+        },
+        {
+          "href": "#/clients/7",
+          "label": "forClientsMain.clientInfo.label7"
+        }
+      ]
+    },
+    "num#2": {
+      "icon": "OilIcon",
+      "title": "forClientsMain.clientInfo.title2",
+      "bg-image": "BG5",
+      "links": [
+        {
+          "href": "#/clients/8",
+          "label": "forClientsMain.clientInfo.label8"
+        },
+        {
+          "href": "#/clients/9",
+          "label": "forClientsMain.clientInfo.label9"
+        },
+        {
+          "href": "#/clients/10",
+          "label": "forClientsMain.clientInfo.label10"
+        },
+        {
+          "href": "#/clients/11",
+          "label": "forClientsMain.clientInfo.label11"
+        }
+      ]
+    },
+    "num#3": {
+      "icon": "DocumentIcon",
+      "title": "forClientsMain.clientInfo.title3",
+      "bg-image": "BG6",
+      "links": [
+        {
+          "href": "#/clients/12",
+          "label": "forClientsMain.clientInfo.label12"
+        },
+        {
+          "href": "#/clients/13",
+          "label": "forClientsMain.clientInfo.label13"
         }
       ]
     },
     "num#4": {
+      "icon": "SmartphoneIcon",
       "title": "forClientsMain.clientInfo.title4",
       "bg-image": "BG7",
       "links": [
         {
-          "href": "#/clients/7",
-          "label": "forClientsMain.clientInfo.label7"
+          "href": "#/clients/14",
+          "label": "forClientsMain.clientInfo.label14"
         },
         {
-          "href": "#/clients/8",
-          "label": "forClientsMain.clientInfo.label8"
+          "href": "#/clients/15",
+          "label": "forClientsMain.clientInfo.label15"
+        },
+        {
+          "href": "#/clients/16",
+          "label": "forClientsMain.clientInfo.label16"
+        },
+        {
+          "href": "#/clients/17",
+          "label": "forClientsMain.clientInfo.label17"
+        },
+        {
+          "href": "#/clients/18",
+          "label": "forClientsMain.clientInfo.label18"
         }
       ]
     }

@@ -9,6 +9,11 @@ import BG5 from "../../../assets/images/info-card-bg5.jpg";
 import BG6 from "../../../assets/images/info-card-bg6.jpg";
 import BG7 from "../../../assets/images/info-card-bg7.jpg";
 
+import ClientIcon from "../../SVGIcons/ClientIcon";
+import OilIcon from "../../SVGIcons/OilIcon";
+import DocumentIcon from "../../SVGIcons/DocumentIcon";
+import SmartphoneIcon from "../../SVGIcons/SmartphoneIcon";
+
 import cardDataJson from "../../../data/informationCardData.json";
 
 import { useTranslation } from "react-i18next";
@@ -18,12 +23,13 @@ const ForClientsMain = () => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    // Сопоставляем имена изображений с фактическими импортированными изображениями
     const BG_IMAGES = { BG4, BG5, BG6, BG7 };
+    const ICONS = { ClientIcon, OilIcon, DocumentIcon, SmartphoneIcon };
 
     const updatedCards = Object.values(cardDataJson.forClients).map((card) => ({
       ...card,
-      bgImage: BG_IMAGES[card["bg-image"]], // Сопостовляем пути к изображениям
+      bgImage: BG_IMAGES[card["bg-image"]],
+      IconComponent: ICONS[card["icon"]] || null,
     }));
 
     setCards(updatedCards);
@@ -49,10 +55,12 @@ const ForClientsMain = () => {
             key={index}
             title={t(cardData.title)}
             bgImage={cardData.bgImage}
+            IconComponent={cardData.IconComponent}
             links={Array.isArray(cardData.links) ? cardData.links.map((link) => ({
               href: link.href,
               label: t(link.label)
             })) : []}
+            customClass={`clientsCard-${index + 1}`}
           />
         ))}
       </div>
@@ -65,6 +73,7 @@ ForClientsMain.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       bgImage: PropTypes.string.isRequired,
+      IconComponent: PropTypes.elementType,
       links: PropTypes.arrayOf(
         PropTypes.shape({
           href: PropTypes.string.isRequired,

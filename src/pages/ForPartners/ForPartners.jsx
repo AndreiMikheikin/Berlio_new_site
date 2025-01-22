@@ -3,11 +3,13 @@ import { Helmet } from 'react-helmet-async';
 import Header from '../../components/ComplexComponents/Header/Header';
 import Navigation from '../../components/ComplexComponents/Navigation/Navigation';
 import SearchInput from '../../components/SearchInput/SearchInput';
+import ForPartnersMain from '../../components/ComplexComponents/ForPartnersMain/ForPartnersMain';
+import PartnersAdvantagesSection from '../../components/ComplexComponents/PartnersAdvantagesSection/PartnersAdvantagesSection';
+import FAQSection from '../../components/ComplexComponents/FAQSection/FAQSection';
 import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 
 import { useTranslation } from 'react-i18next';
-import ForPartnersMain from '../../components/ComplexComponents/ForPartnersMain/ForPartnersMain';
 
 const ForPartners = () => {
   const { t } = useTranslation();
@@ -25,6 +27,8 @@ const ForPartners = () => {
       <Navigation />
       <SearchInput placeholder={t('search')} />
       <ForPartnersMain />
+      <PartnersAdvantagesSection />
+      <FAQSection category="partnersFAQ" />
       <Footer />
       <SecondaryFooter />
     </>
