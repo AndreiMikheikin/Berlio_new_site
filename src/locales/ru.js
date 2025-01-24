@@ -111,6 +111,7 @@ const ru = {
             forPartners: "Для партнеров",
             forClients: "Для клиентов",
             news: "Новости",
+            detailedNews: "Детали новости",
         },
 
         // Для MainBlock
@@ -340,6 +341,14 @@ const ru = {
             linkToNews: "К деталям новости",
             prev: "влево",
             next: "вправо",
+        },
+
+        // Для DetailedNewsMain
+        detailedNewsMain: {
+            name: "Детали новости",
+            notFound: "Новость не найдена",
+            backToNews: "Вернуться к новостям",
+            date: "Дата",
         },
 
         // Для OurPartnersLogoSection

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../../styles/components/ComplexComponents/NewsBlock.scss';
 import SortDropdown from '../../SortDropdown/SortDropdown';
+import slugify from 'slugify';
 
 import newsData from '../../../data/newsData.json';
 import { useTranslation } from 'react-i18next';
@@ -14,15 +15,14 @@ const NewsBlock = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const newsPerPage = 4;
 
-    // Получаем текущую дату
+    // Текущая дата
     const currentDate = new Date();
 
-    // Функция для проверки, актуальна ли новость
+    // Проверка актуальности новостей
     const isValidDate = (startDate, expireDate) => {
         const start = startDate ? new Date(startDate) : null;
         const expire = expireDate ? new Date(expireDate) : null;
 
-        // Проверка, что новость можно показывать по датам
         return (
             (start === null && (expire === null || currentDate <= expire)) ||
             (expire === null && start !== null && currentDate >= start) ||
@@ -30,24 +30,29 @@ const NewsBlock = () => {
         );
     };
 
-    // Преобразуем данные из JSON и фильтруем по актуальности
-    const news = Object.keys(newsData)
-        .map((id) => ({
-            id,
-            ...newsData[id],
-        }))
-        .filter((newsItem) => isValidDate(newsItem.dates.startDate, newsItem.dates.expireDate));
+    // Генерация slug динамически
+    const processedNewsData = Object.keys(newsData).map((id) => {
+        const newsItem = { id, ...newsData[id] };
 
-    // Сортируем новости
-    const sortedNews = [...news].sort((a, b) => {
-        return sortOrder === 'new'
-            ? new Date(b.dates.date) - new Date(a.dates.date)
-            : new Date(a.dates.date) - new Date(b.dates.date);
+        if (!newsItem.slug && newsItem.titles.en) {
+            newsItem.slug = slugify(newsItem.titles.en, { lower: true, strict: true });
+        }
+
+        return newsItem;
     });
 
+    // Фильтрация и сортировка новостей
+    const filteredAndSortedNews = processedNewsData
+        .filter((newsItem) => isValidDate(newsItem.dates.startDate, newsItem.dates.expireDate))
+        .sort((a, b) => {
+            return sortOrder === 'new'
+                ? new Date(b.dates.date) - new Date(a.dates.date)
+                : new Date(a.dates.date) - new Date(b.dates.date);
+        });
+
     // Пагинация
-    const totalPages = Math.ceil(sortedNews.length / newsPerPage);
-    const paginatedNews = sortedNews.slice(
+    const totalPages = Math.ceil(filteredAndSortedNews.length / newsPerPage);
+    const paginatedNews = filteredAndSortedNews.slice(
         (currentPage - 1) * newsPerPage,
         currentPage * newsPerPage
     );
@@ -89,7 +94,7 @@ const NewsBlock = () => {
 
     const navigate = useNavigate();
 
-    // Функция для форматирования даты
+    // Форматирование даты
     const formatDate = (date) => {
         const options = {
             year: 'numeric',
@@ -127,7 +132,7 @@ const NewsBlock = () => {
                     <div
                         key={newsItem.id}
                         className="aam_news-block__item"
-                        onClick={() => navigate(`/news/${newsItem.id}`)}
+                        onClick={() => navigate(`/news/${newsItem.slug || newsItem.id}`)}
                     >
                         <p className="aam_news-block__item-date">{formatDate(newsItem.dates.date)}</p>
                         <h3 className="aam_news-block__item-title">

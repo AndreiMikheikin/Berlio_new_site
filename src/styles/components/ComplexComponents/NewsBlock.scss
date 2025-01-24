@@ -38,6 +38,7 @@
         grid-template-columns: repeat(auto-fit, minmax(1180px, 1fr));
         gap: 15px;
         margin-bottom: 24px;
+        min-height: 532px;
     }
 
     &__item {
@@ -51,6 +52,7 @@
         cursor: pointer;
         scale: 1;
         transition: box-shadow 0.3s ease, scale 0.3s ease;
+        height: fit-content;
 
         &:hover {
             scale: 1.01;

@@ -1,5 +1,6 @@
 {
     "5": {
+        "slug": "news-five",
         "priority": "B",
         "dates": {
             "date": "2025-01-05",
@@ -11,11 +12,12 @@
             "en": "News 5"
         },
         "descriptions": {
-            "ru": "",
-            "en": ""
+            "ru": "Описание новости",
+            "en": "News Description"
         }
     },
     "4": {
+        "slug": "news-four",
         "priority": "B",
         "dates": {
             "date": "2025-01-04",
@@ -27,11 +29,12 @@
             "en": "News 4"
         },
         "descriptions": {
-            "ru": "",
-            "en": ""
+            "ru": "Описание новости",
+            "en": "News Description"
         }
     },
     "3": {
+        "slug": "news-three",
         "priority": "A",
         "dates": {
             "date": "2025-01-03",
@@ -43,11 +46,12 @@
             "en": "News 3"
         },
         "descriptions": {
-            "ru": "",
-            "en": ""
+            "ru": "Описание новости",
+            "en": "News Description"
         }
     },
     "2": {
+        "slug": "news-two",
         "priority": "B",
         "dates": {
             "date": "2025-01-02",
@@ -59,11 +63,12 @@
             "en": "News 2"
         },
         "descriptions": {
-            "ru": "",
-            "en": ""
+            "ru": "Описание новости",
+            "en": "News Description"
         }
     },
     "1": {
+        "slug": "news-one",
         "priority": "B",
         "dates": {
             "date": "2025-01-01",
@@ -75,8 +80,8 @@
             "en": "News 1"
         },
         "descriptions": {
-            "ru": "",
-            "en": ""
+            "ru": "Описание новости",
+            "en": "News Description"
         }
     }
 }

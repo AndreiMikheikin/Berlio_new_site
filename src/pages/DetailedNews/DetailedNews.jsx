@@ -5,7 +5,7 @@ import Navigation from '../../components/ComplexComponents/Navigation/Navigation
 import SearchInput from '../../components/SearchInput/SearchInput';
 import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
-
+import DetailedNewsMain from '../../components/ComplexComponents/DetailedNewsMain/DetailedNewsMain';
 import { useTranslation } from 'react-i18next';
 
 const DetailedNews = () => {
@@ -23,6 +23,7 @@ const DetailedNews = () => {
       <Header />
       <Navigation />
       <SearchInput placeholder={t('search')} />
+      <DetailedNewsMain />
       <Footer />
       <SecondaryFooter />
     </>

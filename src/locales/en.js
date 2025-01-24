@@ -111,6 +111,7 @@ const en = {
             forPartners: "For Partners",
             forClients: "For Clients",
             news: "News",
+            detailedNews: "News Details",
         },
 
         // For MainBlock
@@ -339,6 +340,14 @@ const en = {
             linkToNews: "News details",
             prev: "left",
             next: "right",
+        },
+
+        // For DetailedNewsMain
+        detailedNewsMain: {
+            name: "News details",
+            notFound: "News not found",
+            backToNews: "Back to News",
+            date: "Date",
         },
 
         // For OurPartnersLogoSection

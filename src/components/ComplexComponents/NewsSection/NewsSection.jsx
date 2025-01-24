@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import '../../../styles/components/ComplexComponents/NewsSection.scss';
 import LeftArrowIcon from '../../SVGIcons/LeftArrowIcon';
 import RightArrowIcon from '../../SVGIcons/RightArrowIcon';
-import LinkTo from '../../LinkTo/LinkTo';
+import LinkTo from '../../LinkTo/LinkTo'; // Убедитесь, что компонент LinkTo существует
 
 const NewsSection = () => {
     const { t, i18n } = useTranslation();
@@ -94,9 +94,9 @@ const NewsSection = () => {
                         </button>
 
                         {/* Ссылка на страницу новости */}
-                        <LinkTo 
+                        <LinkTo
                             className='aam_news-section__link-to'
-                            href={`/news/${featuredNews.id}`}
+                            href={`/news/${featuredNews.slug || featuredNews.id}`}
                             text={t('newsSection.linkToNews')}
                         />
                     </div>
