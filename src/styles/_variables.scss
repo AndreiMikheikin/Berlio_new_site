@@ -3,6 +3,7 @@
 @use './tokens' as aam;  // Подключаем _tokens.scss и задаем префикс aam
 
 // Основные цвета
+$background-selection: aam.$aam_background-selection;
 $background-color: aam.$aam_background-color;
 $background-hover: aam.$aam_background-hover;
 $error-color: aam.$aam_error-color;
