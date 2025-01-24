@@ -64,12 +64,11 @@
             &__description {
                 @include m.text-p1;
                 color: $error-color;
-                transform: scale(1) rotateY(1deg);
-                transition: all 1.7s ease;
             }
 
             &__description:hover {
-                transform: scale(3) rotateY(719deg);
+                background-color: $error-color;
+                color: $white;
             }
         }
 

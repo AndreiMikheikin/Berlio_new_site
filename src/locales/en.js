@@ -205,6 +205,36 @@ const en = {
             },
         },
 
+        // For PartnersAdvantagesSection
+        partnersAdvantages: {
+            name: "Advantages for “BERLIO” Partners",
+            documentsCycle: "Online processing and full document cycle",
+            documentsCycleTagline: "we provide complete accounting and operate efficiently",
+            billPrint: "Fiscal receipt printing",
+            billPrintTagline: "the ability to print a fiscal receipt directly from the personal account",
+            location: "Convenient office location",
+            locationTagline: "easy to reach us: the office is a 4-minute walk from the “Kovalskaya Sloboda” metro station",
+        },
+
+        // For PartnersFAQ
+        partners: {
+            faq_title: "Frequently Asked Questions",
+            questions: {
+                question1: "How to become a partner?",
+                question2: "What is required to sign a contract?",
+                question3: "What are the benefits for partners?",
+                question4: "How to get a reconciliation statement for fuel settlements?",
+                question5: "How to make a payment under the contract?",
+            },
+            answers: {
+                answer1: "This section contains information regarding this question.",
+                answer2: "This section contains information regarding this question.",
+                answer3: "This section contains information regarding this question.",
+                answer4: "This section contains information regarding this question.",
+                answer5: "This section contains information regarding this question.",
+            },
+        },
+
         // For ForClientsMain
         forClientsMain: {
             title: "For Clients",
@@ -232,6 +262,36 @@ const en = {
                 label16: "App 'TATNEFT BY Gas Stations'",
                 label17: "Self-Service Kiosk for Gas Station Networks",
                 label18: "Software 'Personal Account Client'",
+            },
+        },
+
+        // Для ClientsAdvantagesSection
+        clientsAdvantages: {
+            name: "Advantages for “BERLIO” Clients",
+            customerService: "24/7 Customer Service",
+            customerServiceTagline: "prompt technical support for clients at any time of the day",
+            dealSign: "Online contract signing",
+            dealSignTagline: "or at the office, a 4-minute walk from the “Kovalskaya Sloboda” metro station",
+            personalCabinet: "Multifunctional personal account",
+            personalCabinetTagline: "supported by many gas stations in Belarus and offers rich functionality",
+        },
+
+        // For ClientsFAQ
+        clients: {
+            faq_title: "Frequently Asked Questions",
+            questions: {
+                question1: "How to become a client?",
+                question2: "What is required to sign a contract?",
+                question3: "How to register an on-board device?",
+                question4: "What is the procedure for blocking/unblocking an on-board device?",
+                question5: "How to make a payment under the contract?",
+            },
+            answers: {
+                answer1: "This section contains information regarding this question.",
+                answer2: "This section contains information regarding this question.",
+                answer3: "This section contains information regarding this question.",
+                answer4: "This section contains information regarding this question.",
+                answer5: "This section contains information regarding this question.",
             },
         },
 
@@ -273,7 +333,7 @@ const en = {
             actualBlockDescription3: "Something needs to be written!",
         },
 
-        // Для NewsSection
+        // For NewsSection
         newsSection: {
             title: "Latest news",
             linkToNews: "News details",
@@ -281,13 +341,16 @@ const en = {
             next: "right",
         },
 
-        // Для Our Partners LogoSection
+        // For OurPartnersLogoSection
         ourPartnersLogoSection: {
             name: "Our Partners",
             mapLink: "GS List",
             homeLink: "Home",
             upLink: "Up",
         },
+
+        // For OurClientsLogoSection
+        ourClientsLogoSection: "Our Clients",
 
         // For Footer
         telFax: "(tel / fax)",

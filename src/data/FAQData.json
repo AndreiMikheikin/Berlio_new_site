@@ -1,23 +1,38 @@
 {
-    "partnersFAQ": [
-      {
-        "question": "Как стать партнером?",
-        "answer": "Чтобы стать партнером, свяжитесь с нашей службой поддержки через контактную форму."
-      },
-      {
-        "question": "Какие преимущества у партнеров?",
-        "answer": "Партнеры получают эксклюзивные скидки и рекламные материалы."
-      }
-    ],
-    "clientsFAQ": [
-      {
-        "question": "Как осуществить оплату?",
-        "answer": "Оплату можно сделать с помощью кредитных карт, банковского перевода или PayPal через наш безопасный платежный шлюз."
-      },
-      {
-        "question": "Что делать, если возникла проблема с заказом?",
-        "answer": "Пожалуйста, свяжитесь с нашей службой поддержки, и мы поможем решить проблему."
-      }
-    ]
+  "partnersFAQ": {
+    "faq_title": "partners.faq_title",
+    "questions": {
+      "question1": "partners.questions.question1",
+      "question2": "partners.questions.question2",
+      "question3": "partners.questions.question3",
+      "question4": "partners.questions.question4",
+      "question5": "partners.questions.question5"
+    },
+    "answers": {
+      "answer1": "partners.answers.answer1",
+      "answer2": "partners.answers.answer2",
+      "answer3": "partners.answers.answer3",
+      "answer4": "partners.answers.answer4",
+      "answer5": "partners.answers.answer5"
+    }
+  },
+
+
+  "clientsFAQ": {
+    "faq_title": "clients.faq_title",
+    "questions": {
+      "question1": "clients.questions.question1",
+      "question2": "clients.questions.question2",
+      "question3": "clients.questions.question3",
+      "question4": "clients.questions.question4",
+      "question5": "clients.questions.question5"
+    },
+    "answers": {
+      "answer1": "clients.answers.answer1",
+      "answer2": "clients.answers.answer2",
+      "answer3": "clients.answers.answer3",
+      "answer4": "clients.answers.answer4",
+      "answer5": "clients.answers.answer5"
+    }
   }
-  
+}

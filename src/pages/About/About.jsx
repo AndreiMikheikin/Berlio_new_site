@@ -6,14 +6,14 @@ import SearchInput from '../../components/SearchInput/SearchInput';
 import MainAbout from '../../components/ComplexComponents/MainAbout/MainAbout';
 import SystemSection from '../../components/ComplexComponents/SystemSection/SystemSection';
 import SystemPurposeSection from '../../components/ComplexComponents/SystemPurposeSection/SystemPurposeSection';
-
+import ClientPartnersServicesSection from '../../components/ComplexComponents/ClientPartnersServicesSection/clientPartnersServicesSection';
 import LogoSection from '../../components/ComplexComponents/LogoSection/LogoSection';
 import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 
 import partnersLogos from '../../data/partnersLogoData.json';
 import { useTranslation } from 'react-i18next';
-import ClientPartnersServicesSection from '../../components/ComplexComponents/ClientPartnersServicesSection/clientPartnersServicesSection';
+
 
 
 const About = () => {

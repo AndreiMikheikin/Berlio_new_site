@@ -6,13 +6,17 @@ import SearchInput from '../../components/SearchInput/SearchInput';
 import ForPartnersMain from '../../components/ComplexComponents/ForPartnersMain/ForPartnersMain';
 import PartnersAdvantagesSection from '../../components/ComplexComponents/PartnersAdvantagesSection/PartnersAdvantagesSection';
 import FAQSection from '../../components/ComplexComponents/FAQSection/FAQSection';
+import LogoSection from '../../components/ComplexComponents/LogoSection/LogoSection';
 import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 
+import partnersLogos from '../../data/partnersLogoData.json';
 import { useTranslation } from 'react-i18next';
 
 const ForPartners = () => {
   const { t } = useTranslation();
+
+  const isProduction = process.env.NODE_ENV === 'production';
 
   return (
     <>
@@ -29,6 +33,15 @@ const ForPartners = () => {
       <ForPartnersMain />
       <PartnersAdvantagesSection />
       <FAQSection category="partnersFAQ" />
+      <LogoSection
+                title={t('ourPartnersLogoSection.name')}
+                logos={partnersLogos.logos}
+                logoBasePath={
+                    isProduction
+                        ? `${process.env.PUBLIC_URL}/assets/images`
+                        : '/assets/images'
+                }
+            />
       <Footer />
       <SecondaryFooter />
     </>
