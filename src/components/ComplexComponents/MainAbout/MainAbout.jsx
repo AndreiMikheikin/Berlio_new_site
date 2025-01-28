@@ -19,7 +19,7 @@ const MainAbout = () => {
             <h1 className="aam_about-block__title">{t('aboutBlock.name')}</h1>
 
             {/* Image */}
-            <img src={mainAboutJPG} alt={t('aboutBlock.alt')} className="aam_about-block__image" />
+            <img src={mainAboutJPG} alt={t('aboutBlock.alt')} className="aam_about-block__image" loading="lazy" />
 
             {/* Description */}
             <div className="aam_about-block__description">{t('aboutBlock.description')}</div>

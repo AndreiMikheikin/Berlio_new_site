@@ -8,6 +8,7 @@ const en = {
             news: "S&P LLC 'Berlio' - News",
             equipment: "S&P LLC 'Berlio' - Equipment and Software",
             forClients: "S&P LLC 'Berlio' - For Clients",
+            signAndResign: "S&P LLC 'Berlio' - Signing and re-signing of the agreement",
             forPartners: "S&P LLC 'Berlio' - For Partners",
             detailedNews: "S&P LLC 'Berlio' - News Details",
         },
@@ -112,6 +113,7 @@ const en = {
             forClients: "For Clients",
             news: "News",
             detailedNews: "News Details",
+            signAndResign: "Signing and re-signing of the agreement",
         },
 
         // For MainBlock
@@ -295,6 +297,51 @@ const en = {
                 answer5: "This section contains information regarding this question.",
             },
         },
+
+        // For SignAndResignMain
+        signAndResignMain: {
+            name: "Service in the electronic payment system 'BERLIO'",
+            description: "The electronic payment system 'BERLIO' (hereinafter referred to as the 'BERLIO' payment system) is a community of users: Participants and Clients interacting according to established rules.",
+            purpose: "The purchase and payment for petroleum products, goods, works, and services are carried out at the trade and service facilities (TSFs) of the 'BERLIO' payment system using 'BERLIO' electronic money with the use of:",
+            list1: {
+                item1: "BERLIO electronic cards;",
+                item2: "BERLIO plastic electronic cards;",
+                item3: "other identification information carriers;",
+                item4: "or their virtual equivalents",
+            },
+            participants: "Participants of the 'BERLIO' payment system (payment service providers)",
+            operator: "Operator",
+            operatorTagline: "S&P LLC 'BERLIO'",
+            agents: "Agents",
+            agentsTagline: "organizations servicing their own Clients using the 'BERLIO' payment system, may have TSFs",
+            emissioner: "Issuer",
+            emissionerTagline: "OJSC 'Belgazprombank'",
+            tradeAndServiceObject: "TSF",
+            tradeAndServiceObjectTagline: "trade and service facilities (gas stations, service stations, car washes, etc.)",
+            serviseCenter: "SC",
+            serviseCenterTagline: "service center",
+            customerService: "Client servicing is carried out on the basis of:",
+            list2: {
+                item1: "an agreement of joining the 'BERLIO' electronic payment system servicing – with the Operator (Operator's SC)",
+                item2: "an agreement for opening and servicing an electronic wallet, purchasing electronic money – with the Issuer (Settlement Center)",
+            },
+            systemUsage: "The use of the 'BERLIO' payment system is carried out upon the availability of original documents from the Client:",
+            list3: {
+                item1: "application for joining;",
+                item2: "agreement with the Issuer;",
+                item3: "other agreements (according to the services requested by the Client);",
+            },
+            documentsTitle: "Documents (LPSA) of 'BERLIO' payment system participants for review",
+            operatorDocumentsTitle: "Operator's documents",
+            cardTitle1: "Rules of the operator of the 'BERLIO' electronic payment system",
+            cardTitle2: "Rules for servicing in the 'BERLIO' electronic payment system",
+            cardTitle3: "Agreement of joining the servicing in the 'BERLIO' electronic payment system",
+            emissionerDocumentsTitle: "Issuer's documents",
+            cardTitle4: "Rules of the issuer of 'BERLIO' electronic money",
+            cardTitle5: "Agreement for opening and servicing an electronic wallet",
+            footer: "Agreements are concluded based on the standard forms established by the participants of the 'BERLIO' payment system",
+        },
+
 
         // For NewsBlock
         newsBlock: {

@@ -61,6 +61,7 @@ const ForClientsMain = () => {
               label: t(link.label)
             })) : []}
             customClass={`clientsCard-${index + 1}`}
+            loading="lazy"
           />
         ))}
       </div>

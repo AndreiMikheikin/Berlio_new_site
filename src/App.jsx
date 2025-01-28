@@ -10,6 +10,7 @@ import Contacts from './pages/Contacts/Contacts';
 import DetailedNews from './pages/DetailedNews/DetailedNews';
 import Equipment from './pages/Equipment/Equipment';
 import ForClients from './pages/ForClients/ForClients';
+import SignAndResign from './pages/SIgnAndResign/SignAndResign';
 import ForPartners from './pages/ForPartners/ForPartners';
 import News from './pages/News/News';
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/news/:id" element={<DetailedNews />} />
           <Route path="/equipment" element={<Equipment />} />
           <Route path="/clients" element={<ForClients />} />
+          <Route path="/clients/signAndResign" element={<SignAndResign />} />
           <Route path="/partners" element={<ForPartners />} />
         </Routes>
       </Router>

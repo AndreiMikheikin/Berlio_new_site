@@ -47,6 +47,7 @@ const LogoSection = ({ title, logos, logoBasePath }) => {
                                 src={`${logoBasePath}/${logo.src}`}
                                 alt={logo.alt}
                                 className="aam_logo-section__logo-image"
+                                loading="lazy"
                             />
                         </div>
                     ))}

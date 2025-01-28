@@ -12,7 +12,7 @@ const CardBox = ({ CSSSelectorPrefix, Icon, title, description }) => {
             )}
             <h3 className={`${CSSSelectorPrefix}__card-title`}>{title}</h3>
             {description && (
-                <p className={`${CSSSelectorPrefix}__description`}>{description}</p>
+                <p className={`${CSSSelectorPrefix}__card-description`}>{description}</p>
             )}
         </div>
     );

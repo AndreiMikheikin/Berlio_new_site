@@ -31,6 +31,16 @@
     text-decoration-skip-ink: none;
 }
 
+@mixin heading-h4 {
+    font-family: $font-family-secondary;
+    font-size: calc($font-size-large - 3px);
+    font-weight: $font-weight-bold;
+    line-height: 28.2px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
 @mixin text-p1 {
     font-family: $font-family-primary;
     font-size: $font-size-regular;

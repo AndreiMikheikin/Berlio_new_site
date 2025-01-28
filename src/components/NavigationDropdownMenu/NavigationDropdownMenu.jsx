@@ -73,9 +73,9 @@ const menuContent = {
       "title": "electronicPaymentSystem",
       "links": [
         {
-          "href": "#link1",
+          "href": "/#/clients/signAndResign",
           "text": "contractConclusion",
-          "target": ""
+          "target": "_self"
         },
         {
           "href": "#link2",

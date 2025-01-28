@@ -41,8 +41,8 @@ const ContactAddress = ({ item }) => {
 ContactAddress.propTypes = {
     item: PropTypes.shape({
         address: PropTypes.string.isRequired,
-        workingHours: PropTypes.string.isRequired,
-        email: PropTypes.string.isRequired,
+        workingHours: PropTypes.arrayOf(PropTypes.string).isRequired,
+        email: PropTypes.arrayOf(PropTypes.string).isRequired,
     }),
 };
 

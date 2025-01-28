@@ -58,6 +58,7 @@ const ForPartnersMain = () => {
               label: t(link.label)
             })) : []}
             customClass={`partnersCard-${index + 1}`}
+            loading="lazy"
           />
         ))}
       </div>

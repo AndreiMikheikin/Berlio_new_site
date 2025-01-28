@@ -11,12 +11,13 @@ import { useTranslation } from 'react-i18next';
 const ActualBlock = ({ title, description, imageUrl, href }) => {
     return (
         <div className="aam_actual-block">
-            <img src={imageUrl} alt={title} className="aam_actual-block__image" />
+            <img src={imageUrl} alt={title} className="aam_actual-block__image" loading="lazy" />
             <div className="aam_actual-block__content">
                 <h3 className="aam_actual-block__title">{title}</h3>
                 <p className="aam_actual-block__description">{description}</p>
                 <LinkTo
                     href={href}
+                    text=''
                 />
             </div>
         </div>

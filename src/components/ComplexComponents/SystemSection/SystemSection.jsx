@@ -50,8 +50,8 @@ const SystemSection = () => {
 
             {/* Images */}
             <div className="aam_system-section__images">
-                <img src={SySJPG1} alt={t('systemSection.alt1')} className="aam_system-section__image" />
-                <img src={SySJPG2} alt={t('systemSection.alt2')} className="aam_system-section__image" />
+                <img src={SySJPG1} alt={t('systemSection.alt1')} className="aam_system-section__image" loading="lazy" />
+                <img src={SySJPG2} alt={t('systemSection.alt2')} className="aam_system-section__image" loading="lazy" />
             </div>
         </section>
     );

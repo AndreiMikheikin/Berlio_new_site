@@ -40,7 +40,7 @@ const SystemPurposeSection = () => {
 
             {/* Image */}
             <div className="aam_purpose-section__images">
-                <img src={FuelDispenser} alt={t('purposeSection.fuelDispenser')} className="aam_purpose-section__image" />
+                <img src={FuelDispenser} alt={t('purposeSection.fuelDispenser')} className="aam_purpose-section__image" loading="lazy" />
             </div>
 
             {/* Card Purpose */}

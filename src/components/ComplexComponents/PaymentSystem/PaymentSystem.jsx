@@ -25,7 +25,7 @@ const PaymentSystem = () => {
                 onClick={handleButtonClick}
                 className="green"
             />
-            <div className="aam_payment-system__image"><img src={GasStationPNG} alt={t('paymentSystem.gasStations')} /></div>
+            <div className="aam_payment-system__image"><img src={GasStationPNG} alt={t('paymentSystem.gasStations')} loading="lazy" /></div>
         </section>
     );
 };

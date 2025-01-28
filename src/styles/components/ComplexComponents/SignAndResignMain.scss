@@ -1,0 +1,130 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_sign-and-resign {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 1280px;
+    padding: 60px 50px;
+
+    &__breadcrumbs {
+        @include m.text-p1;
+        color: $text-disabled;
+        margin-bottom: 15px;
+
+        a {
+            color: $background-color;
+            text-decoration: none;
+
+            &:hover {
+                color: $background-hover;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__header {
+        @include m.heading-h1;
+        font-size: 40px;
+        line-height: 1.1;
+        word-wrap: break-word;
+        margin-bottom: 10px;
+    }
+
+    &__description {
+        @include m.text-p1;
+        margin-bottom: 35px;
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul li {
+            list-style-type: disc;
+            list-style-position: inside;
+            margin-left: 15px;
+        }
+    }
+
+    &__participants {
+        @include m.heading-h3;
+    }
+
+    &__card-boxes {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-bottom: 35px;
+    }
+
+    &__card-box, .aam_service-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        width: 30%;
+        padding: 20px;
+    }
+
+    &__icon {
+        margin-bottom: 10px;
+
+        svg {
+            width: 53px;
+            height: 64px;
+        }
+
+        svg path {
+            fill: #48AE5A;
+        }
+    }
+
+    &__card-title {
+        @include m.heading-h3;
+    }
+
+    &__card-description {
+        @include m.text-p1;
+        text-align: center;
+    }
+
+    &__customer-service, &__system-usage {
+        @include m.text-p1;
+        line-height: 1.5;
+        margin-bottom: 15px;
+
+        ul li {
+            list-style-type: disc;
+            list-style-position: inside;
+            margin-left: 15px;
+        }
+    }
+
+    &__system-usage {
+        margin-bottom: 35px;
+    }
+
+    &__documents-title {
+        @include m.heading-h3;
+        margin-bottom: 30px;
+    }
+
+    &__operator-documents, &__emissioner-documents {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+
+        h3 {
+            @include m.heading-h4;
+        }
+    }
+
+    &__footer {
+        @include m.text-p1;
+    }
+}
