@@ -396,8 +396,9 @@ const en = {
             footer: {
                 beforeTel: "If you have any questions regarding contract signing, call our",
                 tel1: "head office",
-                betweenTels: "or the customer service department",
-                tel2: "You can also call one of our branch offices in Belarus or our representatives in Russia.",
+                betweenTels: "or the ",
+                tel2: "customer service department",
+                afterTel: " You can also call one of our branch offices in Belarus or our representatives in Russia.",
             },
             contactsLink: "Our branches and contacts",
             homeLink: "Home",
