@@ -22,7 +22,7 @@ const Header = () => {
       <LocaleSwitcher className="aam_locale-switcher" />
       <header className="aam_header" id='header' >
         <div className="aam_header__logo" >
-          <Link to="/">
+          <Link to="/" aria-label={t('backToHome')}>
             <Logo />
           </Link>
         </div>

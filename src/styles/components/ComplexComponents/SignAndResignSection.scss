@@ -1,0 +1,193 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_sign-and-resign-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1280px;
+    padding: 60px 50px;
+    gap: 40px;
+
+    &__title {
+        @include m.heading-h2;
+        align-self: flex-start;
+        margin-bottom: -15px;
+    }
+
+    &__description {
+        @include m.text-p1;
+        align-self: self-start;
+    }
+
+    &__dropdown-section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+    }
+
+    .aam_navigation-dropdown {
+        position: relative;
+        align-self: flex-start;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 15px;
+
+        &__toggle {
+            align-self: flex-start;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            @include m.heading-h3;
+            border: none;
+            background: none;
+            cursor: pointer;
+            color: $text-primary;
+            gap: 8px;
+
+            &:hover {
+                color: $text-primary !important;
+
+                .aam_navigation-dropdown__icon path {
+                    fill: $text-primary;
+                }
+            }
+
+            a {
+                text-decoration: underline;
+
+                &:hover {
+                    color: $background-color;
+                }
+            }
+        }
+    }
+
+    &__self-sign-list,
+    &__customer-service-sign-list {
+        position: relative;
+        width: 100%;
+        align-self: flex-start;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+
+        ul {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 30px;
+            margin-left: 20px;
+
+            li {
+                @include m.text-p1;
+                list-style-type: disc;
+                list-style-position: outside;
+                line-height: 24.51px
+            }
+
+            ol {
+                position: relative;
+                padding-left: 65px;
+
+                li {
+                    list-style-type: decimal;
+                    list-style-position: outside;
+                    line-height: 24.51px
+                }
+            }
+        }
+
+        p {
+            @include m.text-p2;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__self-sign-list.open,
+    &__customer-service-sign-list.open {
+        max-height: 2000px;
+        opacity: 1;
+    }
+
+    &__deal-fact {
+        @include m.text-p1;
+        line-height: 24.51px;
+
+        ul {
+            margin-bottom: 10px;
+            margin-left: 15px;
+
+            li {
+                list-style-type: disc;
+                list-style-position: inside;
+            }
+        }
+    }
+
+    &__footer {
+        @include m.text-p1;
+        line-height: 24.51px;
+        
+        a {
+            text-decoration: underline;
+
+            &:hover {
+                color: $background-color;
+            }
+        }
+    }
+
+    &__site-nav {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .aam_link-button {
+        margin-bottom: 50px;
+    }
+
+    .secondary-link {
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: $text-secondary;
+        transition: scale 0.3s ease;
+
+        &:hover {
+            svg {
+                scale: 1.07;
+            }
+
+            svg path {
+                fill: #48AE5A;
+            }
+
+            svg circle {
+                stroke: #48AE5A;
+            }
+        }
+    }
+
+    .home-link {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+        color: $text-secondary;
+    }
+}

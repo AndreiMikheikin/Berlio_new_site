@@ -209,7 +209,7 @@ const NavigationDropdownMenu = ({ isOpen, menuId, currentOpenMenu, onClose }) =>
       className={`aam_navigation-dropdown-menu ${isVisible ? '' : 'hidden'} aam_navigation-dropdown-menu__${menuId}`}
     >
       {/* Кнопка закрытия */}
-      <button className="aam_navigation-dropdown-menu__close" onClick={onClose}>
+      <button className="aam_navigation-dropdown-menu__close" aria-label={t('closeMenu')} onClick={onClose}>
         <CloseIcon />
       </button>
 

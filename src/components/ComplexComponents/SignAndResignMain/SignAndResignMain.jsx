@@ -34,7 +34,7 @@ const SignAndResignMain = () => {
             {/* Description */}
             <div className="aam_sign-and-resign__description">
                 <p>{t('signAndResignMain.description')}</p>
-                <strong>{t('signAndResignMain.purpose')}</strong>
+                <strong>{t('signAndResignMain.purposeBeforeLink')}<a href="https://map.berlio.by" target="_blank">{t('signAndResignMain.purposeLink')}</a>{t('signAndResignMain.purposeAfterLink')} </strong>
                 <ul>
                     <li>{t('signAndResignMain.list1.item1')}</li>
                     <li>{t('signAndResignMain.list1.item2')}</li>

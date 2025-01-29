@@ -19,6 +19,7 @@ const en = {
         searchAzs: "GS Search",
         personalAccount: "Personal Account",
         customerService: "Customer Service",
+        backToHome: "back home",
 
         // Minsk
         companyName: "S&P LLC “BERLIO”",
@@ -64,6 +65,7 @@ const en = {
         news: "News",
         equipmentAndSoftware: "Equipment and Software",
         contacts: "Contacts",
+        closeMenu: "Close menu",
 
         // For search
         noResult: "No results found for \"{{query}}\".",
@@ -302,7 +304,9 @@ const en = {
         signAndResignMain: {
             name: "Service in the electronic payment system 'BERLIO'",
             description: "The electronic payment system 'BERLIO' (hereinafter referred to as the 'BERLIO' payment system) is a community of users: Participants and Clients interacting according to established rules.",
-            purpose: "The purchase and payment for petroleum products, goods, works, and services are carried out at the trade and service facilities (TSFs) of the 'BERLIO' payment system using 'BERLIO' electronic money with the use of:",
+            purposeBeforeLink: "The purchase and payment for petroleum products, goods, works, and services are carried out at the ",
+            purposeLink: "trade and service facilities (TSFs) ",
+            purposeAfterLink: "of the 'BERLIO' payment system using 'BERLIO' electronic money with the use of:",
             list1: {
                 item1: "BERLIO electronic cards;",
                 item2: "BERLIO plastic electronic cards;",
@@ -342,6 +346,63 @@ const en = {
             footer: "Agreements are concluded based on the standard forms established by the participants of the 'BERLIO' payment system",
         },
 
+        // For SignAndResignSection
+        signAndResignSection: {
+            name: "Re-signing / Signing a Contract",
+            description: "Due to changes in legislation in the field of payment systems and aligning the standard forms of documents of the payment system 'BERLIO' (the System), Operator Rules, Service Rules, and the implementation of a new service technology, existing Clients are required to re-sign their service contracts. The re-signing and signing of the Participation Agreement is carried out under a new procedure.",
+            dropdown1: "Document Processing",
+            link: "independently",
+            selfSignList: {
+                item1: "perform pre-registration of the client on the website www.lkb.by: on the homepage, click the 'Pre-registration in the electronic payment system BERLIO' button",
+                item2: "familiarize yourself with the Client Registration Card (CRC), the terms and conditions of the Participation Agreement and documents (LNPAs) of the Participants of the 'BERLIO' payment system",
+                item3: "prepare the necessary document package for filling out the CRC and uploading scanned copies",
+                item4: "fill out the CRC:",
+                orderedItem1: "select the Service Center",
+                orderedItem2: "enter the UNP",
+                orderedItem3: "confirm the Client's agreement with the terms and conditions of the documents (LNPAs) by ticking 'Agree'. If there is no agreement/tick, the 'Continue' button will be unavailable. The service of existing Clients (Operator), who have not re-signed contracts, will be terminated unilaterally",
+                orderedItem4: "enter the details of the authorized person ('Master-phone') to perform legally significant actions in the personal account (PC) on the website www.lkb.by, the individual entrepreneur must provide their mobile phone number",
+                orderedItem5: "upload the requested documents for the Operator and Issuer according to the 'Document List' and CRC",
+                orderedItem6: "check the completeness and accuracy of the data, if inaccurate, edit them, and if there are empty fields, fill them in. If there is insufficient information to fill out, save the CRC by clicking 'Save', and you can continue filling it out on the homepage www.lkb.by by clicking the 'Pre-registration in the electronic payment system BERLIO' button and entering the UNP in the CRC field",
+                orderedItem7: "after completing the actions, click the 'Save' and 'Send' buttons for verification by the selected Service Center (initially chosen) to check compliance with the BERLIO payment system requirements",
+                orderedItem8: "wait for an SMS message to the 'Master-phone' confirming the pre-registration, which will be sent within 5 business days from the moment the documents are received by the Service Center (this period is valid during the re-signing of contracts and the transition to the new procedure) for further document formation and signing",
+                orderedItem9: "upon confirmation of pre-registration, proceed with registration in the personal account on the website www.lkb.by",
+                orderedItem10: "if pre-registration is rejected, contact the initially chosen Service Center to clarify the non-compliance",
+                orderedItem11: "form a Participation Application and Service Termination Agreement (for contract re-signing) in the personal account",
+                orderedItem12: "check in the Participation Application the presence of 'Agree' ticks (automatically set based on client data from the CRC)",
+                orderedItem13: "print the Participation Application and Service Termination Agreement (for contract re-signing), sign, and seal (if applicable)",
+                orderedItem14: "send the document(s) by postal mail or courier to the Operator for authentication/registration of the client in the 'BERLIO' payment system",
+                orderedItem15: "send the document package to the Issuer at the address: JSC 'Belgazprombank', Minsk, 60/2 Prititsky Street, office 301",
+                orderedItem16: "wait for an SMS message to the 'Master-phone' confirming registration and assigning the number and date of the Participation Agreement",
+                orderedItem17: "after receiving the SMS message, the contract re-signing process in the 'Berlio' electronic payment system is considered completed",
+                footer: "The Participation Application submitted and sent by the Client to the Operator's email or fax is not accepted",
+                secondaryFooter: "The status of the submitted documents can be checked in the personal account",
+            },
+            dropdown2: "Document Processing at the Operator’s Service Center",
+            customerServiceSignList: {
+                item1: "familiarize yourself with the terms and conditions of the Participation Agreement and documents (LNPAs) of the Participants of the 'BERLIO' payment system, CRC",
+                item2: "prepare, sign, and seal (if applicable) documents for the Issuer (contract details, agreement, etc., client questionnaire) according to the document list",
+                item3: "prepare the necessary document package for CRC and Participation Application. The requested documents may be provided in electronic form (scans on an electronic medium)",
+                item4: "contact the Operator’s Service Center located near the Client (head office or regional Service Centers)",
+                item5: "provide the necessary document package for CRC, Participation Application, and upload scans by the Service Center specialists",
+                item6: "sign, seal (if applicable) the Participation Application, Service Termination Agreement (for contract re-signing), provided by the Service Center specialists",
+                item7: "return 1 original copy to the Service Center specialist",
+            },
+            dealFact: "The fact of the client’s participation in the Participation Agreement is considered confirmed upon registration of the client in the 'BERLIO' payment system, and the signed Participation Application:",
+            dealFactList: {
+                item1: "the Participation Agreement number is the registration number of the Participation Application",
+                item2: "the Participation Agreement date is the registration date of the Participation Application",
+                item3: "the place of composition is the location of the Service Center selected by the Client during registration",
+            },
+            footer: {
+                beforeTel: "If you have any questions regarding contract signing, call our",
+                tel1: "head office",
+                betweenTels: "or the customer service department",
+                tel2: "You can also call one of our branch offices in Belarus or our representatives in Russia.",
+            },
+            contactsLink: "Our branches and contacts",
+            homeLink: "Home",
+            upLink: "Back to Top",
+        },
 
         // For NewsBlock
         newsBlock: {

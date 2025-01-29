@@ -24,8 +24,10 @@ const NavigationDropdown = ({
             <button
                 className="aam_navigation-dropdown__toggle"
                 onClick={handleToggle}
-                style={{ color: isOpen ? openColor : closedColor,
-                    ':hover': { color: hoverColor }, }}
+                style={{
+                    color: isOpen ? openColor : closedColor,
+                    ':hover': { color: hoverColor },
+                }}
             >
                 {label}
                 <DropdownIcon
@@ -40,7 +42,7 @@ const NavigationDropdown = ({
 };
 
 NavigationDropdown.propTypes = {
-    label: PropTypes.string.isRequired,
+    label: PropTypes.node,
     closedColor: PropTypes.string,
     openColor: PropTypes.string,
     hoverColor: PropTypes.string,

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import '../../../styles/components/ComplexComponents/PaymentSystem.scss';
 import Button from '../../Button/Button';
 import GasStationPNG from '../../../assets/images/gas-station.png';
@@ -7,9 +8,10 @@ import { useTranslation } from 'react-i18next';
 
 const PaymentSystem = () => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
 
     const handleButtonClick = () => {
-        console.log('Navigate to: Страница "Заключение и перезаключение договора"');
+        navigate("/clients/signAndResign");
     };
 
     return (

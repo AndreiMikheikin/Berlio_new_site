@@ -42,6 +42,14 @@
             margin-bottom: 15px;
         }
 
+        strong a{
+            text-decoration: underline;
+
+            &:hover {
+                color: $background-color;
+            }
+        }
+
         ul li {
             list-style-type: disc;
             list-style-position: inside;

@@ -4,6 +4,7 @@ import Header from '../../components/ComplexComponents/Header/Header';
 import Navigation from '../../components/ComplexComponents/Navigation/Navigation';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import SignAndResignMain from '../../components/ComplexComponents/SignAndResignMain/SignAndResignMain';
+import SignAndResignSection from '../../components/ComplexComponents/SignAndResignSection/SignAndResignSection';
 import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 
@@ -25,6 +26,7 @@ const SignAndResign = () => {
       <Navigation />
       <SearchInput placeholder={t('search')} />
       <SignAndResignMain />
+      <SignAndResignSection />
       <Footer />
       <SecondaryFooter />
     </>
