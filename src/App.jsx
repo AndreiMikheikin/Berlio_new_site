@@ -15,6 +15,8 @@ import GettingElectronicCard from './pages/GettingElectronicCard/GettingElectron
 import ForPartners from './pages/ForPartners/ForPartners';
 import News from './pages/News/News';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const App = () => (
   <HelmetProvider>
     <SelectedItemProvider>
@@ -27,8 +29,16 @@ const App = () => (
           <Route path="/news/:id" element={<DetailedNews />} />
           <Route path="/equipment" element={<Equipment />} />
           <Route path="/clients" element={<ForClients />} />
-          <Route path="/clients/signAndResign" element={<SignAndResign />} />
-          <Route path="/clients/gettingElectronicCard" element={<GettingElectronicCard />} />
+          <Route
+            path={isProduction
+              ? `${process.env.PUBLIC_URL}/clients/signAndResign`
+              : "/clients/signAndResign"}
+            element={<SignAndResign />} />
+          <Route
+            path={isProduction
+              ? `${process.env.PUBLIC_URL}/clients/gettingElectronicCard`
+              : "/clients/gettingElectronicCard"}
+            element={<GettingElectronicCard />} />
           <Route path="/partners" element={<ForPartners />} />
         </Routes>
       </Router>
