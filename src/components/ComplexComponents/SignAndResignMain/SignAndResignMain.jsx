@@ -12,7 +12,6 @@ const SignAndResignMain = () => {
     const { t } = useTranslation();
 
     const handleLinkClick = (title, link) => {
-        console.log(`Download: ${title}`);
         const linkElement = document.createElement('a');
         linkElement.href = link;
         linkElement.download = title;

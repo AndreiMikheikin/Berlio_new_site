@@ -1,46 +1,57 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import LinkButton from "../../LinkButton/LinkButton";
 import LeftArrowIcon from "../../SVGIcons/LeftArrowIcon";
 import NavigationDropdown from "../../NavigationDropdown/NavigationDropdown";
 import UpArrowInCircleIcon from "../../SVGIcons/UpArrowInCircleIcon";
 import "../../../styles/components/ComplexComponents/SignAndResignSection.scss";
+
 import { useTranslation } from "react-i18next";
 
 const SignAndResignSection = () => {
     const { t } = useTranslation();
 
     const [openDropdown, setOpenDropdown] = useState(null);
+    const [dropdownPositions, setDropdownPositions] = useState({});
+    const [isFixed, setIsFixed] = useState(false);
 
     const dropdownRefs = useRef({});
 
+    // Запоминаем позиции dropdown после рендера
+    useEffect(() => {
+        const positions = {};
+        Object.keys(dropdownRefs.current).forEach(index => {
+            const el = dropdownRefs.current[index];
+            if (el) positions[index] = el.getBoundingClientRect().top + window.scrollY;
+        });
+        setDropdownPositions(positions);
+    }, []);
+
+    // Открытие/закрытие dropdown
     const handleToggle = (index) => {
-        const dropdown = dropdownRefs.current[index];
-        
-        if (!dropdown) return;
+        setOpenDropdown(prev => (prev === index ? null : index));
+    };
+
+    const handleDropdownClick = (index) => {
+        if (index === 2) {
+            const firstDropdown = dropdownRefs.current[1];
+            const secondDropdown = dropdownRefs.current[2];
     
-        // Получаем текущую позицию для первого dropdown
-        if (openDropdown === index) {
-            setOpenDropdown(null);
-        } else {
-            // Если открываем первый dropdown
-            const { top } = dropdown.getBoundingClientRect();
-            let offset;
-            
-            // Для первого dropdown (без учета позиции на экране)
-            if (index === 1) {
-                offset = window.scrollY; // просто scrollY для первого dropdown
+            const firstDropdownHeight = firstDropdown?.offsetHeight || 0;
+            const secondDropdownHeight = secondDropdown?.offsetHeight || 0;
+    
+            let offset = window.scrollY;
+    
+            if (openDropdown === 1) {
+                // Первый открыт → он схлопнется → scrollY уменьшится
+                offset -= firstDropdownHeight;
             } else {
-                // Для второго dropdown добавляем top
-                offset = window.scrollY + top; 
+                // Первый закрыт → корректируем, но вычитаем высоту второго
+                offset = dropdownPositions[2] - dropdownPositions[1] + window.scrollY - secondDropdownHeight;
             }
     
-            setOpenDropdown(index);
-    
-            // Прокручиваем до нужной позиции
-            setTimeout(() => {
-                window.scrollTo({ top: offset });
-            }, 0);
+            // Выполняем прокрутку
+            window.scrollTo({ top: offset, behavior: "smooth" });
         }
     };
 
@@ -73,7 +84,10 @@ const SignAndResignSection = () => {
                     closedColor='black'
                     openColor='black'
                     hoverColor='black'
-                    onToggle={() => handleToggle(1)}
+                    onToggle={() => {
+                        handleDropdownClick(1);
+                        handleToggle(1);
+                    }}
                     onClose={() => setOpenDropdown(null)}
                 />
                 <div
@@ -117,7 +131,10 @@ const SignAndResignSection = () => {
                     closedColor='black'
                     openColor='black'
                     hoverColor='black'
-                    onToggle={() => handleToggle(2)}
+                    onToggle={() => {
+                        handleDropdownClick(2);
+                        handleToggle(2);
+                    }}
                     onClose={() => setOpenDropdown(null)}
                 />
                 <div

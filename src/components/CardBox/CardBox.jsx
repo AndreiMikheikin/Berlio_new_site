@@ -12,7 +12,7 @@ const CardBox = ({ CSSSelectorPrefix, Icon, title, description }) => {
             )}
             <h3 className={`${CSSSelectorPrefix}__card-title`}>{title}</h3>
             {description && (
-                <p className={`${CSSSelectorPrefix}__card-description`}>{description}</p>
+                <div className={`${CSSSelectorPrefix}__card-description`}>{description}</div>
             )}
         </div>
     );
@@ -21,7 +21,7 @@ const CardBox = ({ CSSSelectorPrefix, Icon, title, description }) => {
 CardBox.propTypes = {
     Icon: PropTypes.elementType, // Ожидается React-компонент
     title: PropTypes.string.isRequired,
-    description: PropTypes.string, // Описание карточки
+    description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     CSSSelectorPrefix: PropTypes.string.isRequired,
 };
 

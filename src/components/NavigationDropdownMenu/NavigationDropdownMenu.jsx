@@ -78,7 +78,7 @@ const menuContent = {
           "target": "_self"
         },
         {
-          "href": "#link2",
+          "href": "/#/clients/gettingElectronicCard",
           "text": "eCardReceipt",
           "target": ""
         },

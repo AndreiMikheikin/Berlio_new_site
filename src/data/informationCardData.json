@@ -76,7 +76,7 @@
           "label": "forClientsMain.clientInfo.label1"
         },
         {
-          "href": "#/clients/2",
+          "href": "/#/clients/gettingElectronicCard",
           "label": "forClientsMain.clientInfo.label2"
         },
         {

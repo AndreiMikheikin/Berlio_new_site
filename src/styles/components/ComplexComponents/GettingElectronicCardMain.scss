@@ -1,0 +1,178 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+@include m.card-box-styles(aam_getting-card-main);
+
+.aam_getting-card-main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    width: 1280px;
+    padding: 60px 50px;
+
+    &__breadcrumbs {
+        @include m.text-p1;
+        color: $text-disabled;
+        margin-bottom: 15px;
+
+        a {
+            color: $background-color;
+            text-decoration: none;
+
+            &:hover {
+                color: $background-hover;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__header {
+        @include m.heading-h1;
+        font-size: 40px;
+        line-height: 1.1;
+        word-wrap: break-word;
+        margin-bottom: -5px;
+    }
+
+    &__description {
+        @include m.text-p1;
+        line-height: 24.51px;
+        margin-bottom: 35px;
+
+        ul {
+            margin-bottom: 30px;
+        }
+
+        ul li {
+            list-style-type: disc;
+            list-style-position: inside;
+            margin-left: 15px;
+
+            a{
+                text-decoration: underline;
+    
+                &:hover {
+                    color: $background-color;
+                }
+            }
+        }
+    }
+
+    &__card-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        width: 33%;
+        padding: 20px;
+    }
+
+    &__documents {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        width: 100%;
+        margin-bottom: 50px;
+
+        &--header {
+            @include m.heading-h3;
+        }
+
+        &--footer {
+            @include m.text-p1;
+            line-height: 24.51px;
+
+            &-primary {
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    &__card-boxes {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 10px;
+
+    }
+
+    &__icon {
+        margin-bottom: 10px;
+
+        svg {
+            width: 53px;
+            height: 64px;
+        }
+
+        svg path {
+            fill: #48AE5A;
+        }
+    }
+
+    &__card-title {
+        @include m.heading-h4;
+    }
+
+    &__card-description {
+        @include m.text-p1;
+        text-align: left;
+    }
+
+
+
+    &__site-nav {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .aam_link-button {
+        margin-bottom: 50px;
+    }
+
+    .secondary-link {
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: $text-secondary;
+        transition: scale 0.3s ease;
+
+        &:hover {
+            svg {
+                scale: 1.07;
+            }
+
+            svg path {
+                fill: #48AE5A;
+            }
+
+            svg circle {
+                stroke: #48AE5A;
+            }
+        }
+    }
+
+    .home-link {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+        color: $text-secondary;
+    }
+}

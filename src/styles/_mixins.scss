@@ -68,6 +68,7 @@
         align-items: center;
         justify-content: center;
         gap: 15px;
+        padding: 20px;
     }
 
     .#{$prefix}__icon {
@@ -88,7 +89,7 @@
         text-align: center;
     }
 
-    .#{$prefix}__description {
+    .#{$prefix}__card-description {
         font-family: $font-family-primary;
         font-size: $font-size-regular;
         font-weight: $font-weight-regular;

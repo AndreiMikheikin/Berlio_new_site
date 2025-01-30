@@ -9,6 +9,7 @@ const en = {
             equipment: "S&P LLC 'Berlio' - Equipment and Software",
             forClients: "S&P LLC 'Berlio' - For Clients",
             signAndResign: "S&P LLC 'Berlio' - Signing and re-signing of the agreement",
+            gettingElectronicCard: "S&P LLC 'Berlio' - Receiving an electronic card",
             forPartners: "S&P LLC 'Berlio' - For Partners",
             detailedNews: "S&P LLC 'Berlio' - News Details",
         },
@@ -113,9 +114,10 @@ const en = {
             about: "About Berlio",
             forPartners: "For Partners",
             forClients: "For Clients",
+            signAndResign: "Signing and re-signing of the agreement",
+            gettingCard: "Receiving an electronic card",
             news: "News",
             detailedNews: "News Details",
-            signAndResign: "Signing and re-signing of the agreement",
         },
 
         // For MainBlock
@@ -404,6 +406,41 @@ const en = {
             homeLink: "Home",
             upLink: "Back to Top",
         },
+
+        // For GettingElectronicCardMain
+        gettingCardMain: {
+            name: "Getting an Electronic Card",
+            applicationHeader: "The application for obtaining a 'BERLIO' electronic card is submitted:",
+            list1: {
+                item1: "by personal visit to the Operator's Service Center at the Client's location (head or regional service centers)",
+                item2: "by calling the customer service phone",
+                item3: "by sending an email to customer service:",
+            },
+            mailLink: "info@berlio.by",
+            applicationFooter: "You will receive an invoice for the required number of electronic cards. Payment for the electronic card is made to the settlement account of NP LLC 'BERLIO' according to the issued invoice. The price of the electronic card is determined in accordance with the current price list. The electronic card is issued only after payment.",
+            documentsHeader: "Documents Required for Obtaining an Electronic Card",
+            supervisor: "The Supervisor Needs",
+            supList: {
+                item1: "an order appointing the supervisor",
+                item2: "a passport or driver's license",
+                item3: "a copy of the payment order with a bank mark (regardless of the presence of the 'Client-Bank' electronic system) - if the card is received on the day of payment",
+            },
+            notSupervisor: "Non-Supervisors Need",
+            notSupList: {
+                item1: "a power of attorney for receiving goods and materials",
+                item2: "a passport or driver's license",
+                item3: "a copy of the payment order with a bank mark (regardless of the presence of the 'Client-Bank' electronic system) - if the card is received on the day of payment",
+            },
+            documentsFotterPrimary: "When receiving an electronic card, the holder sets the card category (diesel, gasoline, fuel, or universal) and, if necessary, daily and/or monthly limits.",
+            documentsFotterSecondary: {
+                beforeLink: "Limits can also be set/changed and cards can be blocked/unblocked in the ",
+                afterLink: ", or by submitting a written request to the service department at the contract location.",
+            },
+            lkbLink: "user's personal account",
+            homeLink: "Home",
+            upLink: "Back To Top",
+        },
+
 
         // For NewsBlock
         newsBlock: {
