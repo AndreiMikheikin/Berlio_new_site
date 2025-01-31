@@ -404,7 +404,7 @@ const en = {
             },
             contactsLink: "Our branches and contacts",
             homeLink: "Home",
-            upLink: "Back to Top",
+            upLink: "Up",
         },
 
         // For GettingElectronicCardMain
@@ -438,7 +438,7 @@ const en = {
             },
             lkbLink: "user's personal account",
             homeLink: "Home",
-            upLink: "Back To Top",
+            upLink: "Up",
         },
 
 

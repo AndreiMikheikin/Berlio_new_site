@@ -9,14 +9,13 @@ const ClientPartnersServicesSection = () => {
     const { t } = useTranslation(); // Вызов метода useTranslation
 
     const navigate = useNavigate();
-    const baseURL = process.env.NODE_ENV === "production" ? "/Berlio_new_site/#" : "";
 
     const handleButtonClick1 = () => {
-        navigate(`${baseURL}/clients`);
+        navigate(`/clients`);
     };
 
     const handleButtonClick2 = () => {
-        navigate(`${baseURL}/partners`);
+        navigate(`/partners`);
     };
 
     return (
