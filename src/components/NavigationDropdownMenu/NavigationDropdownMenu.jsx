@@ -73,12 +73,12 @@ const menuContent = {
       "title": "electronicPaymentSystem",
       "links": [
         {
-          "href": "/#/clients/signAndResign",
+          "href": "/clients/signAndResign",
           "text": "contractConclusion",
           "target": "_self"
         },
         {
-          "href": "/#/clients/gettingElectronicCard",
+          "href": "/clients/gettingElectronicCard",
           "text": "eCardReceipt",
           "target": ""
         },
@@ -204,6 +204,9 @@ const NavigationDropdownMenu = ({ isOpen, menuId, currentOpenMenu, onClose }) =>
     return null; // Если меню не найдено, ничего не отображаем
   }
 
+  const isProduction = process.env.NODE_ENV === "production";
+  const baseUrl = isProduction ? `${process.env.PUBLIC_URL}/#` : "/#";
+
   return (
     <div
       className={`aam_navigation-dropdown-menu ${isVisible ? '' : 'hidden'} aam_navigation-dropdown-menu__${menuId}`}
@@ -220,7 +223,7 @@ const NavigationDropdownMenu = ({ isOpen, menuId, currentOpenMenu, onClose }) =>
             <h2>{t(section.title)}</h2>
             <ul>
               {section.links.map((link, idx) => (
-                <li key={idx}><a href={link.href}>{t(link.text)}</a></li>
+                <li key={idx}><a href={`${baseUrl}${link.href}`}>{t(link.text)}</a></li>
               ))}
             </ul>
           </div>

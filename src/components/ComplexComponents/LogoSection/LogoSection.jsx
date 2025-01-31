@@ -9,7 +9,7 @@ import '../../../styles/components/ComplexComponents/LogoSection.scss';
 
 import { useTranslation } from 'react-i18next';
 
-const LogoSection = ({ title, logos, logoBasePath }) => {
+const LogoSection = ({ title, logos, logoBasePath, customClass }) => {
     const { t } = useTranslation();
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,7 +28,7 @@ const LogoSection = ({ title, logos, logoBasePath }) => {
     const nextIconColor = currentIndex === logos.length - logosToShow ? '#A3A3A3' : '#48AE5A';
 
     return (
-        <section className="aam_logo-section">
+        <section className={`aam_logo-section ${customClass || ''}`}>
             {/* Заголовок */}
             <h2 className="aam_logo-section__title">{title}</h2>
 

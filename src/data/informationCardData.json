@@ -72,11 +72,11 @@
       "bg-image": "BG4",
       "links": [
         {
-          "href": "/#/clients/signAndResign",
+          "href": "/clients/signAndResign",
           "label": "forClientsMain.clientInfo.label1"
         },
         {
-          "href": "/#/clients/gettingElectronicCard",
+          "href": "/clients/gettingElectronicCard",
           "label": "forClientsMain.clientInfo.label2"
         },
         {

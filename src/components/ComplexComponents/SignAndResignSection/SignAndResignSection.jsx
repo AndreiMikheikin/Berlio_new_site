@@ -13,7 +13,6 @@ const SignAndResignSection = () => {
 
     const [openDropdown, setOpenDropdown] = useState(null);
     const [dropdownPositions, setDropdownPositions] = useState({});
-    const [isFixed, setIsFixed] = useState(false);
 
     const dropdownRefs = useRef({});
 
@@ -36,12 +35,12 @@ const SignAndResignSection = () => {
         if (index === 2) {
             const firstDropdown = dropdownRefs.current[1];
             const secondDropdown = dropdownRefs.current[2];
-    
+
             const firstDropdownHeight = firstDropdown?.offsetHeight || 0;
             const secondDropdownHeight = secondDropdown?.offsetHeight || 0;
-    
+
             let offset = window.scrollY;
-    
+
             if (openDropdown === 1) {
                 // Первый открыт → он схлопнется → scrollY уменьшится
                 offset -= firstDropdownHeight;
@@ -49,11 +48,14 @@ const SignAndResignSection = () => {
                 // Первый закрыт → корректируем, но вычитаем высоту второго
                 offset = dropdownPositions[2] - dropdownPositions[1] + window.scrollY - secondDropdownHeight;
             }
-    
+
             // Выполняем прокрутку
             window.scrollTo({ top: offset, behavior: "smooth" });
         }
     };
+
+    const isProduction = process.env.NODE_ENV === "production";
+    const baseUrl = isProduction ? `${process.env.PUBLIC_URL}/#` : "/#";
 
     return (
         <section className="aam_sign-and-resign-section">
@@ -174,33 +176,33 @@ const SignAndResignSection = () => {
             </p>
 
             {/* Кнопка перехода на сайт */}
-            <LinkButton href="/#/contacts" target="_self" className="green">
-                {t("signAndResignSection.contactsLink")}
-            </LinkButton>
+            <LinkButton href={`${baseUrl}/contacts`} target="_self" className="green">
+            {t("signAndResignSection.contactsLink")}
+        </LinkButton>
 
-            {/* Кнопки навигации по сайту */}
-            <div className="aam_sign-and-resign-section__site-nav">
-                <Link to="/" className="home-link">
-                    <LeftArrowIcon className="icon" />
-                    {t("signAndResignSection.homeLink")}
-                </Link>
-                <button
-                    onClick={() => {
-                        const element = document.getElementById("header");
-                        if (element) {
-                            element.scrollIntoView({
-                                behavior: "smooth",
-                                block: "start",
-                            });
-                        }
-                    }}
-                    className="secondary-link"
-                >
-                    <UpArrowInCircleIcon className="icon" />
-                    {t("signAndResignSection.upLink")}
-                </button>
-            </div>
-        </section>
+            {/* Кнопки навигации по сайту */ }
+    <div className="aam_sign-and-resign-section__site-nav">
+        <Link to="/" className="home-link">
+            <LeftArrowIcon className="icon" />
+            {t("signAndResignSection.homeLink")}
+        </Link>
+        <button
+            onClick={() => {
+                const element = document.getElementById("header");
+                if (element) {
+                    element.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                    });
+                }
+            }}
+            className="secondary-link"
+        >
+            <UpArrowInCircleIcon className="icon" />
+            {t("signAndResignSection.upLink")}
+        </button>
+    </div>
+        </section >
     );
 };
 

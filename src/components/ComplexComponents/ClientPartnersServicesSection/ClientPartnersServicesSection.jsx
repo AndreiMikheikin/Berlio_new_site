@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import '../../../styles/components/ComplexComponents/ClientPartnersServicesSection.scss';
 import Button from "../../Button/Button";
 
@@ -7,12 +8,15 @@ import { useTranslation } from "react-i18next";
 const ClientPartnersServicesSection = () => {
     const { t } = useTranslation(); // Вызов метода useTranslation
 
+    const navigate = useNavigate();
+    const baseURL = process.env.NODE_ENV === "production" ? "/Berlio_new_site/#" : "";
+
     const handleButtonClick1 = () => {
-        console.log('Navigate to: Страница "Для клиентов"');
+        navigate(`${baseURL}/clients`);
     };
 
     const handleButtonClick2 = () => {
-        console.log('Navigate to: Страница "Для партнеров"');
+        navigate(`${baseURL}/partners`);
     };
 
     return (

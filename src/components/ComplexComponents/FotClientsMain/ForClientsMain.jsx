@@ -35,6 +35,9 @@ const ForClientsMain = () => {
     setCards(updatedCards);
   }, []);
 
+  const isProduction = process.env.NODE_ENV === "production";
+  const baseUrl = isProduction ? `${process.env.PUBLIC_URL}/#` : "/#";
+
   return (
     <div className="aam_for-clients-main">
       {/* Breadcrumbs */}
@@ -57,7 +60,7 @@ const ForClientsMain = () => {
             bgImage={cardData.bgImage}
             IconComponent={cardData.IconComponent}
             links={Array.isArray(cardData.links) ? cardData.links.map((link) => ({
-              href: link.href,
+              href: `${baseUrl}${link.href}`,
               label: t(link.label)
             })) : []}
             customClass={`clientsCard-${index + 1}`}

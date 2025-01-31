@@ -12,6 +12,8 @@ import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 import NewsSection from '../../components/ComplexComponents/NewsSection/NewsSection';
 import LogoSection from '../../components/ComplexComponents/LogoSection/LogoSection';
 
+import '../../styles/pages/Home.scss';
+
 import partnersLogos from '../../data/partnersLogoData.json';
 import { useTranslation } from 'react-i18next';
 
@@ -47,6 +49,7 @@ const Home = () => {
                         ? `${process.env.PUBLIC_URL}/assets/images`
                         : '/assets/images'
                 }
+                customClass="aam_home-logo-section"
             />
             <Footer />
             <SecondaryFooter />
