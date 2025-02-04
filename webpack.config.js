@@ -10,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     clean: true,
-    publicPath: process.env.NODE_ENV === 'production' ? '/Berlio_new_site/' : '/',
+    publicPath: '/Berlio_new_site/',
   },
   module: {
     rules: [
@@ -27,28 +27,25 @@ module.exports = {
         test: /\.(png|jpe?g|gif)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/images/[name][ext][query]',
+          filename: 'assets/images/[name][ext][query]', // Путь в папке dist
         },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/fonts/[name][ext][query]',
+          filename: 'assets/fonts/[name][ext][query]', // Путь для шрифтов
         },
       },
       {
         test: /\.svg$/,
         oneOf: [
           {
-            issuer: /\.[jt]sx?$/,
+            issuer: /\.[jt]sx?$/, // Используется, если импортируется в JS/TS
             use: ['@svgr/webpack'],
           },
           {
-            type: 'asset/resource',
-            generator: {
-              filename: 'assets/icons/[name][ext][query]',
-            },
+            type: 'asset/resource', // В остальных случаях (например, как URL)
           },
         ],
       },
@@ -69,14 +66,14 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, 'public/assets'),
-          to: 'assets',
+          from: path.resolve(__dirname, 'public/assets'), // Откуда копировать
+          to: 'assets', // Куда копировать в папке dist
         },
       ],
     }),
     new Dotenv({
-      path: './.env',
-      safe: true,
+      path: './.env', // путь к .env файлу
+      safe: true, // проверка наличия всех переменных
     }),
   ],
   devServer: {
@@ -87,9 +84,7 @@ module.exports = {
     port: 3000,
     hot: true,
     open: true,
-    historyApiFallback: {
-      index: '/Berlio_new_site/index.html',
-    },
-  },
-  mode: process.env.NODE_ENV || 'development',
+    historyApiFallback: true,
+  },  
+  mode: 'development',
 };
