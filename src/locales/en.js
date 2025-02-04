@@ -10,6 +10,8 @@ const en = {
             forClients: "S&P LLC 'Berlio' - For Clients",
             signAndResign: "S&P LLC 'Berlio' - Signing and re-signing of the agreement",
             gettingElectronicCard: "S&P LLC 'Berlio' - Receiving an electronic card",
+            cardUsageRules: "S&P LLC 'Berlio' - Rules for using an electronic card",
+            dealResignation: "S&P LLC 'Berlio' - Termination of Contract",
             forPartners: "S&P LLC 'Berlio' - For Partners",
             detailedNews: "S&P LLC 'Berlio' - News Details",
         },
@@ -116,6 +118,8 @@ const en = {
             forClients: "For Clients",
             signAndResign: "Signing and re-signing of the agreement",
             gettingCard: "Receiving an electronic card",
+
+            dealResignation: "Termination of Contract",
             news: "News",
             detailedNews: "News Details",
         },
@@ -441,6 +445,13 @@ const en = {
             upLink: "Up",
         },
 
+        dealResignationMain: {
+            name: "Termination of Contract",
+            cardTitle1: "On Termination of Contract with S&P LLC 'BERLIO'",
+            cardTitle2: "On Termination of Contract with OJSC 'Belgazprombank'",
+            homeLink: "Home",
+            upLink: "Up",
+        },
 
         // For NewsBlock
         newsBlock: {

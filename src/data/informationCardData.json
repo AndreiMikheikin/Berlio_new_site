@@ -80,11 +80,11 @@
           "label": "forClientsMain.clientInfo.label2"
         },
         {
-          "href": "#/clients/3",
+          "href": "/clients/cardUsageRules",
           "label": "forClientsMain.clientInfo.label3"
         },
         {
-          "href": "#/clients/4",
+          "href": "/clients/dealResignation",
           "label": "forClientsMain.clientInfo.label4"
         },
         {

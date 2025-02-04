@@ -33,9 +33,19 @@
 
 @mixin heading-h4 {
     font-family: $font-family-secondary;
-    font-size: calc($font-size-large - 3px);
+    font-size: calc(#{$font-size-large} - 3px);
     font-weight: $font-weight-bold;
     line-height: 28.2px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+@mixin heading-h5 {
+    font-family: $font-family-secondary;
+    font-size: calc(#{$font-size-large} - 5px);
+    font-weight: $font-weight-bold;
+    line-height: 25.85px;
     text-align: center;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;

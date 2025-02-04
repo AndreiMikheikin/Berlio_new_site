@@ -83,12 +83,12 @@ const menuContent = {
           "target": ""
         },
         {
-          "href": "#link3",
+          "href": "/clients/cardUsageRules",
           "text": "eCardUsage",
           "target": ""
         },
         {
-          "href": "#link4",
+          "href": "/clients/dealResignation",
           "text": "contractTermination",
           "target": ""
         },

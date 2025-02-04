@@ -177,31 +177,31 @@ const SignAndResignSection = () => {
 
             {/* Кнопка перехода на сайт */}
             <LinkButton href={`${baseUrl}/contacts`} target="_self" className="green">
-            {t("signAndResignSection.contactsLink")}
-        </LinkButton>
+                {t("signAndResignSection.contactsLink")}
+            </LinkButton>
 
-            {/* Кнопки навигации по сайту */ }
-    <div className="aam_sign-and-resign-section__site-nav">
-        <Link to="/" className="home-link">
-            <LeftArrowIcon className="icon" />
-            {t("signAndResignSection.homeLink")}
-        </Link>
-        <button
-            onClick={() => {
-                const element = document.getElementById("header");
-                if (element) {
-                    element.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                    });
-                }
-            }}
-            className="secondary-link"
-        >
-            <UpArrowInCircleIcon className="icon" />
-            {t("signAndResignSection.upLink")}
-        </button>
-    </div>
+            {/* Кнопки навигации по сайту */}
+            <div className="aam_sign-and-resign-section__site-nav">
+                <Link to="/" className="home-link">
+                    <LeftArrowIcon className="icon" />
+                    {t("signAndResignSection.homeLink")}
+                </Link>
+                <button
+                    onClick={() => {
+                        const element = document.getElementById("header");
+                        if (element) {
+                            element.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start",
+                            });
+                        }
+                    }}
+                    className="secondary-link"
+                >
+                    <UpArrowInCircleIcon className="icon" />
+                    {t("signAndResignSection.upLink")}
+                </button>
+            </div>
         </section >
     );
 };

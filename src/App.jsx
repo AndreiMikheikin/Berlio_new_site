@@ -12,6 +12,8 @@ import Equipment from "./pages/Equipment/Equipment";
 import ForClients from "./pages/ForClients/ForClients";
 import SignAndResign from "./pages/SignAndResign/SignAndResign";
 import GettingElectronicCard from "./pages/GettingElectronicCard/GettingElectronicCard";
+import CardUsageRules from "./pages/CardUsageRules/CardUsageRules";
+import DealResignation from "./pages/DealResignation/DealResignation";
 import ForPartners from "./pages/ForPartners/ForPartners";
 import News from "./pages/News/News";
 
@@ -28,10 +30,9 @@ const App = () => (
           <Route path="/equipment" element={<Equipment />} />
           <Route path="/clients" element={<ForClients />} />
           <Route path="/clients/signAndResign" element={<SignAndResign />} />
-          <Route
-            path="/clients/gettingElectronicCard"
-            element={<GettingElectronicCard />}
-          />
+          <Route path="/clients/cardUsageRules" element={<CardUsageRules />} />
+          <Route path="/clients/gettingElectronicCard" element={<GettingElectronicCard />} />
+          <Route path="/clients/dealResignation" element={<DealResignation />} />
           <Route path="/partners" element={<ForPartners />} />
         </Routes>
       </Router>
