@@ -18,6 +18,9 @@ const SignAndResignMain = () => {
         linkElement.click();
     };
 
+    const isProduction = process.env.NODE_ENV === "production";
+    const baseUrl = isProduction ? `${process.env.PUBLIC_URL}/#` : "";
+
     return (
         <main className="aam_sign-and-resign">
             {/* Breadcrumbs */}
@@ -106,11 +109,11 @@ const SignAndResignMain = () => {
                             Icon={PdfIcon}
                             title={t('signAndResignMain.cardTitle1')}
                             description=''
-                            link="/assets/documents/1.pdf"
+                            link={`${baseUrl}/assets/documents/1.pdf`}
                             onClick={() =>
                                 handleLinkClick(
                                     t('signAndResignMain.cardTitle1'),
-                                    '/assets/documents/1.pdf'
+                                    `${baseUrl}/assets/documents/1.pdf`
                                 )
                             }
                         />
@@ -119,11 +122,11 @@ const SignAndResignMain = () => {
                             Icon={PdfIcon}
                             title={t('signAndResignMain.cardTitle2')}
                             description=''
-                            link="/assets/documents/1.pdf"
+                            link={`${baseUrl}/assets/documents/1.pdf`}
                             onClick={() =>
                                 handleLinkClick(
                                     t('signAndResignMain.cardTitle2'),
-                                    '/assets/documents/1.pdf'
+                                    `${baseUrl}/assets/documents/1.pdf`
                                 )
                             }
                         />
@@ -132,11 +135,11 @@ const SignAndResignMain = () => {
                             Icon={PdfIcon}
                             title={t('signAndResignMain.cardTitle3')}
                             description=''
-                            link="/assets/documents/1.pdf"
+                            link={`${baseUrl}/assets/documents/1.pdf`}
                             onClick={() =>
                                 handleLinkClick(
                                     t('signAndResignMain.cardTitle3'),
-                                    '/assets/documents/1.pdf'
+                                    `${baseUrl}/assets/documents/1.pdf`
                                 )
                             }
                         />
@@ -149,11 +152,11 @@ const SignAndResignMain = () => {
                                 Icon={PdfIcon}
                                 title={t('signAndResignMain.cardTitle4')}
                                 description=''
-                                link="/assets/documents/1.pdf"
+                                link={`${baseUrl}/assets/documents/1.pdf`}
                             onClick={() =>
                                 handleLinkClick(
                                     t('signAndResignMain.cardTitle4'),
-                                    '/assets/documents/1.pdf'
+                                    `${baseUrl}/assets/documents/1.pdf`
                                 )
                             }
                             />
@@ -162,11 +165,11 @@ const SignAndResignMain = () => {
                                 Icon={PdfIcon}
                                 title={t('signAndResignMain.cardTitle5')}
                                 description=''
-                                link="/assets/documents/1.pdf"
+                                link={`${baseUrl}/assets/documents/1.pdf`}
                             onClick={() =>
                                 handleLinkClick(
                                     t('signAndResignMain.cardTitle5'),
-                                    '/assets/documents/1.pdf'
+                                    `${baseUrl}/assets/documents/1.pdf`
                                 )
                             }
                             />

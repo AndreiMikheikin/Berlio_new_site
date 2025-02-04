@@ -10,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     clean: true,
-    publicPath: '/Berlio_new_site/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/Berlio_new_site/' : '/',
   },
   module: {
     rules: [
@@ -27,25 +27,28 @@ module.exports = {
         test: /\.(png|jpe?g|gif)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/images/[name][ext][query]', // Путь в папке dist
+          filename: 'assets/images/[name][ext][query]',
         },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/fonts/[name][ext][query]', // Путь для шрифтов
+          filename: 'assets/fonts/[name][ext][query]',
         },
       },
       {
         test: /\.svg$/,
         oneOf: [
           {
-            issuer: /\.[jt]sx?$/, // Используется, если импортируется в JS/TS
+            issuer: /\.[jt]sx?$/,
             use: ['@svgr/webpack'],
           },
           {
-            type: 'asset/resource', // В остальных случаях (например, как URL)
+            type: 'asset/resource',
+            generator: {
+              filename: 'assets/icons/[name][ext][query]',
+            },
           },
         ],
       },
@@ -66,14 +69,14 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, 'public/assets/images'), // Откуда копировать
-          to: 'assets/images', // Куда копировать в папке dist
+          from: path.resolve(__dirname, 'public/assets'),
+          to: 'assets',
         },
       ],
     }),
     new Dotenv({
-      path: './.env', // путь к .env файлу
-      safe: true, // проверка наличия всех переменных
+      path: './.env',
+      safe: true,
     }),
   ],
   devServer: {
@@ -84,7 +87,9 @@ module.exports = {
     port: 3000,
     hot: true,
     open: true,
-    historyApiFallback: true,
-  },  
-  mode: 'development',
+    historyApiFallback: {
+      index: '/Berlio_new_site/index.html',
+    },
+  },
+  mode: process.env.NODE_ENV || 'development',
 };

@@ -14,9 +14,14 @@ const DealResignationMain = () => {
     const handleLinkClick = (title, link) => {
         const linkElement = document.createElement('a');
         linkElement.href = link;
-        linkElement.download = title;
+        linkElement.download = title.endsWith('.doc') ? title : `${title}.doc`; // Добавляем расширение, если его нет
+        document.body.appendChild(linkElement);
         linkElement.click();
+        document.body.removeChild(linkElement);
     };
+
+    const isProduction = process.env.NODE_ENV === "production";
+    const baseUrl = isProduction ? `${process.env.PUBLIC_URL}/#` : "";
 
     return (
         <main className="aam_deal-resignation-main">
@@ -37,11 +42,11 @@ const DealResignationMain = () => {
                     Icon={DocxIcon}
                     title={t('dealResignationMain.cardTitle1')}
                     description=''
-                    link="/assets/documents/1.docx"
+                    link={`${baseUrl}/assets/documents/1.doc`}
                     onClick={() =>
                         handleLinkClick(
                             t('dealResignationMain.cardTitle1'),
-                            '/assets/documents/1.docx'
+                            `${baseUrl}/assets/documents/1.doc`
                         )
                     }
                 />
@@ -50,11 +55,11 @@ const DealResignationMain = () => {
                     Icon={DocxIcon}
                     title={t('dealResignationMain.cardTitle2')}
                     description=''
-                    link="/assets/documents/1.docx"
+                    link={`${baseUrl}/assets/documents/1.doc`}
                     onClick={() =>
                         handleLinkClick(
                             t('dealResignationMain.cardTitle2'),
-                            '/assets/documents/1.docx'
+                            `${baseUrl}/assets/documents/1.doc`
                         )
                     }
                 />
