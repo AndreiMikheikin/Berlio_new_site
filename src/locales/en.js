@@ -12,6 +12,7 @@ const en = {
             gettingElectronicCard: "S&P LLC 'Berlio' - Receiving an electronic card",
             cardUsageRules: "S&P LLC 'Berlio' - Rules for using an electronic card",
             dealResignation: "S&P LLC 'Berlio' - Termination of Contract",
+            priceListsAndTariffs: "S&P LLC 'Berlio' - Price Lists and Tariffs",
             forPartners: "S&P LLC 'Berlio' - For Partners",
             detailedNews: "S&P LLC 'Berlio' - News Details",
         },
@@ -120,6 +121,7 @@ const en = {
             gettingCard: "Receiving an electronic card",
 
             dealResignation: "Termination of Contract",
+            priceListsAndTariffs: "Price Lists and Tariffs",
             news: "News",
             detailedNews: "News Details",
         },
@@ -445,10 +447,21 @@ const en = {
             upLink: "Up",
         },
 
+        // For DealResignationMain
         dealResignationMain: {
             name: "Termination of Contract",
             cardTitle1: "On Termination of Contract with S&P LLC 'BERLIO'",
             cardTitle2: "On Termination of Contract with OJSC 'Belgazprombank'",
+            homeLink: "Home",
+            upLink: "Up",
+        },
+
+        // For PriceListsAndTariffsMain
+        priceListsAndTariffsMain: {
+            name: "Price Lists and Tariffs",
+            cardTitle1: "Price List No. 03/2024 from 22.02.2024 (for residents)",
+            cardTitle2: "Price List No. 01/24 from 17.01.2024",
+            cardTitle3: "Price List 03/2022 from 17.03.2022 effective from 21.03.2022",
             homeLink: "Home",
             upLink: "Up",
         },

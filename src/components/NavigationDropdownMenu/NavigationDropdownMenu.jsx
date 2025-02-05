@@ -80,22 +80,22 @@ const menuContent = {
         {
           "href": "/clients/gettingElectronicCard",
           "text": "eCardReceipt",
-          "target": ""
+          "target": "_self"
         },
         {
           "href": "/clients/cardUsageRules",
           "text": "eCardUsage",
-          "target": ""
+          "target": "_self"
         },
         {
           "href": "/clients/dealResignation",
           "text": "contractTermination",
-          "target": ""
+          "target": "_self"
         },
         {
-          "href": "#link5",
+          "href": "/clients/priceListsAndTariffs",
           "text": "ratesAndTariffs",
-          "target": ""
+          "target": "_self"
         },
         {
           "href": "#link6",

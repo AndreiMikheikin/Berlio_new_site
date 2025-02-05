@@ -14,8 +14,10 @@ import SignAndResign from "./pages/SignAndResign/SignAndResign";
 import GettingElectronicCard from "./pages/GettingElectronicCard/GettingElectronicCard";
 import CardUsageRules from "./pages/CardUsageRules/CardUsageRules";
 import DealResignation from "./pages/DealResignation/DealResignation";
+import PriceListsAndTariffs from "./pages/PriceListsAndTariffs/PriceListsAndTariffs";
 import ForPartners from "./pages/ForPartners/ForPartners";
 import News from "./pages/News/News";
+
 
 const App = () => (
   <HelmetProvider>
@@ -33,6 +35,7 @@ const App = () => (
           <Route path="/clients/cardUsageRules" element={<CardUsageRules />} />
           <Route path="/clients/gettingElectronicCard" element={<GettingElectronicCard />} />
           <Route path="/clients/dealResignation" element={<DealResignation />} />
+          <Route path="/clients/priceListsAndTariffs" element={<PriceListsAndTariffs />} />
           <Route path="/partners" element={<ForPartners />} />
         </Routes>
       </Router>

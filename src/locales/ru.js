@@ -12,6 +12,7 @@ const ru = {
             gettingElectronicCard: "НП ООО «Берлио» - Получение электронной карты",
             cardUsageRules: "НП ООО «Берлио» - Правила пользования электронной картой",
             dealResignation: "НП ООО «Берлио» - Расторжение договора",
+            priceListsAndTariffs: "НП ООО «Берлио» - Прейскуранты и тарифы",
             forPartners: "НП ООО «Берлио» - Для партнеров",
             detailedNews: "НП ООО «Берлио» - Подробности новости",
         },
@@ -120,6 +121,7 @@ const ru = {
             gettingCard: "Получение электронной карты",
 
             dealResignation: "Расторжение договора",
+            priceListsAndTariffs: "Прейскуранты и тарифы",
             news: "Новости",
             detailedNews: "Детали новости",
         },
@@ -446,10 +448,21 @@ const ru = {
             upLink: "Наверх",
         },
 
+        // Для DealResignationMain
         dealResignationMain: {
             name: "Расторжение договора",
             cardTitle1: "О расторжении договора с НП ООО “БЕРЛИО”",
             cardTitle2: "О расторжении договора с ОАО “Белгазпромбанком”",
+            homeLink: "На главную",
+            upLink: "Наверх",
+        },
+
+        // Для PriceListsAndTariffsMain
+        priceListsAndTariffsMain: {
+            name: "Прейскуранты и тарифы",
+            cardTitle1: "Прейскурант №03/2024 от 22.02.2024 (для резидентов)",
+            cardTitle2: "Прейскурант №01/24 от 17.01.2024",
+            cardTitle3: "Прейскурант 03/2022 от 17.03.2022 с 21.03.2022",
             homeLink: "На главную",
             upLink: "Наверх",
         },

@@ -88,7 +88,7 @@
           "label": "forClientsMain.clientInfo.label4"
         },
         {
-          "href": "#/clients/5",
+          "href": "/clients/priceListsAndTariffs",
           "label": "forClientsMain.clientInfo.label5"
         },
         {
