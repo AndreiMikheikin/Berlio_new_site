@@ -98,7 +98,7 @@ const menuContent = {
           "target": "_self"
         },
         {
-          "href": "#link6",
+          "href": "/clients/workWithPrivateAccount",
           "text": "personalAccountUsage",
           "target": ""
         },

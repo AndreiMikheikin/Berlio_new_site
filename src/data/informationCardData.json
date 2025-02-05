@@ -92,7 +92,7 @@
           "label": "forClientsMain.clientInfo.label5"
         },
         {
-          "href": "#/clients/6",
+          "href": "/clients/workWithPrivateAccount",
           "label": "forClientsMain.clientInfo.label6"
         },
         {
