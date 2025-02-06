@@ -450,6 +450,18 @@ const ru = {
             upLink: "Наверх",
         },
 
+        //Для ReaderSVG
+        readerSVG: {
+            enter: "Ввод",
+            cancel: "Сброс",
+            return: "Возврат",
+            doze: "Доза",
+            menu: "Меню",
+            lang: "Язык",
+            massage1: "Введите пин-код",
+            massage2: "и нажмите “Ввод”",
+        },
+
         // Для DealResignationMain
         dealResignationMain: {
             name: "Расторжение договора",

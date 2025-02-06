@@ -449,6 +449,18 @@ const en = {
             upLink: "Up",
         },
 
+        //For ReaderSVG
+        readerSVG: {
+            enter: "Enter",
+            cancel: "Cancel",
+            return: " Return",
+            doze: "Doze",
+            menu: "Menu",
+            lang: "Lang",
+            massage1: "Enter your pin",
+            massage2: "and press 'Enter'",
+        },
+
         // For DealResignationMain
         dealResignationMain: {
             name: "Termination of Contract",

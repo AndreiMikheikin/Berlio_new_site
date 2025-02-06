@@ -1,7 +1,31 @@
 import React, { useEffect } from "react";
 import '../../styles/components/ReaderSVG.scss';
 
-const ReaderSVG = () => {
+import { useTranslation } from "react-i18next";
+
+const ReaderSVG = ({ cardRead }) => {
+    const { t } = useTranslation();
+
+    useEffect(() => {
+        if (cardRead) {
+            setTimeout(() => {
+                const baElement = document.getElementById("ba");
+    
+                if (baElement) {
+                    baElement.style.fill = "#00ff2f";
+                }
+    
+                const dfElement = document.getElementById("df");
+                const dgElement = document.getElementById("dg");
+    
+                if (dfElement && dgElement) {
+                    dfElement.textContent = t('readerSVG.massage1');
+                    dgElement.textContent = t('readerSVG.massage2');
+                }
+            }, 100);
+        }
+    }, [cardRead]);
+
     const hoverMap = {
         '#ck>tspan': '#bd',
         '#cg>tspan': '#be',
@@ -262,12 +286,12 @@ const ReaderSVG = () => {
 
                     <g fontSize="1.99px">
                         {[
-                            { id: "cs", x: 68.24, y: 96.84, text: "Ввод" },
-                            { id: "cu", x: 38.49, y: 96.97, text: "Сброс" },
-                            { id: "cw", x: 38.24, y: 69.90, text: "Возврат" },
-                            { id: "cy", x: 66.84, y: 69.84, text: "Доза" },
-                            { id: "da", x: 49.11, y: 70.97, text: "Меню" },
-                            { id: "dc", x: 57.49, y: 70.97, text: "Язык" },
+                            { id: "cs", x: 68.04, y: 96.84, text: t('readerSVG.enter') }, /* "Ввод" */
+                            { id: "cu", x: 38.04, y: 96.84, text: t('readerSVG.cancel') }, /* "Сброс" */
+                            { id: "cw", x: 38.34, y: 69.84, text: t('readerSVG.return') }, /* "Возврат" */
+                            { id: "cy", x: 66.84, y: 69.84, text: t('readerSVG.doze') }, /* "Доза" */
+                            { id: "da", x: 49.11, y: 70.97, text: t('readerSVG.menu') }, /* "Меню" */
+                            { id: "dc", x: 57.49, y: 70.97, text: t('readerSVG.lang') }, /* "Язык" */
                         ].map(({ id, x, y, text }) => (
                             <text
                                 key={id}
@@ -286,6 +310,10 @@ const ReaderSVG = () => {
                                 <tspan x={x} y={y}>{text}</tspan>
                             </text>
                         ))}
+                        <text id="de" x="30.686155" y="40.978397" fill="#000000" fontFamily="'Lucida Console'" fontSize="5px" strokeLinecap="round" strokeWidth=".2" style={{ fontVariantCaps: "normal", fontVariantEastAsian: "normal", fontVariantLigatures: "normal", fontVariantNumeric: "normal", fontStyle: "normal", paintOrder: "markers stroke fill" }} xmlSpace="preserve">
+                            <tspan id="df" x="30.686155" y="40.978397"></tspan>
+                            <tspan id="dg" x="30.686155" y="47.645061"></tspan>
+                        </text>
                     </g>
                 </g>
             </g>
