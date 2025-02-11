@@ -96,7 +96,7 @@
           "label": "forClientsMain.clientInfo.label6"
         },
         {
-          "href": "#/clients/7",
+          "href": "/clients/documentsForDownload",
           "label": "forClientsMain.clientInfo.label7"
         }
       ]

@@ -103,7 +103,7 @@ const menuContent = {
           "target": ""
         },
         {
-          "href": "#link7",
+          "href": "/clients/documentsForDownload",
           "text": "downloadableDocuments",
           "target": ""
         }
