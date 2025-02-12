@@ -15,8 +15,10 @@ const DocumentsForDownloadMain = () => {
     const handlePdfClick = (title, link) => {
         const linkElement = document.createElement('a');
         linkElement.href = link;
-        linkElement.download = title;
+        linkElement.download = title.endsWith('.pdf') ? title : `${title}.pdf`; // Добавляем расширение, если его нет
+        document.body.appendChild(linkElement);
         linkElement.click();
+        document.body.removeChild(linkElement);
     };
 
     const handleDocClick = (title, link) => {
