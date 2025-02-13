@@ -51,11 +51,11 @@ const EMoneyRegulationsMain = () => {
                     <li>
                         <span>
                             {t('eMoneyRegulationsMain.descriptionOl.item8.before')}
-                            <a href="/news">{t('eMoneyRegulationsMain.descriptionOl.item8.firstLink')}</a>
+                            <Link to="/news">{t('eMoneyRegulationsMain.descriptionOl.item8.firstLink')}</Link>
                             {t('eMoneyRegulationsMain.descriptionOl.item8.between')}
-                            <a href="https://lkb.by" target="_blank" rel="noopener noreferrer">
+                            <Link to="https://lkb.by" target="_blank" rel="noopener noreferrer">
                             {t('eMoneyRegulationsMain.descriptionOl.item8.secondLink')}
-                            </a>
+                            </Link>
                             {t('eMoneyRegulationsMain.descriptionOl.item8.after')}
                         </span>
                     </li>
