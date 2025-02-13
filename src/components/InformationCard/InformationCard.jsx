@@ -11,7 +11,7 @@ const InformationCard = ({ title, IconComponent, links, bgImage, customClass }) 
       <div className="aam_information-card__content">
         {IconComponent && (
           <div className="aam_information-card__icon">
-            <IconComponent 
+            <IconComponent
               fillColor="#FFFFFFFF"
               width="45"
               height="45"
@@ -21,17 +21,18 @@ const InformationCard = ({ title, IconComponent, links, bgImage, customClass }) 
         <h3 className="aam_information-card__title">{title}</h3>
       </div>
       <div className="aam_information-card__hover-overlay">
-        {(links || []).map(
-          (link, index) =>
-            link.href && (
-              <a
-                key={index}
-                href={link.href}
-                className="aam_information-card__link"
-              >
-                {link.label}
-              </a>
-            )
+        {(links || []).map((link, index) =>
+          link.href && (
+            <a
+              key={index}
+              href={link.href}
+              className="aam_information-card__link"
+              target={link.href.startsWith("http") ? "_blank" : "_self"}
+              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            >
+              {link.label}
+            </a>
+          )
         )}
       </div>
     </div>

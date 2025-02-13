@@ -107,19 +107,19 @@
       "bg-image": "BG5",
       "links": [
         {
-          "href": "#/clients/8",
+          "href": "https://map.berlio.by",
           "label": "forClientsMain.clientInfo.label8"
         },
         {
-          "href": "#/clients/9",
+          "href": "/clients/plasticCardUsageRules",
           "label": "forClientsMain.clientInfo.label9"
         },
         {
-          "href": "#/clients/10",
+          "href": "/clients/tollRoads",
           "label": "forClientsMain.clientInfo.label10"
         },
         {
-          "href": "#/clients/11",
+          "href": "/clients/forFuelPayments",
           "label": "forClientsMain.clientInfo.label11"
         }
       ]
@@ -130,11 +130,11 @@
       "bg-image": "BG6",
       "links": [
         {
-          "href": "#/clients/12",
+          "href": "/clients/issuerRules",
           "label": "forClientsMain.clientInfo.label12"
         },
         {
-          "href": "#/clients/13",
+          "href": "/clients/eMoneyRegulations",
           "label": "forClientsMain.clientInfo.label13"
         }
       ]

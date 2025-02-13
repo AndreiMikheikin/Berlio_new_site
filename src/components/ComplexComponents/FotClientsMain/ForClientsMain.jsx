@@ -60,8 +60,10 @@ const ForClientsMain = () => {
             bgImage={cardData.bgImage}
             IconComponent={cardData.IconComponent}
             links={Array.isArray(cardData.links) ? cardData.links.map((link) => ({
-              href: `${baseUrl}${link.href}`,
-              label: t(link.label)
+              href: link.href.startsWith("http") ? link.href : `${baseUrl}${link.href}`,
+              label: t(link.label),
+              target: link.href.startsWith("http") ? "_blank" : "_self",
+              rel: link.href.startsWith("http") ? "noopener noreferrer" : undefined
             })) : []}
             customClass={`clientsCard-${index + 1}`}
             loading="lazy"

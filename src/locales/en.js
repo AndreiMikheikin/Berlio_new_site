@@ -15,6 +15,10 @@ const en = {
             priceListsAndTariffs: "S&P LLC 'Berlio' - Price Lists and Tariffs",
             workWithPrivateAccount: "S&P LLC 'Berlio' - Work with PA",
             documentsForDownload: "S&P LLC 'Berlio' - Documents for Download",
+            plasticCardUsageRules: "S&P LLC 'Berlio' - Rules for using a plastic card",
+            tollRoads: "S&P LLC 'Berlio' - Toll Roads",
+
+            eMoneyRegulations: "S&P LLC 'Berlio' - Regulations for the Use of E-Money",
             forPartners: "S&P LLC 'Berlio' - For Partners",
             detailedNews: "S&P LLC 'Berlio' - News Details",
         },
@@ -126,6 +130,8 @@ const en = {
             priceListsAndTariffs: "Price Lists and Tariffs",
             workWithPrivateAccount: "Work with Private Account",
             documentsForDownload: "Documents for Download",
+
+            eMoneyRegulations: "Regulations for the Use of E-Money",
             news: "News",
             detailedNews: "News Details",
         },
@@ -542,6 +548,37 @@ const en = {
             },
             notify: {
                 cardTitle1: "Digital Signature Notification",
+            },
+            homeLink: "Home",
+            upLink: "Up",
+        },
+
+        // For EMoneyRegulationsMain
+        eMoneyRegulationsMain: {
+            name: "Regulations for the Use of E-Money 'BERLIO'",
+            descriptionFirst: "As part of the service agreement within the BERLIO e-money payment system (hereinafter referred to as the 'System'), these regulations define the procedure for using BERLIO e-money.",
+            descriptionSecond: "Due to the established technological communication session schedule in the system (every business day) between processing centers and entities, the crediting of e-money to contracts and electronic cards is carried out as follows:",
+            descriptionThird: "When using access devices:",
+            descriptionOl: {
+                item1: "The customer transfers funds to the settlement account of Belagroprombank OJSC in accordance with the concluded agreement for the purchase of BERLIO e-money.",
+                item2: "The service provider credits the funds for the purchase of e-money to the customer's contract.",
+                item3: {
+                    span: "E-money is distributed by the service provider as follows:",
+                    header: "The customer's e-money balance in the system under the contract is divided into two parts per day:",
+                    ulItem1: "- From 18:00 to 24:00, e-money can be used up to 50% of the total balance.",
+                    ulItem2: "- From 24:00 to 18:00 the next day – the remaining 50%.",
+                },
+                item4: "If the customer has multiple electronic cards under the contract, the e-money balance will be divided not only per day but also among all available cards in proportion to the daily quota.",
+                item5: "If a transaction was made using a specific electronic card on the current day, this amount reduces the calculated e-money balance for that card (for the current day).",
+                item6: "On weekends and/or public holidays, the customer's e-money balance in the system under the contract is divided into three parts.",
+                item7: "The purchase (use) of e-money can be made based on the calculated amount, taking into account (minus) the transactions performed on the current day using this card.",
+                item8: {
+                    before: "Participants of the system are informed about planned maintenance breaks or technical failures in the system's software and hardware complex, as well as issues with telecommunication operators, through relevant notifications posted",
+                    firstLink: " in the news",
+                    between: " and in",
+                    secondLink: " the client's personal account",
+                    after: " indicating the expected resolution time.",
+                },
             },
             homeLink: "Home",
             upLink: "Up",

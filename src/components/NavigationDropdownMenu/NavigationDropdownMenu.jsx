@@ -118,17 +118,17 @@ const menuContent = {
           "target": "_blank"
         },
         {
-          "href": "#link9",
+          "href": "/clients/plasticCardUsageRules",
           "text": "fuelCardUsage",
           "target": ""
         },
         {
-          "href": "#link10",
+          "href": "/clients/tollRoads",
           "text": "tollRoads",
           "target": ""
         },
         {
-          "href": "#link11",
+          "href": "/clients/forFuelPayments",
           "text": "fuelPayment",
           "target": ""
         }
@@ -138,12 +138,12 @@ const menuContent = {
       "title": "regulatoryDocuments",
       "links": [
         {
-          "href": "#link12",
+          "href": "/clients/issuerRules",
           "text": "berlioEWalletRules",
           "target": ""
         },
         {
-          "href": "#link13",
+          "href": "/clients/eMoneyRegulations",
           "text": "berlioUsageRegulations",
           "target": ""
         }
@@ -223,7 +223,15 @@ const NavigationDropdownMenu = ({ isOpen, menuId, currentOpenMenu, onClose }) =>
             <h2>{t(section.title)}</h2>
             <ul>
               {section.links.map((link, idx) => (
-                <li key={idx}><a href={`${baseUrl}${link.href}`}>{t(link.text)}</a></li>
+                <li key={idx}>
+                  <a
+                    href={link.href.startsWith("http") ? link.href : `${baseUrl}${link.href}`}
+                    target={link.href.startsWith("http") ? "_blank" : "_self"}
+                    rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  >
+                    {t(link.text)}
+                  </a>
+                </li>
               ))}
             </ul>
           </div>

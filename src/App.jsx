@@ -17,9 +17,13 @@ import DealResignation from "./pages/DealResignation/DealResignation";
 import PriceListsAndTariffs from "./pages/PriceListsAndTariffs/PriceListsAndTariffs";
 import WorkWithPrivateAccount from "./pages/WorkWithPrivateAccount/WorkWithPrivateAccount";
 import DocumentsForDownload from "./pages/DocumentsForDownload/DocumentsForDownload";
+import PlasticCardUsageRules from "./pages/PlasticCardUsageRules/PlasticCardUsageRules";
+import TollRoads from "./pages/TollRoads/TollRoads";
+import ForFuelPayments from "./pages/ForFuelPayments/ForFuelPayments";
+import IssuerRules from "./pages/IssuerRules/IssuerRules";
+import EMoneyRegulations from "./pages/EMoneyRegulations/EMoneyRegulations";
 import ForPartners from "./pages/ForPartners/ForPartners";
 import News from "./pages/News/News";
-
 
 const App = () => (
   <HelmetProvider>
@@ -40,6 +44,11 @@ const App = () => (
           <Route path="/clients/priceListsAndTariffs" element={<PriceListsAndTariffs />} />
           <Route path="/clients/workWithPrivateAccount" element={<WorkWithPrivateAccount />} />
           <Route path="/clients/documentsForDownload" element={<DocumentsForDownload />} />
+          <Route path="/clients/plasticCardUsageRules" element={<PlasticCardUsageRules />} />
+          <Route path="/clients/tollRoads" element={<TollRoads />} />
+          <Route path="/clients/forFuelPayments" element={<ForFuelPayments />} />
+          <Route path="/clients/issuerRules" element={<IssuerRules />} />
+          <Route path="/clients/eMoneyRegulations" element={<EMoneyRegulations />} />
           <Route path="/partners" element={<ForPartners />} />
         </Routes>
       </Router>
