@@ -8,7 +8,7 @@ module.exports = {
   entry: './src/index.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     clean: true,
     publicPath: '/Berlio_new_site/',
   },
@@ -86,5 +86,5 @@ module.exports = {
     open: true,
     historyApiFallback: true,
   },  
-  mode: 'development',
+  mode: 'production',
 };
