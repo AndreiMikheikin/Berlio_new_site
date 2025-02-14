@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../../styles/components/InformationCard.scss";
 
-const InformationCard = ({ title, IconComponent, links, bgImage, customClass }) => {
+const InformationCard = ({ title, links=[], bgImage="", IconComponent=null, customClass }) => {
   return (
     <div
       className={`aam_information-card ${customClass}`}
@@ -50,12 +50,6 @@ InformationCard.propTypes = {
   ),
   bgImage: PropTypes.string,
   customClass: PropTypes.string,
-};
-
-InformationCard.defaultProps = {
-  links: [],
-  bgImage: "",
-  IconComponent: null,
 };
 
 export default InformationCard;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/components/CardBox.scss';
 
-const CardBox = ({ CSSSelectorPrefix, Icon, title, description }) => {
+const CardBox = ({ CSSSelectorPrefix, Icon, title, description='' }) => {
     return (
         <div className={`${CSSSelectorPrefix}__card-box`}>
             {Icon && (
@@ -23,10 +23,6 @@ CardBox.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     CSSSelectorPrefix: PropTypes.string.isRequired,
-};
-
-CardBox.defaultProps = {
-    description: '', // По умолчанию описание пустое
 };
 
 export default CardBox;

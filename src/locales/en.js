@@ -19,6 +19,7 @@ const en = {
             tollRoads: "S&P LLC 'Berlio' - Toll Roads",
 
             eMoneyRegulations: "S&P LLC 'Berlio' - Regulations for the Use of E-Money",
+            bicApp: "S&P LLC 'Berlio' - Berlio Internet Client",
             forPartners: "S&P LLC 'Berlio' - For Partners",
             detailedNews: "S&P LLC 'Berlio' - News Details",
         },
@@ -132,6 +133,7 @@ const en = {
             documentsForDownload: "Documents for Download",
 
             eMoneyRegulations: "Regulations for the Use of E-Money",
+            bicApp: "Application 'Berlio Internet Client'",
             news: "News",
             detailedNews: "News Details",
         },
@@ -583,6 +585,29 @@ const en = {
             homeLink: "Home",
             upLink: "Up",
         },
+
+        // For BerlioInternetClientAppMain
+        bicAppMain: {
+            name: "Application 'Berlio Internet Client'",
+            description: "NP LLC 'BERLIO' offers its clients a fast and convenient way to access contract information using the 'Berlio Internet Client' mobile application.",
+            ulHeader: "The application provides full access to contract information:",
+            item1: "general contract information",
+            item2: "contract balance",
+            item3: "list of cards",
+            item4: "card details",
+            item5: "contract payments",
+            item6: "list of transactions",
+            item7: "electronic invoices",
+            stong1: "Information is available for the current and previous month. The app menu is intuitive and easy to navigate.",
+            stong2: "To use the mobile application, you must have a contract with NP LLC 'BERLIO' for service in the 'BERLIO' electronic money payment system.",
+            stong3: "Install the mobile application on your phone. Use the same login and password as in your personal account to log in.",
+            stong4: "Our application is available for Android and iPhone users.",
+            cardTitle1: "Download from Play Market",
+            cardTitle2: "Download from Apple Store",
+            homeLink: "Home",
+            upLink: "Up",
+        },
+
 
         // For NewsBlock
         newsBlock: {

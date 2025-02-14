@@ -51,7 +51,7 @@ const PriceListsAndTariffsMain = () => {
                     }
                 />
                 <ServiceCard
-                    className="aam_price-lists-and-tariffs-main__service-card"
+                    className="aam_price-lists-and-tariffs-main"
                     Icon={DocxIcon}
                     title={t('priceListsAndTariffsMain.cardTitle2')}
                     description=''
@@ -64,7 +64,7 @@ const PriceListsAndTariffsMain = () => {
                     }
                 />
                 <ServiceCard
-                    className="aam_price-lists-and-tariffs-main__service-card"
+                    className="aam_price-lists-and-tariffs-main"
                     Icon={DocxIcon}
                     title={t('priceListsAndTariffsMain.cardTitle3')}
                     description=''

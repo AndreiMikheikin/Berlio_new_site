@@ -153,7 +153,7 @@ const menuContent = {
       "title": "servicesAndSoftware",
       "links": [
         {
-          "href": "#link14",
+          "href": "/clients/berlioInternetClientApp",
           "text": "berlioInternetClient",
           "target": ""
         },

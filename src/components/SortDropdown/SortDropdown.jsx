@@ -5,7 +5,7 @@ import DropdownIcon from '../SVGIcons/DropdownIcon';
 
 import { useTranslation } from 'react-i18next';
 
-const SortDropdown = ({ options, defaultOption, onSelect, openFillColor, closedFillColor }) => {
+const SortDropdown = ({ options, defaultOption, onSelect, openFillColor='#000', closedFillColor='#777' }) => {
     const { t } = useTranslation();
     
     const [isOpen, setIsOpen] = useState(false);
@@ -90,11 +90,6 @@ SortDropdown.propTypes = {
     onSelect: PropTypes.func.isRequired,
     openFillColor: PropTypes.string,
     closedFillColor: PropTypes.string,
-};
-
-SortDropdown.defaultProps = {
-    openFillColor: '#000',  // цвет для раскрытого состояния
-    closedFillColor: '#777', // цвет для закрытого состояния
 };
 
 export default SortDropdown;

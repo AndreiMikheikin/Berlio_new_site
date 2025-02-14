@@ -145,7 +145,7 @@
       "bg-image": "BG7",
       "links": [
         {
-          "href": "#/clients/14",
+          "href": "/clients/berlioInternetClientApp",
           "label": "forClientsMain.clientInfo.label14"
         },
         {

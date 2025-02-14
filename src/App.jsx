@@ -22,6 +22,7 @@ import TollRoads from "./pages/TollRoads/TollRoads";
 import ForFuelPayments from "./pages/ForFuelPayments/ForFuelPayments";
 import IssuerRules from "./pages/IssuerRules/IssuerRules";
 import EMoneyRegulations from "./pages/EMoneyRegulations/EMoneyRegulations";
+import BerlioInternetClientApp from "./pages/BerlioInternetClientApp/BerlioInternetClientApp";
 import ForPartners from "./pages/ForPartners/ForPartners";
 import News from "./pages/News/News";
 
@@ -49,6 +50,7 @@ const App = () => (
           <Route path="/clients/forFuelPayments" element={<ForFuelPayments />} />
           <Route path="/clients/issuerRules" element={<IssuerRules />} />
           <Route path="/clients/eMoneyRegulations" element={<EMoneyRegulations />} />
+          <Route path="/clients/berlioInternetClientApp" element={<BerlioInternetClientApp />} />
           <Route path="/partners" element={<ForPartners />} />
         </Routes>
       </Router>
