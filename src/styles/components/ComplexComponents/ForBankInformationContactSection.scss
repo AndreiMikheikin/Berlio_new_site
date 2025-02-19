@@ -1,0 +1,46 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_for-bank-info-contact-section  {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 1280px;
+    padding: 60px 50px;
+
+    &__address {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        a {
+            color: $text-primary;
+        }
+    }
+
+    &__contact-name {
+        @include m.heading-h2;
+    }
+
+    &__contact-address {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 11px;
+        @include m.text-p1;
+        margin-bottom: 10px;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 11px;
+        width: 100%;
+    }
+
+    &__image {
+        width: 580px;
+    }
+
+}

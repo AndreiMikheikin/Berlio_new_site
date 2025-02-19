@@ -32,6 +32,9 @@ const ForPartnersMain = () => {
     setCards(updatedCards);
   }, []);
 
+  const isProduction = process.env.NODE_ENV === "production";
+  const baseUrl = isProduction ? `${process.env.PUBLIC_URL}/#` : "/#";
+
   return (
     <div className="aam_for-partners-main">
       {/* Breadcrumbs */}
@@ -54,8 +57,10 @@ const ForPartnersMain = () => {
             bgImage={cardData.bgImage}
             IconComponent={cardData.IconComponent}
             links={Array.isArray(cardData.links) ? cardData.links.map((link) => ({
-              href: link.href,
-              label: t(link.label)
+              href: link.href.startsWith("http") ? link.href : `${baseUrl}${link.href}`,
+              label: t(link.label),
+              target: link.href.startsWith("http") ? "_blank" : "_self",
+              rel: link.href.startsWith("http") ? "noopener noreferrer" : undefined
             })) : []}
             customClass={`partnersCard-${index + 1}`}
             loading="lazy"

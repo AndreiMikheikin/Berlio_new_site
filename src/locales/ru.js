@@ -21,6 +21,7 @@ const ru = {
             eMoneyRegulations: "НП ООО «Берлио» - Регламент использования электронных денег",
             bicApp: "НП ООО «Берлио» - Берлио интернет клиент",
             forPartners: "НП ООО «Берлио» - Для партнеров",
+            forBankInfo: "НП ООО «Берлио» - Для банка",
             detailedNews: "НП ООО «Берлио» - Подробности новости",
         },
 
@@ -37,36 +38,42 @@ const ru = {
         minskName: "Головной офис",
         minskAddress: "Минская область, г. Минск, ул. Быховская 55",
         minskFooterAddress: "ул. Быховская 55, г. Минск, Беларусь, 220007",
+        minskShortAddress: "г. Минск, ул. Быховская 55",
         inMinskCity: "в Минске",
 
         // Brest
         brestName: "Брестский филиал",
         brestAddress: "Брестская область, г. Брест, ул. Карла Маркса, 33 – 43",
         brestFooterAddress: "ул. К.Маркса 33, офис 43, г. Брест, Беларусь, 224005",
+        brestShortAddress: "г. Брест, ул. К.Маркса 33-43",
         inBrestCity: "в Бресте",
 
         // Vitebsk
         vitebskName: "Витебский филиал",
         vitebskAddress: "Витебская область, г. Витебск, ул. Правды 37, корп. 2",
         vitebskFooterAddress: "ул. Правды 37, корпус 2, офис 84, г. Витебск, Беларусь, 210029",
+        vitebskShortAddress: "г. Витебск, ул. Правды 37к.2-84",
         inVitebskCity: "в Витебске",
 
         // Gomel
         gomelName: "Гомельский филиал",
         gomelAddress: "Гомельская область, г. Гомель, ул. Речицкая 1А",
         gomelFooterAddress: "ул. Речицкая 1а, кабинет 419, г. Гомель, Беларусь, 246017",
+        gomelShortAddress: "г. Гомель, ул. Речицкая 1а-419",
         inGomelCity: "в Гомеле",
 
         // Grodno
         grodnoName: "Гродненский филиал",
         grodnoAddress: "Гродненская область, г. Гродно, ул. Победы 17 - 7",
         grodnoFooterAddress: "ул. Победы 17-7, г. Гродно, Беларусь, 230026",
+        grodnoShortAddress: "г. Гродно, ул. Победы 17-7",
         inGrodnoCity: "в Гродно",
 
         // Mogilev
         mogilevName: "Могилёвский филиал",
         mogilevAddress: "Могилевская область, г. Могилев, ул. Челюскинцев 105В",
         mogilevFooterAddress: "ул. Челюскинцев 105В, г. Могилёв, Беларусь, 212003",
+        mogilevShortAddress: "г. Могилев, ул. Челючкинцев 105В",
         inMogilevCity: "в Могилёве",
 
         // Для Navigation
@@ -123,6 +130,7 @@ const ru = {
             home: "Главная",
             about: "О Берлио",
             forPartners: "Для партнеров",
+            forBankInfo: "Информация для банка",
             forClients: "Для клиентов",
             signAndResign: "Заключение и перезаключение договора",
             gettingCard: "Получение электронной карты",
@@ -260,7 +268,38 @@ const ru = {
             },
         },
 
+        // Для ForBankInfoMain
+        forBankInfoMain: {
+            name: "Наша компания",
+            system: "Система электронных расчетов на АЗС",
+            systemTagline: "используйте электронную карту “БЕРЛИО” и заправляйтесь за 3 минуты",
+            usage: "Использование топливных карт",
+            usageTagline: "позволяет оплачивать услуги в системе BelToll (оплата платных дорог)",
+            nonResident: "Услуги в отношении нерезидентов РБ",
+            nonResidentTagline: "компания также поддерживает клиентов из ближнего зарубежья",
+            readMore: "Подробнее",
+        },
 
+        // Для ForBankInfoContact
+        forBankInfoContact: {
+            address: "Адрес",
+            phone: "Телефон",
+            forOrganizations: "Корпоративная почта",
+            forClientInquiries: "Для обращения клиентов",
+            readMore: "Все контакты",
+        },
+
+        // Для ForBankInfoDoc
+        forBankInfoDoc: {
+            name: "Документы",
+            description: "Банком-эмитентом ООО “БЕРЛИО” является ОАО “Белгазпромбанк”",
+            headline: "Регламент использования электронных денег “БЕРЛИО”",
+            cardTitle1: "Правила ОАО “Белгазпромбанк”",
+            cardTitle2: "Правила платежной системы электронных денег “БЕРЛИО”",
+            homeLink: "На главную",
+            upLink: "Наверх",
+        },
+        
         // Для ForClientsMain
         forClientsMain: {
             title: "Для клиентов",

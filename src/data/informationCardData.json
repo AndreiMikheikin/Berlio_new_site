@@ -49,7 +49,7 @@
           "label": "forPartnersMain.partnerInfo.label9"
         },
         {
-          "href": "#/partners/10",
+          "href": "/partners/forBankInformation",
           "label": "forPartnersMain.partnerInfo.label10"
         }
       ]

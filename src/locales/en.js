@@ -21,6 +21,7 @@ const en = {
             eMoneyRegulations: "S&P LLC 'Berlio' - Regulations for the Use of E-Money",
             bicApp: "S&P LLC 'Berlio' - Berlio Internet Client",
             forPartners: "S&P LLC 'Berlio' - For Partners",
+            forBankInfo: "S&P LLC 'Berlio' - For Bank",
             detailedNews: "S&P LLC 'Berlio' - News Details",
         },
 
@@ -37,36 +38,42 @@ const en = {
         minskName: "Head Office",
         minskAddress: "Minsk Region, Minsk, Bykhovskaya St. 55",
         minskFooterAddress: "Bykhovskaya St. 55, Minsk, Belarus, 220007",
+        minskShortAddress: "Minsk, Bykhovskaya St. 55",
         inMinskCity: "in Minsk",
 
         // Brest
         brestName: "Brest Branch",
         brestAddress: "Brest Region, Brest, Karl Marx St. 33-43",
         brestFooterAddress: "Karl Marx St. 33, Office 43, Brest, Belarus, 224005",
+        brestShortAddress: "Brest, Karl Marx St. 33-43",
         inBrestCity: "in Brest",
 
         // Vitebsk
         vitebskName: "Vitebsk Branch",
         vitebskAddress: "Vitebsk Region, Vitebsk, Pravda St. 37, Building 2",
         vitebskFooterAddress: "Pravda St. 37, Building 2, Office 84, Vitebsk, Belarus, 210029",
+        vitebskShortAddress: "Vitebsk, Pravda St. 37b.2-84",
         inVitebskCity: "in Vitebsk",
 
         // Gomel
         gomelName: "Gomel Branch",
         gomelAddress: "Gomel Region, Gomel, Rechitskaya St. 1A",
         gomelFooterAddress: "Rechitskaya St. 1A, Office 419, Gomel, Belarus, 246017",
+        gomelShortAddress: "Gomel, Rechitskaya St. 1A-419",
         inGomelCity: "in Gomel",
 
         // Grodno
         grodnoName: "Grodno Branch",
         grodnoAddress: "Grodno Region, Grodno, Pobedy St. 17-7",
         grodnoFooterAddress: "Pobedy St. 17-7, Grodno, Belarus, 230026",
+        grodnoShortAddress: "Grodno, Pobedy St. 17-7",
         inGrodnoCity: "in Grodno",
 
         // Mogilev
         mogilevName: "Mogilev Branch",
         mogilevAddress: "Mogilev Region, Mogilev, Chelyuskintsev St. 105V",
         mogilevFooterAddress: "Chelyuskintsev St. 105V, Mogilev, Belarus, 212003",
+        mogilevShortAddress: "Mogilev, Chelyuskintsev St. 105V",
         inMogilevCity: "in Mogilev",
 
         // For Navigation
@@ -123,6 +130,7 @@ const en = {
             home: "Home",
             about: "About Berlio",
             forPartners: "For Partners",
+            forBankInfo: "Information for Bank",
             forClients: "For Clients",
             signAndResign: "Signing and re-signing of the agreement",
             gettingCard: "Receiving an electronic card",
@@ -258,6 +266,38 @@ const en = {
                 answer4: "This section contains information regarding this question.",
                 answer5: "This section contains information regarding this question.",
             },
+        },
+
+        // Для ForBankInfoMain
+        forBankInfoMain: {
+            name: "Our Company",
+            system: "Electronic payment system at gas stations",
+            systemTagline: "use the electronic card 'BERLIO' and refuel in 3 minutes",
+            usage: "Usage of fuel cards",
+            usageTagline: "allows you to pay for services in the BelToll system (payment for toll roads)",
+            nonResident: "Services for non-residents of the Republic of Belarus",
+            nonResidentTagline: "the company also supports clients from neighboring countries",
+            readMore: "Read more",
+        },
+
+        // Для ForBankInfoContact
+        forBankInfoContact: {
+            address: "Address",
+            phone: "Phone",
+            forOrganizations: "Corporate email",
+            forClientInquiries: "For client inquiries",
+            readMore: "All contacts",
+        },
+
+        // Для ForBankInfoDoc
+        forBankInfoDoc: {
+            name: "Documents",
+            description: "The issuing bank of S&P LLC 'BERLIO' is OJSC 'Belgazprombank'",
+            headline: "Regulations for the use of electronic money 'BERLIO'",
+            cardTitle1: "Rules of OJSC 'Belgazprombank'",
+            cardTitle2: "Rules of the electronic money payment system 'BERLIO'",
+            homeLink: "Home",
+            upLink: "Up",
         },
 
         // For ForClientsMain

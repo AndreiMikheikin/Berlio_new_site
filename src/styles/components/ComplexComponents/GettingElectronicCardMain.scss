@@ -1,7 +1,7 @@
 @use '../../variables' as *;
 @use '../../mixins' as m;
 
-@include m.card-box-styles(aam_getting-card-main);
+@include m.card-box-styles('aam_getting-card-main');
 
 .aam_getting-card-main {
     position: relative;

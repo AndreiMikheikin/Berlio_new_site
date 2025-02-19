@@ -1,0 +1,56 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_for-bank-info-main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 1280px;
+    padding: 60px 50px;
+
+    &__breadcrumbs {
+        align-self: flex-start;
+        @include m.text-p1;
+        color: $text-disabled;
+        margin-bottom: 5px;
+
+        a {
+            color: $background-color;
+            text-decoration: none;
+
+            &:hover {
+                color: $background-hover;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__header {
+        align-self: flex-start;
+        @include m.heading-h2;
+        margin-bottom: 10px;
+    }
+
+    &__card-boxes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: flex-start;
+
+        >* {
+            flex: 1 1 calc(33.333% - 5px);
+            min-width: 200px;
+        }
+
+        @include m.card-box-styles('aam_for-bank-info-main');
+    }
+
+    &__footer {
+        align-self: flex-end;
+
+        a {
+            color: $text-primary;
+        }
+    }
+}

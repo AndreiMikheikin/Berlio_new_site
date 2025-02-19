@@ -61,7 +61,7 @@ const menuContent = {
           "target": ""
         },
         {
-          "href": "/NOLINK",
+          "href": "/partners/forBankInformation",
           "text": "bankInformation",
           "target": ""
         }
