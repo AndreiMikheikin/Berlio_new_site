@@ -19,6 +19,9 @@ const ForBankInformationContactSection = () => {
 
     const { departmentsName, footerShortAddress, phoneNumber, email, departmentsImage } = displayedItem;
 
+    const isProduction = process.env.NODE_ENV === "production";
+    const baseUrl = isProduction ? `${process.env.PUBLIC_URL}/#` : "";
+
     return (
         <section className='aam_for-bank-info-contact-section'>
             <div className="aam_for-bank-info-contact-section__address">
@@ -38,7 +41,7 @@ const ForBankInformationContactSection = () => {
                 <LinkTo href="/contacts" text={t('forBankInfoContact.readMore')} />
             </div>
             <div className='aam_for-bank-info-contact-section__image'>
-                <img src={departmentsImage} alt={departmentsName} title={departmentsName} />
+                <img src={`${baseUrl}${departmentsImage}`} alt={departmentsName} title={departmentsName} />
             </div>
         </section>
     );
