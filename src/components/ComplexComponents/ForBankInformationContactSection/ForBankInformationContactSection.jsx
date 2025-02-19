@@ -20,7 +20,7 @@ const ForBankInformationContactSection = () => {
     const { departmentsName, footerShortAddress, phoneNumber, email, departmentsImage } = displayedItem;
 
     const isProduction = process.env.NODE_ENV === "production";
-    const baseUrl = isProduction ? `${process.env.PUBLIC_URL}/#` : "";
+    const baseUrl = isProduction ? `${process.env.PUBLIC_URL}` : "";
 
     return (
         <section className='aam_for-bank-info-contact-section'>
