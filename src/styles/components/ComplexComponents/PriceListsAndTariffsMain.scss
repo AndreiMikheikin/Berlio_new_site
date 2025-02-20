@@ -5,7 +5,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 40px;
     width: 1280px;
     padding: 60px 50px;
@@ -34,34 +33,19 @@
         margin-bottom: -5px;
     }
 
-    .aam_service-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-        width: 30%;
-        padding: 20px;
-
-        &__icon {
-
-            svg {
-                width: 45px;
-                height: 57.86px;
-            }
-        }
-
-        &__title {
-            @include m.heading-h5;
-        }
-    }
-
     &__card-boxes {
+        margin-bottom: 65px;
         display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
         flex-wrap: wrap;
-        margin-bottom: 35px;
+        gap: 5px;
+        justify-content: flex-start;
+
+        >* {
+            flex: 1 1 calc(33.333% - 5px);
+            min-width: 200px;
+        }
+
+        @include m.card-box-styles('aam_price-lists-and-tariffs-main');
     }
 
     &__site-nav {

@@ -23,6 +23,21 @@ const PriceListsAndTariffsMain = () => {
     const isProduction = process.env.NODE_ENV === "production";
     const baseUrl = isProduction ? `${process.env.PUBLIC_URL}/#` : "";
 
+    const cardData = [
+        {
+            titleKey: 'priceListsAndTariffsMain.cardTitle1',
+            link: `${baseUrl}/assets/documents/1.doc`,
+        },
+        {
+            titleKey: 'priceListsAndTariffsMain.cardTitle2',
+            link: `${baseUrl}/assets/documents/2.doc`,
+        },
+        {
+            titleKey: 'priceListsAndTariffsMain.cardTitle3',
+            link: `${baseUrl}/assets/documents/3.doc`,
+        },
+    ];
+
     return (
         <main className="aam_price-lists-and-tariffs-main">
             {/* Breadcrumbs */}
@@ -37,45 +52,17 @@ const PriceListsAndTariffsMain = () => {
 
             {/* Resignation Docs */}
             <div className="aam_price-lists-and-tariffs-main__card-boxes">
-                <ServiceCard
-                    className="aam_price-lists-and-tariffs-main__service-card"
-                    Icon={DocxIcon}
-                    title={t('priceListsAndTariffsMain.cardTitle1')}
-                    description=''
-                    link={`${baseUrl}/assets/documents/1.doc`}
-                    onClick={() =>
-                        handleLinkClick(
-                            t('priceListsAndTariffsMain.cardTitle1'),
-                            `${baseUrl}/assets/documents/1.doc`
-                        )
-                    }
-                />
-                <ServiceCard
-                    className="aam_price-lists-and-tariffs-main"
-                    Icon={DocxIcon}
-                    title={t('priceListsAndTariffsMain.cardTitle2')}
-                    description=''
-                    link={`${baseUrl}/assets/documents/1.doc`}
-                    onClick={() =>
-                        handleLinkClick(
-                            t('priceListsAndTariffsMain.cardTitle2'),
-                            `${baseUrl}/assets/documents/1.doc`
-                        )
-                    }
-                />
-                <ServiceCard
-                    className="aam_price-lists-and-tariffs-main"
-                    Icon={DocxIcon}
-                    title={t('priceListsAndTariffsMain.cardTitle3')}
-                    description=''
-                    link={`${baseUrl}/assets/documents/1.doc`}
-                    onClick={() =>
-                        handleLinkClick(
-                            t('priceListsAndTariffsMain.cardTitle3'),
-                            `${baseUrl}/assets/documents/1.doc`
-                        )
-                    }
-                />
+                {cardData.map((card, index) => (
+                    <ServiceCard
+                        key={index}
+                        className="aam_price-lists-and-tariffs-main__service-card"
+                        Icon={DocxIcon}
+                        title={t(card.titleKey)}
+                        description=""
+                        link={card.link}
+                        onClick={() => handleLinkClick(t(card.titleKey), card.link)}
+                    />
+                ))}
             </div>
 
             {/* Кнопки навигации по сайту */}
