@@ -41,9 +41,9 @@ const menuContent = {
       "title": "usefulInformation",
       "links": [
         {
-          "href": "/NOLINK",
+          "href": "/partners/voiceRefService",
           "text": "voiceInfoService",
-          "target": ""
+          "target": "_self"
         },
         {
           "href": "/NOLINK",
@@ -100,12 +100,12 @@ const menuContent = {
         {
           "href": "/clients/workWithPrivateAccount",
           "text": "personalAccountUsage",
-          "target": ""
+          "target": "_self"
         },
         {
           "href": "/clients/documentsForDownload",
           "text": "downloadableDocuments",
-          "target": ""
+          "target": "_self"
         }
       ]
     },
@@ -120,17 +120,17 @@ const menuContent = {
         {
           "href": "/clients/plasticCardUsageRules",
           "text": "fuelCardUsage",
-          "target": ""
+          "target": "_self"
         },
         {
           "href": "/clients/tollRoads",
           "text": "tollRoads",
-          "target": ""
+          "target": "_self"
         },
         {
           "href": "/clients/forFuelPayments",
           "text": "fuelPayment",
-          "target": ""
+          "target": "_self"
         }
       ]
     },
@@ -140,12 +140,12 @@ const menuContent = {
         {
           "href": "/clients/issuerRules",
           "text": "berlioEWalletRules",
-          "target": ""
+          "target": "_self"
         },
         {
           "href": "/clients/eMoneyRegulations",
           "text": "berlioUsageRegulations",
-          "target": ""
+          "target": "_self"
         }
       ]
     },
@@ -155,7 +155,7 @@ const menuContent = {
         {
           "href": "/clients/berlioInternetClientApp",
           "text": "berlioInternetClient",
-          "target": ""
+          "target": "_self"
         },
         {
           "href": "https://berliosoft.by/berliocardpay/",

@@ -33,7 +33,7 @@
       "bg-image": "BG2",
       "links": [
         {
-          "href": "#/partners/6",
+          "href": "/partners/voiceRefService",
           "label": "forPartnersMain.partnerInfo.label6"
         },
         {

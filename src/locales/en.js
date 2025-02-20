@@ -21,6 +21,7 @@ const en = {
             eMoneyRegulations: "S&P LLC 'Berlio' - Regulations for the Use of E-Money",
             bicApp: "S&P LLC 'Berlio' - Berlio Internet Client",
             forPartners: "S&P LLC 'Berlio' - For Partners",
+            voiceRefService: "S&P LLC 'Berlio' - Voice Reference and Information Service",
             forBankInfo: "S&P LLC 'Berlio' - For Bank",
             detailedNews: "S&P LLC 'Berlio' - News Details",
         },
@@ -130,6 +131,7 @@ const en = {
             home: "Home",
             about: "About Berlio",
             forPartners: "For Partners",
+            voiceRefService: "Voice Reference and Information Service",
             forBankInfo: "Information for Bank",
             forClients: "For Clients",
             signAndResign: "Signing and re-signing of the agreement",
@@ -268,7 +270,20 @@ const en = {
             },
         },
 
-        // Для ForBankInfoMain
+        // For VoiceReferenceServiceMain
+        voiceRefServiceMain: {
+            name: "Voice Reference and Information Service",
+            descr1: "The Voice Reference and Information Service is designed to automate customer service in an organization. The program uses a voice fax modem to provide customers with a voice menu. The principle of working with customers is as follows: the customer calls the phone number connected to the modem or the incoming line number of the internal PBX. The modem picks up the phone, and the customer is offered a voice menu recorded by the client.\nFor example:",
+            descr2: "“Hello. You have called the reference and information service of the company 'BERLIO'. To check the balance under the contract, press '1'. To receive a sales report for the current month by fax, press '2'. To receive a sales report for the previous month by fax, press '3'. To connect with a manager, press '9'.”",
+            descr3: "The customer presses the corresponding digit on the telephone keypad to obtain the required information. Please note that the customer must enter all digits in tone mode. If the customer used pulse dialing to call the city number, they must press '*' before entering the first digit to switch the phone (fax) to tone dialing. The customer can enter all digits either during the pause or during voice messages.",
+            descr4: "The initial menu with a specific pause is repeated several times. The number of repetitions and the pause duration are determined in the program settings. If the customer does not press any digit within the specified time, they are connected to a manager (as if they had pressed '9'). If the pressed digit does not correspond to any function, the customer is informed, 'An incorrect choice has been made,' and the menu is repeated.",
+            descr5: "When selecting option '9', the customer is transferred to a manager. The manager's phone number is specified in the program settings. This option is only available during the specified time, for example, only on weekdays from 9:00 to 18:00.",
+            descr6: "When selecting option '1', the customer is prompted to enter a five-digit contract number, after which they are informed of the remaining funds on the contract. When selecting menu options '2' or '3', the customer is prompted to enter the contract number followed by the '#' key, after which a Sales Report for the current or previous period, respectively, is sent to the customer by fax.",
+            homeLink: "Home",
+            upLink: "Up",
+        },
+
+        // For ForBankInfoMain
         forBankInfoMain: {
             name: "Our Company",
             system: "Electronic payment system at gas stations",
@@ -280,7 +295,7 @@ const en = {
             readMore: "Read more",
         },
 
-        // Для ForBankInfoContact
+        // For ForBankInfoContact
         forBankInfoContact: {
             address: "Address",
             phone: "Phone",
@@ -289,7 +304,7 @@ const en = {
             readMore: "All contacts",
         },
 
-        // Для ForBankInfoDoc
+        // For ForBankInfoDoc
         forBankInfoDoc: {
             name: "Documents",
             description: "The issuing bank of S&P LLC 'BERLIO' is OJSC 'Belgazprombank'",

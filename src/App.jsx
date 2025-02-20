@@ -24,6 +24,7 @@ import IssuerRules from "./pages/IssuerRules/IssuerRules";
 import EMoneyRegulations from "./pages/EMoneyRegulations/EMoneyRegulations";
 import BerlioInternetClientApp from "./pages/BerlioInternetClientApp/BerlioInternetClientApp";
 import ForPartners from "./pages/ForPartners/ForPartners";
+import VoiceReferenceService from "./pages/VoiceReferenceService/VoiceReferenceService";
 import ForBankInfo from "./pages/ForBankInformation/ForBankInformation";
 import ForNotAResidentsServices from "./pages/ForNotAResidentsServices/ForNotAResidentsServices";
 import News from "./pages/News/News";
@@ -54,6 +55,7 @@ const App = () => (
           <Route path="/clients/eMoneyRegulations" element={<EMoneyRegulations />} />
           <Route path="/clients/berlioInternetClientApp" element={<BerlioInternetClientApp />} />
           <Route path="/partners" element={<ForPartners />} />
+          <Route path="/partners/voiceRefService" element={<VoiceReferenceService />} />
           <Route path="/partners/forBankInformation" element={<ForBankInfo />} />
           <Route path="/partners/cardUsageRules" element={<CardUsageRules />} />
           <Route path="/partners/plasticCardUsageRules" element={<PlasticCardUsageRules />} />

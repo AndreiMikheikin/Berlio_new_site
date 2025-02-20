@@ -1,38 +1,60 @@
 @use '../../variables' as *;
 @use '../../mixins' as m;
 
-.aam_for-bank-info-doc-section {
+.aam_voice-reference-service-main {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    align-items: flex-start;
+    gap: 40px;
     width: 1280px;
     padding: 60px 50px;
 
+    &__breadcrumbs {
+        @include m.text-p1;
+        color: $text-disabled;
+        margin-bottom: 15px;
+
+        a {
+            color: $background-color;
+            text-decoration: none;
+
+            &:hover {
+                color: $background-hover;
+                text-decoration: underline;
+            }
+        }
+    }
+
     &__header {
-        align-self: flex-start;
-        @include m.heading-h2;
+        @include m.heading-h1;
+        font-size: 40px;
+        line-height: 1.1;
+        word-wrap: break-word;
+        margin-bottom: -5px;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        margin-bottom: 60px;
     }
 
     &__description {
         @include m.text-p1;
-        font-style: italic;
-        margin-bottom: 15px;
+        width: 100%;
     }
 
-    &__card-boxes {
-        margin-bottom: 65px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
-        justify-content: flex-start;
-
-        >* {
-            flex: 1 1 calc(33.333% - 5px);
-            min-width: 200px;
-        }
-
-        @include m.card-box-styles('aam_for-bank-info-main');
+    &__italic-description {
+        @include m.text-p1;
+        font-weight: 300;
+        font-style: italic;
+        text-align: right;
+        margin-top: -5px;
+        width: 91%;
+        align-self: flex-end;
     }
 
     &__site-nav {
