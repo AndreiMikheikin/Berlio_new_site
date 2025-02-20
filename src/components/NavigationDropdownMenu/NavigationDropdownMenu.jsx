@@ -46,14 +46,14 @@ const menuContent = {
           "target": "_self"
         },
         {
-          "href": "/NOLINK",
+          "href": "/partners/loyaltyProgram",
           "text": "loyaltyProgram",
-          "target": ""
+          "target": "_self"
         },
         {
-          "href": "/NOLINK",
+          "href": "/partners/documentsForDownload",
           "text": "downloadableDocuments",
-          "target": ""
+          "target": "_self"
         },
         {
           "href": "/NOLINK",

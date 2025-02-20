@@ -1,12 +1,12 @@
 @use '../../variables' as *;
 @use '../../mixins' as m;
 
-.aam_voice-reference-service-main {
+.aam_loyalty-program-main {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 40px;
+    gap: 30px;
     width: 1280px;
     padding: 60px 50px;
 
@@ -47,6 +47,20 @@
         flex-direction: column;
         @include m.text-p1;
         width: 100%;
+
+        ul {
+            margin-bottom: 20px;
+            margin-left: 20px;
+
+            li {
+                list-style-type: disc;
+                list-style-position: outside;
+            }
+        }
+    }
+
+    &__description:nth-child(8) {
+        margin-bottom: 20px;
     }
 
     &__site-nav {
