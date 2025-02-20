@@ -41,7 +41,7 @@ const ActualSection = () => {
                     title={t('actualSection.actualBlockTitle1')}
                     description={t('actualSection.actualBlockDescription1')}
                     imageUrl={actual1}
-                    href="https:map.berlio.by"
+                    href="https://map.berlio.by/"
                 />
                 <ActualBlock
                     title={t('actualSection.actualBlockTitle2')}
@@ -53,7 +53,7 @@ const ActualSection = () => {
                     title={t('actualSection.actualBlockTitle3')}
                     description={t('actualSection.actualBlockDescription3')}
                     imageUrl={actual3}
-                    href="https:map.berlio.by"
+                    href="https://map.berlio.by/"
                 />
             </div>
         </section>
