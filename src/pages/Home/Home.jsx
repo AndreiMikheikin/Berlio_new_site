@@ -17,8 +17,6 @@ import '../../styles/pages/Home.scss';
 import partnersLogos from '../../data/partnersLogoData.json';
 import { useTranslation } from 'react-i18next';
 
-
-
 const Home = () => {
     const { t } = useTranslation();
 

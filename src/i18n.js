@@ -1,15 +1,19 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import ru from './locales/ru';
-import by from './locales/by';
-import en from './locales/en';
+import ruRaw from './locales/ru.json';
+import byRaw from './locales/by.json';
+import enRaw from './locales/en.json';
+
+const ru = ruRaw.default || ruRaw;
+const by = byRaw.default || byRaw;
+const en = enRaw.default || enRaw;
 
 // Настройка ресурсов
 const resources = {
-    ru,
-    by,
-    en,
+  ru: { translation: ru },
+  en: { translation: en },
+  by: { translation: by },
 };
 
 i18n
