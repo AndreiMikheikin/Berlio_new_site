@@ -2,6 +2,7 @@ import React from "react";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { SelectedItemProvider } from "./contexts/SelectedItemContext";
 import { HelmetProvider } from "react-helmet-async";
+import ScrollToTop from "./hooks/scrollToTop";
 
 // Импорты страниц
 import Home from "./pages/Home/Home";
@@ -34,6 +35,7 @@ const App = () => (
   <HelmetProvider>
     <SelectedItemProvider>
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
