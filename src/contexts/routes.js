@@ -1,0 +1,36 @@
+const routes = {
+    mainBlock: "/",
+    aboutBlock: "/about",
+    contacts: "/contacts",
+    newsBlock: "/news",
+    detailedNewsMain: "/news/:id",
+    equipment: "/equipment",
+
+    forClientsMain: "/clients",
+    signAndResignMain: "/clients/signAndResign",
+    signAndResignSection: "/clients/signAndResign",
+    gettingCardMain: "/clients/gettingElectronicCard",
+    dealResignationMain: "/clients/dealResignation",
+    priceListsAndTariffsMain: "/clients/priceListsAndTariffs",
+    workWithPrivateAccount: "/clients/workWithPrivateAccount",
+    documentsForDownloadMain: "/clients/documentsForDownload",
+    eMoneyRegulationsMain: "/clients/eMoneyRegulations",
+    bicAppMain: "/clients/berlioInternetClientApp",
+    cardUsageRules: "/clients/cardUsageRules",
+    plasticCardUsageRules: "/clients/plasticCardUsageRules",
+    tollRoads: "/clients/tollRoads",
+    forFuelPayments: "/clients/forFuelPayments",
+    issuerRules: "/clients/issuerRules",
+
+    forPartnersMain: "/partners",
+    voiceRefServiceMain: "/partners/voiceRefService",
+    loyaltyProgramMain: "/partners/loyaltyProgram",
+    forBankInfoMain: "/partners/forBankInformation",
+    forBankInfoDoc: "/partners/documentsForDownload",
+    forBankInfoContact: "/partners/forBankInformation",
+    cardUsageRulesPartners: "/partners/cardUsageRules",
+    plasticCardUsageRulesPartners: "/partners/plasticCardUsageRules",
+    forNotAResidentsServices: "/partners/forNotAResidentsServices",
+};
+
+export default routes;

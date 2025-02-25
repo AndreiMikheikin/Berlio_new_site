@@ -1,6 +1,4 @@
-// SearchInput.scss
-
-@use '../variables' as *; // Подключаем _variables.scss
+@use '../variables' as *; // Теперь можно использовать переменные напрямую
 
 .aam_search-container {
     position: relative;
@@ -13,42 +11,87 @@
     .aam_search-block {
         position: relative;
         width: 543px;
-        margin-top: 30px;
-        margin-bottom: 30px;
+        margin: 30px 0;
         display: flex;
-        padding: 20px 15px 20px 15px;
+        padding: 20px 15px;
         gap: 10px;
         border-radius: 10px;
         border: 1px solid $text-disabled;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:focus-within {
+            border-color: $text-primary;
+            box-shadow: 0 0 8px rgba($text-primary, 0.3);
+        }
 
         svg {
             width: 21px;
             height: 21px;
+            fill: $text-secondary;
         }
 
         .aam_search-input {
             border: none;
             outline: none;
-            font-family: $font-family-primary;
-            font-size: $font-size-regular;
-            font-weight: $font-weight-regular;
-            line-height: 20px;
-            text-align: left;
-            text-underline-position: from-font;
-            text-decoration-skip-ink: none;
+            width: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            background: transparent;
+            color: $text-primary;
 
-            &:focus {
-                border: none;
-                box-shadow: none;
+            &::placeholder {
+                color: $text-disabled;
+                font-style: italic;
             }
         }
     }
 }
 
 .aam_no-results-message {
-    margin-top: 10px;
     color: $error-color;
-    font-size: $font-size-small;
-    margin-top: -30px;
-    margin-bottom: 30px;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.aam_search-results {
+    width: 100%;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: $text-light;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.aam_search-result {
+    padding: 12px 15px;
+    border-bottom: 1px solid $text-disabled;
+    transition: background-color 0.2s ease;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: $text-primary;
+        font-size: inherit;
+        display: block;
+        width: 100%;
+
+        &:hover {
+            color: $text-secondary;
+        }
+    }
+}
+
+.highlight {
+    background-color: $background-selection;
+    color: $text-primary;
+    font-weight: bold;
+    padding: 2px 4px;
+    border-radius: 4px;
 }
