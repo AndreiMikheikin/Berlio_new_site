@@ -1,0 +1,40 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_equipment-and-soft-main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    width: 1280px;
+    padding: 60px 50px;
+
+    &__breadcrumbs {
+        @include m.text-p1;
+        color: $text-disabled;
+        margin-bottom: 15px;
+
+        a {
+            color: $background-color;
+            text-decoration: none;
+
+            &:hover {
+                color: $background-hover;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__header {
+        @include m.heading-h1;
+        word-wrap: break-word;
+    }
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        @include m.text-p1;
+    }
+}

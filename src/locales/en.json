@@ -119,7 +119,8 @@
         "eMoneyRegulations": "Regulations for the Use of E-Money",
         "bicApp": "Application 'Berlio Internet Client'",
         "news": "News",
-        "detailedNews": "News Details"
+        "detailedNews": "News Details",
+        "equipment": "Equipment and Software"
     },
     "mainBlock": {
         "companyName": "Company S&P LLC «BERLIO»",
@@ -666,6 +667,28 @@
         "upLink": "Up"
     },
     "ourClientsLogoSection": "Our Clients",
+    "equipment": {
+        "name": "Equipment and Software",
+        "descr1": "Below you can explore the equipment developed for clients and partners of NP LLC «BERLIO»",
+        "descr2": "Warranty obligations for servicing all installed equipment are valid for one year from the date of installation. Post-warranty maintenance is carried out under an additional agreement between the parties",
+        "partnersSoftSection": {
+            "name": "Software for BERLIO partners",
+            "headline1": "Software “BERLIO Web Center”",
+            "headline2": "Software Package “OIL AND CAPITAL”",
+            "headline3": "Self-service checkout for gas station networks",
+            "headline4": "Software Package “Gas Station Automation System”",
+            "headline5": "Website for issuing invoices",
+            "plate": "Microchip"
+        },
+        "clientsSoftSection": {
+            "name": "Software for BERLIO clients",
+            "headline1": "Mobile application “BERLIOCARDPAY”",
+            "headline2": "Self-service checkout for gas station networks",
+            "headline3": "Software “Client Personal Account”",
+            "homeLink": "Home",
+            "upLink": "Up"
+        }
+    },
     "telFax": "(tel / fax)",
     "fax": "(fax)",
     "forOrganizations": "For Organizations",

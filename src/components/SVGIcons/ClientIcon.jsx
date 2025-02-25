@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ClientIcon = ({ fillColor = '#FFFFFFFF', width = 30, height = 37, className = ''  }) => (
+const ClientIcon = ({ fillColor = '#48AE5A', width = 30, height = 37, className = ''  }) => (
   <svg
     className={className}
     width={width}

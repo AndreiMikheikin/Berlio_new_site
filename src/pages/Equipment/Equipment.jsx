@@ -3,6 +3,9 @@ import { Helmet } from 'react-helmet-async';
 import Header from '../../components/ComplexComponents/Header/Header';
 import Navigation from '../../components/ComplexComponents/Navigation/Navigation';
 import SearchInput from '../../components/SearchInput/SearchInput';
+import EquipmentAndSoftMain from '../../components/ComplexComponents/EquipmentAndSoftMain/EquipmentAndSoftMain';
+import PartnersSoftSection from '../../components/ComplexComponents/PartnersSoftSection/PartnersSoftSection';
+import ClientsSoftSection from '../../components/ComplexComponents/ClientsSoftSection/ClientsSoftSection';
 import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 
@@ -23,6 +26,9 @@ const Equipment = () => {
       <Header />
       <Navigation />
       <SearchInput placeholder={t('search')} />
+      <EquipmentAndSoftMain />
+      <PartnersSoftSection />
+      <ClientsSoftSection />
       <Footer />
       <SecondaryFooter />
     </>
