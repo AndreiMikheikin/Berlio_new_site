@@ -40,7 +40,7 @@ const YandexMap = ({ coordinates }) => {
                         iconLayout: 'default#image',
                         iconImageHref: `data:image/svg+xml;utf8,${encodeURIComponent(iconSvg)}`,
                         iconImageSize: [80, 80],
-                        iconImageOffset: [-20, -40]
+                        iconImageOffset: [-25, -75]
                     }}
                     properties={{
                         iconContent: 'Моя метка',
