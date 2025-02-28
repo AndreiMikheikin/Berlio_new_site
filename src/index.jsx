@@ -6,8 +6,10 @@ import './styles/_base.scss';
 
 // Создаём root элемент
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+console.warn = () => {};
+
 root.render(
-  <React.StrictMode>
+  
     <App />
-  </React.StrictMode>
 );

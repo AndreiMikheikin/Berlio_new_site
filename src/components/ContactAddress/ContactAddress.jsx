@@ -16,7 +16,7 @@ const ContactAddress = ({ item }) => {
     }
 
     const { departmentsName, footerAddress, workingHours, email } = displayedItem;
-
+    
     return (
         <>
             <h4 className="aam_contact-name">{t(departmentsName)}</h4>
@@ -27,6 +27,7 @@ const ContactAddress = ({ item }) => {
                 <div className="aam_contact-address__section">
                     <p>{t(workingHours[0])}</p>
                     <p>{t(workingHours[1])}</p>
+                    <p>{t(workingHours[2])}</p>
                 </div>
                 <div className="aam_contact-address__section">
                     <p className="aam_contact-address__email"><span>{t('forOrganizations')}:</span> {email[0]}</p>

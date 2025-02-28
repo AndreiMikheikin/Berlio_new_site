@@ -6,7 +6,7 @@ import "../../../styles/components/ComplexComponents/LoyaltyProgramMain.scss";
 
 import { useTranslation } from "react-i18next";
 
-const LoyaltyProgremMain = () => {
+const LoyaltyProgramMain = () => {
     const { t } = useTranslation();
 
     return (
@@ -23,8 +23,8 @@ const LoyaltyProgremMain = () => {
 
             {/* Description */}
             <div className="aam_loyalty-program-main__content">
-                <p className="aam_loyalty-program-main__description">{t('loyaltyProgramMain.descr1')}</p>
-                <p className="aam_loyalty-program-main__description">
+                <div className="aam_loyalty-program-main__description">{t('loyaltyProgramMain.descr1')}</div>
+                <div className="aam_loyalty-program-main__description">
                     <strong>{t('loyaltyProgramMain.descrHeader2')}</strong>
                     <ul>
                         <li>{t('loyaltyProgramMain.descr2.item1')}</li>
@@ -34,17 +34,17 @@ const LoyaltyProgremMain = () => {
                         <li>{t('loyaltyProgramMain.descr2.item5')}</li>
                         <li>{t('loyaltyProgramMain.descr2.item6')}</li>
                     </ul>
-                </p>
-                <p className="aam_loyalty-program-main__description">
+                </div>
+                <div className="aam_loyalty-program-main__description">
                     <strong>{t('loyaltyProgramMain.descrHeader3')}</strong>
                     <span>{t('loyaltyProgramMain.descr3')}</span>
-                </p>
-                <p className="aam_loyalty-program-main__description">{t('loyaltyProgramMain.descr4')}</p>
-                <p className="aam_loyalty-program-main__description">{t('loyaltyProgramMain.descr5')}</p>
-                <p className="aam_loyalty-program-main__description">{t('loyaltyProgramMain.descr6')}</p>
-                <p className="aam_loyalty-program-main__description">{t('loyaltyProgramMain.descr7')}</p>
-                <p className="aam_loyalty-program-main__description">{t('loyaltyProgramMain.descr8')}</p>
-                <p className="aam_loyalty-program-main__description">
+                </div>
+                <div className="aam_loyalty-program-main__description">{t('loyaltyProgramMain.descr4')}</div>
+                <div className="aam_loyalty-program-main__description">{t('loyaltyProgramMain.descr5')}</div>
+                <div className="aam_loyalty-program-main__description">{t('loyaltyProgramMain.descr6')}</div>
+                <div className="aam_loyalty-program-main__description">{t('loyaltyProgramMain.descr7')}</div>
+                <div className="aam_loyalty-program-main__description">{t('loyaltyProgramMain.descr8')}</div>
+                <div className="aam_loyalty-program-main__description">
                     <strong>{t('loyaltyProgramMain.descrHeader9')}</strong>
                     <ul>
                         <li>{t('loyaltyProgramMain.descr9.item1')}</li>
@@ -54,7 +54,7 @@ const LoyaltyProgremMain = () => {
                         <li>{t('loyaltyProgramMain.descr9.item5')}</li>
                         <li>{t('loyaltyProgramMain.descr9.item6')}</li>
                     </ul>
-                </p>
+                </div>
             </div>
 
             {/* Кнопки навигации по сайту */}
@@ -83,4 +83,4 @@ const LoyaltyProgremMain = () => {
     );
 };
 
-export default LoyaltyProgremMain;
+export default LoyaltyProgramMain;

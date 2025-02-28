@@ -7,6 +7,7 @@ import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 
 import { useTranslation } from 'react-i18next';
+import ContactsMain from '../../components/ComplexComponents/ContactsMain/ContactsMain';
 
 const Contacts = () => {
   const { t } = useTranslation();
@@ -23,6 +24,7 @@ const Contacts = () => {
       <Header />
       <Navigation />
       <SearchInput placeholder={t('search')} />
+      <ContactsMain />
       <Footer />
       <SecondaryFooter />
     </>

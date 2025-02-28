@@ -8,8 +8,9 @@
     "inCity": "inMinskCity",
     "phoneNumber": ["+375 29 623 08 88", "+375 29 773 08 88", "+375 17 369 12 75 {{fax}}"],
     "email": ["berlio@berlio.by", "info_minsk@berlio.by", "cto_minsk@berlio.by"],
-    "workingHours": ["workingHours", "daysOff"],
-    "departmentsImage": "/assets/images/minskOffice.png"
+    "workingHours": ["workingHours", "fridayWorkingHours", "daysOff"],
+    "departmentsImage": "/assets/images/minskOffice.png",
+    "coordinates": [53.876159, 27.547862]
   },
   {
     "id": 2,
@@ -20,8 +21,9 @@
     "inCity": "inBrestCity",
     "phoneNumber": ["+375 29 720 07 87", "+375 162 52 12 15 {{telFax}}"],
     "email": ["brest@berlio.by", "info_brest@berlio.by", "cto_brest@berlio.by"],
-    "workingHours": ["workingHours", "daysOff"],
-    "departmentsImage": "/assets/images/minskOffice.png"
+    "workingHours": ["workingHours", "fridayWorkingHours", "daysOff"],
+    "departmentsImage": "/assets/images/minskOffice.png",
+    "coordinates": [52.092412, 23.688226]
   },
   {
     "id": 3,
@@ -30,10 +32,11 @@
     "footerAddress": "vitebskFooterAddress",
     "footerShortAddress": "vitebskShortAddress",
     "inCity": "inVitebskCity",
-    "phoneNumber": ["+375 29 199 96 32", "+375 212 67 59 33 {{telFax}}", "+375 212 67 59 34 {{telFax}}"],
+    "phoneNumber": ["+375 29 199 96 32", "+375 212 67 59 33 {{telFax}}", "+375 212 67 59 34 {{telFax}}"],
     "email": ["vitebsk@berlio.by", "info_vitebsk@berlio.by", "cto_vitebsk@berlio.by"],
-    "workingHours": ["workingHours", "daysOff"],
-    "departmentsImage": "/assets/images/minskOffice.png"
+    "workingHours": ["workingHours", "fridayWorkingHours", "daysOff"],
+    "departmentsImage": "/assets/images/minskOffice.png",
+    "coordinates": [55.186481, 30.218126]
   },
   {
     "id": 4,
@@ -42,10 +45,11 @@
     "footerAddress": "gomelFooterAddress",
     "footerShortAddress": "gomelShortAddress",
     "inCity": "inGomelCity",
-    "phoneNumber": ["+375 33 320 00 34", "+375 232 50 98 64", "+375 232 50 98 65"],
+    "phoneNumber": ["+375 33 320 00 34", "+375 232 50 98 64", "+375 232 50 98 65"],
     "email": ["gomel@berlio.by", "info_gomel@berlio.by", "cto_gomel@berlio.by"],
-    "workingHours": ["workingHours", "daysOff"],
-    "departmentsImage": "/assets/images/minskOffice.png"
+    "workingHours": ["workingHours", "fridayWorkingHours", "daysOff"],
+    "departmentsImage": "/assets/images/minskOffice.png",
+    "coordinates": [52.422884, 30.998204]
   },
   {
     "id": 5,
@@ -54,10 +58,11 @@
     "footerAddress": "grodnoFooterAddress",
     "footerShortAddress": "grodnoShortAddress",
     "inCity": "inGrodnoCity",
-    "phoneNumber": ["+375 29 587 69 36", "+375 152 31 10 00 {{telFax}}", "+375 44 791 02 34"],
+    "phoneNumber": ["+375 29 587 69 36", "+375 152 31 10 00 {{telFax}}", "+375 44 791 02 34"],
     "email": ["grodno@berlio.by", "info_grodno@berlio.by", "cto_grodno@berlio.by"],
-    "workingHours": ["workingHours", "daysOff"],
-    "departmentsImage": "/assets/images/minskOffice.png"
+    "workingHours": ["workingHours", "fridayWorkingHours", "daysOff"],
+    "departmentsImage": "/assets/images/minskOffice.png",
+    "coordinates": [53.658047, 23.829098]
   },
   {
     "id": 6,
@@ -66,9 +71,10 @@
     "footerAddress": "mogilevFooterAddress",
     "footerShortAddress": "mogilevShortAddress",
     "inCity": "inMogilevCity",
-    "phoneNumber": ["+375 29 742 79 13", "+375 29 741 01 85"],
+    "phoneNumber": ["+375 29 742 79 13", "+375 29 741 01 85"],
     "email": ["mogilev@berlio.by", "info_mogilev@berlio.by", "cto_mogilev@berlio.by"],
-    "workingHours": ["workingHours", "daysOff"],
-    "departmentsImage": "/assets/images/minskOffice.png"
+    "workingHours": ["workingHours", "fridayWorkingHours", "daysOff"],
+    "departmentsImage": "/assets/images/minskOffice.png",
+    "coordinates": [53.888345, 30.291254]
   }
 ]
