@@ -6,6 +6,7 @@
         "contacts": "S&P LLC 'Berlio' - Contacts",
         "news": "S&P LLC 'Berlio' - News",
         "equipment": "S&P LLC 'Berlio' - Equipment and Software",
+        "webCenter": "S&P LLC 'Berlio' - 'Web Center Berlio Software'",
         "forClients": "S&P LLC 'Berlio' - For Clients",
         "signAndResign": "S&P LLC 'Berlio' - Signing and re-signing of the agreement",
         "gettingElectronicCard": "S&P LLC 'Berlio' - Receiving an electronic card",
@@ -124,7 +125,8 @@
         "bicApp": "Application 'Berlio Internet Client'",
         "news": "News",
         "detailedNews": "News Details",
-        "equipment": "Equipment and Software"
+        "equipment": "Equipment and Software",
+        "webCenter": "'Web Center Berlio Software'"
     },
     "mainBlock": {
         "companyName": "Company S&P LLC «BERLIO»",
@@ -693,6 +695,39 @@
             "upLink": "Up"
         }
     },
+    "webCenterMain": {
+    "name": "Software 'Web Center BERLIO'",
+    "description": "The 'WebCenterBerlio' software (hereinafter referred to as WebCenter) is a network application hosted on a server, designed to manage interactions with clients using 'BERLIO' electronic/fuel cards for cashless payments. WebCenter allows for contract registration, card and On-Board Device (OBD) management, electronic wallets (EW) authorization, blocking/unblocking their usage at facilities, financial accounting, and statistical tracking of transactions within the 'BERLIO' electronic money payment system (hereinafter referred to as the System). It enables monitoring of financial flows within the System using EWs and electronic money (EM).",
+    "list1": {
+        "title": "ADVANTAGES OF WebCenter:",
+        "item1": "WebCenter is a network application;",
+        "item2": "Access to application data is available from any computer with network connectivity;",
+        "item3": "Automatic application updates (upon launch);",
+        "item4": "No need to maintain a dedicated server and data backup systems;",
+        "item5": "Online technical support;",
+        "item6": "Continuous project development, feature expansion based on customer requirements and the System's vision;",
+        "item7": "Flexible report customization with various output formats;",
+        "item8": "Qualified service support and timely updates of software and modules to current versions."
+    },
+    "list2": {
+        "title": "CORE FUNCTIONS FOR CLIENT MANAGEMENT:",
+        "item1": "Signing service contracts with clients within the 'BERLIO' electronic money system;",
+        "item2": "Card issuance tracking;",
+        "item3": "Registering payment documents for contracts;",
+        "item4": "Generating monthly reports;",
+        "item5": "Automatic fund calculation on the card based on the client’s account balance;",
+        "item6": "Generating informational and statistical reports."
+    },
+    "list3": {
+        "title": "CORE FUNCTIONS OF WEBCENTER FOR SYSTEM PARTICIPANTS, ",
+        "subTitle": "settlement centers of other organizations, and facilities (trade and service points using card processing equipment):",
+        "item1": "Configuration of centers, facilities, and devices;",
+        "item2": "Receiving reports from centers and facilities;",
+        "item3": "Analysis of centers and facilities."
+    },
+    "homeLink": "Home",
+    "upLink": "Up"
+},
     "telFax": "(tel / fax)",
     "fax": "(fax)",
     "forOrganizations": "For Organizations",

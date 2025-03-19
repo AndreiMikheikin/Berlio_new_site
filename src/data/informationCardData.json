@@ -6,7 +6,7 @@
       "bg-image": "BG1",
       "links": [
         {
-          "href": "#/partners/1",
+          "href": "/equipment/webCenterBerlio",
           "label": "forPartnersMain.partnerInfo.label1"
         },
         {

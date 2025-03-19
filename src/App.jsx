@@ -10,6 +10,7 @@ import About from "./pages/About/About";
 import Contacts from "./pages/Contacts/Contacts";
 import DetailedNews from "./pages/DetailedNews/DetailedNews";
 import Equipment from "./pages/Equipment/Equipment";
+import WebCenterBerlio from "./pages/WebCenterBerlio/WebCenterBerlio";
 import ForClients from "./pages/ForClients/ForClients";
 import SignAndResign from "./pages/SignAndResign/SignAndResign";
 import GettingElectronicCard from "./pages/GettingElectronicCard/GettingElectronicCard";
@@ -43,6 +44,7 @@ const App = () => (
           <Route path="/news" element={<News />} />
           <Route path="/news/:id" element={<DetailedNews />} />
           <Route path="/equipment" element={<Equipment />} />
+          <Route path="/equipment/webCenterBerlio" element={<WebCenterBerlio />} />
           <Route path="/clients" element={<ForClients />} />
           <Route path="/clients/signAndResign" element={<SignAndResign />} />
           <Route path="/clients/cardUsageRules" element={<CardUsageRules />} />

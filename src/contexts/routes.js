@@ -5,7 +5,8 @@ const routes = {
     newsBlock: "/news",
     detailedNewsMain: "/news/:id",
     equipment: "/equipment",
-
+    webCenterMain: "/equipment/webCenterBerlio",
+    
     forClientsMain: "/clients",
     signAndResignMain: "/clients/signAndResign",
     signAndResignSection: "/clients/signAndResign",

@@ -11,9 +11,9 @@ const menuContent = {
       "title": "appliedProgramsAndSoftware",
       "links": [
         {
-          "href": "https://berliosoft.by/webcenterberlio/#block744",
+          "href": "/equipment/webCenterBerlio",
           "text": "webCenterBerlio",
-          "target": "_blank"
+          "target": "_self"
         },
         {
           "href": "https://berliosoft.by/neftikapital/",
