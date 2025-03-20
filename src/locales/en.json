@@ -7,6 +7,8 @@
         "news": "S&P LLC 'Berlio' - News",
         "equipment": "S&P LLC 'Berlio' - Equipment and Software",
         "webCenter": "S&P LLC 'Berlio' - 'Web Center Berlio Software'",
+        "oilAndCapital": "S&P LLC 'Berlio' - Oil and Capital APP",
+        "selfServiceCheckout": "S&P LLC 'Berlio' - Self-service Checkout",
         "forClients": "S&P LLC 'Berlio' - For Clients",
         "signAndResign": "S&P LLC 'Berlio' - Signing and re-signing of the agreement",
         "gettingElectronicCard": "S&P LLC 'Berlio' - Receiving an electronic card",
@@ -126,7 +128,9 @@
         "news": "News",
         "detailedNews": "News Details",
         "equipment": "Equipment and Software",
-        "webCenter": "'Web Center Berlio Software'"
+        "webCenter": "'Web Center Berlio Software'",
+        "oilAndCapital": "Oil and Capital APP",
+        "selfServiceCheckout": "Self-service Checkout"
     },
     "mainBlock": {
         "companyName": "Company S&P LLC «BERLIO»",
@@ -696,38 +700,81 @@
         }
     },
     "webCenterMain": {
-    "name": "Software 'Web Center BERLIO'",
-    "description": "The 'WebCenterBerlio' software (hereinafter referred to as WebCenter) is a network application hosted on a server, designed to manage interactions with clients using 'BERLIO' electronic/fuel cards for cashless payments. WebCenter allows for contract registration, card and On-Board Device (OBD) management, electronic wallets (EW) authorization, blocking/unblocking their usage at facilities, financial accounting, and statistical tracking of transactions within the 'BERLIO' electronic money payment system (hereinafter referred to as the System). It enables monitoring of financial flows within the System using EWs and electronic money (EM).",
-    "list1": {
-        "title": "ADVANTAGES OF WebCenter:",
-        "item1": "WebCenter is a network application;",
-        "item2": "Access to application data is available from any computer with network connectivity;",
-        "item3": "Automatic application updates (upon launch);",
-        "item4": "No need to maintain a dedicated server and data backup systems;",
-        "item5": "Online technical support;",
-        "item6": "Continuous project development, feature expansion based on customer requirements and the System's vision;",
-        "item7": "Flexible report customization with various output formats;",
-        "item8": "Qualified service support and timely updates of software and modules to current versions."
+        "name": "Software 'Web Center BERLIO'",
+        "description": "The 'WebCenterBerlio' software (hereinafter referred to as WebCenter) is a network application hosted on a server, designed to manage interactions with clients using 'BERLIO' electronic/fuel cards for cashless payments. WebCenter allows for contract registration, card and On-Board Device (OBD) management, electronic wallets (EW) authorization, blocking/unblocking their usage at facilities, financial accounting, and statistical tracking of transactions within the 'BERLIO' electronic money payment system (hereinafter referred to as the System). It enables monitoring of financial flows within the System using EWs and electronic money (EM).",
+        "list1": {
+            "title": "ADVANTAGES OF WebCenter:",
+            "item1": "WebCenter is a network application;",
+            "item2": "Access to application data is available from any computer with network connectivity;",
+            "item3": "Automatic application updates (upon launch);",
+            "item4": "No need to maintain a dedicated server and data backup systems;",
+            "item5": "Online technical support;",
+            "item6": "Continuous project development, feature expansion based on customer requirements and the System's vision;",
+            "item7": "Flexible report customization with various output formats;",
+            "item8": "Qualified service support and timely updates of software and modules to current versions."
+        },
+        "list2": {
+            "title": "CORE FUNCTIONS FOR CLIENT MANAGEMENT:",
+            "item1": "Signing service contracts with clients within the 'BERLIO' electronic money system;",
+            "item2": "Card issuance tracking;",
+            "item3": "Registering payment documents for contracts;",
+            "item4": "Generating monthly reports;",
+            "item5": "Automatic fund calculation on the card based on the client’s account balance;",
+            "item6": "Generating informational and statistical reports."
+        },
+        "list3": {
+            "title": "CORE FUNCTIONS OF WEBCENTER FOR SYSTEM PARTICIPANTS, ",
+            "subTitle": "settlement centers of other organizations, and facilities (trade and service points using card processing equipment):",
+            "item1": "Configuration of centers, facilities, and devices;",
+            "item2": "Receiving reports from centers and facilities;",
+            "item3": "Analysis of centers and facilities."
+        },
+        "homeLink": "Home",
+        "upLink": "Up"
     },
-    "list2": {
-        "title": "CORE FUNCTIONS FOR CLIENT MANAGEMENT:",
-        "item1": "Signing service contracts with clients within the 'BERLIO' electronic money system;",
-        "item2": "Card issuance tracking;",
-        "item3": "Registering payment documents for contracts;",
-        "item4": "Generating monthly reports;",
-        "item5": "Automatic fund calculation on the card based on the client’s account balance;",
-        "item6": "Generating informational and statistical reports."
+    "oilAndCapitalMain": {
+        "name": "Oil and Capital App",
+        "list": {
+            "title": "Program Description",
+            "subTitle": "The software suite consists of the following programs:",
+            "item1": "«OIL & CAPITAL. Loading» automates the workplace of the operator for loading petroleum products into tank trucks and railway tank cars;",
+            "item2": "«OIL & CAPITAL. Tank Monitoring» provides real-time information about the status of each tank. The program receives this information from the level gauge;",
+            "item3": "«OIL & CAPITAL. Accounting» automates the management of commodity and accounting records at facilities for petroleum product supply, gas supply, commodity bases, and wholesale warehouses, as well as the preparation of documents for ensuring and controlling the quality of petroleum products and gas;",
+            "item4": "«OIL & CAPITAL. Truck Scales. Railway Scales» allows receiving information from electronic truck and railway scales, notifying the operator about the presence of a vehicle on the scales;",
+            "item5": "«OIL & CAPITAL. Chemical Laboratory» is designed to automate the document flow of chemical analysis laboratories for oil, petroleum products, and liquefied hydrocarbon gases."
+        },
+        "homeLink": "Home",
+        "upLink": "Up"
     },
-    "list3": {
-        "title": "CORE FUNCTIONS OF WEBCENTER FOR SYSTEM PARTICIPANTS, ",
-        "subTitle": "settlement centers of other organizations, and facilities (trade and service points using card processing equipment):",
-        "item1": "Configuration of centers, facilities, and devices;",
-        "item2": "Receiving reports from centers and facilities;",
-        "item3": "Analysis of centers and facilities."
+    "selfServiceCheckoutMain": {
+        "name": "Self-Service Checkout",
+        "descriptionFirst": "Automation of retail processes is one of the most relevant trends of recent times. This trend has also reached fuel station networks. Automation allows solving problems in several areas, primarily by providing a wide range of functions for customers and optimizing the work of staff at fuel stations.",
+        "descriptionPreBold": "To address these challenges, S&P LLC 'BERLIO' offers a new software product for fuel station networks – ",
+        "descriptionBold": "self-service checkout (hereinafter referred to as SSC).",
+        "descriptionSecond": "What is an SSC? What are the advantages of using these systems, and what opportunities do they open up for fuel station users?",
+        "list1": {
+            "supDescription": "SSC is a hardware-software complex designed for independent payment of fuel and related goods by customers without involving a fuel station operator. The main capabilities of SSC include:",
+            "item1": "payment for fuel and related goods using cashless payment methods: bank cards, 'Berlio' cards, 'Oplati' and 'Cashew' payment systems (contact/contactless);",
+            "item2": "use of loyalty cards, promo codes, and points;",
+            "item3": "payment for fuel and services provided at the fuel station (vacuuming, car wash, etc.);",
+            "item4": "payment for coffee and fast food;",
+            "item5": "placement of advertising."
+        },
+        "descriptionThird": "S&P LLC 'BERLIO' offers a full range of services for the integration and deployment of SSC, as well as technical support and consultation for fuel station network specialists. Each implementation project is adapted to the customer's specific features, requirements, and needs – both in terms of technical support and pricing for the work.",
+        "descriptionFourth": "Technically, SSC consists of three main modules: a management and product data processing module, a payment module (including the function of accepting bank cards and loyalty cards), and control scales that ensure weighing accuracy and prevent customer fraud during payment.",
+        "list2": {
+            "supDescription": "What tasks can SSC solve at fuel stations:",
+            "item1": "optimization of labor costs and reduction of workload on fuel station staff. Self-service checkouts can significantly increase the throughput of fuel stations without hiring additional employees, who can be assigned to other tasks;",
+            "item2": "reduction of queues. The increase in the number of customers on weekends and during peak hours not only puts extra pressure on the checkout but also leads to customer dissatisfaction. Installing SSC reduces queues by 15-20%, even during periods of high activity;",
+            "item3": "fast checkout and reduced risk of errors. Modern technologies ensure high accuracy of SSC. The software ensures correct product recognition in fractions of a second, and any delays or incorrect product selections by the customer are resolved almost instantly;",
+            "item4": "ergonomic use of fuel station retail space. Even several self-service checkouts occupy approximately the same space as one traditional checkout, allowing for more efficient use of retail space;",
+            "item5": "increased sales and customer loyalty. Today, retail customers prefer to buy quickly – while having accurate and detailed information about what they are purchasing. SSC can meet all these needs, attracting more visitors;",
+            "item6": "SSC can be used as an affordable and convenient platform for placing contextual advertising (static images, video clips, etc.).",
+            "subDescription": "Today, we can confidently say that the demand for SSC will grow in the near future. Automated retail equipment demonstrates broad capabilities in all aspects of retail – from creating comfortable conditions for customers to significantly increasing sales."
+        },
+        "homeLink": "Home",
+        "upLink": "Up"
     },
-    "homeLink": "Home",
-    "upLink": "Up"
-},
     "telFax": "(tel / fax)",
     "fax": "(fax)",
     "forOrganizations": "For Organizations",

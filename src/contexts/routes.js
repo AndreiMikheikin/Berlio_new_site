@@ -6,6 +6,8 @@ const routes = {
     detailedNewsMain: "/news/:id",
     equipment: "/equipment",
     webCenterMain: "/equipment/webCenterBerlio",
+    oilAndCapitalMain: "/equipment/oilAndCapital",
+    selfServiceCheckoutMain: "/equipment/selfServiceCheckout",
     
     forClientsMain: "/clients",
     signAndResignMain: "/clients/signAndResign",

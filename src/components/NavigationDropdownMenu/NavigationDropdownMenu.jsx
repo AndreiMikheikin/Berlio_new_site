@@ -16,14 +16,14 @@ const menuContent = {
           "target": "_self"
         },
         {
-          "href": "https://berliosoft.by/neftikapital/",
+          "href": "/equipment/oilAndCapital",
           "text": "oilAndCapital",
-          "target": "_blank"
+          "target": "_self"
         },
         {
-          "href": "https://berliosoft.by/kassasamoobsluzhivaniyadlyaazs/#b1316",
+          "href": "/equipment/selfServiceCheckout",
           "text": "selfServiceCashRegister",
-          "target": "_blank"
+          "target": "_self"
         },
         {
           "href": "https://berliosoft.by/sistemaatomatizatsiiazs/#block840",

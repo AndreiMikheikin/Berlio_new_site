@@ -10,11 +10,11 @@
           "label": "forPartnersMain.partnerInfo.label1"
         },
         {
-          "href": "#/partners/2",
+          "href": "/equipment/oilAndCapital",
           "label": "forPartnersMain.partnerInfo.label2"
         },
         {
-          "href": "#/partners/3",
+          "href": "/equipment/selfServiceCheckout",
           "label": "forPartnersMain.partnerInfo.label3"
         },
         {
