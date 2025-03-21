@@ -23,22 +23,22 @@ const PartnersSoftSection = () => {
                 <ServiceCard
                     Icon={GlobeIcon}
                     title={t('equipment.partnersSoftSection.headline1')}
-                    link="https://berliosoft.by/webcenterberlio/#block744"
+                    link="/equipment/webCenterBerlio"
                 />
                 <ServiceCard
                     Icon={CanisterIcon}
                     title={t('equipment.partnersSoftSection.headline2')}
-                    link="https://berliosoft.by/neftikapital/"
+                    link="/equipment/oilAndCapital"
                 />
                 <ServiceCard
                     Icon={ParkSystemIcon}
                     title={t('equipment.partnersSoftSection.headline3')}
-                    link="https://berliosoft.by/kassasamoobsluzhivaniyadlyaazs/#b1316"
+                    link="/equipment/selfServiceCheckout"
                 />
                 <ServiceCard
                     Icon={TechnologyIcon}
                     title={t('equipment.partnersSoftSection.headline4')}
-                    link="https://berliosoft.by/sistemaatomatizatsiiazs/#block840"
+                    link="/equipment/gsAutomationSystem"
                 />
                 <ServiceCard
                     Icon={LaptopIcon}

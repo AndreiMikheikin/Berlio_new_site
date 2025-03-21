@@ -13,6 +13,7 @@ import Equipment from "./pages/Equipment/Equipment";
 import WebCenterBerlio from "./pages/WebCenterBerlio/WebCenterBerlio";
 import OilAndCapital from "./pages/OilAndCapital/OilAndCapital";
 import SelfServiceCheckout from "./pages/SelfServiceCheckout/SelfServiceCheckout";
+import GSAutomationSystem from "./pages/GSAutomationSystem/GSAutomationSysten";
 import ForClients from "./pages/ForClients/ForClients";
 import SignAndResign from "./pages/SignAndResign/SignAndResign";
 import GettingElectronicCard from "./pages/GettingElectronicCard/GettingElectronicCard";
@@ -49,6 +50,7 @@ const App = () => (
           <Route path="/equipment/webCenterBerlio" element={<WebCenterBerlio />} />
           <Route path="/equipment/oilAndCapital" element={<OilAndCapital />} />
           <Route path="/equipment/selfServiceCheckout" element={<SelfServiceCheckout />} />
+          <Route path="/equipment/gsAutomationSystem" element={<GSAutomationSystem />} />
           <Route path="/clients" element={<ForClients />} />
           <Route path="/clients/signAndResign" element={<SignAndResign />} />
           <Route path="/clients/cardUsageRules" element={<CardUsageRules />} />

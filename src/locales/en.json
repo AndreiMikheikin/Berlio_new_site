@@ -9,6 +9,7 @@
         "webCenter": "S&P LLC 'Berlio' - 'Web Center Berlio Software'",
         "oilAndCapital": "S&P LLC 'Berlio' - Oil and Capital APP",
         "selfServiceCheckout": "S&P LLC 'Berlio' - Self-service Checkout",
+        "gsAutomationSystem": "S&P LLC 'Berlio' - 'Automation System for GS APP'",
         "forClients": "S&P LLC 'Berlio' - For Clients",
         "signAndResign": "S&P LLC 'Berlio' - Signing and re-signing of the agreement",
         "gettingElectronicCard": "S&P LLC 'Berlio' - Receiving an electronic card",
@@ -128,9 +129,10 @@
         "news": "News",
         "detailedNews": "News Details",
         "equipment": "Equipment and Software",
-        "webCenter": "'Web Center Berlio Software'",
+        "webCenter": "Web Center Berlio Software",
         "oilAndCapital": "Oil and Capital APP",
-        "selfServiceCheckout": "Self-service Checkout"
+        "selfServiceCheckout": "Self-service Checkout",
+        "gsAutomationSystem": "Automation System for GS APP"
     },
     "mainBlock": {
         "companyName": "Company S&P LLC «BERLIO»",
@@ -267,7 +269,7 @@
         "descr5": "Secondly, card readers of our production do not record the transmitted information directly onto the card. All information is first encrypted and only then written to the card in encrypted form. Additionally, random data, card identifiers (written by the manufacturer and unchangeable), and calculated control values are mixed into the information. Moreover, the card maintains additional control counters that must change according to a predefined algorithm whenever data is modified, ensuring that even identical operations with the card produce completely different data and control values each time.",
         "descr6": "All this eliminates any possibility of duplicating the card or altering its information (any such operations will render the card invalid due to mismatched control codes during decryption).",
         "descr7": "Similarly, it is impossible to alter data during the interaction between the computer and the reader. Communication lines never transmit the actual data, only their encrypted representation mixed with random data and calculated control values. Even identical operations have completely different representations each time, meaning that even if data is replicated and the exchange is simulated, the system will consider all data invalid!",
-        "descr8": "Similarly, all communications with the loyalty center, offline systems, and fuel station management systems are encrypted and subject to additional controls. Additionally, during contactless payments, the card remains in the customer's hands, reducing the risk of unauthorized manipulation by staff.",
+        "descr8": "Similarly, all communications with the loyalty center, offline systems, and gas station management systems are encrypted and subject to additional controls. Additionally, during contactless payments, the card remains in the customer's hands, reducing the risk of unauthorized manipulation by staff.",
         "descrHeader9": "Program usage options:",
         "descr9": {
             "item1": "discount cards — providing customers with various discounts expressed as a percentage of the purchase amount",
@@ -470,7 +472,7 @@
             "item3": "by sending an email to customer service:"
         },
         "mailLink": "info@berlio.by",
-        "applicationFooter": "You will receive an invoice for the required number of electronic cards. Payment for the electronic card is made to the settlement account of NP LLC 'BERLIO' according to the issued invoice. The price of the electronic card is determined in accordance with the current price list. The electronic card is issued only after payment.",
+        "applicationFooter": "You will receive an invoice for the required number of electronic cards. Payment for the electronic card is made to the settlement account of S&P LLC 'BERLIO' according to the issued invoice. The price of the electronic card is determined in accordance with the current price list. The electronic card is issued only after payment.",
         "documentsHeader": "Documents Required for Obtaining an Electronic Card",
         "supervisor": "The Supervisor Needs",
         "supList": {
@@ -610,7 +612,7 @@
     },
     "bicAppMain": {
         "name": "Application 'Berlio Internet Client'",
-        "description": "NP LLC 'BERLIO' offers its clients a fast and convenient way to access contract information using the 'Berlio Internet Client' mobile application.",
+        "description": "S&P LLC 'BERLIO' offers its clients a fast and convenient way to access contract information using the 'Berlio Internet Client' mobile application.",
         "ulHeader": "The application provides full access to contract information:",
         "item1": "general contract information",
         "item2": "contract balance",
@@ -620,7 +622,7 @@
         "item6": "list of transactions",
         "item7": "electronic invoices",
         "stong1": "Information is available for the current and previous month. The app menu is intuitive and easy to navigate.",
-        "stong2": "To use the mobile application, you must have a contract with NP LLC 'BERLIO' for service in the 'BERLIO' electronic money payment system.",
+        "stong2": "To use the mobile application, you must have a contract with S&P LLC 'BERLIO' for service in the 'BERLIO' electronic money payment system.",
         "stong3": "Install the mobile application on your phone. Use the same login and password as in your personal account to log in.",
         "stong4": "Our application is available for Android and iPhone users.",
         "cardTitle1": "Download from Play Market",
@@ -679,7 +681,7 @@
     "ourClientsLogoSection": "Our Clients",
     "equipment": {
         "name": "Equipment and Software",
-        "descr1": "Below you can explore the equipment developed for clients and partners of NP LLC «BERLIO»",
+        "descr1": "Below you can explore the equipment developed for clients and partners of S&P LLC «BERLIO»",
         "descr2": "Warranty obligations for servicing all installed equipment are valid for one year from the date of installation. Post-warranty maintenance is carried out under an additional agreement between the parties",
         "partnersSoftSection": {
             "name": "Software for BERLIO partners",
@@ -748,23 +750,23 @@
     },
     "selfServiceCheckoutMain": {
         "name": "Self-Service Checkout",
-        "descriptionFirst": "Automation of retail processes is one of the most relevant trends of recent times. This trend has also reached fuel station networks. Automation allows solving problems in several areas, primarily by providing a wide range of functions for customers and optimizing the work of staff at fuel stations.",
-        "descriptionPreBold": "To address these challenges, S&P LLC 'BERLIO' offers a new software product for fuel station networks – ",
+        "descriptionFirst": "Automation of retail processes is one of the most relevant trends of recent times. This trend has also reached gas station networks. Automation allows solving problems in several areas, primarily by providing a wide range of functions for customers and optimizing the work of staff at gas stations.",
+        "descriptionPreBold": "To address these challenges, S&P LLC 'BERLIO' offers a new software product for gas station networks – ",
         "descriptionBold": "self-service checkout (hereinafter referred to as SSC).",
-        "descriptionSecond": "What is an SSC? What are the advantages of using these systems, and what opportunities do they open up for fuel station users?",
+        "descriptionSecond": "What is an SSC? What are the advantages of using these systems, and what opportunities do they open up for gas station users?",
         "list1": {
-            "supDescription": "SSC is a hardware-software complex designed for independent payment of fuel and related goods by customers without involving a fuel station operator. The main capabilities of SSC include:",
+            "supDescription": "SSC is a hardware-software complex designed for independent payment of fuel and related goods by customers without involving a gas station operator. The main capabilities of SSC include:",
             "item1": "payment for fuel and related goods using cashless payment methods: bank cards, 'Berlio' cards, 'Oplati' and 'Cashew' payment systems (contact/contactless);",
             "item2": "use of loyalty cards, promo codes, and points;",
-            "item3": "payment for fuel and services provided at the fuel station (vacuuming, car wash, etc.);",
+            "item3": "payment for fuel and services provided at the gas station (vacuuming, car wash, etc.);",
             "item4": "payment for coffee and fast food;",
             "item5": "placement of advertising."
         },
-        "descriptionThird": "S&P LLC 'BERLIO' offers a full range of services for the integration and deployment of SSC, as well as technical support and consultation for fuel station network specialists. Each implementation project is adapted to the customer's specific features, requirements, and needs – both in terms of technical support and pricing for the work.",
+        "descriptionThird": "S&P LLC 'BERLIO' offers a full range of services for the integration and deployment of SSC, as well as technical support and consultation for gas station network specialists. Each implementation project is adapted to the customer's specific features, requirements, and needs – both in terms of technical support and pricing for the work.",
         "descriptionFourth": "Technically, SSC consists of three main modules: a management and product data processing module, a payment module (including the function of accepting bank cards and loyalty cards), and control scales that ensure weighing accuracy and prevent customer fraud during payment.",
         "list2": {
-            "supDescription": "What tasks can SSC solve at fuel stations:",
-            "item1": "optimization of labor costs and reduction of workload on fuel station staff. Self-service checkouts can significantly increase the throughput of fuel stations without hiring additional employees, who can be assigned to other tasks;",
+            "supDescription": "What tasks can SSC solve at gas stations:",
+            "item1": "optimization of labor costs and reduction of workload on gas station staff. Self-service checkouts can significantly increase the throughput of gas stations without hiring additional employees, who can be assigned to other tasks;",
             "item2": "reduction of queues. The increase in the number of customers on weekends and during peak hours not only puts extra pressure on the checkout but also leads to customer dissatisfaction. Installing SSC reduces queues by 15-20%, even during periods of high activity;",
             "item3": "fast checkout and reduced risk of errors. Modern technologies ensure high accuracy of SSC. The software ensures correct product recognition in fractions of a second, and any delays or incorrect product selections by the customer are resolved almost instantly;",
             "item4": "ergonomic use of fuel station retail space. Even several self-service checkouts occupy approximately the same space as one traditional checkout, allowing for more efficient use of retail space;",
@@ -774,6 +776,89 @@
         },
         "homeLink": "Home",
         "upLink": "Up"
+    },
+    "gsAutomationSystemMain": {
+        "name": "«Gas Station Automation System App»",
+        "supTitle": "Application Software Package",
+        "subTitle": "Program Description",
+        "descriptionFirst": "The «Gas Station Automation System» application software package is a new project by S&P LLC “BERLIO”, designed to address tasks related to managing a network of fuel stations at various levels. The software is implemented as a multi-level system, enabling remote management of fuel stations from the company’s office, monitoring processes at fuel stations, real-time data transmission and retrieval, task distribution, and updating information at fuel stations, automation of managers’ and operators’ workstations at fuel stations, and much more.",
+        "descriptionSecond": "The App is implemented on a fundamentally new software platform with the capability for rapid deployment, maintenance, and scaling.",
+        "list1": {
+            "title": "UPPER LEVEL",
+            "firstSubTitle": "Level ",
+            "firstSubTitleBold": "«Management»",
+            "secondSubTitleBold": "«Office» Software ",
+            "secondSubTitle": "provides the following tasks from the company’s office:",
+            "item1": "centrally generate and send fuel and service prices to fuel stations;",
+            "item2": "receive currency rates from the National Bank of Belarus, recalculate fuel and service prices, and send them to fuel stations;",
+            "item3": "manage payment methods;",
+            "item4": "manage operator access (add operators, block them);",
+            "item5": "receive real-time information on receipts and sales, tank data;",
+            "item6": "view receipts, documents, and «Z-reports» sent to the SKKO;",
+            "item7": "receive up-to-date product balances;",
+            "item8": "manage media advertising on monitors at fuel stations (upload media files, set playback priority and frequency, track playback statistics).",
+            "imageTitle": "General Scheme of App",
+            "imageAltAndTitle": "General Scheme of App"
+        },
+        "list2": {
+            "firstSubTitle": "Level ",
+            "firstSubTitleBold": "«Maintenance»",
+            "secondSubTitleBold": "«CTS» Software ",
+            "secondSubTitle": "provides real-time monitoring and maintenance of fuel stations, management of fuel station configurations, viewing system error logs, updating software and databases, and performing data backups."
+        },
+        "list3": {
+            "title": "LOWER LEVEL",
+            "firstSubTitle": "Level ",
+            "firstSubTitleBold": "«Management»",
+            "secondSubTitleBold": "«Fuel Station Server» Software ",
+            "secondSubTitle": "ensures interaction with the database at the fuel station and external data storage: «Office» software, «CTS» software (with the possibility of working with cloud resources), synchronization of workstations, transmission of equipment control commands at the fuel station (fuel dispensers, vacuum cleaners, car washes, self-service terminals, and other equipment), fuel dispensing via a mobile application («SmartPay» service)."
+        },
+        "list4": {
+            "firstSubTitle": "Level ",
+            "firstSubTitleBold": "«Manager»",
+            "secondSubTitleBold": "«Manager» Software ",
+            "secondSubTitle": "ensures fuel reception, allows for product accounting, adjustment of fuel parameters in tanks, adjustment of fuel dispenser counters, management of operator access to cash operations, viewing shift statistics, and generating reports."
+        },
+        "list5": {
+            "firstSubTitle": "Level ",
+            "firstSubTitleBold": "«Operator»",
+            "secondSubTitleBold": "«Operator» Software ",
+            "secondSubTitle": "ensures the sale of fuel, goods, and services at fuel stations for various payment methods, performs cash operations: receipt cancellation, return of goods (services) and fuel, cash deposit and withdrawal, interaction with cash equipment (receipt printers, bank and fuel terminals, scales, barcode (QR-code) scanners, customer displays, etc.), indication of equipment status at fuel stations, report generation, and viewing data necessary for the operator."
+        },
+        "list6": {
+            "firstSubTitle": "Level ",
+            "firstSubTitleBold": "«Infrastructure»",
+            "secondSubTitleBold": "Tasks addressed:",
+            "item1": "support for advanced fuel station infrastructure:",
+            "item2": "displaying information about fuel station operations (fuel dispensing, order readiness, advertising);",
+            "item3": "license plate recognition and transmission to the automated control system;",
+            "item4": "management of fuel price displays;",
+            "item5": "monitoring the operation of equipment at fuel stations;",
+            "item6": "receiving and processing electronic invoices from oil depots, etc."
+        },
+        "list7": {
+            "title": "MAIN NEW FEATURES INCLUDE:",
+            "item1": "Flexible and configurable workstation and server configurations, allowing for equal operator workstations with the ability to set priorities for processing receipts when fuel dispensers are activated via reading devices, production of S&P LLC «BERLIO», and payment via mobile applications;",
+            "item2": "Configurable setup with a dedicated server computer, reducing the load on workstations, ensuring database backup, and optimizing background tasks on the server, ultimately eliminating fuel station downtime;",
+            "item3": "Ability to dispense fuel using various modes: «Prepayment», «Postpayment», «Full Tank»;",
+            "item4": "Implementation of sales only in «Receipt Formation» mode, allowing the operator to clearly see the receipt details (total amount, total discount, and discount per item), with no need to re-form the receipt in case of payment cancellation;",
+            "item5": "Ability for the operator to queue multiple receipts. This functionality allows postponing a formed receipt and starting a new one for the next customer in line if the current customer forgets their payment card or steps away for other items;",
+            "item6": "Support for various cash register platforms: fiscal registrar «TFP-115», «TFP-116», «TFP-118», software cash register «iKASSA»;",
+            "item7": "New payment methods: mixed payment (cash + bank card + certificates + gift cards), payment via mobile applications, payment via various payment systems («Oplati», «Cashew»). Adding new payment methods is implemented as a separate module, significantly reducing the time to implement new functionality;",
+            "item8": "Integration with a loyalty program;",
+            "item9": "Touch control in various display modes;",
+            "item10": "Primary receipt formation mode: «Receipt Before Refueling»;",
+            "item11": "Primary mode of operation for «Berlio» cards – «Online»;",
+            "item12": "Ability for the operator to create product groups for adding them to the receipt with a single click (combined products);",
+            "item13": "Ability to dispense cash via bank card;",
+            "item14": "Ability to reconcile reports and receipts with SKKO;",
+            "item15": "Ability to process transactions through the «Calculation» system – an automated information system for a unified settlement and information space (AIS ERIP);",
+            "item16": "Ability to configure printing additional receipts alongside the main receipt;",
+            "item17": "Automated retrieval of full data from level gauges via TCP-IP protocols, allowing for quick response to fuel shortages;",
+            "item18": "Implementation of «Full Tank» refueling via deferred sales, increasing fuel station throughput; and much more."
+        },
+        "homeLink": "Home",
+        "upLink": "Back to Top"
     },
     "telFax": "(tel / fax)",
     "fax": "(fax)",

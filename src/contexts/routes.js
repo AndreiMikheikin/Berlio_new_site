@@ -8,6 +8,7 @@ const routes = {
     webCenterMain: "/equipment/webCenterBerlio",
     oilAndCapitalMain: "/equipment/oilAndCapital",
     selfServiceCheckoutMain: "/equipment/selfServiceCheckout",
+    gsAutomationSystemMain: "/equipment/gsAutomationSystem",
     
     forClientsMain: "/clients",
     signAndResignMain: "/clients/signAndResign",

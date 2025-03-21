@@ -26,9 +26,9 @@ const menuContent = {
           "target": "_self"
         },
         {
-          "href": "https://berliosoft.by/sistemaatomatizatsiiazs/#block840",
+          "href": "/equipment/gsAutomationSystem",
           "text": "gasStationAutomationSystem",
-          "target": "_blank"
+          "target": "_self"
         },
         {
           "href": "https://berliosoft.by/ETF/",
