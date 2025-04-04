@@ -43,7 +43,7 @@ const PartnersSoftSection = () => {
                 <ServiceCard
                     Icon={LaptopIcon}
                     title={t('equipment.partnersSoftSection.headline5')}
-                    link="https://berliosoft.by/ETF/"
+                    link="/equipment/invoicesSite"
                 />
             </div>
             {/* Image */}

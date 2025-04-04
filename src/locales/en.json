@@ -858,7 +858,101 @@
             "item18": "Implementation of «Full Tank» refueling via deferred sales, increasing fuel station throughput; and much more."
         },
         "homeLink": "Home",
-        "upLink": "Back to Top"
+        "upLink": "Up"
+    },
+    "invoicesSiteMain": {
+        "name": "Electronic Invoice Issuance Website",
+        "siteLink": "https://эсчф.бел",
+        "altAndTitle": "interface https://эсчф.бел",
+        "description": "The website for issuing electronic invoices (E-Invoices) is designed to automate the issuance of E-Invoices for clients, legal entities, and individual entrepreneurs, allowing them to independently submit applications for E-Invoice issuance based on an existing cash receipt.",
+        "list1": {
+            "title": "Main features for clients:",
+            "listItem1": "independent preparation of applications for E-Invoice issuance via the website using a cash receipt;",
+            "listItem2": "control over submitted applications (viewing information on the processing status of E-Invoices by the tax authority portal);",
+            "listItem3": "grouping all applications on the website with flexible search and filtering options, as well as exporting to external programs."
+        },
+        "list2": {
+            "title": "Main features for companies:",
+            "listItem1": "reducing labor costs for preparing and issuing client E-Invoices based on cash receipts;",
+            "listItem2": "reducing employee workload (as clients handle everything independently);",
+            "listItem3": "monitoring submitted E-Invoice applications and managing portal users;",
+            "listItem4": "ability to place advertising banners on the website;",
+            "listItem5": "automatic notifications for selected events (e.g., submission of applications for E-Invoice issuance for a closed period);",
+            "listItem6": "ability to send newsletters to clients who have given their consent (news, legislative changes, etc.)."
+        },
+        "list3": {
+            "title": "Working with the website: key functions and features:",
+            "listItem1": "Website login - authorization is performed via email and password;",
+            "listItem2": "Portal user registration, which requires the following details:",
+            "listItem2Details": {
+                "item1": "email address;",
+                "item2": "password for portal access;",
+                "item3": "UNP (payer registration number) of the organization;",
+                "item4": "phone number - user's contact number for E-Invoice-related inquiries."
+            },
+            "listItem3": "Viewing applications (application details):",
+            "listItem3Details": {
+                "item1": "'Application Number' (#) – sequential application number on the portal. Applications are numbered separately for each organization (UNP);",
+                "item2": "'Application Date' - date of application registration on the portal;",
+                "item3": "'Gas Station' - internal number of the trading entity (gas station) within the seller's organization;",
+                "item4": "'Receipt Date' - date and time of purchase;",
+                "item5": "'Receipt Number' (#) - purchase receipt number;",
+                "item6": "'SKNO Number' - trade operation number registered with the tax authority using SKNO (tax control tool);",
+                "item7": "'Product/Service' - name of the product, service, or item according to the receipt;",
+                "item8": "'Payment Method' - cash, bank card, etc.;",
+                "item9": "'Price' - price of the product, item, or service in BYN;",
+                "item10": "'Quantity' - quantity of the product, item, or service in relevant units of measurement;",
+                "item11": "'Total Cost' - cost of the product, item, or service in BYN;",
+                "item12": "'Discount' - discount amount in BYN for this item;",
+                "item13": "'VAT' - value-added tax amount in BYN for this item;",
+                "item14": "'%VAT' - VAT rate in percentage for this item;",
+                "item15": "'E-Invoice Number' - number of the electronic invoice after issuance;",
+                "item16": "'E-Invoice Issuance Date' - date the electronic invoice was issued;",
+                "item17": "'Seller Enterprise' - name of the trading enterprise where the purchase was made;",
+                "item18": "'UNP' - Payer Registration Number of the trading enterprise where the purchase was made;",
+                "item19": "'Address' - legal address of the trading enterprise where the purchase was made;",
+                "item20": "'Code' - numeric code of the electronic invoice status;",
+                "item21": "'E-Invoice Status' - textual description of the invoice status."
+            }
+        },
+        "list4": {
+            "listItem1": "Application search.",
+            "listItem2": "Filters.",
+            "listItem3": "Adding an application.",
+            "listItem4": "Copying an application.",
+            "listItem5": "Canceling an application.",
+            "listItem6": "Refreshing the application list.",
+            "listItem7": "Printing applications."
+        },
+        "list5": {
+            "title": "Exporting applications to a file:",
+            "subTitle": "The E-Invoice portal supports application export in the following formats:",
+            "listItem1": "'WORD' (Microsoft Word Document - DOCX)",
+            "listItem2": "'EXCEL' (Microsoft Excel Document - XLSX)",
+            "listItem3": "'PDF' (PDF Document: can be viewed using Adobe Reader, Foxit Reader, Microsoft Word, etc.)",
+            "listItem4": "'CSV' (CSV Document: can be viewed in Microsoft Excel, imported into external programs such as '1C', etc.)",
+            "listItem5": "'XML' (XML Document: can be imported into external programs such as '1C', etc.)",
+            "listItem6": "'JSON' (JSON Document: can be imported into external programs such as '1C', etc.)"
+        },
+        "list6": {
+            "title": "Contract signing and supply conditions:",
+            "firstSubTitle": "The service operates using the API interface 'APIBerlioInfo', which functions online.",
+            "secondSubTitle": "Service connection cost:",
+            "listItem1": "Website license - 1,420.00 BYN excluding VAT (one-time payment, service price may change, check with the manager). Supply is made under a license agreement.",
+            "listItem2": "Use of the API interface 'APIBerlioInfo' (monthly payment). Connection is made under a separate contract with monthly payment according to the price list."
+        },
+        "list7": {
+            "title": "Tariff plans for API 'Berlio Info' access:",
+            "subTitle": "Price list"
+        },
+        "list8": {
+            "title": "ADDITIONALLY:",
+            "firstSubTitle": "Deploying a website under your company name. For example,",
+            "colorSpan": "'company.эсчф.бел'",
+            "secondSubTitle": "Printing information about the E-Invoice issuance website on gas station receipts."
+        },
+        "homeLink": "Home",
+        "upLink": "Up"
     },
     "telFax": "(tel / fax)",
     "fax": "(fax)",

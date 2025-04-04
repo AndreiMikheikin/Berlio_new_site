@@ -31,9 +31,9 @@ const menuContent = {
           "target": "_self"
         },
         {
-          "href": "https://berliosoft.by/ETF/",
+          "href": "/equipment/invoicesSite",
           "text": "invoiceWebsite",
-          "target": "_blank"
+          "target": "_self"
         }
       ]
     },

@@ -10,6 +10,5 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 console.warn = () => {};
 
 root.render(
-  
     <App />
 );
