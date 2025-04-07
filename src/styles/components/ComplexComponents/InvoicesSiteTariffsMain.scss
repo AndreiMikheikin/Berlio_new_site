@@ -44,6 +44,16 @@
         gap: 20px;
         margin-bottom: 40px;
 
+        a {
+            color: $background-color;
+            text-decoration: none;
+
+            &:hover {
+                color: $background-hover;
+                text-decoration: underline;
+            }
+        }
+
 
         &--title {
             @include m.heading-h3;
@@ -93,8 +103,9 @@
         }
 
         &--container {
+            margin-top: 30px;
             display: flex;
-            gap: 30px;
+            gap: 50px;
 
             &-block {
                 display: flex;
@@ -104,12 +115,13 @@
                 gap: 20px;
 
                 &-color-title {
-                    @include m.heading-h3;
+                    @include m.heading-h4;
                     color: $background-color;
+                    text-align: left;
                 }
 
                 &-sub-title {
-                    @include m.text-p1;
+                    @include m.heading-h4;
                     text-transform: uppercase;
                 }
 

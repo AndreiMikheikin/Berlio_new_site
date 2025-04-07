@@ -52,17 +52,22 @@ const InvoicesSiteTariffsMain = () => {
                     <li>{t('invoicesSiteTariffsMain.list.listItem4')}</li>
                     <li>{t('invoicesSiteTariffsMain.list.listItem5')}</li>
                     <li>{t('invoicesSiteTariffsMain.list.listItem6')}</li>
+                    <li>{t('invoicesSiteTariffsMain.list.listItem7')}</li>
                 </ul>
                 <p className="aam_invoices-site-tariffs-main__wrapper--ps">
                     <strong>{t('invoicesSiteTariffsMain.list.ps')}</strong>
                     {' '}
-                    <Link to="https://api.cardcenter.by" >{t('invoicesSiteTariffsMain.list.linkAPI')}</Link>
+                    <Link to="https://api.cardcenter.by" >https://api.cardcenter.by</Link>
                 </p>
             </div>
 
             <div className="aam_invoices-site-tariffs-main__wrapper">
                 <h3 className="aam_invoices-site-tariffs-main__wrapper--title">{t('invoicesSiteTariffsMain.wrapper1.title')}</h3>
-                <p className="aam_invoices-site-tariffs-main__wrapper--sub-title">{t('invoicesSiteTariffsMain.wrapper1.subTitle')}</p>
+                <p className="aam_invoices-site-tariffs-main__wrapper--sub-title">
+                    {t('invoicesSiteTariffsMain.wrapper1.subTitle')}
+                    {' '}
+                    <a href="mailto:info@berlio.by">info@berlio.by</a>
+                </p>
             </div>
 
             {/* API Tariffs PDF */}
@@ -87,29 +92,32 @@ const InvoicesSiteTariffsMain = () => {
                 <h3 className="aam_invoices-site-tariffs-main__wrapper--title">{t('invoicesSiteTariffsMain.wrapper2.title')}</h3>
                 <div className="aam_invoices-site-tariffs-main__wrapper--container">
                     <div className="aam_invoices-site-tariffs-main__wrapper--container-block">
-                        <h3 className="aam_invoices-site-tariffs-main__wrapper--container-block-color-title">{t('invoicesSiteTariffsMain.cont1.title')}</h3>
-                        <h4 className="aam_invoices-site-tariffs-main__wrapper--container-block-sub-title">{t('invoicesSiteTariffsMain.cont1.subTitle')}</h4>
+                        <h3 className="aam_invoices-site-tariffs-main__wrapper--container-block-color-title">{t('invoicesSiteTariffsMain.wrapper2.cont1.title')}</h3>
+                        <h4 className="aam_invoices-site-tariffs-main__wrapper--container-block-sub-title">{t('invoicesSiteTariffsMain.wrapper2.cont1.subTitle')}</h4>
                         <ul className="aam_invoices-site-tariffs-main__wrapper--container-block-list">
-                            <li>{t('invoicesSiteTariffsMain.cont1.listItem1')}</li>
-                            <li>{t('invoicesSiteTariffsMain.cont1.listItem2')}</li>
-                            <li>{t('invoicesSiteTariffsMain.cont1.listItem3')}</li>
+                            <li>{t('invoicesSiteTariffsMain.wrapper2.cont1.listItem1')}</li>
+                            <li>{t('invoicesSiteTariffsMain.wrapper2.cont1.listItem2')}</li>
+                            <li>{t('invoicesSiteTariffsMain.wrapper2.cont1.listItem3')}</li>
                         </ul>
                     </div>
                     <div className="aam_invoices-site-tariffs-main__wrapper--container-block">
-                        <h3 className="aam_invoices-site-tariffs-main__wrapper--container-block-color-title">{t('invoicesSiteTariffsMain.cont2.title')}</h3>
-                        <h4 className="aam_invoices-site-tariffs-main__wrapper--container-block-sub-title">{t('invoicesSiteTariffsMain.cont2.subTitle')}</h4>
+                        <h3 className="aam_invoices-site-tariffs-main__wrapper--container-block-color-title">{t('invoicesSiteTariffsMain.wrapper2.cont2.title')}</h3>
+                        <h4 className="aam_invoices-site-tariffs-main__wrapper--container-block-sub-title">{t('invoicesSiteTariffsMain.wrapper2.cont2.subTitle')}</h4>
                         <ul className="aam_invoices-site-tariffs-main__wrapper--container-block-list">
-                            <li>{t('invoicesSiteTariffsMain.cont2.listItem1')}</li>
-                            <li>{t('invoicesSiteTariffsMain.cont2.listItem2')}</li>
-                            <li>{t('invoicesSiteTariffsMain.cont2.listItem3')}</li>
+                            <li>{t('invoicesSiteTariffsMain.wrapper2.cont2.listItem1')}</li>
+                            <li>{t('invoicesSiteTariffsMain.wrapper2.cont2.listItem2')}
+                                {' '}
+                                <Link to="http://api.cardcenter.by/Help">http://api.cardcenter.by/Help</Link>
+                            </li>
+                            <li>{t('invoicesSiteTariffsMain.wrapper2.cont2.listItem3')}</li>
                         </ul>
                     </div>
                     <div className="aam_invoices-site-tariffs-main__wrapper--container-block">
-                        <h3 className="aam_invoices-site-tariffs-main__wrapper--container-block-color-title">{t('invoicesSiteTariffsMain.cont3.title')}</h3>
-                        <h4 className="aam_invoices-site-tariffs-main__wrapper--container-block-sub-title">{t('invoicesSiteTariffsMain.cont3.subTitle')}</h4>
+                        <h3 className="aam_invoices-site-tariffs-main__wrapper--container-block-color-title">{t('invoicesSiteTariffsMain.wrapper2.cont3.title')}</h3>
+                        <h4 className="aam_invoices-site-tariffs-main__wrapper--container-block-sub-title">{t('invoicesSiteTariffsMain.wrapper2.cont3.subTitle')}</h4>
                         <ul className="aam_invoices-site-tariffs-main__wrapper--container-block-list">
-                            <li>{t('invoicesSiteTariffsMain.cont3.listItem1')}</li>
-                            <li>{t('invoicesSiteTariffsMain.cont3.listItem2')}</li>
+                            <li>{t('invoicesSiteTariffsMain.wrapper2.cont3.listItem1')}</li>
+                            <li>{t('invoicesSiteTariffsMain.wrapper2.cont3.listItem2')}</li>
                         </ul>
                     </div>
                 </div>

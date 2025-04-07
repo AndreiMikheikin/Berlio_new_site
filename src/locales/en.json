@@ -10,6 +10,8 @@
         "oilAndCapital": "S&P LLC 'Berlio' - Oil and Capital APP",
         "selfServiceCheckout": "S&P LLC 'Berlio' - Self-service Checkout",
         "gsAutomationSystem": "S&P LLC 'Berlio' - 'Automation System for GS APP'",
+        "invoicesSite": "NP LLC «Berlio» - 'Invoice Billing Site'",
+        "invoicesSiteTariffs": "NP LLC «Berlio» - 'API BERLIO-INFO' Tariffs",
         "forClients": "S&P LLC 'Berlio' - For Clients",
         "signAndResign": "S&P LLC 'Berlio' - Signing and re-signing of the agreement",
         "gettingElectronicCard": "S&P LLC 'Berlio' - Receiving an electronic card",
@@ -132,7 +134,9 @@
         "webCenter": "Web Center Berlio Software",
         "oilAndCapital": "Oil and Capital APP",
         "selfServiceCheckout": "Self-service Checkout",
-        "gsAutomationSystem": "Automation System for GS APP"
+        "gsAutomationSystem": "Automation System for GS APP",
+        "invoicesSite": "'Invoice Billing Site'",
+        "invoicesSiteTariffs": "Tariffs for access to the «Berlio Info» API"
     },
     "mainBlock": {
         "companyName": "Company S&P LLC «BERLIO»",
@@ -950,6 +954,53 @@
             "firstSubTitle": "Deploying a website under your company name. For example,",
             "colorSpan": "'company.эсчф.бел'",
             "secondSubTitle": "Printing information about the E-Invoice issuance website on gas station receipts."
+        },
+        "homeLink": "Home",
+        "upLink": "Up"
+    },
+    "invoicesSiteTariffsMain": {
+        "name": "API «Berlio Info»",
+        "description": "The «API «Berlio Info»» software is an online-mode programming interface that allows users to request information about the status of a contract (fuel cards) and all processed payments. Upon the user's request, any contract-related information can be configured for retrieval.",
+        "strongDescription": "The «API «Berlio Info»» is available to all users who have signed a service agreement with the «Berlio» electronic money system.",
+        "list": {
+            "title": "Key tasks addressed:",
+            "listItem1": "retrieving a list of clients;",
+            "listItem2": "obtaining client information;",
+            "listItem3": "retrieving a list of cards under the contract;",
+            "listItem4": "obtaining balance and turnover data for any given month/period;",
+            "listItem5": "generating a list of client transactions and payments;",
+            "listItem6": "exporting data to various accounting systems in formats (XML, JSON);",
+            "listItem7": "retrieving information in «Online» and «24/7» modes, etc.",
+            "ps": "The full list of available requests can be viewed on the service website:"
+        },
+        "wrapper1": {
+            "title": "API Connection",
+            "subTitle": "To gain access to the «API «Berlio Info»» interface, please submit a formal request on company letterhead, indicating the organization's name and contract number. Send requests to the following address:"
+        },
+        "serviceCardHeader": "Tariff plans for access to the «API «Berlio Info» interface",
+        "cardTitle1": "Tariffs for access to «API «Berlio Info»",
+        "wrapper2": {
+            "title": "API Connection Guide",
+            "cont1": {
+                "title": "Requirements for API Connection",
+                "subTitle": "Requirements",
+                "listItem1": "Access to the «API «Berlio Info»» (hereinafter referred to as the API) is only available to clients who have signed a service agreement with the «Berlio» electronic money system.",
+                "listItem2": "Before using the API, review the Price List for access services.",
+                "listItem3": "To request API access, send a written application to enable this service under the contract."
+            },
+            "cont2": {
+                "title": "API Connection Procedure",
+                "subTitle": "Connection",
+                "listItem1": "Upon receiving the API access request, the client will be provided with a token for calling API methods.",
+                "listItem2": "The expandable list of API methods is available at:",
+                "listItem3": "The client independently develops their own software to access the API."
+            },
+            "cont3": {
+                "title": "Payment for API Access",
+                "subTitle": "Payment",
+                "listItem1": "Fees are deducted monthly from the contract as a lump sum based on the total number of requests made during the month, according to the Price List.",
+                "listItem2": "After each API call (request), the service cost is calculated, and the deduction amount is adjusted accordingly."
+            }
         },
         "homeLink": "Home",
         "upLink": "Up"
