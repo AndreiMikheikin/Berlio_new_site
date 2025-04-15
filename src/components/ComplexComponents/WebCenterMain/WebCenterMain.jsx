@@ -14,7 +14,7 @@ const WebCenterMain = () => {
             {/* Breadcrumbs */}
             <div className="aam_web-center-main__breadcrumbs">
                 <Link to="/">{t('breadCrumbs.home')}</Link> /{' '}
-                <Link to="/partners">{t('breadCrumbs.equipment')}</Link> /{' '}
+                <Link to="/equipment">{t('breadCrumbs.equipment')}</Link> /{' '}
                 {t('breadCrumbs.webCenter')}
             </div>
 

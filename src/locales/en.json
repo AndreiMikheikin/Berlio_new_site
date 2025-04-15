@@ -20,10 +20,12 @@
         "priceListsAndTariffs": "S&P LLC 'Berlio' - Price Lists and Tariffs",
         "workWithPrivateAccount": "S&P LLC 'Berlio' - Work with PA",
         "documentsForDownload": "S&P LLC 'Berlio' - Documents for Download",
+        "systemRules": "S&P LLC 'Berlio' - Rules of the «BERLIO» Electronic Money Payment System",
         "plasticCardUsageRules": "S&P LLC 'Berlio' - Rules for using a plastic card",
         "tollRoads": "S&P LLC 'Berlio' - Toll Roads",
         "eMoneyRegulations": "S&P LLC 'Berlio' - Regulations for the Use of E-Money",
         "bicApp": "S&P LLC 'Berlio' - Berlio Internet Client",
+        "bcpApp": "S&P LLC 'Berlio' - “BERLIOCARDPAY” App",
         "forPartners": "S&P LLC 'Berlio' - For Partners",
         "voiceRefService": "S&P LLC 'Berlio' - Voice Reference and Information Service",
         "loyaltyProgram": "S&P LLC 'Berlio' - Loyalty Programm",
@@ -110,7 +112,7 @@
     "servicesAndSoftware": "Services and Software",
     "berlioInternetClient": "Berlio Internet Client App",
     "berlioCardPayApp": "BerlioCardPay App",
-    "tatneftApp": "Tatneft GS App BY",
+    "smartPayApp": "Smartpay App",
     "clientCabinetSoftware": "Client Cabinet Software",
     "breadCrumbs": {
         "home": "Home",
@@ -128,6 +130,7 @@
         "documentsForDownload": "Documents for Download",
         "eMoneyRegulations": "Regulations for the Use of E-Money",
         "bicApp": "Application 'Berlio Internet Client'",
+        "berlioCardPay": "Application 'BERLIOCARDPAY'",
         "news": "News",
         "detailedNews": "News Details",
         "equipment": "Equipment and Software",
@@ -335,7 +338,7 @@
             "label13": "Regulations for the Use of Electronic Money 'BERLIO'",
             "label14": "App 'Berlio Internet Client'",
             "label15": "App 'BERLIOCARDPAY'",
-            "label16": "App 'TATNEFT BY Gas Stations'",
+            "label16": "'Smartpay' App",
             "label17": "Self-Service Kiosk for Gas Station Networks",
             "label18": "Software 'Personal Account Client'"
         }
@@ -1001,6 +1004,20 @@
                 "listItem1": "Fees are deducted monthly from the contract as a lump sum based on the total number of requests made during the month, according to the Price List.",
                 "listItem2": "After each API call (request), the service cost is calculated, and the deduction amount is adjusted accordingly."
             }
+        },
+        "homeLink": "Home",
+        "upLink": "Up"
+    },
+    "berlioCardPayMain": {
+        "name": "Application “BERLIOCARDPAY”",
+        "description": {
+            "title": "BerlioCardPay",
+            "subTitle": "Mobile application «BerlioCardPay» for legal entities and gas station networks working with “BERLIO” electronic money.",
+            "listTitle": "Application features:",
+            "item1": "“BERLIO” electronic cards in your mobile phone;",
+            "item2": "linking electronic cards to the application via personal account",
+            "item3": "real-time fueling statistics;",
+            "item4": "refueling with a virtual card without leaving your car."
         },
         "homeLink": "Home",
         "upLink": "Up"

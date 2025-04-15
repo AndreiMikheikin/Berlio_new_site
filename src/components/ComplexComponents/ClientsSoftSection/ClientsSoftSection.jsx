@@ -23,12 +23,12 @@ const ClientsSoftSection = () => {
                 <ServiceCard
                     Icon={MobileIcon}
                     title={t('equipment.clientsSoftSection.headline1')}
-                    link="https://berliosoft.by/berliocardpay/"
+                    link="/equipment/berlioCardPayApp"
                 />
                 <ServiceCard
                     Icon={ParkSystemIcon}
                     title={t('equipment.clientsSoftSection.headline2')}
-                    link="https://berliosoft.by/kassasamoobsluzhivaniyadlyaazs/#b1316"
+                    link="/equipment/selfServiceCheckout"
                 />
                 <ServiceCard
                     Icon={ClientIcon}

@@ -44,17 +44,6 @@
         gap: 20px;
         margin-bottom: 40px;
 
-        a {
-            color: $background-color;
-            text-decoration: none;
-
-            &:hover {
-                color: $background-hover;
-                text-decoration: underline;
-            }
-        }
-
-
         &--title {
             @include m.heading-h3;
         }
@@ -80,6 +69,16 @@
 
         &--sub-title {
             @include m.text-p1;
+
+            a {
+                color: $background-color;
+                text-decoration: none;
+    
+                &:hover {
+                    color: $background-hover;
+                    text-decoration: underline;
+                }
+            }
         }
 
         &--list li {
@@ -96,6 +95,16 @@
 
         &--ps {
             @include m.text-p1;
+
+            a {
+                color: $background-color;
+                text-decoration: none;
+    
+                &:hover {
+                    color: $background-hover;
+                    text-decoration: underline;
+                }
+            }
         }
 
         &--service-card {
@@ -133,6 +142,16 @@
                     ul>li {
                         list-style-type: circle;
                         list-style-position: inside;
+                    }
+
+                    a {
+                        color: $background-color;
+                        text-decoration: none;
+            
+                        &:hover {
+                            color: $background-hover;
+                            text-decoration: underline;
+                        }
                     }
                 }
             }

@@ -14,7 +14,7 @@ const SelfServiceCheckoutMain = () => {
             {/* Breadcrumbs */}
             <div className="aam_self-service-checkout-main__breadcrumbs">
                 <Link to="/">{t('breadCrumbs.home')}</Link> /{' '}
-                <Link to="/partners">{t('breadCrumbs.equipment')}</Link> /{' '}
+                <Link to="/equipment">{t('breadCrumbs.equipment')}</Link> /{' '}
                 {t('breadCrumbs.selfServiceCheckout')}
             </div>
 

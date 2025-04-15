@@ -28,7 +28,7 @@ const BerlioInternetClientAppMain = () => {
             {/* Breadcrumbs */}
             <div className="aam_bic-app-main__breadcrumbs">
                 <Link to="/">{t('breadCrumbs.home')}</Link> /{' '}
-                <Link to="/clients">{t('breadCrumbs.forClients')}</Link> /{' '}
+                <Link to="/equipment">{t('breadCrumbs.equipment')}</Link> /{' '}
                 {t('breadCrumbs.bicApp')}
             </div>
 

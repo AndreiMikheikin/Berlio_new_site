@@ -45,7 +45,7 @@
           "label": "forPartnersMain.partnerInfo.label8"
         },
         {
-          "href": "#/partners/9",
+          "href": "/partners/systemRules",
           "label": "forPartnersMain.partnerInfo.label9"
         },
         {
@@ -145,11 +145,11 @@
       "bg-image": "BG7",
       "links": [
         {
-          "href": "/clients/berlioInternetClientApp",
+          "href": "/equipment/berlioInternetClientApp",
           "label": "forClientsMain.clientInfo.label14"
         },
         {
-          "href": "#/clients/15",
+          "href": "/equipment/berlioCardPayApp",
           "label": "forClientsMain.clientInfo.label15"
         },
         {

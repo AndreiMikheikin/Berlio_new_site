@@ -24,6 +24,7 @@ import DealResignation from "./pages/DealResignation/DealResignation";
 import PriceListsAndTariffs from "./pages/PriceListsAndTariffs/PriceListsAndTariffs";
 import WorkWithPrivateAccount from "./pages/WorkWithPrivateAccount/WorkWithPrivateAccount";
 import DocumentsForDownload from "./pages/DocumentsForDownload/DocumentsForDownload";
+import SystemRules from "./pages/SystemRules/SystemRules";
 import PlasticCardUsageRules from "./pages/PlasticCardUsageRules/PlasticCardUsageRules";
 import TollRoads from "./pages/TollRoads/TollRoads";
 import ForFuelPayments from "./pages/ForFuelPayments/ForFuelPayments";
@@ -36,6 +37,7 @@ import LoyaltyProgram from "./pages/LoyaltyProgram/LoyaltyProgram";
 import ForBankInfo from "./pages/ForBankInformation/ForBankInformation";
 import ForNotAResidentsServices from "./pages/ForNotAResidentsServices/ForNotAResidentsServices";
 import News from "./pages/News/News";
+import BerlioCardPayApp from "./pages/BerlioCardPayApp/BerlioCardPayApp";
 
 const App = () => (
   <HelmetProvider>
@@ -55,6 +57,8 @@ const App = () => (
           <Route path="/equipment/gsAutomationSystem" element={<GSAutomationSystem />} />
           <Route path="/equipment/invoicesSite" element={<InvoicesSite />} />
           <Route path="/equipment/invoicesSiteTariffs" element={<InvoicesSiteTariffs />} />
+          <Route path="/equipment/berlioInternetClientApp" element={<BerlioInternetClientApp />} />
+          <Route path="/equipment/berlioCardPayApp" element={<BerlioCardPayApp />} />
           <Route path="/clients" element={<ForClients />} />
           <Route path="/clients/signAndResign" element={<SignAndResign />} />
           <Route path="/clients/cardUsageRules" element={<CardUsageRules />} />
@@ -68,11 +72,11 @@ const App = () => (
           <Route path="/clients/forFuelPayments" element={<ForFuelPayments />} />
           <Route path="/clients/issuerRules" element={<IssuerRules />} />
           <Route path="/clients/eMoneyRegulations" element={<EMoneyRegulations />} />
-          <Route path="/clients/berlioInternetClientApp" element={<BerlioInternetClientApp />} />
           <Route path="/partners" element={<ForPartners />} />
           <Route path="/partners/voiceRefService" element={<VoiceReferenceService />} />
           <Route path="/partners/loyaltyProgram" element={<LoyaltyProgram />} />
           <Route path="/partners/documentsForDownload" element={<DocumentsForDownload />} />
+          <Route path="/partners/systemRules" element={<SystemRules />} />
           <Route path="/partners/forBankInformation" element={<ForBankInfo />} />
           <Route path="/partners/cardUsageRules" element={<CardUsageRules />} />
           <Route path="/partners/plasticCardUsageRules" element={<PlasticCardUsageRules />} />

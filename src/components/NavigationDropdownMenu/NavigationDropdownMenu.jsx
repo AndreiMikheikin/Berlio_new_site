@@ -56,14 +56,14 @@ const menuContent = {
           "target": "_self"
         },
         {
-          "href": "/NOLINK",
+          "href": "/partners/systemRules",
           "text": "berlioPaymentRules",
-          "target": ""
+          "target": "_self"
         },
         {
           "href": "/partners/forBankInformation",
           "text": "bankInformation",
-          "target": ""
+          "target": "_self"
         }
       ]
     }
@@ -153,22 +153,22 @@ const menuContent = {
       "title": "servicesAndSoftware",
       "links": [
         {
-          "href": "/clients/berlioInternetClientApp",
+          "href": "/equipment/berlioInternetClientApp",
           "text": "berlioInternetClient",
           "target": "_self"
         },
         {
-          "href": "https://berliosoft.by/berliocardpay/",
+          "href": "/equipment/berlioCardPayApp",
           "text": "berlioCardPayApp",
+          "target": "_self"
+        },
+        {
+          "href": "https://berliosoft.by/smartpay/",
+          "text": "smartPayApp",
           "target": "_blank"
         },
         {
-          "href": "https://tatbelneft.by/news/?ELEMENT_ID=174",
-          "text": "tatneftApp",
-          "target": "_blank"
-        },
-        {
-          "href": "https://berliosoft.by/kassasamoobsluzhivaniyadlyaazs/#b1316",
+          "href": "/equipment/selfServiceCheckout",
           "text": "selfServiceCashRegister",
           "target": "_blank"
         },
