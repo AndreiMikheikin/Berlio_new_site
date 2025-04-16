@@ -28,13 +28,15 @@ const BerlioCardPayMain = () => {
                 <div className="aam_berlio-card-pay-main__wrapper--description">
                     <h3 className="aam_berlio-card-pay-main__wrapper--description-title">{t('berlioCardPayMain.description.title')}</h3>
                     <p className="aam_berlio-card-pay-main__wrapper--description-sub-title">{t('berlioCardPayMain.description.subTitle')}</p>
-                    <p className="aam_berlio-card-pay-main__wrapper--description-list-title">{t('berlioCardPayMain.description.listTitle')}</p>
-                    <ul>
-                        <li>{t('berlioCardPayMain.description.item1')}</li>
-                        <li>{t('berlioCardPayMain.description.item2')} <Link to="https://lkb.by" target="_blank">https://lkb.by</Link>{';'}</li>
-                        <li>{t('berlioCardPayMain.description.item3')}</li>
-                        <li>{t('berlioCardPayMain.description.item4')}</li>
-                    </ul>
+                    <div>
+                        <p className="aam_berlio-card-pay-main__wrapper--description-list-title">{t('berlioCardPayMain.description.listTitle')}</p>
+                        <ul>
+                            <li>{t('berlioCardPayMain.description.item1')}</li>
+                            <li>{t('berlioCardPayMain.description.item2')} <Link to="https://lkb.by" target="_blank">https://lkb.by</Link>{';'}</li>
+                            <li>{t('berlioCardPayMain.description.item3')}</li>
+                            <li>{t('berlioCardPayMain.description.item4')}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 

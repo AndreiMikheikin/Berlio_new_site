@@ -153,11 +153,11 @@
           "label": "forClientsMain.clientInfo.label15"
         },
         {
-          "href": "#/clients/16",
+          "href": "/equipment/smartPayApp",
           "label": "forClientsMain.clientInfo.label16"
         },
         {
-          "href": "#/clients/17",
+          "href": "/equipment/selfServiceCheckout",
           "label": "forClientsMain.clientInfo.label17"
         },
         {

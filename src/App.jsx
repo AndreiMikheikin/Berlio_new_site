@@ -31,13 +31,14 @@ import ForFuelPayments from "./pages/ForFuelPayments/ForFuelPayments";
 import IssuerRules from "./pages/IssuerRules/IssuerRules";
 import EMoneyRegulations from "./pages/EMoneyRegulations/EMoneyRegulations";
 import BerlioInternetClientApp from "./pages/BerlioInternetClientApp/BerlioInternetClientApp";
+import BerlioCardPayApp from "./pages/BerlioCardPayApp/BerlioCardPayApp";
+import SmartPayApp from "./pages/SmartPayApp/SmartPayApp";
 import ForPartners from "./pages/ForPartners/ForPartners";
 import VoiceReferenceService from "./pages/VoiceReferenceService/VoiceReferenceService";
 import LoyaltyProgram from "./pages/LoyaltyProgram/LoyaltyProgram";
 import ForBankInfo from "./pages/ForBankInformation/ForBankInformation";
 import ForNotAResidentsServices from "./pages/ForNotAResidentsServices/ForNotAResidentsServices";
 import News from "./pages/News/News";
-import BerlioCardPayApp from "./pages/BerlioCardPayApp/BerlioCardPayApp";
 
 const App = () => (
   <HelmetProvider>
@@ -59,6 +60,7 @@ const App = () => (
           <Route path="/equipment/invoicesSiteTariffs" element={<InvoicesSiteTariffs />} />
           <Route path="/equipment/berlioInternetClientApp" element={<BerlioInternetClientApp />} />
           <Route path="/equipment/berlioCardPayApp" element={<BerlioCardPayApp />} />
+          <Route path="/equipment/smartPayApp" element={<SmartPayApp />} />
           <Route path="/clients" element={<ForClients />} />
           <Route path="/clients/signAndResign" element={<SignAndResign />} />
           <Route path="/clients/cardUsageRules" element={<CardUsageRules />} />

@@ -163,14 +163,14 @@ const menuContent = {
           "target": "_self"
         },
         {
-          "href": "https://berliosoft.by/smartpay/",
+          "href": "/equipment/smartPayApp",
           "text": "smartPayApp",
-          "target": "_blank"
+          "target": "_self"
         },
         {
           "href": "/equipment/selfServiceCheckout",
           "text": "selfServiceCashRegister",
-          "target": "_blank"
+          "target": "_self"
         },
         {
           "href": "https://berliosoft.by/polichnyykabinetklienta/",

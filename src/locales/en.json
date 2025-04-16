@@ -26,6 +26,7 @@
         "eMoneyRegulations": "S&P LLC 'Berlio' - Regulations for the Use of E-Money",
         "bicApp": "S&P LLC 'Berlio' - Berlio Internet Client",
         "bcpApp": "S&P LLC 'Berlio' - “BERLIOCARDPAY” App",
+        "smartPayApp": "S&P LLC 'Berlio' - “SMARTPAY” App",
         "forPartners": "S&P LLC 'Berlio' - For Partners",
         "voiceRefService": "S&P LLC 'Berlio' - Voice Reference and Information Service",
         "loyaltyProgram": "S&P LLC 'Berlio' - Loyalty Programm",
@@ -131,6 +132,7 @@
         "eMoneyRegulations": "Regulations for the Use of E-Money",
         "bicApp": "Application 'Berlio Internet Client'",
         "berlioCardPay": "Application 'BERLIOCARDPAY'",
+        "smartPayApp": "Application 'SMARTPAY'",
         "news": "News",
         "detailedNews": "News Details",
         "equipment": "Equipment and Software",
@@ -1018,6 +1020,20 @@
             "item2": "linking electronic cards to the application via personal account",
             "item3": "real-time fueling statistics;",
             "item4": "refueling with a virtual card without leaving your car."
+        },
+        "homeLink": "Home",
+        "upLink": "Up"
+    },
+    "smartPayAppMain": {
+        "name": "“SMARTPAY” Application",
+        "description": {
+            "title": "Program Description",
+            "subTitle1": "The «SmartPay» software is a fuel payment system at gas stations via a mobile application.",
+            "subTitle2": "The software is a service-oriented application complex that enables payment and activation of fuel dispensers at gas stations through a mobile application, without operator involvement.",
+            "listTitle": "The «SmartPay» software consists of two parts:",
+            "item1": "«SmartPayClient» (installed at the Customer's gas station);",
+            "item2": "«SmartPayServer» (installed at the Developer's office server).",
+            "ps": "The interaction between the «SmartPay» software and the mobile application is carried out through the Customer's server in accordance with the protocol provided by the Developer."
         },
         "homeLink": "Home",
         "upLink": "Up"
