@@ -33,7 +33,7 @@ const ClientsSoftSection = () => {
                 <ServiceCard
                     Icon={ClientIcon}
                     title={t('equipment.clientsSoftSection.headline3')}
-                    link="https://berliosoft.by/polichnyykabinetklienta/"
+                    link="/equipment/personalAccWebApp"
                 />
             </div>
 

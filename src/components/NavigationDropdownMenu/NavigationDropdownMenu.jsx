@@ -173,9 +173,9 @@ const menuContent = {
           "target": "_self"
         },
         {
-          "href": "https://berliosoft.by/polichnyykabinetklienta/",
+          "href": "/equipment/personalAccWebApp",
           "text": "clientCabinetSoftware",
-          "target": "_blank"
+          "target": "_self"
         }
       ]
     }

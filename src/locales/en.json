@@ -27,6 +27,7 @@
         "bicApp": "S&P LLC 'Berlio' - Berlio Internet Client",
         "bcpApp": "S&P LLC 'Berlio' - “BERLIOCARDPAY” App",
         "smartPayApp": "S&P LLC 'Berlio' - “SMARTPAY” App",
+        "personalAccWebApp": "S&P LLC 'Berlio' - “Personal Account” App",
         "forPartners": "S&P LLC 'Berlio' - For Partners",
         "voiceRefService": "S&P LLC 'Berlio' - Voice Reference and Information Service",
         "loyaltyProgram": "S&P LLC 'Berlio' - Loyalty Programm",
@@ -133,6 +134,7 @@
         "bicApp": "Application 'Berlio Internet Client'",
         "berlioCardPay": "Application 'BERLIOCARDPAY'",
         "smartPayApp": "Application 'SMARTPAY'",
+        "personalAccWebApp": "Application 'Personal Account'",
         "news": "News",
         "detailedNews": "News Details",
         "equipment": "Equipment and Software",
@@ -1037,6 +1039,20 @@
         },
         "homeLink": "Home",
         "upLink": "Up"
+    },
+    "personalAccWebAppMain": {
+        "name": "“Customer Personal Account” Software",
+        "description": {
+            "title": "Program Description",
+            "subTitle": "The «Customer Personal Account» software is designed to provide customers with necessary information about their account, cards, transactions, payments, as well as card management, downloading report documents, and connecting additional services.",
+            "listTitle": "Key tasks addressed:",
+            "item1": "viewing current account status information;",
+            "item2": "viewing and editing card data, setting card limits;",
+            "item3": "receiving report information on transactions (including lists of e-invoices submitted to the tax inspectorate portal), payments, turnovers and balances for various periods;",
+            "item4": "connecting various services (balance notifications, SMS and Email alerts, toll road payments, ordering fuel cards from other operators, mobile top-ups, and others)."
+        },
+        "homeLink": "Home",
+        "upLink": "Back to top"
     },
     "telFax": "(tel / fax)",
     "fax": "(fax)",

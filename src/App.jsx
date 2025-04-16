@@ -33,6 +33,7 @@ import EMoneyRegulations from "./pages/EMoneyRegulations/EMoneyRegulations";
 import BerlioInternetClientApp from "./pages/BerlioInternetClientApp/BerlioInternetClientApp";
 import BerlioCardPayApp from "./pages/BerlioCardPayApp/BerlioCardPayApp";
 import SmartPayApp from "./pages/SmartPayApp/SmartPayApp";
+import PersonalAccWebApp from "./pages/PersonalAccWebApp/PersonalAccWebApp";
 import ForPartners from "./pages/ForPartners/ForPartners";
 import VoiceReferenceService from "./pages/VoiceReferenceService/VoiceReferenceService";
 import LoyaltyProgram from "./pages/LoyaltyProgram/LoyaltyProgram";
@@ -61,6 +62,7 @@ const App = () => (
           <Route path="/equipment/berlioInternetClientApp" element={<BerlioInternetClientApp />} />
           <Route path="/equipment/berlioCardPayApp" element={<BerlioCardPayApp />} />
           <Route path="/equipment/smartPayApp" element={<SmartPayApp />} />
+          <Route path="/equipment/personalAccWebApp" element={<PersonalAccWebApp />} />
           <Route path="/clients" element={<ForClients />} />
           <Route path="/clients/signAndResign" element={<SignAndResign />} />
           <Route path="/clients/cardUsageRules" element={<CardUsageRules />} />
