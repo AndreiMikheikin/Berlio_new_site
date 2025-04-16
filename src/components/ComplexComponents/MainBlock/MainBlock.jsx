@@ -30,12 +30,13 @@ const MainBlock = () => {
                     Icon={PaymentCardIcon}
                     title={t('mainBlock.fuelCardUsage')}
                     description={t('mainBlock.belTollServices')}
-                    link="https://www.berlio.by/clients/pravila-platezhnoy-sistemy-berlio/Выпуск%20в%20обращение%20и%20использование%20топливных%20карт.pdf"
+                    link="/clients/plasticCardUsageRules"
                 />
                 <ServiceCard
                     Icon={MapIcon}
                     title={t('mainBlock.nonResidentServices')}
                     description={t('mainBlock.nonResidentSupport')}
+                    link="/clients/nonResidentsSupport"
                 />
             </section>
 

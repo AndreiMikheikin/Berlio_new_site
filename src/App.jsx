@@ -26,6 +26,7 @@ import WorkWithPrivateAccount from "./pages/WorkWithPrivateAccount/WorkWithPriva
 import DocumentsForDownload from "./pages/DocumentsForDownload/DocumentsForDownload";
 import SystemRules from "./pages/SystemRules/SystemRules";
 import PlasticCardUsageRules from "./pages/PlasticCardUsageRules/PlasticCardUsageRules";
+import NonResidentsSupport from "./pages/NonResidentsSupport/NonResidentsSupport";
 import TollRoads from "./pages/TollRoads/TollRoads";
 import ForFuelPayments from "./pages/ForFuelPayments/ForFuelPayments";
 import IssuerRules from "./pages/IssuerRules/IssuerRules";
@@ -72,6 +73,7 @@ const App = () => (
           <Route path="/clients/workWithPrivateAccount" element={<WorkWithPrivateAccount />} />
           <Route path="/clients/documentsForDownload" element={<DocumentsForDownload />} />
           <Route path="/clients/plasticCardUsageRules" element={<PlasticCardUsageRules />} />
+          <Route path="/clients/nonResidentsSupport" element={<NonResidentsSupport />} />
           <Route path="/clients/tollRoads" element={<TollRoads />} />
           <Route path="/clients/forFuelPayments" element={<ForFuelPayments />} />
           <Route path="/clients/issuerRules" element={<IssuerRules />} />
