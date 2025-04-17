@@ -8,21 +8,18 @@ const ReaderSVG = ({ cardRead }) => {
 
     useEffect(() => {
         if (cardRead) {
-            setTimeout(() => {
+            requestAnimationFrame(() => {
                 const baElement = document.getElementById("ba");
-    
-                if (baElement) {
-                    baElement.style.fill = "#00ff2f";
-                }
-    
+                if (baElement) baElement.style.fill = "#00ff2f";
+        
                 const dfElement = document.getElementById("df");
                 const dgElement = document.getElementById("dg");
-    
+        
                 if (dfElement && dgElement) {
                     dfElement.textContent = t('readerSVG.massage1');
                     dgElement.textContent = t('readerSVG.massage2');
                 }
-            }, 100);
+            });
         }
     }, [cardRead]);
 

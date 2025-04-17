@@ -1,15 +1,17 @@
 import { useTranslation } from 'react-i18next';
 
 const useLocalization = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
-  const switchLocale = (newLocale) => {
-    i18n.changeLanguage(newLocale).then(() => {
-      window.location.reload(); // Перезагрузка страницы после смены языка
-    });
+  const switchLocale = async (newLocale) => {
+    await i18n.changeLanguage(newLocale);
   };
 
-  return { locale: i18n.language, switchLocale };
+  return { 
+    locale: i18n.language, 
+    switchLocale,
+    t,
+  };
 };
 
 export default useLocalization;
