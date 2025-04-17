@@ -2,18 +2,23 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/components/SortDropdown.scss';
 import DropdownIcon from '../SVGIcons/DropdownIcon';
-
 import { useTranslation } from 'react-i18next';
 
-const SortDropdown = ({ options, defaultOption, onSelect, openFillColor='#000', closedFillColor='#777' }) => {
+const SortDropdown = ({ 
+    options, 
+    defaultOption, 
+    onSelect, 
+    openFillColor = '#000', 
+    closedFillColor = '#777' 
+}) => {
     const { t } = useTranslation();
     
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(defaultOption);
     const [iconFillColor, setIconFillColor] = useState(closedFillColor);
 
+    const selectedOption = defaultOption;
+
     const handleSelect = (option) => {
-        setSelectedOption(option);
         setIsOpen(false);
         onSelect(option);
     };
@@ -21,8 +26,8 @@ const SortDropdown = ({ options, defaultOption, onSelect, openFillColor='#000', 
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (!e.target.closest('.aam_sort-dropdown')) {
-                setIsOpen(false); // Закрытие выпадающего списка при клике вне
-                setIconFillColor(closedFillColor); // Возвращаем цвет иконки в черный при закрытии
+                setIsOpen(false);
+                setIconFillColor(closedFillColor);
             }
         };
 
@@ -34,28 +39,28 @@ const SortDropdown = ({ options, defaultOption, onSelect, openFillColor='#000', 
 
     const handleDropdownClick = () => {
         setIsOpen(!isOpen);
-        setIconFillColor(isOpen ? closedFillColor : openFillColor); // Изменяем цвет иконки в зависимости от состояния
+        setIconFillColor(isOpen ? closedFillColor : openFillColor);
     };
 
     return (
         <div className="aam_sort-dropdown">
-            {/* Заголовок с текущим значением */}
             <span className="aam_sort-dropdown__label">{t('newsBlock.sortBy')}</span>
             <div>
                 <button
                     className="aam_sort-dropdown__header"
                     onClick={handleDropdownClick}
                 >
-                    <span className={`aam_sort-dropdown__text ${isOpen ? 'open' : ''}`}>{selectedOption.label}</span>
+                    <span className={`aam_sort-dropdown__text ${isOpen ? 'open' : ''}`}>
+                        {selectedOption.label}
+                    </span>
                     <DropdownIcon
                         className={`aam_sort-dropdown__icon ${isOpen ? 'open' : ''}`}
-                        fillColor={iconFillColor} // Цвет иконки меняется в зависимости от состояния
+                        fillColor={iconFillColor}
                         width="17"
                         height="9"
                     />
                 </button>
 
-                {/* Пункты, отличающиеся от текущего */}
                 {isOpen && (
                     <ul className="aam_sort-dropdown__list">
                         {options
