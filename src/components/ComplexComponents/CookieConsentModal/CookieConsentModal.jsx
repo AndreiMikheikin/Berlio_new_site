@@ -97,7 +97,6 @@ const CookieConsentModal = () => {
                     text='Подробнее о политике обработки cookies'
                     variant='default'
                     className='aam_cookie-modal__link'
-                    iconColor={$text-primary}
                 />
 
                 {!showSettings && (
