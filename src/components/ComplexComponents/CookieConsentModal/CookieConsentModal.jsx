@@ -93,9 +93,13 @@ const CookieConsentModal = () => {
                     Файлы cookies делают Вашу работу с сайтом удобнее. Тем не менее, Вы можете отказаться от них или настроить по своему усмотрению. Отказ от использования файлов cookies может привести к нестабильной работе некоторых функций сайта.
                 </p>
                 <Link
-                    to ='/rules'
+                    to='/'
+                    targettarget="_blank"
+                    rel="noopener noreferrer"
                     className='aam_cookie-modal__link'
-                >Подробнее о политике обработки cookies</Link>
+                >
+                    Подробнее о политике обработки cookies
+                </Link>
 
                 {!showSettings && (
                     <div className="aam_cookie-modal__buttons">
