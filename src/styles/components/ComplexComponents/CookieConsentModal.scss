@@ -4,10 +4,12 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 420px;
+  width: 520px;
+  height: 400px;
+  overflow-y: scroll;
   background: $white;
-  border: 1px solid $border-primary;
-  box-shadow: $shadow-primary;
+  outline: 5px solid rgba($border-secondary, 0.2);
+  box-shadow: $shadow-secondary;
   border-radius: 12px;
   padding: 24px;
   font-family: $font-family-primary;
@@ -21,7 +23,7 @@
   }
 
   &__title {
-    font-size: $font-size-x-large;
+    font-size: $font-size-regular;
     font-weight: $font-weight-bold;
     margin-bottom: 12px;
     color: $text-primary;
@@ -29,14 +31,14 @@
   }
 
   &__description {
-    font-size: $font-size-regular;
+    font-size: $font-size-small;
     line-height: $line-height-regular;
     margin-bottom: 20px;
     color: $text-secondary;
   }
 
   &__link {
-    color: $text-primary;
+    color: $text-secondary;
     text-decoration: underline;
     transition: color 0.2s;
 
@@ -47,6 +49,7 @@
 
   &__buttons {
     display: flex;
+    flex-direction: column;
     gap: 12px;
     margin-top: 20px;
 
