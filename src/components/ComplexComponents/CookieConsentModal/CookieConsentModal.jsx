@@ -92,14 +92,9 @@ const CookieConsentModal = () => {
                 <p className="aam_cookie-modal__description">
                     Файлы cookies делают Вашу работу с сайтом удобнее. Тем не менее, Вы можете отказаться от них или настроить по своему усмотрению. Отказ от использования файлов cookies может привести к нестабильной работе некоторых функций сайта.
                 </p>
-                <Link
-                    to='/'
-                    targettarget="_blank"
-                    rel="noopener noreferrer"
-                    className='aam_cookie-modal__link'
-                >
+                <a href="/Berlio_new_site/cookie-policy" target="_blank" rel="noopener noreferrer" className="aam_cookie-modal__link">
                     Подробнее о политике обработки cookies
-                </Link>
+                </a>
 
                 {!showSettings && (
                     <div className="aam_cookie-modal__buttons">
