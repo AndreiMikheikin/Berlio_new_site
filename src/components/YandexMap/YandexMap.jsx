@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { YMaps, Map, Placemark } from 'react-yandex-maps';
+import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import { renderToString } from 'react-dom/server';
 import BerlioLocationIcon from '../SVGIcons/BerlioLocationIcon';
 import useLocalization from '../../hooks/useLocalization';
