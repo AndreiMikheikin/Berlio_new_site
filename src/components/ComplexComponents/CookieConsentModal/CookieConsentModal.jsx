@@ -1,6 +1,6 @@
 // CookieConsentModal.jsx
 import React, { useState, useEffect } from 'react';
-import Button from '../components/Button';
+import Button from '../../Button/Button';
 import DropdownIcon from '../../SVGIcons/DropdownIcon';
 import '../../../styles/components/ComplexComponents/CookieConsentModal.scss';
 

@@ -41,6 +41,7 @@ import LoyaltyProgram from "./pages/LoyaltyProgram/LoyaltyProgram";
 import ForBankInfo from "./pages/ForBankInformation/ForBankInformation";
 import ForNotAResidentsServices from "./pages/ForNotAResidentsServices/ForNotAResidentsServices";
 import News from "./pages/News/News";
+import CookieConsentModal from "./components/ComplexComponents/CookieConsentModal/CookieConsentModal";
 
 const App = () => (
   <HelmetProvider>
@@ -90,6 +91,7 @@ const App = () => (
 
         </Routes>
       </Router>
+      <CookieConsentModal />
     </SelectedItemProvider>
   </HelmetProvider>
 );
