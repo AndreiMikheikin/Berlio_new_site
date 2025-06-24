@@ -1,6 +1,6 @@
-import React, { Link, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '../../Button/Button';
-import LinkTo from '../../LinkTo/LinkTo';
+import { Link } from 'react-router-dom';
 import DropdownIcon from '../../SVGIcons/DropdownIcon';
 import '../../../styles/components/ComplexComponents/CookieConsentModal.scss';
 
@@ -92,12 +92,10 @@ const CookieConsentModal = () => {
                 <p className="aam_cookie-modal__description">
                     Файлы cookies делают Вашу работу с сайтом удобнее. Тем не менее, Вы можете отказаться от них или настроить по своему усмотрению. Отказ от использования файлов cookies может привести к нестабильной работе некоторых функций сайта.
                 </p>
-                <LinkTo
-                    href='/cookie-policy'
-                    text='Подробнее о политике обработки cookies'
-                    variant='default'
+                <Link
+                    to ='/rules'
                     className='aam_cookie-modal__link'
-                />
+                >Подробнее о политике обработки cookies</Link>
 
                 {!showSettings && (
                     <div className="aam_cookie-modal__buttons">
