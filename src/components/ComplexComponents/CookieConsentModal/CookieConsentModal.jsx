@@ -1,4 +1,3 @@
-// CookieConsentModal.jsx
 import React, { useState, useEffect } from 'react';
 import Button from '../../Button/Button';
 import DropdownIcon from '../../SVGIcons/DropdownIcon';
@@ -7,7 +6,7 @@ import '../../../styles/components/ComplexComponents/CookieConsentModal.scss';
 const COOKIE_STORAGE_KEY = 'aam_cookie_consent';
 
 const defaultConsent = {
-  technical: true, // всегда включены, без отключения
+  technical: true,
   functional: false,
   analytics: false,
   marketing: false,
@@ -72,7 +71,7 @@ const CookieConsentModal = () => {
   };
 
   const toggleConsent = (section) => {
-    if (section === 'technical') return; // нельзя отключать
+    if (section === 'technical') return;
     setConsent((prev) => ({
       ...prev,
       [section]: !prev[section],
@@ -98,9 +97,19 @@ const CookieConsentModal = () => {
 
         {!showSettings && (
           <div className="aam_cookie-modal__buttons">
-            <Button label="Принять все" onClick={acceptAll} className="accept-all" />
-            <Button label="Отказаться" onClick={rejectAll} className="reject-all" />
-            <Button label="Настройки файлов cookies" onClick={() => setShowSettings(true)} className="settings" />
+            <Button 
+              label="Принять все" 
+              onClick={acceptAll} 
+              variant="green" 
+            />
+            <Button 
+              label="Отказаться" 
+              onClick={rejectAll} 
+            />
+            <Button 
+              label="Настройки файлов cookies" 
+              onClick={() => setShowSettings(true)} 
+            />
           </div>
         )}
 
@@ -149,9 +158,9 @@ const CookieConsentModal = () => {
             ))}
 
             <div className="aam_cookie-modal__buttons aam_cookie-modal__buttons--settings">
-              <Button label="Принять все" onClick={acceptAll} className="accept-all" />
-              <Button label="Отказаться" onClick={rejectAll} className="reject-all" />
-              <Button label="Принять выбранные" onClick={acceptSelected} className="accept-selected" />
+              <Button label="Принять все" onClick={acceptAll} variant="green" />
+              <Button label="Отказаться" onClick={rejectAll} />
+              <Button label="Принять выбранные" onClick={acceptSelected} variant="green" />
             </div>
             <button className="aam_cookie-modal__close-settings" onClick={() => setShowSettings(false)}>
               Закрыть настройки

@@ -4,46 +4,73 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 360px;
-  background: $background-color;
+  width: 420px;
+  background: $white;
   border: 1px solid $border-primary;
   box-shadow: $shadow-primary;
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 12px;
+  padding: 24px;
   font-family: $font-family-primary;
   color: $text-primary;
   z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
   &__title {
     font-size: $font-size-x-large;
     font-weight: $font-weight-bold;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    color: $text-primary;
+    line-height: $line-height-regular;
   }
 
   &__description {
     font-size: $font-size-regular;
-    margin-bottom: 15px;
+    line-height: $line-height-regular;
+    margin-bottom: 20px;
+    color: $text-secondary;
   }
 
   &__link {
     color: $text-primary;
     text-decoration: underline;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $text-secondary-dark;
+    }
   }
 
   &__buttons {
     display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
+    gap: 12px;
+    margin-top: 20px;
 
     &--settings {
       flex-wrap: wrap;
       gap: 10px;
+      margin-top: 25px;
     }
   }
 
-  &__section {
-    border-top: 1px solid $border-primary;
+  &__settings {
     margin-top: 15px;
+  }
+
+  &__section {
+    border-top: 1px solid rgba($border-primary, 0.5);
+    padding-top: 16px;
+    margin-top: 16px;
+
+    &:first-child {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+    }
 
     &-header {
       display: flex;
@@ -56,47 +83,87 @@
       font-weight: $font-weight-semibold;
       font-size: $font-size-regular;
       color: $text-primary;
-      padding: 10px 0;
-    }
+      padding: 8px 0;
+      transition: color 0.2s;
 
-    &__dropdown-icon {
-      transition: transform 0.3s ease;
-      &.expanded {
-        transform: rotate(180deg);
+      &:hover {
+        color: $text-secondary-dark;
+      }
+
+      span {
+        flex-grow: 1;
+        text-align: left;
       }
     }
 
     &-content {
       font-size: $font-size-small;
+      line-height: $line-height-regular;
       color: $text-secondary;
-      padding: 10px 0 10px 10px;
+      padding: 12px 0 8px 8px;
+      animation: slideDown 0.3s ease-out;
+
+      @keyframes slideDown {
+        from { opacity: 0; max-height: 0; }
+        to { opacity: 1; max-height: 500px; }
+      }
     }
 
     &__toggle-label {
       display: flex;
       align-items: center;
-      margin-top: 8px;
+      margin-top: 12px;
+      cursor: pointer;
+      user-select: none;
 
       input[type='checkbox'] {
-        margin-right: 8px;
+        margin-right: 10px;
         cursor: pointer;
+        width: 16px;
+        height: 16px;
+        accent-color: $background-color;
+      }
+
+      span {
+        font-size: $font-size-small;
+        color: $text-primary;
       }
     }
 
     &__mandatory-note {
-      font-size: $font-size-small;
-      color: $text-secondary-dark;
-      margin-top: 6px;
+      font-size: $font-size-x-small;
+      color: $text-tertiary-dark;
+      margin-top: 8px;
       font-style: italic;
     }
   }
 
+  &__dropdown-icon {
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+    flex-shrink: 0;
+
+    &.expanded {
+      transform: rotate(180deg);
+    }
+  }
+
   &__close-settings {
-    margin-top: 15px;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
     background: transparent;
     border: none;
-    color: $text-primary;
+    color: $text-secondary;
     cursor: pointer;
     text-decoration: underline;
+    font-size: $font-size-small;
+    text-align: center;
+    padding: 8px;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $text-primary;
+    }
   }
 }

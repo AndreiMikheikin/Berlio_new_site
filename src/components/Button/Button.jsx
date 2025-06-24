@@ -2,25 +2,43 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/components/Button.scss';
 
-const Button = ({ label, onClick, type = 'button', className = '', disabled = false }) => {
-    return (
-        <button 
-            type={type} 
-            className={`aam_button--${className}`} 
-            onClick={onClick} 
-            disabled={disabled}
-        >
-            {label}
-        </button>
-    );
+const Button = ({ 
+  label, 
+  onClick, 
+  type = 'button', 
+  variant = 'default', 
+  className = '',
+  disabled = false 
+}) => {
+  const baseClass = 'aam_button';
+  const variantClass = variant !== 'default' ? `${baseClass}--${variant}` : '';
+  
+  return (
+    <button 
+      type={type} 
+      className={`${baseClass} ${variantClass} ${className}`.trim()} 
+      onClick={onClick} 
+      disabled={disabled}
+    >
+      {label}
+    </button>
+  );
 };
 
 Button.propTypes = {
-    label: PropTypes.string.isRequired, // Текст кнопки
-    onClick: PropTypes.func,           // Обработчик клика
-    type: PropTypes.oneOf(['button', 'submit', 'reset']), // Тип кнопки
-    className: PropTypes.string,       // Дополнительные классы
-    disabled: PropTypes.bool,          // Состояние disabled
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+  variant: PropTypes.oneOf(['default', 'green']), // Можно расширять
+  className: PropTypes.string, // Для кастомных случаев
+  disabled: PropTypes.bool,
+};
+
+Button.defaultProps = {
+  variant: 'default',
+  className: '',
+  disabled: false,
+  type: 'button',
 };
 
 export default Button;
