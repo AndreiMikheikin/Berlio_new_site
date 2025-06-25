@@ -6,13 +6,15 @@ const Dotenv = require('dotenv-webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer'); // Для анализа бандла
 
+const isProd = process.env.NODE_ENV === 'production';
+
 module.exports = {
   entry: './src/index.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].[contenthash:8].js', // Добавляем хеш для кэширования
-    clean: true,
-    publicPath: '/Berlio_new_site/',
+    clean: false,
+    publicPath: process.env.NODE_ENV === 'production' ? '/Berlio_new_site/' : '/',
     assetModuleFilename: 'assets/[hash][ext][query]', // Общий путь для ассетов
   },
   module: {
@@ -77,9 +79,9 @@ module.exports = {
     },
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    ...(isProd ? [new CleanWebpackPlugin()] : []),
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: './src/index.html',
       filename: 'index.html',
       favicon: './public/favicon.svg',
     }),
