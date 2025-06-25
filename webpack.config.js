@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer'); // Для анализа бандла
 
 module.exports = {
@@ -76,6 +77,7 @@ module.exports = {
     },
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: 'index.html',
