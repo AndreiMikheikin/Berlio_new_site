@@ -142,5 +142,4 @@ module.exports = {
     maxEntrypointSize: 512000, // Увеличиваем лимит для entrypoint
     maxAssetSize: 512000, // Увеличиваем лимит для ассетов
   },
-  mode: 'development',
 };
