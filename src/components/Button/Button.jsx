@@ -34,11 +34,4 @@ Button.propTypes = {
   disabled: PropTypes.bool,
 };
 
-Button.defaultProps = {
-  variant: 'default',
-  className: '',
-  disabled: false,
-  type: 'button',
-};
-
 export default Button;

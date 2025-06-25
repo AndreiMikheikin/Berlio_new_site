@@ -20,6 +20,13 @@ const descriptions = {
     marketing: `Используются для маркетинга и улучшения качества рекламы, создавая профиль интересов пользователя.`,
 };
 
+const sectionLabels = {
+    technical: 'Технические файлы cookies',
+    functional: 'Функциональные файлы cookies',
+    analytics: 'Аналитические файлы cookies',
+    marketing: 'Рекламные/маркетинговые файлы cookies',
+};
+
 const CookieConsentModal = () => {
     const [visible, setVisible] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
@@ -90,33 +97,28 @@ const CookieConsentModal = () => {
             <div className="aam_cookie-modal__content">
                 <h2 className="aam_cookie-modal__title">Этот сайт использует cookies</h2>
                 <p className="aam_cookie-modal__description">
-                    Файлы cookies делают Вашу работу с сайтом удобнее. Тем не менее, Вы можете отказаться от них или настроить по своему усмотрению. Отказ от использования файлов cookies может привести к нестабильной работе некоторых функций сайта.
+                    Файлы cookies делают Вашу работу с сайтом удобнее. Тем не менее, Вы можете отказаться от них или настроить по своему усмотрению. <span className="aam_cookie-modal__description--warning">Отказ от использования файлов cookies может привести к нестабильной работе некоторых функций сайта!</span>
                 </p>
-                <a href="/Berlio_new_site/cookie-policy" target="_blank" rel="noopener noreferrer" className="aam_cookie-modal__link">
+                <a
+                    href="/Berlio_new_site/cookie-policy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="aam_cookie-modal__link"
+                >
                     Подробнее о политике обработки cookies
                 </a>
 
                 {!showSettings && (
                     <div className="aam_cookie-modal__buttons">
-                        <Button
-                            label="Принять все"
-                            onClick={acceptAll}
-                            variant="green"
-                        />
-                        <Button
-                            label="Отказаться"
-                            onClick={rejectAll}
-                        />
-                        <Button
-                            label="Настройки файлов cookies"
-                            onClick={() => setShowSettings(true)}
-                        />
+                        <Button label="Принять все" onClick={acceptAll} variant="green" />
+                        <Button label="Отказаться" onClick={rejectAll} />
+                        <Button label="Настройки файлов cookies" onClick={() => setShowSettings(true)} />
                     </div>
                 )}
 
                 {showSettings && (
                     <div className="aam_cookie-modal__settings">
-                        {['technical', 'functional', 'analytics', 'marketing'].map((section) => (
+                        {Object.keys(sectionLabels).map((section) => (
                             <div key={section} className="aam_cookie-modal__section">
                                 <button
                                     className="aam_cookie-modal__section-header"
@@ -124,35 +126,33 @@ const CookieConsentModal = () => {
                                     aria-expanded={expandedSections[section]}
                                     aria-controls={`section-content-${section}`}
                                 >
-                                    <span>{(() => {
-                                        switch (section) {
-                                            case 'technical': return 'Технические файлы cookies - Всегда активны';
-                                            case 'functional': return 'Функциональные файлы cookies';
-                                            case 'analytics': return 'Аналитические файлы cookies';
-                                            case 'marketing': return 'Рекламные/маркетинговые файлы cookies';
-                                            default: return section;
-                                        }
-                                    })()}</span>
-                                    <DropdownIcon
-                                        className={`aam_cookie-modal__dropdown-icon ${expandedSections[section] ? 'expanded' : ''}`}
-                                    />
-                                </button>
-                                {expandedSections[section] && (
-                                    <div id={`section-content-${section}`} className="aam_cookie-modal__section-content">
-                                        <p>{descriptions[section]}</p>
-                                        {section !== 'technical' && (
-                                            <label className="aam_cookie-modal__toggle-label">
+                                    <span>{sectionLabels[section]}</span>
+                                    <div className="aam_cookie-modal__section-control">                                        
+                                        {section !== 'technical' ? (
+                                            <label className="aam_cookie-modal__toggle-switch" onClick={(e) => e.stopPropagation()}>
                                                 <input
                                                     type="checkbox"
                                                     checked={consent[section]}
-                                                    onChange={() => toggleConsent(section)}
+                                                    onChange={(e) => {
+                                                        e.stopPropagation();
+                                                        toggleConsent(section);
+                                                    }}
+                                                    onClick={(e) => e.stopPropagation()}
                                                 />
-                                                <span>Включить</span>
+                                                <span className="slider" />
                                             </label>
+                                        ) : (
+                                            <span className="aam_cookie-modal__always-on">Всегда активны</span>
                                         )}
-                                        {section === 'technical' && (
-                                            <p className="aam_cookie-modal__mandatory-note">Этот тип cookies обязателен и не может быть отключен.</p>
-                                        )}
+                                        <DropdownIcon
+                                            className={`aam_cookie-modal__dropdown-icon ${expandedSections[section] ? 'expanded' : ''}`}
+                                        />
+                                    </div>
+                                </button>
+
+                                {expandedSections[section] && (
+                                    <div id={`section-content-${section}`} className="aam_cookie-modal__section-content">
+                                        <p>{descriptions[section]}</p>
                                     </div>
                                 )}
                             </div>
