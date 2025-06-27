@@ -4,7 +4,7 @@ import { renderToString } from 'react-dom/server';
 import BerlioLocationIcon from '../SVGIcons/BerlioLocationIcon';
 import useLocalization from '../../hooks/useLocalization';
 
-const YandexMap = ({ coordinates }) => {
+const YandexMap = ({ coordinates = [53.876159, 27.547862] }) => {
     const { locale } = useLocalization(); // Получаем текущий язык
 
     // Определяем язык для Yandex Maps

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import YandexMap from '../../YandexMap/YandexMap';
+import MapWithConsent from '../MapWithConsent/MapWithConsent';
 import departmentAdresses from '../../../data/departmentAdresses.json';
 import PlusIcon from '../../SVGIcons/PlusIcon';
 import MinusIcon from '../../SVGIcons/MinusIcon';
@@ -89,7 +89,7 @@ const ContactsMain = () => {
 
             {/* Карта */}
             <div className="aam_contacts-main__map">
-                <YandexMap coordinates={activeCoordinates} />
+                <MapWithConsent coordinates={activeCoordinates} />
             </div>
         </div >
     );

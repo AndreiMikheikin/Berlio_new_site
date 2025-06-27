@@ -1,10 +1,9 @@
+import ReactDOM from "react-dom";
 import React, { useState, useEffect } from 'react';
 import Button from '../../Button/Button';
-import { Link } from 'react-router-dom';
 import DropdownIcon from '../../SVGIcons/DropdownIcon';
+import useCookieConsent from '../../../hooks/useCookieConsent';
 import '../../../styles/components/ComplexComponents/CookieConsentModal.scss';
-
-const COOKIE_STORAGE_KEY = 'aam_cookie_consent';
 
 const defaultConsent = {
     technical: true,
@@ -27,34 +26,44 @@ const sectionLabels = {
     marketing: 'Рекламные/маркетинговые файлы cookies',
 };
 
-const CookieConsentModal = () => {
+const CookieConsentModal = ({ forceVisible = false, onConsentSaved = () => { } }) => {
+    const {
+        getConsent,
+        saveConsent,
+        needsRenewal,
+    } = useCookieConsent();
+
     const [visible, setVisible] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
+    const initialConsent = getConsent();
+    const [consent, setConsent] = useState(initialConsent);
     const [expandedSections, setExpandedSections] = useState({
         technical: false,
         functional: false,
         analytics: false,
         marketing: false,
     });
-    const [consent, setConsent] = useState(defaultConsent);
 
     useEffect(() => {
-        const saved = localStorage.getItem(COOKIE_STORAGE_KEY);
-        if (!saved) {
+        if (forceVisible) {
             setVisible(true);
-        } else {
-            setConsent(JSON.parse(saved));
+            setShowSettings(true);
+            return;
         }
-    }, []);
 
-    const saveConsent = (newConsent) => {
-        localStorage.setItem(COOKIE_STORAGE_KEY, JSON.stringify(newConsent));
-        setConsent(newConsent);
+        if (!initialConsent.timestamp || needsRenewal()) {
+            setVisible(true);
+        }
+    }, [forceVisible]);
+
+    const handleSave = (newConsent) => {
+        saveConsent(newConsent);
+        onConsentSaved(newConsent);
         setVisible(false);
     };
 
     const acceptAll = () => {
-        saveConsent({
+        handleSave({
             technical: true,
             functional: true,
             analytics: true,
@@ -63,11 +72,8 @@ const CookieConsentModal = () => {
     };
 
     const rejectAll = () => {
-        saveConsent({
+        handleSave({
             ...defaultConsent,
-            functional: false,
-            analytics: false,
-            marketing: false,
         });
     };
 
@@ -87,17 +93,20 @@ const CookieConsentModal = () => {
     };
 
     const acceptSelected = () => {
-        saveConsent(consent);
+        handleSave(consent);
     };
 
     if (!visible) return null;
 
-    return (
+    return ReactDOM.createPortal(
         <div className="aam_cookie-modal">
             <div className="aam_cookie-modal__content">
                 <h2 className="aam_cookie-modal__title">Этот сайт использует cookies</h2>
                 <p className="aam_cookie-modal__description">
-                    Файлы cookies делают Вашу работу с сайтом удобнее. Тем не менее, Вы можете отказаться от них или настроить по своему усмотрению. <span className="aam_cookie-modal__description--warning">Отказ от использования файлов cookies может привести к нестабильной работе некоторых функций сайта!</span>
+                    Файлы cookies делают Вашу работу с сайтом удобнее. Тем не менее, Вы можете отказаться от них или настроить по своему усмотрению.{' '}
+                    <span className="aam_cookie-modal__description--warning">
+                        Отказ от использования файлов cookies может привести к нестабильной работе некоторых функций сайта!
+                    </span>
                 </p>
                 <a
                     href="/Berlio_new_site/cookie-policy"
@@ -127,9 +136,12 @@ const CookieConsentModal = () => {
                                     aria-controls={`section-content-${section}`}
                                 >
                                     <span>{sectionLabels[section]}</span>
-                                    <div className="aam_cookie-modal__section-control">                                        
+                                    <div className="aam_cookie-modal__section-control">
                                         {section !== 'technical' ? (
-                                            <label className="aam_cookie-modal__toggle-switch" onClick={(e) => e.stopPropagation()}>
+                                            <label
+                                                className="aam_cookie-modal__toggle-switch"
+                                                onClick={(e) => e.stopPropagation()}
+                                            >
                                                 <input
                                                     type="checkbox"
                                                     checked={consent[section]}
@@ -149,7 +161,6 @@ const CookieConsentModal = () => {
                                         />
                                     </div>
                                 </button>
-
                                 {expandedSections[section] && (
                                     <div id={`section-content-${section}`} className="aam_cookie-modal__section-content">
                                         <p>{descriptions[section]}</p>
@@ -169,7 +180,8 @@ const CookieConsentModal = () => {
                     </div>
                 )}
             </div>
-        </div>
+        </div>,
+        document.body
     );
 };
 
