@@ -32,7 +32,7 @@ const YandexMap = ({ coordinates = [53.876159, 27.547862] }) => {
                 key={mapKey} // Применяем ключ для перерендера карты
                 state={{ center: coordinates, zoom: 17 }} // Используем state для динамических изменений
                 width="100%"
-                height="1000px"
+                height="700px"
             >
                 <Placemark
                     geometry={coordinates}
