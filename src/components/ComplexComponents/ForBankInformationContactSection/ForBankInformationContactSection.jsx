@@ -41,7 +41,7 @@ const ForBankInformationContactSection = () => {
                 <LinkTo href="/contacts" text={t('forBankInfoContact.readMore')} />
             </div>
             <div className='aam_for-bank-info-contact-section__image'>
-                <img src={`${baseUrl}${departmentsImage}`} alt={departmentsName} title={departmentsName} />
+                <img src={`${departmentsImage}`} alt={departmentsName} title={departmentsName} />
             </div>
         </section>
     );

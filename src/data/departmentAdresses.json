@@ -45,7 +45,7 @@
     "footerAddress": "gomelFooterAddress",
     "footerShortAddress": "gomelShortAddress",
     "inCity": "inGomelCity",
-    "phoneNumber": ["+375 33 320 00 34", "+375 232 50 98 64", "+375 232 50 98 65"],
+    "phoneNumber": ["+375 33 320 00 34", "+375 232 50 98 65"],
     "email": ["gomel@berlio.by", "info_gomel@berlio.by", "cto_gomel@berlio.by"],
     "workingHours": ["workingHours", "fridayWorkingHours", "daysOff"],
     "departmentsImage": "/assets/images/minskOffice.png",

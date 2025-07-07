@@ -5,17 +5,11 @@ import BerlioLocationIcon from '../SVGIcons/BerlioLocationIcon';
 import useLocalization from '../../hooks/useLocalization';
 
 const YandexMap = ({ coordinates = [53.876159, 27.547862] }) => {
-    const { locale } = useLocalization(); // Получаем текущий язык
-
-    // Определяем язык для Yandex Maps
+    const { locale } = useLocalization();
     const yandexLang = locale === 'ru' ? 'ru_RU' : 'en_US';
 
-    // Используем ключ для перерендера карты
-    const [mapKey, setMapKey] = useState(Date.now()); // Состояние для ключа
-
-    useEffect(() => {
-        setMapKey(Date.now()); // Обновляем ключ, чтобы перерисовать карту
-    }, [coordinates]); // Следим за изменением координат
+    // Ключ для принудительного ререндера карты при смене языка или координат
+    const [mapKey, setMapKey] = useState(`${locale}_${coordinates.join(',')}`);
 
     const [iconSvg, setIconSvg] = useState('');
 
@@ -26,11 +20,22 @@ const YandexMap = ({ coordinates = [53.876159, 27.547862] }) => {
         }
     }, []);
 
+    // Обновляем ключ при изменении языка или координат
+    useEffect(() => {
+        setMapKey(`${locale}_${coordinates.join(',')}`);
+    }, [locale, coordinates]);
+
     return (
-        <YMaps query={{ lang: yandexLang, load: 'Map,Placemark,geolocation' }}>
+        <YMaps 
+            query={{ 
+                lang: yandexLang, 
+                load: 'Map,Placemark,geolocation' 
+            }}
+            key={`ymaps_${locale}`}  // Принудительно пересоздаем YMaps при смене языка
+        >
             <Map
-                key={mapKey} // Применяем ключ для перерендера карты
-                state={{ center: coordinates, zoom: 17 }} // Используем state для динамических изменений
+                key={mapKey}  // Принудительно пересоздаем Map при смене языка или координат
+                state={{ center: coordinates, zoom: 17 }}
                 width="100%"
                 height="700px"
             >
