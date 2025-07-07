@@ -1,38 +1,38 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import LinkButton from '../../LinkButton/LinkButton';
 import LeftArrowIcon from '../../SVGIcons/LeftArrowIcon';
 import RightArrowIcon from '../../SVGIcons/RightArrowIcon';
 import UpArrowInCircleIcon from '../../SVGIcons/UpArrowInCircleIcon';
 import '../../../styles/components/ComplexComponents/LogoSection.scss';
 
-import { useTranslation } from 'react-i18next';
-
-const LogoSection = ({ title, logos, logoBasePath, customClass }) => {
+const LogoSection = ({ title, logos, customClass }) => {
     const { t } = useTranslation();
-
     const [currentIndex, setCurrentIndex] = useState(0);
-    const logosToShow = 4; // Количество логотипов, отображаемых в карусели
+    const logosToShow = 4;
+    const basePath = '/assets/images/'; // Фиксированный путь к изображениям
 
     const handlePrev = () => {
-        setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : logos.length - logosToShow));
+        setCurrentIndex((prevIndex) => 
+            prevIndex > 0 ? prevIndex - 1 : logos.length - logosToShow
+        );
     };
 
     const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex < logos.length - logosToShow ? prevIndex + 1 : 0));
+        setCurrentIndex((prevIndex) => 
+            prevIndex < logos.length - logosToShow ? prevIndex + 1 : 0
+        );
     };
 
-    // Цвет иконок в зависимости от состояния кнопок
     const prevIconColor = currentIndex === 0 ? '#A3A3A3' : '#48AE5A';
     const nextIconColor = currentIndex === logos.length - logosToShow ? '#A3A3A3' : '#48AE5A';
 
     return (
         <section className={`aam_logo-section ${customClass || ''}`}>
-            {/* Заголовок */}
             <h2 className="aam_logo-section__title">{title}</h2>
 
-            {/* Карусель логотипов */}
             <div className="aam_logo-section__carousel">
                 <div
                     className="aam_logo-section__logos"
@@ -44,14 +44,17 @@ const LogoSection = ({ title, logos, logoBasePath, customClass }) => {
                     {logos.map((logo, index) => (
                         <div key={index} className="aam_logo-section__logo">
                             <img
-                                src={`${logoBasePath}/${logo.src}`}
+                                src={`${basePath}${logo.src}`}
                                 alt={logo.alt}
                                 className="aam_logo-section__logo-image"
                                 loading="lazy"
+                                onError={(e) => {
+                                    e.target.style.display = 'none';
+                                    console.error(`Failed to load image: ${basePath}${logo.src}`);
+                                }}
                             />
                         </div>
                     ))}
-                    
                 </div>
             </div>
 
