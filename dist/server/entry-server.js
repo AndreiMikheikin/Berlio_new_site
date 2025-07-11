@@ -3937,6 +3937,8 @@ function YandexMap({ coordinates = [53.876159, 27.547862] }) {
   const yandexLang = locale === "ru" ? "ru_RU" : "en_US";
   const [iconSvg, setIconSvg] = useState("");
   const [ymapsModules, setYmappsModules] = useState(null);
+  const mapRef = useRef(null);
+  const placemarkRef = useRef(null);
   useEffect(() => {
     const svg = renderToStaticMarkup(/* @__PURE__ */ React__default.createElement(BerlioLocationIcon, null));
     setIconSvg(svg);
@@ -3947,6 +3949,12 @@ function YandexMap({ coordinates = [53.876159, 27.547862] }) {
       setYmappsModules(ymaps);
     });
   }, []);
+  useEffect(() => {
+    if (mapRef.current && placemarkRef.current && coordinates) {
+      mapRef.current.setCenter(coordinates, 17);
+      placemarkRef.current.geometry.setCoordinates(coordinates);
+    }
+  }, [coordinates]);
   if (typeof window === "undefined" || !ymapsModules) {
     return null;
   }
@@ -3959,21 +3967,25 @@ function YandexMap({ coordinates = [53.876159, 27.547862] }) {
         lang: yandexLang,
         load: "Map,Placemark,geolocation",
         apikey: "a698c67a-40ac-42e6-b56f-d4891be7b968"
-      },
-      key: `ymaps_${locale}`
+      }
     },
     /* @__PURE__ */ React__default.createElement(
       Map2,
       {
-        key: `${locale}_${safeCoordinates.join(",")}`,
-        state: { center: safeCoordinates, zoom: 17 },
+        defaultState: { center: safeCoordinates, zoom: 17 },
         width: "100%",
-        height: "700px"
+        height: "700px",
+        instanceRef: (ref) => {
+          if (ref) mapRef.current = ref;
+        }
       },
       iconSvg && /* @__PURE__ */ React__default.createElement(
         Placemark,
         {
-          geometry: safeCoordinates,
+          defaultGeometry: safeCoordinates,
+          instanceRef: (ref) => {
+            if (ref) placemarkRef.current = ref;
+          },
           options: {
             iconLayout: "default#image",
             iconImageHref: `data:image/svg+xml;utf8,${encodeURIComponent(iconSvg)}`,
@@ -4338,8 +4350,7 @@ function ContactsMain() {
   const [isBelarusOpen, setIsBelarusOpen] = useState(false);
   const [isRussiaOpen, setIsRussiaOpen] = useState(false);
   const [activeCoordinates, setActiveCoordinates] = useState(() => {
-    const [lat, lng] = DepartmentAdresses[0].coordinates;
-    return { lat, lng };
+    return DepartmentAdresses[0].coordinates;
   });
   const russiaData = [
     {
@@ -4353,8 +4364,7 @@ function ContactsMain() {
   ];
   const handleLocationClick = useCallback((coordinates) => {
     if (Array.isArray(coordinates) && coordinates.length === 2) {
-      const [lat, lng] = coordinates;
-      setActiveCoordinates({ lat, lng });
+      setActiveCoordinates(coordinates);
     } else {
       console.warn("Invalid coordinates:", coordinates);
     }

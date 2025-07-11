@@ -13,8 +13,7 @@ function ContactsMain() {
   const [isBelarusOpen, setIsBelarusOpen] = useState(false);
   const [isRussiaOpen, setIsRussiaOpen] = useState(false);
   const [activeCoordinates, setActiveCoordinates] = useState(() => {
-    const [lat, lng] = departmentAdresses[0].coordinates;
-    return { lat, lng };
+    return departmentAdresses[0].coordinates;
   });
 
   const russiaData = [
@@ -29,13 +28,12 @@ function ContactsMain() {
   ];
 
   const handleLocationClick = useCallback((coordinates) => {
-    if (Array.isArray(coordinates) && coordinates.length === 2) {
-      const [lat, lng] = coordinates;
-      setActiveCoordinates({ lat, lng });
-    } else {
-      console.warn('Invalid coordinates:', coordinates);
-    }
-  }, []);
+  if (Array.isArray(coordinates) && coordinates.length === 2) {
+    setActiveCoordinates(coordinates);
+  } else {
+    console.warn('Invalid coordinates:', coordinates);
+  }
+}, []);
 
   const replacePlaceholders = (phoneNumber) => phoneNumber
     .replace('{{fax}}', t('fax'))

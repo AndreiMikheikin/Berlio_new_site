@@ -1,6 +1,6 @@
 {
   "node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js": {
-    "file": "assets/react-yandex-maps.esm-D3D7jOB8.js",
+    "file": "assets/react-yandex-maps.esm-5BbSnVPy.js",
     "name": "react-yandex-maps.esm",
     "src": "node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js",
     "isDynamicEntry": true,
@@ -45,7 +45,7 @@
     "src": "src/assets/fonts/Roboto-Medium.ttf"
   },
   "src/index.html": {
-    "file": "assets/index-BsOXWVBJ.js",
+    "file": "assets/index-F49qf4mJ.js",
     "name": "index",
     "src": "src/index.html",
     "isEntry": true,
