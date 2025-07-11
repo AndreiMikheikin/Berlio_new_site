@@ -1,27 +1,42 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  useMemo,
+} from 'react';
+import PropTypes from 'prop-types';
 
 export const SelectedItemContext = createContext({
   selectedItem: 'defaultItem',
   setSelectedItem: () => {},
 });
 
-export const SelectedItemProvider = ({ children }) => {
-  const [selectedItem, setSelectedItem] = useState(() => {
-    // Проверяем наличие сохраненного значения в sessionStorage
+export function SelectedItemProvider({ children }) {
+  const [selectedItem, setSelectedItem] = useState(null); // ← Инициализируем пустым
+
+  // Только в браузере
+  useEffect(() => {
     const savedItem = sessionStorage.getItem('selectedItem');
-    return savedItem ? JSON.parse(savedItem) : null; // Если есть, восстанавливаем, иначе - null
-  });
+    if (savedItem) {
+      setSelectedItem(JSON.parse(savedItem));
+    }
+  }, []);
 
   useEffect(() => {
-    if (selectedItem) {
-      // Сохраняем состояние в sessionStorage, если оно изменилось
+    if (selectedItem !== null) {
       sessionStorage.setItem('selectedItem', JSON.stringify(selectedItem));
     }
   }, [selectedItem]);
 
+  const value = useMemo(() => ({ selectedItem, setSelectedItem }), [selectedItem]);
+
   return (
-    <SelectedItemContext.Provider value={{ selectedItem, setSelectedItem }}>
+    <SelectedItemContext.Provider value={value}>
       {children}
     </SelectedItemContext.Provider>
   );
+}
+
+SelectedItemProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };

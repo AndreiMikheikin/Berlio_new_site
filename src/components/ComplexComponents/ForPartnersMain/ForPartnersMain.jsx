@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import InformationCard from "../../InformationCard/InformationCard";
-import "../../../styles/components/ComplexComponents/ForPartnersMain.scss";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import InformationCard from '../../InformationCard/InformationCard';
+import '../../../styles/components/ComplexComponents/ForPartnersMain.scss';
 
-import BG1 from "../../../assets/images/info-card-bg1.jpg";
-import BG2 from "../../../assets/images/info-card-bg2.jpg";
-import BG3 from "../../../assets/images/info-card-bg3.jpg";
+import BG1 from '/assets/images/info-card-bg1.jpg';
+import BG2 from '/assets/images/info-card-bg2.jpg';
+import BG3 from '/assets/images/info-card-bg3.jpg';
 
-import LaptopIcon from "../../SVGIcons/LaptopIcon";
-import DocumentIcon from "../../SVGIcons/DocumentIcon";
+import LaptopIcon from '../../SVGIcons/LaptopIcon';
+import DocumentIcon from '../../SVGIcons/DocumentIcon';
 
-import cardDataJson from "../../../data/informationCardData.json";
+import cardDataJson from '../../../data/informationCardData.json';
 
-import { useTranslation } from "react-i18next";
-
-const ForPartnersMain = () => {
+function ForPartnersMain() {
   const { t } = useTranslation();
   const [cards, setCards] = useState([]);
 
@@ -25,66 +23,53 @@ const ForPartnersMain = () => {
 
     const updatedCards = Object.values(cardDataJson.forPartners).map((card) => ({
       ...card,
-      bgImage: BG_IMAGES[card["bg-image"]],
-      IconComponent: ICONS[card["icon"]] || null,
+      bgImage: BG_IMAGES[card['bg-image']],
+      IconComponent: ICONS[card.icon] || null,
     }));
 
     setCards(updatedCards);
   }, []);
 
-  const isProduction = process.env.NODE_ENV === "production";
-  const baseUrl = isProduction ? `${process.env.PUBLIC_URL}/#` : "/#";
+  const isProduction = process.env.NODE_ENV === 'production';
+  const baseUrl = isProduction ? (process.env.PUBLIC_URL || '') : '';
 
   return (
     <div className="aam_for-partners-main">
       {/* Breadcrumbs */}
       <div className="aam_about-block__breadcrumbs">
-        <Link to="/">{t("breadCrumbs.home")}</Link> / {t("breadCrumbs.forPartners")}
+        <Link to="/">{t('breadCrumbs.home')}</Link>
+        {' '}
+        /
+        {t('breadCrumbs.forPartners')}
       </div>
 
       {/* Title */}
-      <h1 className="aam_for-partners-main__title">{t("forPartnersMain.title")}</h1>
+      <h1 className="aam_for-partners-main__title">{t('forPartnersMain.title')}</h1>
 
       {/* Description */}
-      <p className="aam_for-partners-main__description">{t("forPartnersMain.description")}</p>
+      <p className="aam_for-partners-main__description">{t('forPartnersMain.description')}</p>
 
       {/* Cards */}
       <div className="aam_for-partners-main__cards">
-        {cards.map((cardData, index) => (
+        {cards.map((cardData) => (
           <InformationCard
-            key={index}
+            key={cardData.title}
             title={t(cardData.title)}
             bgImage={cardData.bgImage}
             IconComponent={cardData.IconComponent}
             links={Array.isArray(cardData.links) ? cardData.links.map((link) => ({
-              href: link.href.startsWith("http") ? link.href : `${baseUrl}${link.href}`,
+              href: link.href.startsWith('http') ? link.href : `${baseUrl}${link.href}`,
               label: t(link.label),
-              target: link.href.startsWith("http") ? "_blank" : "_self",
-              rel: link.href.startsWith("http") ? "noopener noreferrer" : undefined
+              target: link.href.startsWith('http') ? '_blank' : '_self',
+              rel: link.href.startsWith('http') ? 'noopener noreferrer' : undefined,
             })) : []}
-            customClass={`partnersCard-${index + 1}`}
+            customClass={`clientsCard-${cardData.title.replace(/\s+/g, '-')}`}
             loading="lazy"
           />
         ))}
       </div>
     </div>
   );
-};
-
-ForPartnersMain.propTypes = {
-  cards: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      bgImage: PropTypes.string.isRequired,
-      IconComponent: PropTypes.elementType,
-      links: PropTypes.arrayOf(
-        PropTypes.shape({
-          href: PropTypes.string.isRequired,
-          label: PropTypes.string.isRequired
-        })
-      ).isRequired
-    })
-  )
-};
+}
 
 export default ForPartnersMain;

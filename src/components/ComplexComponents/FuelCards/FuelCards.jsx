@@ -1,16 +1,14 @@
 import React from 'react';
 import '../../../styles/components/ComplexComponents/FuelCards.scss';
+import { useTranslation } from 'react-i18next';
 import ServiceCard from '../../ServiceCard/ServiceCard';
 import PdfIcon from '../../SVGIcons/PdfIcon';
-import RoadJPG from '../../../assets/images/road.jpg';
+import RoadJPG from '/assets/images/road.jpg';
 
-import { useTranslation } from 'react-i18next';
-
-const FuelCards = () => {
+function FuelCards() {
   const { t } = useTranslation();
 
   const handleLinkClick = (title, link) => {
-    console.log(`Download: ${title}`);
     const linkElement = document.createElement('a');
     linkElement.href = link;
     linkElement.download = title;
@@ -33,15 +31,13 @@ const FuelCards = () => {
         Icon={PdfIcon}
         title={t('fuelCards.cardTitle')}
         link="/assets/documents/1.pdf"
-        onClick={() =>
-          handleLinkClick(
-            t('fuelCards.cardTitle'),
-            '/assets/documents/1.pdf'
-          )
-        }
+        onClick={() => handleLinkClick(
+          t('fuelCards.cardTitle'),
+          '/assets/documents/1.pdf',
+        )}
       />
     </section>
   );
-};
+}
 
 export default FuelCards;

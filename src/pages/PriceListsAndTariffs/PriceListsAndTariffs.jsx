@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import Header from '../../components/ComplexComponents/Header/Header';
 import Navigation from '../../components/ComplexComponents/Navigation/Navigation';
 import SearchInput from '../../components/SearchInput/SearchInput';
@@ -7,10 +8,7 @@ import PriceListsAndTariffsMain from '../../components/ComplexComponents/PriceLi
 import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 
-import { useTranslation } from 'react-i18next';
-
-
-const PriceListsAndTariffs = () => {
+function PriceListsAndTariffs() {
   const { t } = useTranslation();
 
   return (
@@ -30,6 +28,6 @@ const PriceListsAndTariffs = () => {
       <SecondaryFooter />
     </>
   );
-};
+}
 
 export default PriceListsAndTariffs;

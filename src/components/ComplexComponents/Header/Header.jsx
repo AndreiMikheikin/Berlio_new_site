@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import '../../../styles/components/ComplexComponents/Header.scss';
+import { useTranslation } from 'react-i18next';
 import Logo from '../../Logo/Logo';
 import Dropdown from '../../Dropdown/Dropdown';
 import ContactInfo from '../../ContactInfo/ContactInfo';
 import LinkButton from '../../LinkButton/LinkButton';
 import LocaleSwitcher from '../../LocaleSwitcher/LocaleSwitcher';
 import { SelectedItemContext } from '../../../contexts/SelectedItemContext';
-import { useTranslation } from 'react-i18next';
 
-const Header = () => {
+function Header() {
   const { t } = useTranslation();
   const { selectedItem, setSelectedItem } = useContext(SelectedItemContext);
 
@@ -20,8 +20,8 @@ const Header = () => {
   return (
     <>
       <LocaleSwitcher className="aam_locale-switcher" />
-      <header className="aam_header" id='header' >
-        <div className="aam_header__logo" >
+      <header className="aam_header" id="header">
+        <div className="aam_header__logo">
           <Link to="/" aria-label={t('backToHome')}>
             <Logo />
           </Link>
@@ -56,6 +56,6 @@ const Header = () => {
       </header>
     </>
   );
-};
+}
 
 export default Header;

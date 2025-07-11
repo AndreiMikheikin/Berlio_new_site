@@ -1,52 +1,50 @@
-import React from "react";
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
-import { SelectedItemProvider } from "./contexts/SelectedItemContext";
-import { HelmetProvider } from "react-helmet-async";
-import ScrollToTop from "./hooks/scrollToTop";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { SelectedItemProvider } from './contexts/SelectedItemContext';
+import ScrollToTop from './hooks/scrollToTop';
 
 // Импорты страниц
-import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
-import Contacts from "./pages/Contacts/Contacts";
-import DetailedNews from "./pages/DetailedNews/DetailedNews";
-import Equipment from "./pages/Equipment/Equipment";
-import WebCenterBerlio from "./pages/WebCenterBerlio/WebCenterBerlio";
-import OilAndCapital from "./pages/OilAndCapital/OilAndCapital";
-import SelfServiceCheckout from "./pages/SelfServiceCheckout/SelfServiceCheckout";
-import GSAutomationSystem from "./pages/GSAutomationSystem/GSAutomationSysten";
-import InvoicesSite from "./pages/InvoicesSite/InvoicesSite";
-import InvoicesSiteTariffs from "./pages/InvoicesSiteTariffs/InvoicesSiteTariffs";
-import ForClients from "./pages/ForClients/ForClients";
-import SignAndResign from "./pages/SignAndResign/SignAndResign";
-import GettingElectronicCard from "./pages/GettingElectronicCard/GettingElectronicCard";
-import CardUsageRules from "./pages/CardUsageRules/CardUsageRules";
-import DealResignation from "./pages/DealResignation/DealResignation";
-import PriceListsAndTariffs from "./pages/PriceListsAndTariffs/PriceListsAndTariffs";
-import WorkWithPrivateAccount from "./pages/WorkWithPrivateAccount/WorkWithPrivateAccount";
-import DocumentsForDownload from "./pages/DocumentsForDownload/DocumentsForDownload";
-import SystemRules from "./pages/SystemRules/SystemRules";
-import PlasticCardUsageRules from "./pages/PlasticCardUsageRules/PlasticCardUsageRules";
-import NonResidentsSupport from "./pages/NonResidentsSupport/NonResidentsSupport";
-import TollRoads from "./pages/TollRoads/TollRoads";
-import ForFuelPayments from "./pages/ForFuelPayments/ForFuelPayments";
-import IssuerRules from "./pages/IssuerRules/IssuerRules";
-import EMoneyRegulations from "./pages/EMoneyRegulations/EMoneyRegulations";
-import BerlioInternetClientApp from "./pages/BerlioInternetClientApp/BerlioInternetClientApp";
-import BerlioCardPayApp from "./pages/BerlioCardPayApp/BerlioCardPayApp";
-import SmartPayApp from "./pages/SmartPayApp/SmartPayApp";
-import PersonalAccWebApp from "./pages/PersonalAccWebApp/PersonalAccWebApp";
-import ForPartners from "./pages/ForPartners/ForPartners";
-import VoiceReferenceService from "./pages/VoiceReferenceService/VoiceReferenceService";
-import LoyaltyProgram from "./pages/LoyaltyProgram/LoyaltyProgram";
-import ForBankInfo from "./pages/ForBankInformation/ForBankInformation";
-import ForNotAResidentsServices from "./pages/ForNotAResidentsServices/ForNotAResidentsServices";
-import News from "./pages/News/News";
-import CookieConsentModal from "./components/ComplexComponents/CookieConsentModal/CookieConsentModal";
+import Home from './pages/Home/Home';
+import About from './pages/About/About';
+import Contacts from './pages/Contacts/Contacts';
+import DetailedNews from './pages/DetailedNews/DetailedNews';
+import Equipment from './pages/Equipment/Equipment';
+import WebCenterBerlio from './pages/WebCenterBerlio/WebCenterBerlio';
+import OilAndCapital from './pages/OilAndCapital/OilAndCapital';
+import SelfServiceCheckout from './pages/SelfServiceCheckout/SelfServiceCheckout';
+import GSAutomationSystem from './pages/GSAutomationSystem/GSAutomationSystem';
+import InvoicesSite from './pages/InvoicesSite/InvoicesSite';
+import InvoicesSiteTariffs from './pages/InvoicesSiteTariffs/InvoicesSiteTariffs';
+import ForClients from './pages/ForClients/ForClients';
+import SignAndResign from './pages/SignAndResign/SignAndResign';
+import GettingElectronicCard from './pages/GettingElectronicCard/GettingElectronicCard';
+import CardUsageRules from './pages/CardUsageRules/CardUsageRules';
+import DealResignation from './pages/DealResignation/DealResignation';
+import PriceListsAndTariffs from './pages/PriceListsAndTariffs/PriceListsAndTariffs';
+import WorkWithPrivateAccount from './pages/WorkWithPrivateAccount/WorkWithPrivateAccount';
+import DocumentsForDownload from './pages/DocumentsForDownload/DocumentsForDownload';
+import SystemRules from './pages/SystemRules/SystemRules';
+import PlasticCardUsageRules from './pages/PlasticCardUsageRules/PlasticCardUsageRules';
+import NonResidentsSupport from './pages/NonResidentsSupport/NonResidentsSupport';
+import TollRoads from './pages/TollRoads/TollRoads';
+import ForFuelPayments from './pages/ForFuelPayments/ForFuelPayments';
+import IssuerRules from './pages/IssuerRules/IssuerRules';
+import EMoneyRegulations from './pages/EMoneyRegulations/EMoneyRegulations';
+import BerlioInternetClientApp from './pages/BerlioInternetClientApp/BerlioInternetClientApp';
+import BerlioCardPayApp from './pages/BerlioCardPayApp/BerlioCardPayApp';
+import SmartPayApp from './pages/SmartPayApp/SmartPayApp';
+import PersonalAccWebApp from './pages/PersonalAccWebApp/PersonalAccWebApp';
+import ForPartners from './pages/ForPartners/ForPartners';
+import VoiceReferenceService from './pages/VoiceReferenceService/VoiceReferenceService';
+import LoyaltyProgram from './pages/LoyaltyProgram/LoyaltyProgram';
+import ForBankInfo from './pages/ForBankInformation/ForBankInformation';
+import ForNotAResidentsServices from './pages/ForNotAResidentsServices/ForNotAResidentsServices';
+import News from './pages/News/News';
+import CookieConsentModal from './components/ComplexComponents/CookieConsentModal/CookieConsentModal';
 
-const App = () => (
-  <HelmetProvider>
-    <SelectedItemProvider>
-      <Router>
+function App() {
+  return (
+      <SelectedItemProvider>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -88,12 +86,10 @@ const App = () => (
           <Route path="/partners/cardUsageRules" element={<CardUsageRules />} />
           <Route path="/partners/plasticCardUsageRules" element={<PlasticCardUsageRules />} />
           <Route path="/partners/forNotAResidentsServices" element={<ForNotAResidentsServices />} />
-
         </Routes>
-      </Router>
-      <CookieConsentModal />
-    </SelectedItemProvider>
-  </HelmetProvider>
-);
+        <CookieConsentModal />
+      </SelectedItemProvider>
+  );
+}
 
 export default App;

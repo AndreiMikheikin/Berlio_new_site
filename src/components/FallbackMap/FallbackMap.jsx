@@ -5,7 +5,7 @@ import useLocalization from '../../hooks/useLocalization';
 import useCookieConsent from '../../hooks/useCookieConsent';
 import '../../styles/components/FallbackMap.scss';
 
-const FallbackMap = () => {
+function FallbackMap() {
   const { t } = useLocalization();
   const [modalKey, setModalKey] = useState(0);
   const { isConsentSet } = useCookieConsent();
@@ -17,13 +17,13 @@ const FallbackMap = () => {
       </p>
       <Button
         label={t('Настроить cookies')}
-        onClick={() => setModalKey(prev => prev + 1)}
+        onClick={() => setModalKey((prev) => prev + 1)}
         variant="green"
         disabled={!isConsentSet()} // Заблокировано, если нет ключа в localStorage
       />
       {modalKey > 0 && <CookieConsentModal key={`modal-${modalKey}`} forceVisible />}
     </div>
   );
-};
+}
 
 export default FallbackMap;

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
 
-const SecondaryFooter = () => {
+function SecondaryFooter() {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear(); // Получаем текущий год
 
@@ -31,6 +31,6 @@ const SecondaryFooter = () => {
       </div>
     </footer>
   );
-};
+}
 
 export default SecondaryFooter;

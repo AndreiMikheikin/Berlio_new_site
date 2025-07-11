@@ -1,60 +1,79 @@
 import React, { useEffect, useState } from 'react';
-import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
-import { renderToString } from 'react-dom/server';
+import PropTypes from 'prop-types';
+import { renderToStaticMarkup } from 'react-dom/server';
+
 import BerlioLocationIcon from '../SVGIcons/BerlioLocationIcon';
 import useLocalization from '../../hooks/useLocalization';
 
-const YandexMap = ({ coordinates = [53.876159, 27.547862] }) => {
-    const { locale } = useLocalization();
-    const yandexLang = locale === 'ru' ? 'ru_RU' : 'en_US';
+function YandexMap({ coordinates = [53.876159, 27.547862] }) {
+  const { locale } = useLocalization();
+  const yandexLang = locale === 'ru' ? 'ru_RU' : 'en_US';
+  const [iconSvg, setIconSvg] = useState('');
+  const [ymapsModules, setYmappsModules] = useState(null);
 
-    // Ключ для принудительного ререндера карты при смене языка или координат
-    const [mapKey, setMapKey] = useState(`${locale}_${coordinates.join(',')}`);
+  useEffect(() => {
+    // Загружаем SVG один раз
+    const svg = renderToStaticMarkup(<BerlioLocationIcon />);
+    setIconSvg(svg);
+  }, []);
 
-    const [iconSvg, setIconSvg] = useState('');
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
 
-    useEffect(() => {
-        const svgString = renderToString(<BerlioLocationIcon />);
-        if (svgString) {
-            setIconSvg(svgString);
-        }
-    }, []);
+    // Динамически импортируем модуль карты только на клиенте
+    import('@pbe/react-yandex-maps').then((ymaps) => {
+      setYmappsModules(ymaps);
+    });
+  }, []);
 
-    // Обновляем ключ при изменении языка или координат
-    useEffect(() => {
-        setMapKey(`${locale}_${coordinates.join(',')}`);
-    }, [locale, coordinates]);
+  if (typeof window === 'undefined' || !ymapsModules) {
+    return null; // SSR или ещё не загрузили карту
+  }
 
-    return (
-        <YMaps 
-            query={{ 
-                lang: yandexLang, 
-                load: 'Map,Placemark,geolocation' 
+  const { YMaps, Map, Placemark } = ymapsModules;
+
+  const safeCoordinates =
+    Array.isArray(coordinates) && coordinates.length === 2
+      ? coordinates
+      : [53.876159, 27.547862];
+
+  return (
+    <YMaps
+      query={{
+        lang: yandexLang,
+        load: 'Map,Placemark,geolocation',
+        apikey: 'a698c67a-40ac-42e6-b56f-d4891be7b968',
+      }}
+      key={`ymaps_${locale}`}
+    >
+      <Map
+        key={`${locale}_${safeCoordinates.join(',')}`}
+        state={{ center: safeCoordinates, zoom: 17 }}
+        width="100%"
+        height="700px"
+      >
+        {iconSvg && (
+          <Placemark
+            geometry={safeCoordinates}
+            options={{
+              iconLayout: 'default#image',
+              iconImageHref: `data:image/svg+xml;utf8,${encodeURIComponent(iconSvg)}`,
+              iconImageSize: [80, 80],
+              iconImageOffset: [-25, -75],
             }}
-            key={`ymaps_${locale}`}  // Принудительно пересоздаем YMaps при смене языка
-        >
-            <Map
-                key={mapKey}  // Принудительно пересоздаем Map при смене языка или координат
-                state={{ center: coordinates, zoom: 17 }}
-                width="100%"
-                height="700px"
-            >
-                <Placemark
-                    geometry={coordinates}
-                    options={{
-                        iconLayout: 'default#image',
-                        iconImageHref: `data:image/svg+xml;utf8,${encodeURIComponent(iconSvg)}`,
-                        iconImageSize: [80, 80],
-                        iconImageOffset: [-25, -75]
-                    }}
-                    properties={{
-                        iconContent: 'Моя метка',
-                        hintContent: 'Описание объекта'
-                    }}
-                />
-            </Map>
-        </YMaps>
-    );
+            properties={{
+              iconContent: 'Моя метка',
+              hintContent: 'Описание объекта',
+            }}
+          />
+        )}
+      </Map>
+    </YMaps>
+  );
+}
+
+YandexMap.propTypes = {
+  coordinates: PropTypes.arrayOf(PropTypes.number),
 };
 
 export default YandexMap;

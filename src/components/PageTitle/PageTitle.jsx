@@ -1,14 +1,19 @@
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-const PageTitle = ({ titleKey }) => {
-    const { t } = useTranslation();
+function PageTitle({ titleKey }) {
+  const { t } = useTranslation();
 
-    useEffect(() => {
-        document.title = t(titleKey);
-    }, [t, titleKey]);
+  useEffect(() => {
+    document.title = t(titleKey);
+  }, [t, titleKey]);
 
-    return null;
+  return null;
+}
+
+PageTitle.propTypes = {
+  titleKey: PropTypes.string.isRequired,
 };
 
 export default PageTitle;

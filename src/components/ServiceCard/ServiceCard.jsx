@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../../styles/components/ServiceCard.scss';
 
-const ServiceCard = ({ 
-  Icon = null, 
-  title, 
-  description = '', 
-  link = '', 
-  onClick = null, 
+function ServiceCard({
+  Icon = null,
+  title,
+  description = '',
+  link = '',
+  onClick = null,
   id = null,
-  className = ''
-}) => {
+  className = '',
+}) {
   const isExternalLink = typeof link === 'string' && link.startsWith('http');
 
   const handleClick = (e) => {
@@ -48,7 +48,7 @@ const ServiceCard = ({
       {CardContent}
     </Link>
   );
-};
+}
 
 ServiceCard.propTypes = {
   Icon: PropTypes.elementType,
@@ -57,6 +57,7 @@ ServiceCard.propTypes = {
   link: PropTypes.string,
   onClick: PropTypes.func,
   id: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default ServiceCard;

@@ -12,21 +12,44 @@ const defaultConsent = {
 };
 
 const getStoredConsent = () => {
+  // Проверка на серверный рендеринг
+  if (typeof window === 'undefined') return defaultConsent;
+
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
-    if (!stored) return defaultConsent;
-    const parsed = JSON.parse(stored);
-    return { ...defaultConsent, ...parsed };
+    return stored ? { ...defaultConsent, ...JSON.parse(stored) } : defaultConsent;
   } catch {
     return defaultConsent;
   }
-}
-const useCookieConsent = () => {
-  const [consent, setConsent] = useState(getStoredConsent);
+};
+
+export const useCookieConsent = () => {
+  const [consent, setConsent] = useState(defaultConsent);
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    // Работаем только на клиенте
+    if (typeof window === 'undefined') return;
+
+    setConsent(getStoredConsent());
+    setIsReady(true);
+
+    const handleConsentChange = () => setConsent(getStoredConsent());
+
+    window.addEventListener('cookie-consent-changed', handleConsentChange);
+    window.addEventListener('storage', handleConsentChange);
+
+    return () => {
+      window.removeEventListener('cookie-consent-changed', handleConsentChange);
+      window.removeEventListener('storage', handleConsentChange);
+    };
+  }, []);
 
   const getConsent = useCallback(() => consent, [consent]);
 
   const saveConsent = useCallback((newConsent) => {
+    if (typeof window === 'undefined') return;
+
     const dataWithTimestamp = {
       ...newConsent,
       timestamp: new Date().toISOString(),
@@ -39,6 +62,7 @@ const useCookieConsent = () => {
   const needsRenewal = useCallback(() => {
     const { timestamp } = getConsent();
     if (!timestamp) return true;
+
     try {
       const then = new Date(timestamp).getTime();
       return Date.now() - then > ONE_YEAR;
@@ -53,17 +77,8 @@ const useCookieConsent = () => {
   }, [getConsent]);
 
   const isConsentSet = useCallback(() => {
+    if (typeof window === 'undefined') return false;
     return localStorage.getItem(STORAGE_KEY) !== null;
-  }, []);
-
-  useEffect(() => {
-    const onChange = () => setConsent(getStoredConsent());
-    window.addEventListener('cookie-consent-changed', onChange);
-    window.addEventListener('storage', onChange);
-    return () => {
-      window.removeEventListener('cookie-consent-changed', onChange);
-      window.removeEventListener('storage', onChange);
-    };
   }, []);
 
   return {
@@ -73,7 +88,8 @@ const useCookieConsent = () => {
     hasConsentFor,
     consent,
     isConsentSet,
+    isReady,
   };
-}
+};
 
 export default useCookieConsent;

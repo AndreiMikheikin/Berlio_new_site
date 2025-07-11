@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../../styles/components/ComplexComponents/Navigation.scss';
+import { useTranslation } from 'react-i18next';
 import NavigationDropdown from '../../NavigationDropdown/NavigationDropdown';
 import NavigationDropdownMenu from '../../NavigationDropdownMenu/NavigationDropdownMenu';
 
-import { useTranslation } from 'react-i18next';
-
-const Navigation = () => {
+function Navigation() {
   const { t } = useTranslation();
 
   const [openDropdown, setOpenDropdown] = useState(null); // Хранение состояния открытого меню
@@ -28,7 +27,7 @@ const Navigation = () => {
               label={t('forPartners')}
               closedColor="#FFFFFF"
               openColor="#176224"
-              hoverColor='#176224'
+              hoverColor="#176224"
               isOpen={openDropdown === 'partners'}
               onToggle={() => handleToggle('partners')}
               onClose={() => setOpenDropdown(null)} // Закрытие при клике на элементе
@@ -41,7 +40,7 @@ const Navigation = () => {
               label={t('forClients')}
               closedColor="#FFFFFF"
               openColor="#176224"
-              hoverColor='#176224'
+              hoverColor="#176224"
               isOpen={openDropdown === 'clients'}
               onToggle={() => handleToggle('clients')}
               onClose={() => setOpenDropdown(null)}
@@ -76,6 +75,6 @@ const Navigation = () => {
       />
     </>
   );
-};
+}
 
 export default Navigation;

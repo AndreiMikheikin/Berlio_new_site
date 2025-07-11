@@ -1,0 +1,70 @@
+{
+  "node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js": {
+    "file": "assets/react-yandex-maps.esm-D3D7jOB8.js",
+    "name": "react-yandex-maps.esm",
+    "src": "node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/index.html"
+    ]
+  },
+  "src/assets/fonts/OpenSans-Bold.ttf": {
+    "file": "assets/OpenSans-Bold-DGvYQtcs.ttf",
+    "src": "src/assets/fonts/OpenSans-Bold.ttf"
+  },
+  "src/assets/fonts/OpenSans-Italic.ttf": {
+    "file": "assets/OpenSans-Italic-C_AuCsze.ttf",
+    "src": "src/assets/fonts/OpenSans-Italic.ttf"
+  },
+  "src/assets/fonts/OpenSans-Light.ttf": {
+    "file": "assets/OpenSans-Light-3sf3dutu.ttf",
+    "src": "src/assets/fonts/OpenSans-Light.ttf"
+  },
+  "src/assets/fonts/OpenSans-Regular.ttf": {
+    "file": "assets/OpenSans-Regular-DxJTClRG.ttf",
+    "src": "src/assets/fonts/OpenSans-Regular.ttf"
+  },
+  "src/assets/fonts/OpenSans-SemiBold.ttf": {
+    "file": "assets/OpenSans-SemiBold-D3TTYgdB.ttf",
+    "src": "src/assets/fonts/OpenSans-SemiBold.ttf"
+  },
+  "src/assets/fonts/PublicSans-Bold.ttf": {
+    "file": "assets/PublicSans-Bold-DEFlLvwJ.ttf",
+    "src": "src/assets/fonts/PublicSans-Bold.ttf"
+  },
+  "src/assets/fonts/PublicSans-Medium.ttf": {
+    "file": "assets/PublicSans-Medium-DOt0zBLs.ttf",
+    "src": "src/assets/fonts/PublicSans-Medium.ttf"
+  },
+  "src/assets/fonts/PublicSans-Regular.ttf": {
+    "file": "assets/PublicSans-Regular-CcK-bgQZ.ttf",
+    "src": "src/assets/fonts/PublicSans-Regular.ttf"
+  },
+  "src/assets/fonts/Roboto-Medium.ttf": {
+    "file": "assets/Roboto-Medium-BJbjO3wX.ttf",
+    "src": "src/assets/fonts/Roboto-Medium.ttf"
+  },
+  "src/index.html": {
+    "file": "assets/index-BsOXWVBJ.js",
+    "name": "index",
+    "src": "src/index.html",
+    "isEntry": true,
+    "dynamicImports": [
+      "node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js"
+    ],
+    "css": [
+      "assets/index-KVWs_dm-.css"
+    ],
+    "assets": [
+      "assets/OpenSans-Light-3sf3dutu.ttf",
+      "assets/OpenSans-Italic-C_AuCsze.ttf",
+      "assets/OpenSans-Regular-DxJTClRG.ttf",
+      "assets/OpenSans-SemiBold-D3TTYgdB.ttf",
+      "assets/OpenSans-Bold-DGvYQtcs.ttf",
+      "assets/PublicSans-Regular-CcK-bgQZ.ttf",
+      "assets/PublicSans-Medium-DOt0zBLs.ttf",
+      "assets/PublicSans-Bold-DEFlLvwJ.ttf",
+      "assets/Roboto-Medium-BJbjO3wX.ttf"
+    ]
+  }
+}

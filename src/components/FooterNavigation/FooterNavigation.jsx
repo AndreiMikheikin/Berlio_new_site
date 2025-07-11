@@ -4,7 +4,7 @@ import '../../styles/components/FooterNavigation.scss';
 
 import { useTranslation } from 'react-i18next';
 
-const FooterNavigation = () => {
+function FooterNavigation() {
   const { t } = useTranslation();
 
   return (
@@ -31,6 +31,6 @@ const FooterNavigation = () => {
       </ul>
     </nav>
   );
-};
+}
 
 export default FooterNavigation;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import Header from '../../components/ComplexComponents/Header/Header';
 import Navigation from '../../components/ComplexComponents/Navigation/Navigation';
 import SearchInput from '../../components/SearchInput/SearchInput';
@@ -12,11 +13,8 @@ import Footer from '../../components/ComplexComponents/Footer/Footer';
 import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 
 import partnersLogos from '../../data/partnersLogoData.json';
-import { useTranslation } from 'react-i18next';
 
-
-
-const About = () => {
+function About() {
   const { t } = useTranslation();
 
   const isProduction = process.env.NODE_ENV === 'production';
@@ -38,18 +36,14 @@ const About = () => {
       <SystemPurposeSection />
       <ClientPartnersServicesSection />
       <LogoSection
-                title={t('ourPartnersLogoSection.name')}
-                logos={partnersLogos.logos}
-                logoBasePath={
-                    isProduction
-                        ? `${process.env.PUBLIC_URL}/assets/images`
-                        : '/assets/images'
-                }
-            />
+        title={t('ourPartnersLogoSection.name')}
+        logos={partnersLogos.logos}
+        logoBasePath="/assets/images/"
+      />
       <Footer />
       <SecondaryFooter />
     </>
   );
-};
+}
 
 export default About;

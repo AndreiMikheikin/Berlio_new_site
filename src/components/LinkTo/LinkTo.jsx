@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import '../../styles/components/LinkTo.scss';
 import LinkArrowIcon from '../SVGIcons/LinkArrowIcon';
 
-const LinkTo = ({ href, text, variant = 'default', className = '', iconColor = '#48AE5A' }) => {
+function LinkTo({
+  href, text, variant = 'default', className = '', iconColor = '#48AE5A',
+}) {
   const isExternal = href.startsWith('http');
 
   return isExternal ? (
@@ -18,7 +20,7 @@ const LinkTo = ({ href, text, variant = 'default', className = '', iconColor = '
       <LinkArrowIcon fillColor={iconColor} className="aam_link-to__icon" />
     </Link>
   );
-};
+}
 
 LinkTo.propTypes = {
   href: PropTypes.string.isRequired,

@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/components/LinkButton.scss';
 
-const LinkButton = ({
+function LinkButton({
   children,
   href = '#',
   target = '',
-  className = ''
-}) => {
-
+  className = '',
+}) {
   const [isActive, setIsActive] = useState(false);
 
   const handleMouseDown = () => setIsActive(true);
@@ -29,7 +28,7 @@ const LinkButton = ({
       {children}
     </a>
   );
-};
+}
 
 LinkButton.propTypes = {
   children: PropTypes.node.isRequired,
