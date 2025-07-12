@@ -1,2 +1,4 @@
 node_modules
 convert.*
+.env*
+!.env.example

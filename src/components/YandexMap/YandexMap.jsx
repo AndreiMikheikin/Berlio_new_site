@@ -39,6 +39,7 @@ function YandexMap({ coordinates = [53.876159, 27.547862] }) {
     return null;
   }
 
+  const yandexApiKey = import.meta.env.VITE_YANDEX_MAPS_API_KEY;
   const { YMaps, Map, Placemark } = ymapsModules;
 
   const safeCoordinates =
@@ -51,7 +52,7 @@ function YandexMap({ coordinates = [53.876159, 27.547862] }) {
       query={{
         lang: yandexLang,
         load: 'Map,Placemark,geolocation',
-        apikey: 'a698c67a-40ac-42e6-b56f-d4891be7b968',
+        apikey: yandexApiKey,
       }}
     >
       <Map
