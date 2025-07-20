@@ -1,4 +1,5 @@
 node_modules
 convert.*
+superadmin-hash.js
 .env*
 !.env.example

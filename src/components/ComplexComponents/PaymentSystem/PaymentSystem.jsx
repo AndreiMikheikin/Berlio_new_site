@@ -24,7 +24,7 @@ function PaymentSystem() {
       <Button
         label={t('paymentSystem.actionSignContract')}
         onClick={handleButtonClick}
-        className="green"
+        variant="green"
       />
       <div className="aam_payment-system__image"><img src={GasStationPNG} alt={t('paymentSystem.gasStations')} loading="lazy" /></div>
     </section>

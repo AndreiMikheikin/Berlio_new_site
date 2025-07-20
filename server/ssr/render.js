@@ -49,8 +49,13 @@ export async function renderPage(url, initialLang = 'ru') {
     const jsFile = clientEntry.file;
     const cssFiles = clientEntry.css || [];
 
+    // Добавляем noindex для /administrator
+    const headWithNoIndex = url === '/administrator'
+      ? head + '\n<meta name="robots" content="noindex, nofollow">'
+      : head;
+
     return templateHtml
-      .replace('<!--helmet-head-->', head)
+      .replace('<!--helmet-head-->', headWithNoIndex)
       .replace('<!--app-html-->', appHtml)
       .replace(
         '<!--preload-links-->',

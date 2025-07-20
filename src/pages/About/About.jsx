@@ -17,8 +17,6 @@ import partnersLogos from '../../data/partnersLogoData.json';
 function About() {
   const { t } = useTranslation();
 
-  const isProduction = process.env.NODE_ENV === 'production';
-
   return (
     <>
       <Helmet>

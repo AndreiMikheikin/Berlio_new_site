@@ -28,7 +28,7 @@ const sectionLabels = {
   marketing: 'Рекламные/маркетинговые файлы cookies',
 };
 
-function CookieConsentModal({ forceVisible = false, onConsentSaved = () => {} }) {
+function CookieConsentModal({ forceVisible = false, onConsentSaved = () => { } }) {
   const {
     getConsent,
     saveConsent,
@@ -38,6 +38,7 @@ function CookieConsentModal({ forceVisible = false, onConsentSaved = () => {} })
   } = useCookieConsent();
 
   const [mounted, setMounted] = useState(false);
+  const [hasMadeChoice, setHasMadeChoice] = useState(false);
   const [visible, setVisible] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [consent, setConsent] = useState(defaultConsent);
@@ -54,7 +55,7 @@ function CookieConsentModal({ forceVisible = false, onConsentSaved = () => {} })
   }, []);
 
   useEffect(() => {
-    if (!isReady || !mounted) return;
+    if (!isReady || !mounted || hasMadeChoice) return;
 
     const current = getConsent();
     setConsent(current);
@@ -65,14 +66,15 @@ function CookieConsentModal({ forceVisible = false, onConsentSaved = () => {} })
       return;
     }
 
-    if (!isConsentSet() || needsRenewal()) {
+    if (needsRenewal()) {
       setVisible(true);
     }
-  }, [forceVisible, isReady, mounted, getConsent, isConsentSet, needsRenewal]);
+  }, [forceVisible, isReady, mounted, getConsent, needsRenewal, hasMadeChoice]);
 
   const handleSave = (newConsent) => {
     saveConsent(newConsent);
     onConsentSaved(newConsent);
+    setHasMadeChoice(true);
     setVisible(false);
   };
 

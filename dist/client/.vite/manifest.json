@@ -1,6 +1,6 @@
 {
   "node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js": {
-    "file": "assets/react-yandex-maps.esm-5BbSnVPy.js",
+    "file": "assets/react-yandex-maps.esm-CUki7C0q.js",
     "name": "react-yandex-maps.esm",
     "src": "node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js",
     "isDynamicEntry": true,
@@ -45,7 +45,7 @@
     "src": "src/assets/fonts/Roboto-Medium.ttf"
   },
   "src/index.html": {
-    "file": "assets/index-F49qf4mJ.js",
+    "file": "assets/index-DGmzyPMY.js",
     "name": "index",
     "src": "src/index.html",
     "isEntry": true,
@@ -53,7 +53,7 @@
       "node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js"
     ],
     "css": [
-      "assets/index-KVWs_dm-.css"
+      "assets/index-Fl5Y0co3.css"
     ],
     "assets": [
       "assets/OpenSans-Light-3sf3dutu.ttf",

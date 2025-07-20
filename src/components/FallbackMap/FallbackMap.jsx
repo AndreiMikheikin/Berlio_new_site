@@ -8,7 +8,8 @@ import '../../styles/components/FallbackMap.scss';
 function FallbackMap() {
   const { t } = useLocalization();
   const [modalKey, setModalKey] = useState(0);
-  const { isConsentSet } = useCookieConsent();
+  const { hasConsentFor, isReady } = useCookieConsent();
+  const isMapEnabled = hasConsentFor('functional', 'analytics');
 
   return (
     <div className="aam_map-fallback">
@@ -19,9 +20,11 @@ function FallbackMap() {
         label={t('Настроить cookies')}
         onClick={() => setModalKey((prev) => prev + 1)}
         variant="green"
-        disabled={!isConsentSet()} // Заблокировано, если нет ключа в localStorage
+        disabled={isMapEnabled || !isReady}
       />
-      {modalKey > 0 && <CookieConsentModal key={`modal-${modalKey}`} forceVisible />}
+      {modalKey > 0 && !isMapEnabled && (
+        <CookieConsentModal key={`modal-${modalKey}`} forceVisible />
+      )}
     </div>
   );
 }

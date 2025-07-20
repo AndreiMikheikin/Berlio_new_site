@@ -63,6 +63,15 @@
 
     &:hover {
       background-color: $background-color; // Используем переменную для фона на hover
+      border-radius: 3px;
+    }
+
+    &__button {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 2px 5px;
     }
 
     &__address {

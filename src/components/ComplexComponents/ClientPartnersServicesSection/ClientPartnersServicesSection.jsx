@@ -33,12 +33,12 @@ function ClientPartnersServicesSection() {
         <Button
           label={t('cpsSection.forClients')}
           onClick={handleButtonClick1}
-          className="green"
+          variant="green"
         />
         <Button
           label={t('cpsSection.forPartners')}
           onClick={handleButtonClick2}
-          className="green"
+          variant="green"
         />
       </div>
     </section>

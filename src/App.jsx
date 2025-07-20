@@ -41,6 +41,9 @@ import ForBankInfo from './pages/ForBankInformation/ForBankInformation';
 import ForNotAResidentsServices from './pages/ForNotAResidentsServices/ForNotAResidentsServices';
 import News from './pages/News/News';
 import CookieConsentModal from './components/ComplexComponents/CookieConsentModal/CookieConsentModal';
+import AdminLoginPage from './pages/AdminLoginPage/AdminLoginPage';
+import AdminDashboardPage from './pages/AdminDashboardPage/AdminDashboardPage';
+import UserManager from './components/ComplexComponents/AdminDashboard/UserManager/UserManager';
 
 function App() {
   return (
@@ -86,6 +89,11 @@ function App() {
           <Route path="/partners/cardUsageRules" element={<CardUsageRules />} />
           <Route path="/partners/plasticCardUsageRules" element={<PlasticCardUsageRules />} />
           <Route path="/partners/forNotAResidentsServices" element={<ForNotAResidentsServices />} />
+
+          <Route path="/administrator" element={<AdminLoginPage />} />
+          <Route path="/adminDashboard" element={<AdminDashboardPage />}>
+            <Route path="users" element={<UserManager />} />
+          </Route>
         </Routes>
         <CookieConsentModal />
       </SelectedItemProvider>

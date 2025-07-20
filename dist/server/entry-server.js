@@ -2,13 +2,14 @@ import * as React from "react";
 import React__default, { Component, createContext, useState, useEffect, useMemo, useContext, useCallback, useRef } from "react";
 import { renderToStaticMarkup, renderToString } from "react-dom/server";
 import { stripBasename, UNSAFE_warning, UNSAFE_invariant, matchPath, joinPaths, Action } from "@remix-run/router";
-import { UNSAFE_NavigationContext, useHref, useNavigate, useLocation, useResolvedPath, createPath, UNSAFE_DataRouterStateContext, UNSAFE_useRouteId, UNSAFE_RouteContext, UNSAFE_DataRouterContext, parsePath, Router, useParams, Routes, Route } from "react-router";
+import { UNSAFE_NavigationContext, useHref, useNavigate, useLocation, useResolvedPath, createPath, UNSAFE_DataRouterStateContext, UNSAFE_DataRouterContext, UNSAFE_useRouteId, UNSAFE_RouteContext, parsePath, Router, useParams, Outlet, Routes, Route } from "react-router";
 import fastCompare from "react-fast-compare";
 import invariant from "invariant";
 import shallowEqual from "shallowequal";
 import { useTranslation, initReactI18next, I18nextProvider } from "react-i18next";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
+import { v4 } from "uuid";
 import slugify from "slugify";
 import Draggable from "react-draggable";
 import i18n from "i18next";
@@ -3280,7 +3281,7 @@ function PaymentSystem() {
     {
       label: t("paymentSystem.actionSignContract"),
       onClick: handleButtonClick,
-      className: "green"
+      variant: "green"
     }
   ), /* @__PURE__ */ React__default.createElement("div", { className: "aam_payment-system__image" }, /* @__PURE__ */ React__default.createElement("img", { src: GasStationPNG, alt: t("paymentSystem.gasStations"), loading: "lazy" })));
 }
@@ -3882,20 +3883,19 @@ function ClientPartnersServicesSection() {
     {
       label: t("cpsSection.forClients"),
       onClick: handleButtonClick1,
-      className: "green"
+      variant: "green"
     }
   ), /* @__PURE__ */ React__default.createElement(
     Button,
     {
       label: t("cpsSection.forPartners"),
       onClick: handleButtonClick2,
-      className: "green"
+      variant: "green"
     }
   )));
 }
 function About() {
   const { t } = useTranslation();
-  process.env.NODE_ENV === "production";
   return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement(Helmet, null, /* @__PURE__ */ React__default.createElement("title", null, t("pageTitles.about")), /* @__PURE__ */ React__default.createElement("meta", { name: "description", content: "Описание компании Берлио" }), /* @__PURE__ */ React__default.createElement("meta", { name: "keywords", content: "Берлио, О Берлио" }), /* @__PURE__ */ React__default.createElement("meta", { name: "author", content: "AndreiMikheikin" })), /* @__PURE__ */ React__default.createElement(Header, null), /* @__PURE__ */ React__default.createElement(Navigation, null), /* @__PURE__ */ React__default.createElement(SearchInput, { placeholder: t("search") }), /* @__PURE__ */ React__default.createElement(MainAbout, null), /* @__PURE__ */ React__default.createElement(SystemSection, null), /* @__PURE__ */ React__default.createElement(SystemPurposeSection, null), /* @__PURE__ */ React__default.createElement(ClientPartnersServicesSection, null), /* @__PURE__ */ React__default.createElement(
     LogoSection,
     {
@@ -3958,6 +3958,7 @@ function YandexMap({ coordinates = [53.876159, 27.547862] }) {
   if (typeof window === "undefined" || !ymapsModules) {
     return null;
   }
+  const yandexApiKey = "a68673c1-5376-48d3-be2e-bebb33a63b12";
   const { YMaps, Map: Map2, Placemark } = ymapsModules;
   const safeCoordinates = Array.isArray(coordinates) && coordinates.length === 2 ? coordinates : [53.876159, 27.547862];
   return /* @__PURE__ */ React__default.createElement(
@@ -3966,7 +3967,7 @@ function YandexMap({ coordinates = [53.876159, 27.547862] }) {
       query: {
         lang: yandexLang,
         load: "Map,Placemark,geolocation",
-        apikey: "a698c67a-40ac-42e6-b56f-d4891be7b968"
+        apikey: yandexApiKey
       }
     },
     /* @__PURE__ */ React__default.createElement(
@@ -4004,8 +4005,18 @@ function YandexMap({ coordinates = [53.876159, 27.547862] }) {
 YandexMap.propTypes = {
   coordinates: PropTypes.arrayOf(PropTypes.number)
 };
+const USER_ID_COOKIE_NAME = "berlio_user_id";
 const STORAGE_KEY = "aam_cookie_consent";
 const ONE_YEAR = 365 * 24 * 60 * 60 * 1e3;
+const getOrSetUserUUID = () => {
+  const existing = document.cookie.split("; ").find((row) => row.startsWith(`${USER_ID_COOKIE_NAME}=`));
+  if (existing) {
+    return existing.split("=")[1];
+  }
+  const newUUID = v4();
+  document.cookie = `${USER_ID_COOKIE_NAME}=${newUUID}; path=/; max-age=31536000; samesite=lax`;
+  return newUUID;
+};
 const defaultConsent$1 = {
   technical: true,
   functional: false,
@@ -4040,13 +4051,22 @@ const useCookieConsent = () => {
   const getConsent = useCallback(() => consent, [consent]);
   const saveConsent = useCallback((newConsent) => {
     if (typeof window === "undefined") return;
+    const timestamp = (/* @__PURE__ */ new Date()).toISOString();
     const dataWithTimestamp = {
       ...newConsent,
-      timestamp: (/* @__PURE__ */ new Date()).toISOString()
+      timestamp
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(dataWithTimestamp));
     setConsent(dataWithTimestamp);
     window.dispatchEvent(new Event("cookie-consent-changed"));
+    const user_uuid = getOrSetUserUUID();
+    fetch("/api/cookie-consent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ user_uuid, ...dataWithTimestamp })
+    }).catch((err) => {
+      console.warn("Не удалось отправить согласие на сервер:", err);
+    });
   }, []);
   const needsRenewal = useCallback(() => {
     const { timestamp } = getConsent();
@@ -4062,17 +4082,12 @@ const useCookieConsent = () => {
     const current = getConsent();
     return types.every((t) => current[t]);
   }, [getConsent]);
-  const isConsentSet = useCallback(() => {
-    if (typeof window === "undefined") return false;
-    return localStorage.getItem(STORAGE_KEY) !== null;
-  }, []);
   return {
     getConsent,
     saveConsent,
     needsRenewal,
     hasConsentFor,
     consent,
-    isConsentSet,
     isReady
   };
 };
@@ -4099,11 +4114,11 @@ function CookieConsentModal({ forceVisible = false, onConsentSaved = () => {
   const {
     getConsent,
     saveConsent,
-    isConsentSet,
     needsRenewal,
     isReady
   } = useCookieConsent();
   const [mounted, setMounted] = useState(false);
+  const [hasMadeChoice, setHasMadeChoice] = useState(false);
   const [visible, setVisible] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [consent, setConsent] = useState(defaultConsent);
@@ -4117,7 +4132,7 @@ function CookieConsentModal({ forceVisible = false, onConsentSaved = () => {
     setMounted(true);
   }, []);
   useEffect(() => {
-    if (!isReady || !mounted) return;
+    if (!isReady || !mounted || hasMadeChoice) return;
     const current = getConsent();
     setConsent(current);
     if (forceVisible) {
@@ -4125,13 +4140,14 @@ function CookieConsentModal({ forceVisible = false, onConsentSaved = () => {
       setShowSettings(true);
       return;
     }
-    if (!isConsentSet() || needsRenewal()) {
+    if (needsRenewal()) {
       setVisible(true);
     }
-  }, [forceVisible, isReady, mounted, getConsent, isConsentSet, needsRenewal]);
+  }, [forceVisible, isReady, mounted, getConsent, needsRenewal, hasMadeChoice]);
   const handleSave = (newConsent) => {
     saveConsent(newConsent);
     onConsentSaved(newConsent);
+    setHasMadeChoice(true);
     setVisible(false);
   };
   const acceptAll = () => handleSave({ ...defaultConsent, functional: true, analytics: true, marketing: true });
@@ -4228,16 +4244,17 @@ CookieConsentModal.propTypes = {
 function FallbackMap() {
   const { t } = useLocalization();
   const [modalKey, setModalKey] = useState(0);
-  const { isConsentSet } = useCookieConsent();
+  const { hasConsentFor, isReady } = useCookieConsent();
+  const isMapEnabled = hasConsentFor("functional", "analytics");
   return /* @__PURE__ */ React__default.createElement("div", { className: "aam_map-fallback" }, /* @__PURE__ */ React__default.createElement("p", null, t("Для отображения карты необходимо согласие на обработку функциональных и аналитических cookies.")), /* @__PURE__ */ React__default.createElement(
     Button,
     {
       label: t("Настроить cookies"),
       onClick: () => setModalKey((prev) => prev + 1),
       variant: "green",
-      disabled: !isConsentSet()
+      disabled: isMapEnabled || !isReady
     }
-  ), modalKey > 0 && /* @__PURE__ */ React__default.createElement(CookieConsentModal, { key: `modal-${modalKey}`, forceVisible: true }));
+  ), modalKey > 0 && !isMapEnabled && /* @__PURE__ */ React__default.createElement(CookieConsentModal, { key: `modal-${modalKey}`, forceVisible: true }));
 }
 function MapWithConsent({ coordinates }) {
   const { consent } = useCookieConsent();
@@ -7527,8 +7544,303 @@ function News() {
   const { t } = useTranslation();
   return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement(Helmet, null, /* @__PURE__ */ React__default.createElement("title", null, t("pageTitles.news")), /* @__PURE__ */ React__default.createElement("meta", { name: "description", content: "Описание новостей компании Берлио" }), /* @__PURE__ */ React__default.createElement("meta", { name: "keywords", content: "Берлио, Новости" }), /* @__PURE__ */ React__default.createElement("meta", { name: "author", content: "AndreiMikheikin" })), /* @__PURE__ */ React__default.createElement(Header, null), /* @__PURE__ */ React__default.createElement(Navigation, null), /* @__PURE__ */ React__default.createElement(SearchInput, { placeholder: t("search") }), /* @__PURE__ */ React__default.createElement(NewsBlock, null), /* @__PURE__ */ React__default.createElement(Footer, null), /* @__PURE__ */ React__default.createElement(SecondaryFooter, null));
 }
+function AdminLogin({ onLogin }) {
+  const { t } = useTranslation();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+    try {
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+      if (!res.ok) {
+        const { message } = await res.json();
+        setError(message || t("adminLogin.error"));
+        setLoading(false);
+        return;
+      }
+      const { token } = await res.json();
+      onLogin(token);
+    } catch (e2) {
+      setError(t("adminLogin.errorNetwork"));
+      setLoading(false);
+    }
+  }
+  return /* @__PURE__ */ React__default.createElement("form", { onSubmit: handleSubmit, noValidate: true, className: "aam_admin-login-form" }, /* @__PURE__ */ React__default.createElement("label", { htmlFor: "username" }, t("adminLogin.username")), /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      id: "username",
+      type: "text",
+      value: username,
+      onChange: (e) => setUsername(e.target.value),
+      disabled: loading,
+      autoComplete: "username",
+      required: true
+    }
+  ), /* @__PURE__ */ React__default.createElement("label", { htmlFor: "password" }, t("adminLogin.password")), /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      id: "password",
+      type: "password",
+      value: password,
+      onChange: (e) => setPassword(e.target.value),
+      disabled: loading,
+      autoComplete: "current-password",
+      required: true
+    }
+  ), /* @__PURE__ */ React__default.createElement(
+    Button,
+    {
+      type: "submit",
+      disabled: loading,
+      variant: "green",
+      label: loading ? t("adminLogin.loading") : t("adminLogin.submit")
+    },
+    loading ? t("adminLogin.loading") : t("adminLogin.submit")
+  ), error && /* @__PURE__ */ React__default.createElement("p", { role: "alert", style: { color: "red" } }, error));
+}
+AdminLogin.propTypes = {
+  onLogin: PropTypes.func.isRequired
+};
+function AdminLoginPage() {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const handleLogin = (token) => {
+    localStorage.setItem("authToken", token);
+    navigate("/adminDashboard");
+  };
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-login-page" }, /* @__PURE__ */ React__default.createElement(Helmet, null, /* @__PURE__ */ React__default.createElement("title", null, t("adminLogin.pageTitle")), /* @__PURE__ */ React__default.createElement("meta", { name: "description", content: t("adminLogin.pageDescription") })), /* @__PURE__ */ React__default.createElement("h1", { className: "aam_admin-login-page__title" }, t("adminLogin.pageTitle")), /* @__PURE__ */ React__default.createElement(AdminLogin, { onLogin: handleLogin }));
+}
+function AdminMenu({ items }) {
+  return /* @__PURE__ */ React__default.createElement("nav", { className: "aam_admin-menu" }, /* @__PURE__ */ React__default.createElement("ul", { className: "aam_admin-menu__list" }, items.map(({ label, to }) => /* @__PURE__ */ React__default.createElement("li", { key: to, className: "aam_admin-menu__item" }, /* @__PURE__ */ React__default.createElement(
+    NavLink,
+    {
+      to,
+      className: ({ isActive }) => `aam_admin-menu__link${isActive ? " aam_admin-menu__link--active" : ""}`
+    },
+    label
+  )))));
+}
+AdminMenu.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      to: PropTypes.string.isRequired
+    })
+  ).isRequired
+};
+function AdminDashboard() {
+  const [message, setMessage] = useState("");
+  const [role, setRole] = useState("");
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+    if (!token) {
+      navigate("/administrator");
+      return;
+    }
+    fetch("/api/admin/secure", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).then(async (res) => {
+      if (res.status === 401) {
+        localStorage.removeItem("authToken");
+        navigate("/administrator");
+        return;
+      }
+      if (!res.ok) throw new Error("Ошибка сервера");
+      const data = await res.json();
+      setMessage(data.message);
+      setRole(data.role);
+    }).catch(() => {
+      localStorage.removeItem("authToken");
+      navigate("/administrator");
+    }).finally(() => setLoading(false));
+  }, [navigate]);
+  if (loading) return /* @__PURE__ */ React__default.createElement("p", { className: "aam_admin-dashboard__loading" }, "Загрузка...");
+  const menuItems = [
+    { label: "Панель управления", to: "/adminDashboard" },
+    { label: "Администраторы", to: "/adminDashboard/users" },
+    { label: "Новости", to: "/adminDashboard/news" },
+    { label: "Настройки", to: "/adminDashboard/settings" }
+  ];
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-dashboard" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-dashboard__header" }, /* @__PURE__ */ React__default.createElement("p", { className: "aam_admin-dashboard__welcome" }, message), /* @__PURE__ */ React__default.createElement("p", { className: "aam_admin-dashboard__role" }, "Роль: ", role)), /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-dashboard__tools" }, /* @__PURE__ */ React__default.createElement(AdminMenu, { items: menuItems })));
+}
+function AdminDashboardPage() {
+  const { t } = useTranslation();
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-dashboard-page" }, /* @__PURE__ */ React__default.createElement(Helmet, null, /* @__PURE__ */ React__default.createElement("title", null, t("adminDashboard.pageTitle")), /* @__PURE__ */ React__default.createElement("meta", { name: "description", content: t("adminDashboard.pageDescription") })), /* @__PURE__ */ React__default.createElement(AdminDashboard, null), /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-dashboard__outlet" }, /* @__PURE__ */ React__default.createElement(Outlet, null)));
+}
+function CreateAdminModal({ onClose, onCreated }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const handleCreate = async () => {
+    setLoading(true);
+    setError("");
+    try {
+      const token = localStorage.getItem("authToken");
+      const res = await fetch("/api/admin/admins", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ username, password })
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err?.error || "Ошибка создания");
+      }
+      onCreated();
+      onClose();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  return /* @__PURE__ */ React__default.createElement("div", { className: "modal-backdrop" }, /* @__PURE__ */ React__default.createElement("div", { className: "modal" }, /* @__PURE__ */ React__default.createElement("h3", null, "Создать администратора"), error && /* @__PURE__ */ React__default.createElement("p", { className: "error" }, error), /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      type: "text",
+      placeholder: "Имя пользователя",
+      value: username,
+      onChange: (e) => setUsername(e.target.value)
+    }
+  ), /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      type: "password",
+      placeholder: "Пароль",
+      value: password,
+      onChange: (e) => setPassword(e.target.value)
+    }
+  ), /* @__PURE__ */ React__default.createElement("div", { className: "modal-actions" }, /* @__PURE__ */ React__default.createElement("button", { onClick: handleCreate, disabled: loading }, loading ? "Создание..." : "Создать"), /* @__PURE__ */ React__default.createElement("button", { onClick: onClose }, "Отмена"))));
+}
+function EditAdminModal({ admin, onClose, onUpdated }) {
+  const [username, setUsername] = useState(admin.username);
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const handleUpdate = async () => {
+    setLoading(true);
+    setError("");
+    try {
+      const token = localStorage.getItem("authToken");
+      const res = await fetch(`/api/admin/admins/${admin.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ username, password: password || void 0 })
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err?.error || "Ошибка обновления");
+      }
+      onUpdated();
+      onClose();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  return /* @__PURE__ */ React__default.createElement("div", { className: "modal" }, /* @__PURE__ */ React__default.createElement("h3", null, "Редактировать администратора"), /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      type: "text",
+      value: username,
+      onChange: (e) => setUsername(e.target.value),
+      placeholder: "Имя пользователя"
+    }
+  ), /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      type: "password",
+      value: password,
+      onChange: (e) => setPassword(e.target.value),
+      placeholder: "Новый пароль (необязательно)"
+    }
+  ), error && /* @__PURE__ */ React__default.createElement("p", { className: "error" }, error), /* @__PURE__ */ React__default.createElement("button", { onClick: handleUpdate, disabled: loading }, "Сохранить"), /* @__PURE__ */ React__default.createElement("button", { onClick: onClose }, "Отмена"));
+}
+function ConfirmDeleteModal({ onConfirm, onCancel, username }) {
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__content" }, /* @__PURE__ */ React__default.createElement("h3", null, "Удаление администратора"), /* @__PURE__ */ React__default.createElement("p", null, "Вы уверены, что хотите удалить ", /* @__PURE__ */ React__default.createElement("strong", null, username), "?"), /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__actions" }, /* @__PURE__ */ React__default.createElement("button", { className: "aam_btn aam_btn--danger", onClick: onConfirm }, "Удалить"), /* @__PURE__ */ React__default.createElement("button", { className: "aam_btn", onClick: onCancel }, "Отмена"))));
+}
+function UserManager() {
+  const [admins, setAdmins] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [editAdmin, setEditAdmin] = useState(null);
+  const [adminToDelete, setAdminToDelete] = useState(null);
+  const fetchAdmins = () => {
+    setLoading(true);
+    const token = localStorage.getItem("authToken");
+    fetch("/api/admin/admins", {
+      headers: { Authorization: `Bearer ${token}` }
+    }).then(async (res) => {
+      if (!res.ok) throw new Error("Ошибка загрузки данных");
+      const data = await res.json();
+      setAdmins(data);
+    }).catch((err) => console.error("Ошибка загрузки администраторов:", err)).finally(() => setLoading(false));
+  };
+  useEffect(() => {
+    fetchAdmins();
+  }, []);
+  const handleConfirmDelete = async () => {
+    if (!adminToDelete) return;
+    const token = localStorage.getItem("authToken");
+    try {
+      const res = await fetch(`/api/admin/admins/${adminToDelete.id}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err?.error || "Ошибка удаления");
+      }
+      setAdminToDelete(null);
+      fetchAdmins();
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+  if (loading) return /* @__PURE__ */ React__default.createElement("p", null, "Загрузка администраторов...");
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_user-manager" }, /* @__PURE__ */ React__default.createElement("h2", null, "Управление администраторами"), /* @__PURE__ */ React__default.createElement("button", { onClick: () => setShowCreateModal(true) }, "➕ Новый админ"), admins.length === 0 ? /* @__PURE__ */ React__default.createElement("p", null, "Нет администраторов с ролью ", /* @__PURE__ */ React__default.createElement("code", null, "admin"), ".") : /* @__PURE__ */ React__default.createElement("table", { className: "aam_user-manager__table" }, /* @__PURE__ */ React__default.createElement("thead", null, /* @__PURE__ */ React__default.createElement("tr", null, /* @__PURE__ */ React__default.createElement("th", null, "ID"), /* @__PURE__ */ React__default.createElement("th", null, "Имя пользователя"), /* @__PURE__ */ React__default.createElement("th", null, "Роль"), /* @__PURE__ */ React__default.createElement("th", null, "Создан"), /* @__PURE__ */ React__default.createElement("th", null, "Действия"))), /* @__PURE__ */ React__default.createElement("tbody", null, admins.map((admin) => /* @__PURE__ */ React__default.createElement("tr", { key: admin.id }, /* @__PURE__ */ React__default.createElement("td", null, admin.id), /* @__PURE__ */ React__default.createElement("td", null, admin.username), /* @__PURE__ */ React__default.createElement("td", null, admin.role), /* @__PURE__ */ React__default.createElement("td", null, new Date(admin.created_at).toLocaleString("ru-RU")), /* @__PURE__ */ React__default.createElement("td", null, /* @__PURE__ */ React__default.createElement("button", { onClick: () => setEditAdmin(admin) }, "✏️"), /* @__PURE__ */ React__default.createElement("button", { onClick: () => setAdminToDelete(admin) }, "🗑️")))))), showCreateModal && /* @__PURE__ */ React__default.createElement(
+    CreateAdminModal,
+    {
+      onClose: () => setShowCreateModal(false),
+      onCreated: fetchAdmins
+    }
+  ), editAdmin && /* @__PURE__ */ React__default.createElement(
+    EditAdminModal,
+    {
+      admin: editAdmin,
+      onClose: () => setEditAdmin(null),
+      onUpdated: fetchAdmins
+    }
+  ), adminToDelete && /* @__PURE__ */ React__default.createElement(
+    ConfirmDeleteModal,
+    {
+      username: adminToDelete.username,
+      onConfirm: handleConfirmDelete,
+      onCancel: () => setAdminToDelete(null)
+    }
+  ));
+}
 function App() {
-  return /* @__PURE__ */ React__default.createElement(SelectedItemProvider, null, /* @__PURE__ */ React__default.createElement(ScrollToTop, null), /* @__PURE__ */ React__default.createElement(Routes, null, /* @__PURE__ */ React__default.createElement(Route, { path: "/", element: /* @__PURE__ */ React__default.createElement(Home, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/about", element: /* @__PURE__ */ React__default.createElement(About, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/contacts", element: /* @__PURE__ */ React__default.createElement(Contacts, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/news", element: /* @__PURE__ */ React__default.createElement(News, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/news/:id", element: /* @__PURE__ */ React__default.createElement(DetailedNews, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment", element: /* @__PURE__ */ React__default.createElement(Equipment, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/webCenterBerlio", element: /* @__PURE__ */ React__default.createElement(WebCenterBerlio, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/oilAndCapital", element: /* @__PURE__ */ React__default.createElement(OilAndCapital, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/selfServiceCheckout", element: /* @__PURE__ */ React__default.createElement(SelfServiceCheckout, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/gsAutomationSystem", element: /* @__PURE__ */ React__default.createElement(GSAutomationSystem, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/invoicesSite", element: /* @__PURE__ */ React__default.createElement(InvoicesSite, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/invoicesSiteTariffs", element: /* @__PURE__ */ React__default.createElement(InvoicesSiteTariffs, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/berlioInternetClientApp", element: /* @__PURE__ */ React__default.createElement(BerlioInternetClientApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/berlioCardPayApp", element: /* @__PURE__ */ React__default.createElement(BerlioCardPayApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/smartPayApp", element: /* @__PURE__ */ React__default.createElement(SmartPayApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/personalAccWebApp", element: /* @__PURE__ */ React__default.createElement(PersonalAccWebApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients", element: /* @__PURE__ */ React__default.createElement(ForClients, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/signAndResign", element: /* @__PURE__ */ React__default.createElement(SignAndResign, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/cardUsageRules", element: /* @__PURE__ */ React__default.createElement(CardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/gettingElectronicCard", element: /* @__PURE__ */ React__default.createElement(GettingElectronicCard, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/dealResignation", element: /* @__PURE__ */ React__default.createElement(DealResignation, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/priceListsAndTariffs", element: /* @__PURE__ */ React__default.createElement(PriceListsAndTariffs, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/workWithPrivateAccount", element: /* @__PURE__ */ React__default.createElement(WorkWithPrivateAccount, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/documentsForDownload", element: /* @__PURE__ */ React__default.createElement(DocumentsForDownload, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/plasticCardUsageRules", element: /* @__PURE__ */ React__default.createElement(PlasticCardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/nonResidentsSupport", element: /* @__PURE__ */ React__default.createElement(NonResidentsSupport, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/tollRoads", element: /* @__PURE__ */ React__default.createElement(TollRoads, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/forFuelPayments", element: /* @__PURE__ */ React__default.createElement(ForFuelPayments, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/issuerRules", element: /* @__PURE__ */ React__default.createElement(IssuerRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/eMoneyRegulations", element: /* @__PURE__ */ React__default.createElement(EMoneyRegulations, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners", element: /* @__PURE__ */ React__default.createElement(ForPartners, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/voiceRefService", element: /* @__PURE__ */ React__default.createElement(VoiceReferenceService, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/loyaltyProgram", element: /* @__PURE__ */ React__default.createElement(LoyaltyProgram, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/documentsForDownload", element: /* @__PURE__ */ React__default.createElement(DocumentsForDownload, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/systemRules", element: /* @__PURE__ */ React__default.createElement(SystemRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/forBankInformation", element: /* @__PURE__ */ React__default.createElement(ForBankInfo, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/cardUsageRules", element: /* @__PURE__ */ React__default.createElement(CardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/plasticCardUsageRules", element: /* @__PURE__ */ React__default.createElement(PlasticCardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/forNotAResidentsServices", element: /* @__PURE__ */ React__default.createElement(ForNotAResidentsServices, null) })), /* @__PURE__ */ React__default.createElement(CookieConsentModal, null));
+  return /* @__PURE__ */ React__default.createElement(SelectedItemProvider, null, /* @__PURE__ */ React__default.createElement(ScrollToTop, null), /* @__PURE__ */ React__default.createElement(Routes, null, /* @__PURE__ */ React__default.createElement(Route, { path: "/", element: /* @__PURE__ */ React__default.createElement(Home, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/about", element: /* @__PURE__ */ React__default.createElement(About, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/contacts", element: /* @__PURE__ */ React__default.createElement(Contacts, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/news", element: /* @__PURE__ */ React__default.createElement(News, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/news/:id", element: /* @__PURE__ */ React__default.createElement(DetailedNews, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment", element: /* @__PURE__ */ React__default.createElement(Equipment, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/webCenterBerlio", element: /* @__PURE__ */ React__default.createElement(WebCenterBerlio, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/oilAndCapital", element: /* @__PURE__ */ React__default.createElement(OilAndCapital, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/selfServiceCheckout", element: /* @__PURE__ */ React__default.createElement(SelfServiceCheckout, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/gsAutomationSystem", element: /* @__PURE__ */ React__default.createElement(GSAutomationSystem, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/invoicesSite", element: /* @__PURE__ */ React__default.createElement(InvoicesSite, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/invoicesSiteTariffs", element: /* @__PURE__ */ React__default.createElement(InvoicesSiteTariffs, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/berlioInternetClientApp", element: /* @__PURE__ */ React__default.createElement(BerlioInternetClientApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/berlioCardPayApp", element: /* @__PURE__ */ React__default.createElement(BerlioCardPayApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/smartPayApp", element: /* @__PURE__ */ React__default.createElement(SmartPayApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/personalAccWebApp", element: /* @__PURE__ */ React__default.createElement(PersonalAccWebApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients", element: /* @__PURE__ */ React__default.createElement(ForClients, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/signAndResign", element: /* @__PURE__ */ React__default.createElement(SignAndResign, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/cardUsageRules", element: /* @__PURE__ */ React__default.createElement(CardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/gettingElectronicCard", element: /* @__PURE__ */ React__default.createElement(GettingElectronicCard, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/dealResignation", element: /* @__PURE__ */ React__default.createElement(DealResignation, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/priceListsAndTariffs", element: /* @__PURE__ */ React__default.createElement(PriceListsAndTariffs, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/workWithPrivateAccount", element: /* @__PURE__ */ React__default.createElement(WorkWithPrivateAccount, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/documentsForDownload", element: /* @__PURE__ */ React__default.createElement(DocumentsForDownload, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/plasticCardUsageRules", element: /* @__PURE__ */ React__default.createElement(PlasticCardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/nonResidentsSupport", element: /* @__PURE__ */ React__default.createElement(NonResidentsSupport, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/tollRoads", element: /* @__PURE__ */ React__default.createElement(TollRoads, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/forFuelPayments", element: /* @__PURE__ */ React__default.createElement(ForFuelPayments, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/issuerRules", element: /* @__PURE__ */ React__default.createElement(IssuerRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/eMoneyRegulations", element: /* @__PURE__ */ React__default.createElement(EMoneyRegulations, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners", element: /* @__PURE__ */ React__default.createElement(ForPartners, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/voiceRefService", element: /* @__PURE__ */ React__default.createElement(VoiceReferenceService, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/loyaltyProgram", element: /* @__PURE__ */ React__default.createElement(LoyaltyProgram, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/documentsForDownload", element: /* @__PURE__ */ React__default.createElement(DocumentsForDownload, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/systemRules", element: /* @__PURE__ */ React__default.createElement(SystemRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/forBankInformation", element: /* @__PURE__ */ React__default.createElement(ForBankInfo, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/cardUsageRules", element: /* @__PURE__ */ React__default.createElement(CardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/plasticCardUsageRules", element: /* @__PURE__ */ React__default.createElement(PlasticCardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/forNotAResidentsServices", element: /* @__PURE__ */ React__default.createElement(ForNotAResidentsServices, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/administrator", element: /* @__PURE__ */ React__default.createElement(AdminLoginPage, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/adminDashboard", element: /* @__PURE__ */ React__default.createElement(AdminDashboardPage, null) }, /* @__PURE__ */ React__default.createElement(Route, { path: "users", element: /* @__PURE__ */ React__default.createElement(UserManager, null) }))), /* @__PURE__ */ React__default.createElement(CookieConsentModal, null));
 }
 i18n.use(initReactI18next).init({
   lng: "ru",
