@@ -45,6 +45,7 @@ import AdminLoginPage from './pages/AdminLoginPage/AdminLoginPage';
 import AdminDashboardPage from './pages/AdminDashboardPage/AdminDashboardPage';
 import UserManager from './components/ComplexComponents/AdminDashboard/UserManager/UserManager';
 import NewsManager from './components/ComplexComponents/AdminDashboard/NewsManager/NewsManager';
+import SQLExplorer from './components/ComplexComponents/AdminDashboard/SQLExplorer/SQLExplorer';
 
 function App() {
   return (
@@ -95,6 +96,7 @@ function App() {
           <Route path="/adminDashboard" element={<AdminDashboardPage />}>
             <Route path="users" element={<UserManager />} />
             <Route path="news" element={<NewsManager />} />
+            <Route path="sql-explorer" element={<SQLExplorer />} />
           </Route>
         </Routes>
         <CookieConsentModal />

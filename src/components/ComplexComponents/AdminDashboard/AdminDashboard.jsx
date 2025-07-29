@@ -52,6 +52,7 @@ function AdminDashboard() {
     { label: 'Панель управления', to: '/adminDashboard' },
     { label: 'Администраторы', to: '/adminDashboard/users' },
     { label: 'Новости', to: '/adminDashboard/news' },
+    { label: 'SQL Explorer', to: '/adminDashboard/sql-explorer' },
     { label: 'Настройки', to: '/adminDashboard/settings' },
   ];
 

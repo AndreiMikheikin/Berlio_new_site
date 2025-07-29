@@ -10,6 +10,7 @@ import loginRoute from './routes/api/login.js';
 import adminRoute from './routes/api/admin.js';
 import adminsRoute from './routes/api/admin-users.js';
 import newsRoute from './routes/api/admin-news.js';
+import sqlExplorerRoutes from './routes/api/sql-explorer.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,6 +28,7 @@ app.use('/api/login', loginRoute);
 app.use('/api/admin', adminRoute);
 app.use('/api/admin', adminsRoute);
 app.use('/api/admin', newsRoute);
+app.use('/api/sql-explorer', sqlExplorerRoutes);
 
 // 3. Отдаём ассеты и фавикон напрямую
 app.use('/assets', express.static(path.join(clientDist, 'assets')));
