@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import Button from '../../Button/Button';
+import '../../../styles/components/ComplexComponents/Admin/AdminLogin.scss';
 
 function AdminLogin({ onLogin }) {
   const { t } = useTranslation();
@@ -38,7 +39,8 @@ function AdminLogin({ onLogin }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="aam_admin-login-form">
+    <form onSubmit={handleSubmit} noValidate className="aam_admin-login-page__form">
+      <div className='aam_admin-login-page__input'>
       <label htmlFor="username">{t('adminLogin.username')}</label>
       <input
         id="username"
@@ -49,7 +51,8 @@ function AdminLogin({ onLogin }) {
         autoComplete="username"
         required
       />
-
+      </div>
+      <div className='aam_admin-login-page__input'>
       <label htmlFor="password">{t('adminLogin.password')}</label>
       <input
         id="password"
@@ -60,11 +63,12 @@ function AdminLogin({ onLogin }) {
         autoComplete="current-password"
         required
       />
+      </div>
 
       <Button
         type="submit"
         disabled={loading}
-        variant="green"
+        variant="white"
         label={loading ? t('adminLogin.loading') : t('adminLogin.submit')}
       >
         {loading ? t('adminLogin.loading') : t('adminLogin.submit')}

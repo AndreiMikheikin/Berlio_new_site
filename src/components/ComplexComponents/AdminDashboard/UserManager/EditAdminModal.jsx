@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '../../../Button/Button';
 
 function EditAdminModal({ admin, onClose, onUpdated }) {
   const [username, setUsername] = useState(admin.username);
@@ -35,23 +36,29 @@ function EditAdminModal({ admin, onClose, onUpdated }) {
   };
 
   return (
-    <div className="modal">
-      <h3>Редактировать администратора</h3>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="Имя пользователя"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Новый пароль (необязательно)"
-      />
-      {error && <p className="error">{error}</p>}
-      <button onClick={handleUpdate} disabled={loading}>Сохранить</button>
-      <button onClick={onClose}>Отмена</button>
+    <div className="aam_modal">
+      <div className="aam_modal__content">
+        <h3 className="aam_modal__title">Редактировать администратора</h3>
+        <input
+          className="aam_modal__input"
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Имя пользователя"
+        />
+        <input
+          className="aam_modal__input"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Новый пароль (необязательно)"
+        />
+        {error && <p className="aam_modal__error">{error}</p>}
+        <div className="aam_modal__actions">
+          <Button type='submit' variant='green' label='Сохранить' onClick={handleUpdate} disabled={loading} />
+          <Button type='reset' variant='green' label='Отмена' onClick={onClose} />
+        </div>
+      </div>
     </div>
   );
 }

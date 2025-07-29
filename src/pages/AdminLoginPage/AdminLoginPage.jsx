@@ -16,7 +16,7 @@ function AdminLoginPage() {
   return (
     <div className="aam_admin-login-page">
       <Helmet>
-        <title>{t('adminLogin.pageTitle')}</title>
+        <title>{t('pageTitles.adminLogin')}</title>
         <meta name="description" content={t('adminLogin.pageDescription')} />
       </Helmet>
 

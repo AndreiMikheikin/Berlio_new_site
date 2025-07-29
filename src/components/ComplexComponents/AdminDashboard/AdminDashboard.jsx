@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Outlet } from 'react-router-dom';
 import AdminMenu from './AdminMenu/AdminMenu';
+import '../../../styles/components/ComplexComponents/Admin/AdminDashboard.scss';
 
 function AdminDashboard() {
   const [message, setMessage] = useState('');
@@ -9,33 +10,40 @@ function AdminDashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem('authToken');
-    if (!token) {
-      navigate('/administrator');
-      return;
-    }
+    const fetchSecureInfo = async () => {
+      const token = localStorage.getItem('authToken');
+      if (!token) {
+        navigate('/administrator');
+        return;
+      }
 
-    fetch('/api/admin/secure', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then(async (res) => {
+      try {
+        const res = await fetch('/api/admin/secure', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
         if (res.status === 401) {
-          localStorage.removeItem('authToken');
-          navigate('/administrator');
-          return;
+          throw new Error('Unauthorized');
         }
-        if (!res.ok) throw new Error('Ошибка сервера');
+
+        if (!res.ok) {
+          throw new Error('Ошибка сервера');
+        }
+
         const data = await res.json();
         setMessage(data.message);
         setRole(data.role);
-      })
-      .catch(() => {
+      } catch (err) {
         localStorage.removeItem('authToken');
         navigate('/administrator');
-      })
-      .finally(() => setLoading(false));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSecureInfo();
   }, [navigate]);
 
   if (loading) return <p className="aam_admin-dashboard__loading">Загрузка...</p>;
@@ -48,17 +56,33 @@ function AdminDashboard() {
   ];
 
   return (
-    <div className="aam_admin-dashboard">
-      <div className="aam_admin-dashboard__header">
+    <section className="aam_admin-dashboard">
+      {/* Верхняя панель */}
+      <header className="aam_admin-dashboard__header">
         <p className="aam_admin-dashboard__welcome">{message}</p>
-        <p className="aam_admin-dashboard__role">Роль: {role}</p>
-      </div>
+        <p className="aam_admin-dashboard__role">{role}</p>
+        <button
+          className="aam_admin-dashboard__logout"
+          onClick={() => {
+            localStorage.removeItem('authToken');
+            navigate('/administrator');
+          }}
+        >
+          Выход
+        </button>
+      </header>
 
-      <div className="aam_admin-dashboard__tools">
-        {/* Место для инструментов админки */}
-        <AdminMenu items={menuItems} />
+      {/* Основной блок: меню + контент */}
+      <div className="aam_admin-dashboard__wrapper">
+        <aside className="aam_admin-dashboard__wrapper-tools">
+          <AdminMenu items={menuItems} />
+        </aside>
+
+        <main className="aam_admin-dashboard__wrapper-outlet">
+          <Outlet context={{ role }} />
+        </main>
       </div>
-    </div>
+    </section>
   );
 }
 

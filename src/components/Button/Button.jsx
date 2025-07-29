@@ -29,7 +29,7 @@ Button.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
-  variant: PropTypes.oneOf(['default', 'green']), // Можно расширять
+  variant: PropTypes.oneOf(['default', 'green', 'white', 'danger']), // Можно расширять
   className: PropTypes.string, // Для кастомных случаев
   disabled: PropTypes.bool,
 };

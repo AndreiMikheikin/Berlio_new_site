@@ -6,7 +6,7 @@ import DropdownIcon from '../SVGIcons/DropdownIcon';
 
 function SortDropdown({
   options,
-  defaultOption,
+  selectedOption,
   onSelect,
   openFillColor = '#000',
   closedFillColor = '#777',
@@ -15,8 +15,6 @@ function SortDropdown({
 
   const [isOpen, setIsOpen] = useState(false);
   const [iconFillColor, setIconFillColor] = useState(closedFillColor);
-
-  const selectedOption = defaultOption;
 
   const handleSelect = (option) => {
     setIsOpen(false);
@@ -91,7 +89,7 @@ SortDropdown.propTypes = {
       label: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  defaultOption: PropTypes.shape({
+  selectedOption: PropTypes.shape({
     value: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
   }).isRequired,

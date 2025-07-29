@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '../../../Button/Button';
 
 function CreateAdminModal({ onClose, onCreated }) {
   const [username, setUsername] = useState('');
@@ -36,27 +37,27 @@ function CreateAdminModal({ onClose, onCreated }) {
   };
 
   return (
-    <div className="modal-backdrop">
-      <div className="modal">
-        <h3>Создать администратора</h3>
-        {error && <p className="error">{error}</p>}
+    <div className="aam_modal">
+      <div className="aam_modal__content">
+        <h3 className="aam_modal__title">Создать администратора</h3>
+        {error && <p className="aam_modal__error">{error}</p>}
         <input
+          className="aam_modal__input"
           type="text"
           placeholder="Имя пользователя"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
+          className="aam_modal__input"
           type="password"
           placeholder="Пароль"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <div className="modal-actions">
-          <button onClick={handleCreate} disabled={loading}>
-            {loading ? 'Создание...' : 'Создать'}
-          </button>
-          <button onClick={onClose}>Отмена</button>
+        <div className="aam_modal__actions">
+          <Button type='submit' variant='green' label={loading ? 'Создание...' : 'Создать'} onClick={handleCreate} disabled={loading} />
+          <Button type='reset' variant='green' label='Отмена' onClick={onClose} />
         </div>
       </div>
     </div>

@@ -44,6 +44,7 @@ import CookieConsentModal from './components/ComplexComponents/CookieConsentModa
 import AdminLoginPage from './pages/AdminLoginPage/AdminLoginPage';
 import AdminDashboardPage from './pages/AdminDashboardPage/AdminDashboardPage';
 import UserManager from './components/ComplexComponents/AdminDashboard/UserManager/UserManager';
+import NewsManager from './components/ComplexComponents/AdminDashboard/NewsManager/NewsManager';
 
 function App() {
   return (
@@ -93,6 +94,7 @@ function App() {
           <Route path="/administrator" element={<AdminLoginPage />} />
           <Route path="/adminDashboard" element={<AdminDashboardPage />}>
             <Route path="users" element={<UserManager />} />
+            <Route path="news" element={<NewsManager />} />
           </Route>
         </Routes>
         <CookieConsentModal />

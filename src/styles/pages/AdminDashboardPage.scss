@@ -1,0 +1,16 @@
+@use '../variables' as *;
+@use '../mixins' as m;
+
+.aam_admin-dashboard-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px;
+  padding: 2px;
+  border: 3px solid $background-hover;
+  background-color: $background-color;
+  width: 100%;
+  height: calc(100vh - 16px);
+  color:  $white;
+}

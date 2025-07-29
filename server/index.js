@@ -8,7 +8,8 @@ import cookie from 'cookie';
 import cookieConsentRoute from './routes/api/save-cookie-consent.js';
 import loginRoute from './routes/api/login.js';
 import adminRoute from './routes/api/admin.js';
-import adminsRoute from './routes/api/admin-users.js'
+import adminsRoute from './routes/api/admin-users.js';
+import newsRoute from './routes/api/admin-news.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,11 +26,13 @@ app.use('/api/cookie-consent', cookieConsentRoute);
 app.use('/api/login', loginRoute);
 app.use('/api/admin', adminRoute);
 app.use('/api/admin', adminsRoute);
+app.use('/api/admin', newsRoute);
 
 // 3. Отдаём ассеты и фавикон напрямую
 app.use('/assets', express.static(path.join(clientDist, 'assets')));
 app.use('/favicon.svg', express.static(path.join(clientDist, 'favicon.svg')));
 app.use('/favicon.ico', express.static(path.join(clientDist, 'favicon.ico')));
+app.use('/data/newsData.json', express.static(path.join(clientDist, 'data/newsData.json')));
 
 // 4. Генерация sitemap.xml
 app.get('/sitemap.xml', (req, res) => {

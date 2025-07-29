@@ -48,6 +48,35 @@
 
     &__description {
         @include m.text-p1;
+
+        h2 {
+            @include m.heading-h2;
+        }
+
+        h3 {
+            @include m.heading-h3;
+        }
+
+        h4 {
+            @include m.heading-h4;
+        }
+
+        // Выравнивание текста
+        .ql-align-left {
+            text-align: left;
+        }
+
+        .ql-align-center {
+            text-align: center;
+        }
+
+        .ql-align-right {
+            text-align: right;
+        }
+
+        .ql-align-justify {
+            text-align: justify;
+        }
     }
 
     &__footer {
@@ -60,7 +89,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: auto; // Добавлено для фиксации блока внизу
+        margin-top: 65px;
     }
 
     &__back-to-news {

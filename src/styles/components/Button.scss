@@ -49,6 +49,59 @@
     /* Уменьшаем кнопку при активации */
   }
 
+  &--white {
+    display: inline-block;
+    padding: 11px 32px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: $font-size-small + 2px;
+    font-weight: $font-weight-semibold;
+    line-height: 21.79px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s, border-color 0.3s;
+    border: 1.5px solid $white;
+    color: $white;
+  }
+
+  &--white:hover {
+    background-color: $background-color;
+  }
+
+  &--white:active {
+    transform: scale(0.98);
+    /* Уменьшаем кнопку при активации */
+  }
+
+  &--danger {
+    display: inline-block;
+    padding: 11px 32px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: $font-size-small + 2px;
+    font-weight: $font-weight-semibold;
+    line-height: 21.79px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s, border-color 0.3s;
+    border: 1.5px solid $error-color;
+    color: $error-color;
+  }
+
+  &--danger:hover {
+    background-color: $error-color;
+    color: $white;
+  }
+
+  &--danger:active {
+    transform: scale(0.98);
+    /* Уменьшаем кнопку при активации */
+  }
+
   // Стили для заблокированной кнопки
   &:disabled {
     background-color: $text-quaternary;

@@ -1,26 +1,19 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../../styles/components/ComplexComponents/NewsBlock.scss';
 import slugify from 'slugify';
 import { useTranslation } from 'react-i18next';
 import SortDropdown from '../../SortDropdown/SortDropdown';
-import newsData from '../../../data/newsData.json';
+import newsDataFallback from '../../../data/newsData.json';
 
 const isValidDate = (startDate, expireDate, currentDate) => {
   const start = startDate ? new Date(startDate) : null;
   const expire = expireDate ? new Date(expireDate) : null;
 
   return (
-    (start === null
-      && (expire === null
-        || currentDate <= expire))
-    || (expire === null
-      && start !== null
-      && currentDate >= start)
-    || (start !== null
-      && expire !== null
-      && currentDate >= start
-      && currentDate <= expire)
+    (start === null && (expire === null || currentDate <= expire)) ||
+    (expire === null && start !== null && currentDate >= start) ||
+    (start !== null && expire !== null && currentDate >= start && currentDate <= expire)
   );
 };
 
@@ -29,6 +22,8 @@ function NewsBlock() {
   const currentLanguage = i18n.language;
   const navigate = useNavigate();
 
+  const [newsData, setNewsData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [sortOrder, setSortOrder] = useState('new');
   const [currentPage, setCurrentPage] = useState(1);
   const newsPerPage = 4;
@@ -38,26 +33,56 @@ function NewsBlock() {
     { value: 'old', label: t('newsBlock.oldFirst') },
   ], [t]);
 
-  const selectedOption = useMemo(() => (
-    sortOptions.find((option) => option.value === sortOrder) || sortOptions[0]
-  ), [sortOrder, sortOptions]);
+  const selectedOption = useMemo(() => {
+    return sortOptions.find((option) => option.value === sortOrder) || sortOptions[0];
+  }, [sortOrder, sortOptions.map(opt => opt.label).join(',')]);
 
   const currentDate = useMemo(() => new Date(), []);
 
-  const processedNewsData = useMemo(() => (
-    Object.keys(newsData).map((id) => {
-      const newsItem = { id, ...newsData[id] };
-      if (!newsItem.slug && newsItem.titles.en) {
-        newsItem.slug = slugify(newsItem.titles.en, { lower: true, strict: true });
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const res = await fetch('/api/admin/news');
+        if (!res.ok) throw new Error(`API error ${res.status}`);
+
+        const data = await res.json();
+
+        // Преобразуем объект в массив с добавлением slug
+        const processed = Object.entries(data).map(([id, item]) => {
+          const baseTitle = item.titles?.en || item.titles?.ru || `news-${id}`;
+          return {
+            id,
+            ...item,
+            slug: item.slug || slugify(baseTitle, { lower: true, strict: true }),
+          };
+        });
+
+        setNewsData(processed);
+      } catch (error) {
+        console.warn('Ошибка загрузки API, используем fallback:', error.message);
+
+        const fallbackProcessed = Object.entries(newsDataFallback).map(([id, item]) => {
+          const baseTitle = item.titles?.en || item.titles?.ru || `news-${id}`;
+          return {
+            id,
+            ...item,
+            slug: item.slug || slugify(baseTitle, { lower: true, strict: true }),
+          };
+        });
+
+        setNewsData(fallbackProcessed);
+      } finally {
+        setLoading(false);
       }
-      return newsItem;
-    })
-  ), []);
+    };
+
+    fetchNews();
+  }, []);
 
   const filteredAndSortedNews = useMemo(() => {
-    const filtered = processedNewsData.filter((newsItem) => (
+    const filtered = newsData.filter((newsItem) =>
       isValidDate(newsItem.dates.startDate, newsItem.dates.expireDate, currentDate)
-    ));
+    );
 
     const sorted = [...filtered].sort((a, b) => {
       const dateA = new Date(a.dates.date);
@@ -66,16 +91,17 @@ function NewsBlock() {
     });
 
     return sorted;
-  }, [processedNewsData, sortOrder, currentDate]);
+  }, [newsData, sortOrder, currentDate]);
 
   const totalPages = Math.ceil(filteredAndSortedNews.length / newsPerPage);
 
-  const paginatedNews = useMemo(() => (
+  const paginatedNews = useMemo(() =>
     filteredAndSortedNews.slice(
       (currentPage - 1) * newsPerPage,
-      currentPage * newsPerPage,
-    )
-  ), [filteredAndSortedNews, currentPage]);
+      currentPage * newsPerPage
+    ),
+    [filteredAndSortedNews, currentPage]
+  );
 
   const handleSortSelect = (option) => {
     setSortOrder(option.value);
@@ -91,9 +117,7 @@ function NewsBlock() {
 
     for (let i = 1; i <= totalPages; i += 1) {
       if (
-        i === 1
-        || i === totalPages
-        || (i >= currentPage - 1 && i <= currentPage + 1)
+        i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)
       ) {
         pages.push(
           <button
@@ -103,19 +127,14 @@ function NewsBlock() {
             onClick={() => handlePageChange(i)}
           >
             {i}
-          </button>,
+          </button>
         );
       } else if (
         (i === currentPage - 2 || i === currentPage + 2)
         && !pages.find((el) => el.key === `dots-${i}`)
       ) {
         pages.push(
-          <span
-            key={`dots-${i}`}
-            className="aam_news-block__pagination-dots"
-          >
-            ...
-          </span>,
+          <span key={`dots-${i}`} className="aam_news-block__pagination-dots">...</span>
         );
       }
     }
@@ -124,34 +143,25 @@ function NewsBlock() {
   };
 
   const formatDate = (date) => {
-    const options = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    };
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(date).toLocaleDateString(currentLanguage, options);
   };
+
+  if (loading) {
+    return <div className="aam_news-block__loading">Загрузка...</div>;
+  }
 
   return (
     <main className="aam_news-block">
       <div className="aam_news-block__breadcrumbs">
-        <Link to="/">
-          {t('breadCrumbs.home')}
-        </Link>
-        {' '}
-        /
-        {' '}
-        {t('breadCrumbs.news')}
+        <Link to="/">{t('breadCrumbs.home')}</Link> / {t('breadCrumbs.news')}
       </div>
 
-      <h1 className="aam_news-block__title">
-        {t('newsBlock.name')}
-      </h1>
+      <h1 className="aam_news-block__title">{t('newsBlock.name')}</h1>
 
       <SortDropdown
         options={sortOptions}
         selectedOption={selectedOption}
-        defaultOption={sortOptions[0]}
         onSelect={handleSortSelect}
         openFillColor="#48AE5A"
         closedFillColor="#000"
@@ -164,11 +174,11 @@ function NewsBlock() {
             className="aam_news-block__item"
             role="button"
             tabIndex={0}
-            onClick={() => navigate(`/news/${newsItem.slug || newsItem.id}`)}
+            onClick={() => navigate(`/news/${newsItem.slug}`)}
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                navigate(`/news/${newsItem.slug || newsItem.id}`);
+                navigate(`/news/${newsItem.slug}`);
               }
             }}
           >
@@ -189,9 +199,7 @@ function NewsBlock() {
       )}
 
       <div className="aam_news-block__back">
-        <Link to="/">
-          {t('newsBlock.backHome')}
-        </Link>
+        <Link to="/">{t('newsBlock.backHome')}</Link>
       </div>
     </main>
   );

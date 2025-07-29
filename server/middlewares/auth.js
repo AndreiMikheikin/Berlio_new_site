@@ -11,7 +11,6 @@ export const authenticate = (req, res, next) => {
 
   try {
     const decoded = verifyToken(token);
-    console.log('Decoded token:', decoded);
     req.admin = decoded;
     next();
   } catch (err) {

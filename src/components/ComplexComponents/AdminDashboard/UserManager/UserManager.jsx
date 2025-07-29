@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { useOutletContext } from 'react-router-dom';
 import CreateAdminModal from './CreateAdminModal.jsx';
 import EditAdminModal from './EditAdminModal.jsx';
 import ConfirmDeleteModal from './ConfirmDeleteModal.jsx';
+import '../../../../styles/components/ComplexComponents/Admin/UserManager.scss';
 
 function UserManager() {
+  const { role } = useOutletContext();
+
   const [admins, setAdmins] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [editAdmin, setEditAdmin] = useState(null);
   const [adminToDelete, setAdminToDelete] = useState(null);
+
+  if (role !== 'superadmin') {
+    return <p>У вас нет прав для просмотра администраторов.</p>;
+  }
 
   const fetchAdmins = () => {
     setLoading(true);
@@ -59,7 +67,11 @@ function UserManager() {
   return (
     <div className="aam_user-manager">
       <h2>Управление администраторами</h2>
-      <button onClick={() => setShowCreateModal(true)}>➕ Новый админ</button>
+      {role === 'superadmin' && (
+        <button className="aam-user-btn aam-user-btn--add" onClick={() => setShowCreateModal(true)}>
+          ➕ Новый админ
+        </button>
+      )}
 
       {admins.length === 0 ? (
         <p>Нет администраторов с ролью <code>admin</code>.</p>
@@ -82,9 +94,8 @@ function UserManager() {
                 <td>{admin.role}</td>
                 <td>{new Date(admin.created_at).toLocaleString('ru-RU')}</td>
                 <td>
-                  <button onClick={() => setEditAdmin(admin)}>✏️</button>
-                  <button onClick={() => setAdminToDelete(admin)}>🗑️</button>
-
+                  <button className="aam-user-btn aam-user-btn--edit" onClick={() => setEditAdmin(admin)}>✏️</button>
+                  <button className="aam-user-btn aam-user-btn--delete" onClick={() => setAdminToDelete(admin)}>🗑️</button>
                 </td>
               </tr>
             ))}

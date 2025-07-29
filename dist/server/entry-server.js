@@ -1,8 +1,8 @@
-import * as React from "react";
+import * as React$1 from "react";
 import React__default, { Component, createContext, useState, useEffect, useMemo, useContext, useCallback, useRef } from "react";
 import { renderToStaticMarkup, renderToString } from "react-dom/server";
 import { stripBasename, UNSAFE_warning, UNSAFE_invariant, matchPath, joinPaths, Action } from "@remix-run/router";
-import { UNSAFE_NavigationContext, useHref, useNavigate, useLocation, useResolvedPath, createPath, UNSAFE_DataRouterStateContext, UNSAFE_DataRouterContext, UNSAFE_useRouteId, UNSAFE_RouteContext, parsePath, Router, useParams, Outlet, Routes, Route } from "react-router";
+import { UNSAFE_NavigationContext, useHref, useNavigate, useLocation, useResolvedPath, createPath, UNSAFE_DataRouterStateContext, UNSAFE_DataRouterContext, UNSAFE_useRouteId, UNSAFE_RouteContext, parsePath, Router, useParams, Outlet, useOutletContext, Routes, Route } from "react-router";
 import fastCompare from "react-fast-compare";
 import invariant from "invariant";
 import shallowEqual from "shallowequal";
@@ -157,20 +157,20 @@ try {
   window.__reactRouterVersion = REACT_ROUTER_VERSION;
 } catch (e) {
 }
-const ViewTransitionContext = /* @__PURE__ */ React.createContext({
+const ViewTransitionContext = /* @__PURE__ */ React$1.createContext({
   isTransitioning: false
 });
 if (process.env.NODE_ENV !== "production") {
   ViewTransitionContext.displayName = "ViewTransition";
 }
-const FetchersContext = /* @__PURE__ */ React.createContext(/* @__PURE__ */ new Map());
+const FetchersContext = /* @__PURE__ */ React$1.createContext(/* @__PURE__ */ new Map());
 if (process.env.NODE_ENV !== "production") {
   FetchersContext.displayName = "Fetchers";
 }
 if (process.env.NODE_ENV !== "production") ;
 const isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
 const ABSOLUTE_URL_REGEX$1 = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
-const Link = /* @__PURE__ */ React.forwardRef(function LinkWithRef(_ref7, ref) {
+const Link = /* @__PURE__ */ React$1.forwardRef(function LinkWithRef(_ref7, ref) {
   let {
     onClick,
     relative,
@@ -184,7 +184,7 @@ const Link = /* @__PURE__ */ React.forwardRef(function LinkWithRef(_ref7, ref) {
   } = _ref7, rest = _objectWithoutPropertiesLoose(_ref7, _excluded);
   let {
     basename
-  } = React.useContext(UNSAFE_NavigationContext);
+  } = React$1.useContext(UNSAFE_NavigationContext);
   let absoluteHref;
   let isExternal = false;
   if (typeof to === "string" && ABSOLUTE_URL_REGEX$1.test(to)) {
@@ -223,7 +223,7 @@ const Link = /* @__PURE__ */ React.forwardRef(function LinkWithRef(_ref7, ref) {
   }
   return (
     // eslint-disable-next-line jsx-a11y/anchor-has-content
-    /* @__PURE__ */ React.createElement("a", _extends({}, rest, {
+    /* @__PURE__ */ React$1.createElement("a", _extends({}, rest, {
       href: absoluteHref || href,
       onClick: isExternal || reloadDocument ? onClick : handleClick,
       ref,
@@ -234,7 +234,7 @@ const Link = /* @__PURE__ */ React.forwardRef(function LinkWithRef(_ref7, ref) {
 if (process.env.NODE_ENV !== "production") {
   Link.displayName = "Link";
 }
-const NavLink = /* @__PURE__ */ React.forwardRef(function NavLinkWithRef(_ref8, ref) {
+const NavLink = /* @__PURE__ */ React$1.forwardRef(function NavLinkWithRef(_ref8, ref) {
   let {
     "aria-current": ariaCurrentProp = "page",
     caseSensitive = false,
@@ -249,11 +249,11 @@ const NavLink = /* @__PURE__ */ React.forwardRef(function NavLinkWithRef(_ref8, 
     relative: rest.relative
   });
   let location = useLocation();
-  let routerState = React.useContext(UNSAFE_DataRouterStateContext);
+  let routerState = React$1.useContext(UNSAFE_DataRouterStateContext);
   let {
     navigator,
     basename
-  } = React.useContext(UNSAFE_NavigationContext);
+  } = React$1.useContext(UNSAFE_NavigationContext);
   let isTransitioning = routerState != null && // Conditional usage is OK here because the usage of a data router is static
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useViewTransitionState(path) && unstable_viewTransition === true;
@@ -284,7 +284,7 @@ const NavLink = /* @__PURE__ */ React.forwardRef(function NavLinkWithRef(_ref8, 
     className = [classNameProp, isActive ? "active" : null, isPending ? "pending" : null, isTransitioning ? "transitioning" : null].filter(Boolean).join(" ");
   }
   let style = typeof styleProp === "function" ? styleProp(renderProps) : styleProp;
-  return /* @__PURE__ */ React.createElement(Link, _extends({}, rest, {
+  return /* @__PURE__ */ React$1.createElement(Link, _extends({}, rest, {
     "aria-current": ariaCurrent,
     className,
     ref,
@@ -296,7 +296,7 @@ const NavLink = /* @__PURE__ */ React.forwardRef(function NavLinkWithRef(_ref8, 
 if (process.env.NODE_ENV !== "production") {
   NavLink.displayName = "NavLink";
 }
-const Form = /* @__PURE__ */ React.forwardRef((_ref9, forwardedRef) => {
+const Form = /* @__PURE__ */ React$1.forwardRef((_ref9, forwardedRef) => {
   let {
     fetcherKey,
     navigate,
@@ -332,7 +332,7 @@ const Form = /* @__PURE__ */ React.forwardRef((_ref9, forwardedRef) => {
       unstable_viewTransition
     });
   };
-  return /* @__PURE__ */ React.createElement("form", _extends({
+  return /* @__PURE__ */ React$1.createElement("form", _extends({
     ref: forwardedRef,
     method: formMethod,
     action: formAction,
@@ -361,7 +361,7 @@ function getDataRouterConsoleError(hookName) {
   return hookName + " must be used within a data router.  See https://reactrouter.com/routers/picking-a-router.";
 }
 function useDataRouterContext(hookName) {
-  let ctx = React.useContext(UNSAFE_DataRouterContext);
+  let ctx = React$1.useContext(UNSAFE_DataRouterContext);
   !ctx ? process.env.NODE_ENV !== "production" ? UNSAFE_invariant(false, getDataRouterConsoleError(hookName)) : UNSAFE_invariant(false) : void 0;
   return ctx;
 }
@@ -379,7 +379,7 @@ function useLinkClickHandler(to, _temp) {
   let path = useResolvedPath(to, {
     relative
   });
-  return React.useCallback((event) => {
+  return React$1.useCallback((event) => {
     if (shouldProcessLinkClick(event, target)) {
       event.preventDefault();
       let replace = replaceProp !== void 0 ? replaceProp : createPath(location) === createPath(path);
@@ -406,9 +406,9 @@ function useSubmit() {
   } = useDataRouterContext(DataRouterHook.UseSubmit);
   let {
     basename
-  } = React.useContext(UNSAFE_NavigationContext);
+  } = React$1.useContext(UNSAFE_NavigationContext);
   let currentRouteId = UNSAFE_useRouteId();
-  return React.useCallback(function(target, options) {
+  return React$1.useCallback(function(target, options) {
     if (options === void 0) {
       options = {};
     }
@@ -452,8 +452,8 @@ function useFormAction(action, _temp2) {
   } = _temp2 === void 0 ? {} : _temp2;
   let {
     basename
-  } = React.useContext(UNSAFE_NavigationContext);
-  let routeContext = React.useContext(UNSAFE_RouteContext);
+  } = React$1.useContext(UNSAFE_NavigationContext);
+  let routeContext = React$1.useContext(UNSAFE_RouteContext);
   !routeContext ? process.env.NODE_ENV !== "production" ? UNSAFE_invariant(false, "useFormAction must be used inside a RouteContext") : UNSAFE_invariant(false) : void 0;
   let [match] = routeContext.matches.slice(-1);
   let path = _extends({}, useResolvedPath(action ? action : ".", {
@@ -480,7 +480,7 @@ function useViewTransitionState(to, opts) {
   if (opts === void 0) {
     opts = {};
   }
-  let vtContext = React.useContext(ViewTransitionContext);
+  let vtContext = React$1.useContext(ViewTransitionContext);
   !(vtContext != null) ? process.env.NODE_ENV !== "production" ? UNSAFE_invariant(false, "`unstable_useViewTransitionState` must be used within `react-router-dom`'s `RouterProvider`.  Did you accidentally import `RouterProvider` from `react-router`?") : UNSAFE_invariant(false) : void 0;
   let {
     basename
@@ -513,7 +513,7 @@ function StaticRouter({
     key: locationProp.key || "default"
   };
   let staticNavigator = getStatelessNavigator();
-  return /* @__PURE__ */ React.createElement(Router, {
+  return /* @__PURE__ */ React$1.createElement(Router, {
     basename,
     children,
     location,
@@ -2333,7 +2333,7 @@ const routes = {
   plasticCardUsageRulesPartners: "/partners/plasticCardUsageRules",
   forNotAResidentsServices: "/partners/forNotAResidentsServices"
 };
-const pageTitles$1 = { "/": "НП ООО «Берлио»", "home": "НП ООО «Берлио» - Главная", "about": "НП ООО «Берлио» - О Берлио", "contacts": "НП ООО «Берлио» - Контакты", "news": "НП ООО «Берлио» - Новости", "equipment": "НП ООО «Берлио» - Оборудование и ПО", "webCenter": "НП ООО «Берлио» - “Веб Центр БЕРЛИО”", "oilAndCapital": "НП ООО «Берлио» - ППП “НЕФТЬ И КАПИТАЛ”", "selfServiceCheckout": "НП ООО «Берлио» - Касса самообслуживания", "gsAutomationSystem": "НП ООО «Берлио» - ППП “Система автоматизации АЗС”", "invoicesSite": "НП ООО «Берлио» - “Сайт для выставления счетов-фактур”", "invoicesSiteTariffs": "НП ООО «Берлио» - Тарифы “API BERLIO-INFO”", "forClients": "НП ООО «Берлио» - Для клиентов", "signAndResign": "НП ООО «Берлио» - Заключение и Перезаключение договоров", "gettingElectronicCard": "НП ООО «Берлио» - Получение электронной карты", "cardUsageRules": "НП ООО «Берлио» - Правила пользования электронной картой", "dealResignation": "НП ООО «Берлио» - Расторжение договора", "priceListsAndTariffs": "НП ООО «Берлио» - Прейскуранты и тарифы", "workWithPrivateAccount": "НП ООО «Берлио» - Работа в ЛК", "documentsForDownload": "НП ООО «Берлио» - Документы для скачивания", "systemRules": "НП ООО «Берлио» - Правила платежной системы электронных денег “БЕРЛИО”", "plasticCardUsageRules": "НП ООО «Берлио» - Правила пользования топливной картой", "nonResidentsSupport": "НП ООО «Берлио» - Услуги в отношении нерезидентов РБ", "tollRoads": "НП ООО «Берлио» - Платные дороги", "issuerRules": "НП ООО «Берлио» - Правила платежной системы электронных денег “БЕРЛИО”", "eMoneyRegulations": "НП ООО «Берлио» - Регламент использования электронных денег", "bicApp": "НП ООО «Берлио» - Берлио интернет клиент", "bcpApp": "НП ООО «Берлио» - Приложение “BERLIOCARDPAY”", "smartPayApp": "НП ООО «Берлио» - Приложение “SMARTPAY”", "personalAccWebApp": "НП ООО «Берлио» - Приложение “Личный кабинет клиента”", "forPartners": "НП ООО «Берлио» - Для партнеров", "voiceRefService": "НП ООО «Берлио» - Голосовая справочно-информационная служба", "loyaltyProgram": "НП ООО «Берлио» - Программа лояльности", "forBankInfo": "НП ООО «Берлио» - Для банка", "detailedNews": "НП ООО «Берлио» - Подробности новости" };
+const pageTitles$1 = { "/": "НП ООО «Берлио»", "home": "НП ООО «Берлио» - Главная", "about": "НП ООО «Берлио» - О Берлио", "contacts": "НП ООО «Берлио» - Контакты", "news": "НП ООО «Берлио» - Новости", "equipment": "НП ООО «Берлио» - Оборудование и ПО", "webCenter": "НП ООО «Берлио» - “Веб Центр БЕРЛИО”", "oilAndCapital": "НП ООО «Берлио» - ППП “НЕФТЬ И КАПИТАЛ”", "selfServiceCheckout": "НП ООО «Берлио» - Касса самообслуживания", "gsAutomationSystem": "НП ООО «Берлио» - ППП “Система автоматизации АЗС”", "invoicesSite": "НП ООО «Берлио» - “Сайт для выставления счетов-фактур”", "invoicesSiteTariffs": "НП ООО «Берлио» - Тарифы “API BERLIO-INFO”", "forClients": "НП ООО «Берлио» - Для клиентов", "signAndResign": "НП ООО «Берлио» - Заключение и Перезаключение договоров", "gettingElectronicCard": "НП ООО «Берлио» - Получение электронной карты", "cardUsageRules": "НП ООО «Берлио» - Правила пользования электронной картой", "dealResignation": "НП ООО «Берлио» - Расторжение договора", "priceListsAndTariffs": "НП ООО «Берлио» - Прейскуранты и тарифы", "workWithPrivateAccount": "НП ООО «Берлио» - Работа в ЛК", "documentsForDownload": "НП ООО «Берлио» - Документы для скачивания", "systemRules": "НП ООО «Берлио» - Правила платежной системы электронных денег “БЕРЛИО”", "plasticCardUsageRules": "НП ООО «Берлио» - Правила пользования топливной картой", "nonResidentsSupport": "НП ООО «Берлио» - Услуги в отношении нерезидентов РБ", "tollRoads": "НП ООО «Берлио» - Платные дороги", "issuerRules": "НП ООО «Берлио» - Правила платежной системы электронных денег “БЕРЛИО”", "eMoneyRegulations": "НП ООО «Берлио» - Регламент использования электронных денег", "bicApp": "НП ООО «Берлио» - Берлио интернет клиент", "bcpApp": "НП ООО «Берлио» - Приложение “BERLIOCARDPAY”", "smartPayApp": "НП ООО «Берлио» - Приложение “SMARTPAY”", "personalAccWebApp": "НП ООО «Берлио» - Приложение “Личный кабинет клиента”", "forPartners": "НП ООО «Берлио» - Для партнеров", "voiceRefService": "НП ООО «Берлио» - Голосовая справочно-информационная служба", "loyaltyProgram": "НП ООО «Берлио» - Программа лояльности", "forBankInfo": "НП ООО «Берлио» - Для банка", "detailedNews": "НП ООО «Берлио» - Подробности новости", "adminLogin": "Авторизация", "adminDashboard": "Панель администратора" };
 const departmentsPhone$1 = "Телефоны филиалов";
 const allContacts$1 = "Все контакты";
 const searchAzs$1 = "Поиск АЗС";
@@ -2475,6 +2475,7 @@ const offerAgreement$1 = "Договор оферты";
 const privacy$1 = "Конфиденциальность";
 const help$1 = "Помощь";
 const copyright$1 = "© {{year}} НП ООО «Берлио»";
+const adminLogin = { "pageTitle": "Авторизация администратора", "username": "Логин", "password": "Пароль", "loading": "Загрузка...", "submit": "Войти" };
 const translationRu = {
   pageTitles: pageTitles$1,
   departmentsPhone: departmentsPhone$1,
@@ -2617,7 +2618,8 @@ const translationRu = {
   offerAgreement: offerAgreement$1,
   privacy: privacy$1,
   help: help$1,
-  copyright: copyright$1
+  copyright: copyright$1,
+  adminLogin
 };
 const pageTitles = { "/": "S&P LLC 'Berlio'", "home": "S&P LLC 'Berlio' - Home", "about": "S&P LLC 'Berlio' - About Berlio", "contacts": "S&P LLC 'Berlio' - Contacts", "news": "S&P LLC 'Berlio' - News", "equipment": "S&P LLC 'Berlio' - Equipment and Software", "webCenter": "S&P LLC 'Berlio' - 'Web Center Berlio Software'", "oilAndCapital": "S&P LLC 'Berlio' - Oil and Capital APP", "selfServiceCheckout": "S&P LLC 'Berlio' - Self-service Checkout", "gsAutomationSystem": "S&P LLC 'Berlio' - 'Automation System for GS APP'", "invoicesSite": "NP LLC «Berlio» - 'Invoice Billing Site'", "invoicesSiteTariffs": "NP LLC «Berlio» - 'API BERLIO-INFO' Tariffs", "forClients": "S&P LLC 'Berlio' - For Clients", "signAndResign": "S&P LLC 'Berlio' - Signing and re-signing of the agreement", "gettingElectronicCard": "S&P LLC 'Berlio' - Receiving an electronic card", "cardUsageRules": "S&P LLC 'Berlio' - Rules for using an electronic card", "dealResignation": "S&P LLC 'Berlio' - Termination of Contract", "priceListsAndTariffs": "S&P LLC 'Berlio' - Price Lists and Tariffs", "workWithPrivateAccount": "S&P LLC 'Berlio' - Work with PA", "documentsForDownload": "S&P LLC 'Berlio' - Documents for Download", "systemRules": "S&P LLC 'Berlio' - Rules of the «BERLIO» Electronic Money Payment System", "plasticCardUsageRules": "S&P LLC 'Berlio' - Rules for using a plastic card", "nonResidentsSupport": "S&P LLC 'Berlio' - Services for non-residents of the Republic of Belarus", "tollRoads": "S&P LLC 'Berlio' - Toll Roads", "issuerRules": "S&P LLC 'Berlio' - Regulations of the BERLIO Electronic Money Payment System", "eMoneyRegulations": "S&P LLC 'Berlio' - Regulations for the Use of E-Money", "bicApp": "S&P LLC 'Berlio' - Berlio Internet Client", "bcpApp": "S&P LLC 'Berlio' - “BERLIOCARDPAY” App", "smartPayApp": "S&P LLC 'Berlio' - “SMARTPAY” App", "personalAccWebApp": "S&P LLC 'Berlio' - “Personal Account” App", "forPartners": "S&P LLC 'Berlio' - For Partners", "voiceRefService": "S&P LLC 'Berlio' - Voice Reference and Information Service", "loyaltyProgram": "S&P LLC 'Berlio' - Loyalty Programm", "forBankInfo": "S&P LLC 'Berlio' - For Bank", "detailedNews": "S&P LLC 'Berlio' - News Details" };
 const departmentsPhone = "Departments' Phones";
@@ -3263,7 +3265,7 @@ Button.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   type: PropTypes.oneOf(["button", "submit", "reset"]),
-  variant: PropTypes.oneOf(["default", "green"]),
+  variant: PropTypes.oneOf(["default", "green", "white", "danger"]),
   // Можно расширять
   className: PropTypes.string,
   // Для кастомных случаев
@@ -3452,12 +3454,8 @@ function SecondaryFooter() {
   const currentYear = (/* @__PURE__ */ new Date()).getFullYear();
   return /* @__PURE__ */ React__default.createElement("footer", { className: "aam_secondary-footer" }, /* @__PURE__ */ React__default.createElement("nav", { className: "aam_footer-links" }, /* @__PURE__ */ React__default.createElement("ul", null, /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement(Link, { to: "/rules" }, t("rulesOfUse"))), /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement(Link, { to: "/offer" }, t("offerAgreement"))), /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement(Link, { to: "/privacy" }, t("privacy"))), /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement(Link, { to: "/help" }, t("help"))))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_footer-copyright" }, t("copyright", { year: currentYear })));
 }
-const newsData = {
-  "1": { "slug": "news-one", "priority": "B", "dates": { "date": "2025-01-01", "startDate": "", "expireDate": "" }, "titles": { "ru": "Новость 1", "en": "News 1" }, "descriptions": { "ru": "Описание новости", "en": "News Description" } },
-  "2": { "slug": "news-two", "priority": "B", "dates": { "date": "2025-01-02", "startDate": "", "expireDate": "" }, "titles": { "ru": "Новость 2", "en": "News 2" }, "descriptions": { "ru": "Описание новости", "en": "News Description" } },
-  "3": { "slug": "news-three", "priority": "A", "dates": { "date": "2025-01-03", "startDate": "", "expireDate": "" }, "titles": { "ru": "Новость 3", "en": "News 3" }, "descriptions": { "ru": "Описание новости", "en": "News Description" } },
-  "4": { "slug": "news-four", "priority": "B", "dates": { "date": "2025-01-04", "startDate": "", "expireDate": "" }, "titles": { "ru": "Новость 4", "en": "News 4" }, "descriptions": { "ru": "Описание новости", "en": "News Description" } },
-  "5": { "slug": "news-five", "priority": "B", "dates": { "date": "2025-01-05", "startDate": "", "expireDate": "" }, "titles": { "ru": "Новость 5", "en": "News 5" }, "descriptions": { "ru": "Описание новости", "en": "News Description" } }
+const newsDataFallback = {
+  "1": { "slug": "initial-news", "priority": "A", "dates": { "date": "2025-07-27T21:00:00.000Z", "startDate": "2025-07-27T21:00:00.000Z", "expireDate": "2025-07-30T21:00:00.000Z" }, "titles": { "ru": 'Рады приветствовать Вас на новом сайте НП ООО "Берлио"!', "en": 'We are pleased to welcome you to the new website of S&P LLC "Berlio"!' }, "descriptions": { "ru": '<h2 class="ql-align-center"><strong style="color: rgb(72, 174, 90);">Уважаемые клиенты</strong><span style="color: rgb(72, 174, 90);">,</span></h2><h2 class="ql-align-center"><br></h2><p class="ql-align-justify">	Мы с радостью сообщаем, что интерфейс нашего сайта обновился! Надеемся, что опыт пользования новым сайтом оставит лишь положительные впечатления. </p><p><br></p><p><em>С уважением,</em></p><p><strong style="color: rgb(242, 73, 66);">команда НП ООО "Берлио"</strong></p>', "en": '<h2 class="ql-align-center"><span style="color: rgb(72, 174, 90);">Dear clients,</span></h2><h2 class="ql-align-center"><br></h2><p class="ql-align-justify">	We are pleased to inform you that the interface of our website has been updated! We hope that your experience with the new site will leave only positive impressions.</p><p><br></p><p><em>Sincerely,</em></p><p><span style="color: rgb(242, 73, 66);">The team of S&amp;P LLC "Berlio"</span></p>' } }
 };
 function LeftArrowIcon({
   fillColor = "#48AE5A",
@@ -3530,10 +3528,10 @@ function NewsSection() {
     const expire = expireDate ? new Date(expireDate) : null;
     return start === null && (expire === null || currentDate <= expire) || expire === null && start !== null && currentDate >= start || start !== null && expire !== null && currentDate >= start && currentDate <= expire;
   };
-  const newsArray = Object.keys(newsData).map((id) => ({
+  const newsArray = Object.keys(newsDataFallback).map((id) => ({
     id: parseInt(id, 10),
     // Преобразуем ID в число для сортировки
-    ...newsData[id]
+    ...newsDataFallback[id]
   }));
   const sortedNews = newsArray.filter((newsItem) => isValidDate2(
     newsItem.dates.startDate,
@@ -4460,22 +4458,62 @@ function DetailedNewsMain() {
   const { t, i18n: i18n2 } = useTranslation();
   const { id } = useParams();
   const currentLanguage = i18n2.language;
-  const processedNews = Object.keys(newsData).map((newsId) => {
-    const newsItem2 = { id: newsId, ...newsData[newsId] };
-    if (!newsItem2.slug && newsItem2.titles.en) {
-      newsItem2.slug = slugify(newsItem2.titles.en, { lower: true, strict: true });
+  const [newsData, setNewsData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    async function fetchNews() {
+      setLoading(true);
+      setError(null);
+      try {
+        const res = await fetch("/api/admin/news");
+        if (!res.ok) throw new Error(`API error ${res.status}`);
+        const data = await res.json();
+        const processed = Object.entries(data).map(([newsId, item]) => {
+          const baseTitle = item.titles?.en || item.titles?.ru || `news-${newsId}`;
+          return {
+            id: newsId,
+            ...item,
+            slug: item.slug || slugify(baseTitle, { lower: true, strict: true })
+          };
+        });
+        setNewsData(processed);
+      } catch (err) {
+        console.warn("Ошибка загрузки API, используем fallback:", err.message);
+        const fallbackProcessed = Object.entries(newsDataFallback).map(([newsId, item]) => {
+          const baseTitle = item.titles?.en || item.titles?.ru || `news-${newsId}`;
+          return {
+            id: newsId,
+            ...item,
+            slug: item.slug || slugify(baseTitle, { lower: true, strict: true })
+          };
+        });
+        setNewsData(fallbackProcessed);
+      } finally {
+        setLoading(false);
+      }
     }
-    return newsItem2;
-  });
-  const newsItem = processedNews.find((item) => item.id === id || item.slug === id);
+    fetchNews();
+  }, []);
+  if (loading) return /* @__PURE__ */ React__default.createElement("div", null, t("loading"));
+  if (error) return /* @__PURE__ */ React__default.createElement("div", null, t("error"), ": ", error);
+  if (!newsData) return /* @__PURE__ */ React__default.createElement("div", null, t("detailedNewsMain.notFound"));
+  const newsItem = newsData.find((item) => item.id === id || item.slug === id);
   if (!newsItem) {
     return /* @__PURE__ */ React__default.createElement("div", { className: "aam_detailed-news__block" }, /* @__PURE__ */ React__default.createElement("h2", null, t("detailedNewsMain.notFound")), /* @__PURE__ */ React__default.createElement(Link, { to: "/news" }, t("detailedNewsMain.backToNews")));
   }
   const formatDate = (date) => {
+    if (!date) return "";
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(date).toLocaleDateString(currentLanguage, options);
   };
-  return /* @__PURE__ */ React__default.createElement("main", { className: "aam_detailed-news" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_detailed-news__breadcrumbs" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/" }, t("breadCrumbs.home")), " ", "/", " ", /* @__PURE__ */ React__default.createElement(Link, { to: "/news" }, t("breadCrumbs.news")), " ", "/", " ", t("breadCrumbs.detailedNews")), /* @__PURE__ */ React__default.createElement("h1", { className: "aam_detailed-news__header" }, t("detailedNewsMain.name")), /* @__PURE__ */ React__default.createElement("div", { className: "aam_detailed-news__block" }, /* @__PURE__ */ React__default.createElement("h2", { className: "aam_detailed-news__title" }, newsItem.titles[currentLanguage] || newsItem.titles.ru), /* @__PURE__ */ React__default.createElement("p", { className: "aam_detailed-news__description" }, newsItem.descriptions[currentLanguage] || newsItem.descriptions.ru), /* @__PURE__ */ React__default.createElement("p", { className: "aam_detailed-news__footer" }, /* @__PURE__ */ React__default.createElement("strong", null, t("detailedNewsMain.date"), ":"), " ", formatDate(newsItem.dates.date))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_detailed-news__site-nav" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/news", className: "aam_detailed-news__back-to-news" }, /* @__PURE__ */ React__default.createElement(LeftArrowIcon, { className: "icon" }), t("detailedNewsMain.backToNews")), /* @__PURE__ */ React__default.createElement("div", { className: "aam_detailed-news__back" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/" }, t("newsBlock.backHome")))));
+  return /* @__PURE__ */ React__default.createElement("main", { className: "aam_detailed-news" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_detailed-news__breadcrumbs" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/" }, t("breadCrumbs.home")), " / ", /* @__PURE__ */ React__default.createElement(Link, { to: "/news" }, t("breadCrumbs.news")), " / ", t("breadCrumbs.detailedNews")), /* @__PURE__ */ React__default.createElement("h1", { className: "aam_detailed-news__header" }, t("detailedNewsMain.name")), /* @__PURE__ */ React__default.createElement("div", { className: "aam_detailed-news__block" }, /* @__PURE__ */ React__default.createElement("h2", { className: "aam_detailed-news__title" }, newsItem.titles[currentLanguage] || newsItem.titles.ru), /* @__PURE__ */ React__default.createElement(
+    "p",
+    {
+      className: "aam_detailed-news__description",
+      dangerouslySetInnerHTML: { __html: newsItem.descriptions[currentLanguage] || newsItem.descriptions.ru || "" }
+    }
+  ), /* @__PURE__ */ React__default.createElement("p", { className: "aam_detailed-news__footer" }, /* @__PURE__ */ React__default.createElement("strong", null, t("detailedNewsMain.date"), ":"), " ", formatDate(newsItem.dates.date))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_detailed-news__site-nav" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/news", className: "aam_detailed-news__back-to-news" }, /* @__PURE__ */ React__default.createElement(LeftArrowIcon, { className: "icon" }), t("detailedNewsMain.backToNews")), /* @__PURE__ */ React__default.createElement("div", { className: "aam_detailed-news__back" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/" }, t("newsBlock.backHome")))));
 }
 function DetailedNews() {
   const { t } = useTranslation();
@@ -7355,7 +7393,7 @@ function ForNotAResidentsServices() {
 }
 function SortDropdown({
   options,
-  defaultOption,
+  selectedOption,
   onSelect,
   openFillColor = "#000",
   closedFillColor = "#777"
@@ -7363,7 +7401,6 @@ function SortDropdown({
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [iconFillColor, setIconFillColor] = useState(closedFillColor);
-  const selectedOption = defaultOption;
   const handleSelect = (option) => {
     setIsOpen(false);
     onSelect(option);
@@ -7418,7 +7455,7 @@ SortDropdown.propTypes = {
       label: PropTypes.string.isRequired
     })
   ).isRequired,
-  defaultOption: PropTypes.shape({
+  selectedOption: PropTypes.shape({
     value: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired
   }).isRequired,
@@ -7435,6 +7472,8 @@ function NewsBlock() {
   const { t, i18n: i18n2 } = useTranslation();
   const currentLanguage = i18n2.language;
   const navigate = useNavigate();
+  const [newsData, setNewsData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [sortOrder, setSortOrder] = useState("new");
   const [currentPage, setCurrentPage] = useState(1);
   const newsPerPage = 4;
@@ -7442,29 +7481,61 @@ function NewsBlock() {
     { value: "new", label: t("newsBlock.newFirst") },
     { value: "old", label: t("newsBlock.oldFirst") }
   ], [t]);
-  const selectedOption = useMemo(() => sortOptions.find((option) => option.value === sortOrder) || sortOptions[0], [sortOrder, sortOptions]);
+  const selectedOption = useMemo(() => {
+    return sortOptions.find((option) => option.value === sortOrder) || sortOptions[0];
+  }, [sortOrder, sortOptions.map((opt) => opt.label).join(",")]);
   const currentDate = useMemo(() => /* @__PURE__ */ new Date(), []);
-  const processedNewsData = useMemo(() => Object.keys(newsData).map((id) => {
-    const newsItem = { id, ...newsData[id] };
-    if (!newsItem.slug && newsItem.titles.en) {
-      newsItem.slug = slugify(newsItem.titles.en, { lower: true, strict: true });
-    }
-    return newsItem;
-  }), []);
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const res = await fetch("/api/admin/news");
+        if (!res.ok) throw new Error(`API error ${res.status}`);
+        const data = await res.json();
+        const processed = Object.entries(data).map(([id, item]) => {
+          const baseTitle = item.titles?.en || item.titles?.ru || `news-${id}`;
+          return {
+            id,
+            ...item,
+            slug: item.slug || slugify(baseTitle, { lower: true, strict: true })
+          };
+        });
+        setNewsData(processed);
+      } catch (error) {
+        console.warn("Ошибка загрузки API, используем fallback:", error.message);
+        const fallbackProcessed = Object.entries(newsDataFallback).map(([id, item]) => {
+          const baseTitle = item.titles?.en || item.titles?.ru || `news-${id}`;
+          return {
+            id,
+            ...item,
+            slug: item.slug || slugify(baseTitle, { lower: true, strict: true })
+          };
+        });
+        setNewsData(fallbackProcessed);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchNews();
+  }, []);
   const filteredAndSortedNews = useMemo(() => {
-    const filtered = processedNewsData.filter((newsItem) => isValidDate(newsItem.dates.startDate, newsItem.dates.expireDate, currentDate));
+    const filtered = newsData.filter(
+      (newsItem) => isValidDate(newsItem.dates.startDate, newsItem.dates.expireDate, currentDate)
+    );
     const sorted = [...filtered].sort((a, b) => {
       const dateA = new Date(a.dates.date);
       const dateB = new Date(b.dates.date);
       return sortOrder === "new" ? dateB - dateA : dateA - dateB;
     });
     return sorted;
-  }, [processedNewsData, sortOrder, currentDate]);
+  }, [newsData, sortOrder, currentDate]);
   const totalPages = Math.ceil(filteredAndSortedNews.length / newsPerPage);
-  const paginatedNews = useMemo(() => filteredAndSortedNews.slice(
-    (currentPage - 1) * newsPerPage,
-    currentPage * newsPerPage
-  ), [filteredAndSortedNews, currentPage]);
+  const paginatedNews = useMemo(
+    () => filteredAndSortedNews.slice(
+      (currentPage - 1) * newsPerPage,
+      currentPage * newsPerPage
+    ),
+    [filteredAndSortedNews, currentPage]
+  );
   const handleSortSelect = (option) => {
     setSortOrder(option.value);
     setCurrentPage(1);
@@ -7490,33 +7561,24 @@ function NewsBlock() {
         );
       } else if ((i === currentPage - 2 || i === currentPage + 2) && !pages.find((el) => el.key === `dots-${i}`)) {
         pages.push(
-          /* @__PURE__ */ React__default.createElement(
-            "span",
-            {
-              key: `dots-${i}`,
-              className: "aam_news-block__pagination-dots"
-            },
-            "..."
-          )
+          /* @__PURE__ */ React__default.createElement("span", { key: `dots-${i}`, className: "aam_news-block__pagination-dots" }, "...")
         );
       }
     }
     return pages;
   };
   const formatDate = (date) => {
-    const options = {
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    };
+    const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(date).toLocaleDateString(currentLanguage, options);
   };
-  return /* @__PURE__ */ React__default.createElement("main", { className: "aam_news-block" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_news-block__breadcrumbs" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/" }, t("breadCrumbs.home")), " ", "/", " ", t("breadCrumbs.news")), /* @__PURE__ */ React__default.createElement("h1", { className: "aam_news-block__title" }, t("newsBlock.name")), /* @__PURE__ */ React__default.createElement(
+  if (loading) {
+    return /* @__PURE__ */ React__default.createElement("div", { className: "aam_news-block__loading" }, "Загрузка...");
+  }
+  return /* @__PURE__ */ React__default.createElement("main", { className: "aam_news-block" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_news-block__breadcrumbs" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/" }, t("breadCrumbs.home")), " / ", t("breadCrumbs.news")), /* @__PURE__ */ React__default.createElement("h1", { className: "aam_news-block__title" }, t("newsBlock.name")), /* @__PURE__ */ React__default.createElement(
     SortDropdown,
     {
       options: sortOptions,
       selectedOption,
-      defaultOption: sortOptions[0],
       onSelect: handleSortSelect,
       openFillColor: "#48AE5A",
       closedFillColor: "#000"
@@ -7528,11 +7590,11 @@ function NewsBlock() {
       className: "aam_news-block__item",
       role: "button",
       tabIndex: 0,
-      onClick: () => navigate(`/news/${newsItem.slug || newsItem.id}`),
+      onClick: () => navigate(`/news/${newsItem.slug}`),
       onKeyDown: (e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          navigate(`/news/${newsItem.slug || newsItem.id}`);
+          navigate(`/news/${newsItem.slug}`);
         }
       }
     },
@@ -7573,7 +7635,7 @@ function AdminLogin({ onLogin }) {
       setLoading(false);
     }
   }
-  return /* @__PURE__ */ React__default.createElement("form", { onSubmit: handleSubmit, noValidate: true, className: "aam_admin-login-form" }, /* @__PURE__ */ React__default.createElement("label", { htmlFor: "username" }, t("adminLogin.username")), /* @__PURE__ */ React__default.createElement(
+  return /* @__PURE__ */ React__default.createElement("form", { onSubmit: handleSubmit, noValidate: true, className: "aam_admin-login-page__form" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-login-page__input" }, /* @__PURE__ */ React__default.createElement("label", { htmlFor: "username" }, t("adminLogin.username")), /* @__PURE__ */ React__default.createElement(
     "input",
     {
       id: "username",
@@ -7584,7 +7646,7 @@ function AdminLogin({ onLogin }) {
       autoComplete: "username",
       required: true
     }
-  ), /* @__PURE__ */ React__default.createElement("label", { htmlFor: "password" }, t("adminLogin.password")), /* @__PURE__ */ React__default.createElement(
+  )), /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-login-page__input" }, /* @__PURE__ */ React__default.createElement("label", { htmlFor: "password" }, t("adminLogin.password")), /* @__PURE__ */ React__default.createElement(
     "input",
     {
       id: "password",
@@ -7595,12 +7657,12 @@ function AdminLogin({ onLogin }) {
       autoComplete: "current-password",
       required: true
     }
-  ), /* @__PURE__ */ React__default.createElement(
+  )), /* @__PURE__ */ React__default.createElement(
     Button,
     {
       type: "submit",
       disabled: loading,
-      variant: "green",
+      variant: "white",
       label: loading ? t("adminLogin.loading") : t("adminLogin.submit")
     },
     loading ? t("adminLogin.loading") : t("adminLogin.submit")
@@ -7616,13 +7678,14 @@ function AdminLoginPage() {
     localStorage.setItem("authToken", token);
     navigate("/adminDashboard");
   };
-  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-login-page" }, /* @__PURE__ */ React__default.createElement(Helmet, null, /* @__PURE__ */ React__default.createElement("title", null, t("adminLogin.pageTitle")), /* @__PURE__ */ React__default.createElement("meta", { name: "description", content: t("adminLogin.pageDescription") })), /* @__PURE__ */ React__default.createElement("h1", { className: "aam_admin-login-page__title" }, t("adminLogin.pageTitle")), /* @__PURE__ */ React__default.createElement(AdminLogin, { onLogin: handleLogin }));
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-login-page" }, /* @__PURE__ */ React__default.createElement(Helmet, null, /* @__PURE__ */ React__default.createElement("title", null, t("pageTitles.adminLogin")), /* @__PURE__ */ React__default.createElement("meta", { name: "description", content: t("adminLogin.pageDescription") })), /* @__PURE__ */ React__default.createElement("h1", { className: "aam_admin-login-page__title" }, t("adminLogin.pageTitle")), /* @__PURE__ */ React__default.createElement(AdminLogin, { onLogin: handleLogin }));
 }
 function AdminMenu({ items }) {
   return /* @__PURE__ */ React__default.createElement("nav", { className: "aam_admin-menu" }, /* @__PURE__ */ React__default.createElement("ul", { className: "aam_admin-menu__list" }, items.map(({ label, to }) => /* @__PURE__ */ React__default.createElement("li", { key: to, className: "aam_admin-menu__item" }, /* @__PURE__ */ React__default.createElement(
     NavLink,
     {
       to,
+      end: true,
       className: ({ isActive }) => `aam_admin-menu__link${isActive ? " aam_admin-menu__link--active" : ""}`
     },
     label
@@ -7642,29 +7705,35 @@ function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    if (!token) {
-      navigate("/administrator");
-      return;
-    }
-    fetch("/api/admin/secure", {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    }).then(async (res) => {
-      if (res.status === 401) {
-        localStorage.removeItem("authToken");
+    const fetchSecureInfo = async () => {
+      const token = localStorage.getItem("authToken");
+      if (!token) {
         navigate("/administrator");
         return;
       }
-      if (!res.ok) throw new Error("Ошибка сервера");
-      const data = await res.json();
-      setMessage(data.message);
-      setRole(data.role);
-    }).catch(() => {
-      localStorage.removeItem("authToken");
-      navigate("/administrator");
-    }).finally(() => setLoading(false));
+      try {
+        const res = await fetch("/api/admin/secure", {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        if (res.status === 401) {
+          throw new Error("Unauthorized");
+        }
+        if (!res.ok) {
+          throw new Error("Ошибка сервера");
+        }
+        const data = await res.json();
+        setMessage(data.message);
+        setRole(data.role);
+      } catch (err) {
+        localStorage.removeItem("authToken");
+        navigate("/administrator");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchSecureInfo();
   }, [navigate]);
   if (loading) return /* @__PURE__ */ React__default.createElement("p", { className: "aam_admin-dashboard__loading" }, "Загрузка...");
   const menuItems = [
@@ -7673,11 +7742,21 @@ function AdminDashboard() {
     { label: "Новости", to: "/adminDashboard/news" },
     { label: "Настройки", to: "/adminDashboard/settings" }
   ];
-  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-dashboard" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-dashboard__header" }, /* @__PURE__ */ React__default.createElement("p", { className: "aam_admin-dashboard__welcome" }, message), /* @__PURE__ */ React__default.createElement("p", { className: "aam_admin-dashboard__role" }, "Роль: ", role)), /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-dashboard__tools" }, /* @__PURE__ */ React__default.createElement(AdminMenu, { items: menuItems })));
+  return /* @__PURE__ */ React__default.createElement("section", { className: "aam_admin-dashboard" }, /* @__PURE__ */ React__default.createElement("header", { className: "aam_admin-dashboard__header" }, /* @__PURE__ */ React__default.createElement("p", { className: "aam_admin-dashboard__welcome" }, message), /* @__PURE__ */ React__default.createElement("p", { className: "aam_admin-dashboard__role" }, role), /* @__PURE__ */ React__default.createElement(
+    "button",
+    {
+      className: "aam_admin-dashboard__logout",
+      onClick: () => {
+        localStorage.removeItem("authToken");
+        navigate("/administrator");
+      }
+    },
+    "Выход"
+  )), /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-dashboard__wrapper" }, /* @__PURE__ */ React__default.createElement("aside", { className: "aam_admin-dashboard__wrapper-tools" }, /* @__PURE__ */ React__default.createElement(AdminMenu, { items: menuItems })), /* @__PURE__ */ React__default.createElement("main", { className: "aam_admin-dashboard__wrapper-outlet" }, /* @__PURE__ */ React__default.createElement(Outlet, { context: { role } }))));
 }
 function AdminDashboardPage() {
   const { t } = useTranslation();
-  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-dashboard-page" }, /* @__PURE__ */ React__default.createElement(Helmet, null, /* @__PURE__ */ React__default.createElement("title", null, t("adminDashboard.pageTitle")), /* @__PURE__ */ React__default.createElement("meta", { name: "description", content: t("adminDashboard.pageDescription") })), /* @__PURE__ */ React__default.createElement(AdminDashboard, null), /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-dashboard__outlet" }, /* @__PURE__ */ React__default.createElement(Outlet, null)));
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_admin-dashboard-page" }, /* @__PURE__ */ React__default.createElement(Helmet, null, /* @__PURE__ */ React__default.createElement("title", null, t("pageTitles.adminDashboard")), /* @__PURE__ */ React__default.createElement("meta", { name: "description", content: t("adminDashboard.pageDescription") })), /* @__PURE__ */ React__default.createElement(AdminDashboard, null));
 }
 function CreateAdminModal({ onClose, onCreated }) {
   const [username, setUsername] = useState("");
@@ -7709,9 +7788,10 @@ function CreateAdminModal({ onClose, onCreated }) {
       setLoading(false);
     }
   };
-  return /* @__PURE__ */ React__default.createElement("div", { className: "modal-backdrop" }, /* @__PURE__ */ React__default.createElement("div", { className: "modal" }, /* @__PURE__ */ React__default.createElement("h3", null, "Создать администратора"), error && /* @__PURE__ */ React__default.createElement("p", { className: "error" }, error), /* @__PURE__ */ React__default.createElement(
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__content" }, /* @__PURE__ */ React__default.createElement("h3", { className: "aam_modal__title" }, "Создать администратора"), error && /* @__PURE__ */ React__default.createElement("p", { className: "aam_modal__error" }, error), /* @__PURE__ */ React__default.createElement(
     "input",
     {
+      className: "aam_modal__input",
       type: "text",
       placeholder: "Имя пользователя",
       value: username,
@@ -7720,12 +7800,13 @@ function CreateAdminModal({ onClose, onCreated }) {
   ), /* @__PURE__ */ React__default.createElement(
     "input",
     {
+      className: "aam_modal__input",
       type: "password",
       placeholder: "Пароль",
       value: password,
       onChange: (e) => setPassword(e.target.value)
     }
-  ), /* @__PURE__ */ React__default.createElement("div", { className: "modal-actions" }, /* @__PURE__ */ React__default.createElement("button", { onClick: handleCreate, disabled: loading }, loading ? "Создание..." : "Создать"), /* @__PURE__ */ React__default.createElement("button", { onClick: onClose }, "Отмена"))));
+  ), /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__actions" }, /* @__PURE__ */ React__default.createElement(Button, { type: "submit", variant: "green", label: loading ? "Создание..." : "Создать", onClick: handleCreate, disabled: loading }), /* @__PURE__ */ React__default.createElement(Button, { type: "reset", variant: "green", label: "Отмена", onClick: onClose }))));
 }
 function EditAdminModal({ admin, onClose, onUpdated }) {
   const [username, setUsername] = useState(admin.username);
@@ -7757,9 +7838,10 @@ function EditAdminModal({ admin, onClose, onUpdated }) {
       setLoading(false);
     }
   };
-  return /* @__PURE__ */ React__default.createElement("div", { className: "modal" }, /* @__PURE__ */ React__default.createElement("h3", null, "Редактировать администратора"), /* @__PURE__ */ React__default.createElement(
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__content" }, /* @__PURE__ */ React__default.createElement("h3", { className: "aam_modal__title" }, "Редактировать администратора"), /* @__PURE__ */ React__default.createElement(
     "input",
     {
+      className: "aam_modal__input",
       type: "text",
       value: username,
       onChange: (e) => setUsername(e.target.value),
@@ -7768,22 +7850,27 @@ function EditAdminModal({ admin, onClose, onUpdated }) {
   ), /* @__PURE__ */ React__default.createElement(
     "input",
     {
+      className: "aam_modal__input",
       type: "password",
       value: password,
       onChange: (e) => setPassword(e.target.value),
       placeholder: "Новый пароль (необязательно)"
     }
-  ), error && /* @__PURE__ */ React__default.createElement("p", { className: "error" }, error), /* @__PURE__ */ React__default.createElement("button", { onClick: handleUpdate, disabled: loading }, "Сохранить"), /* @__PURE__ */ React__default.createElement("button", { onClick: onClose }, "Отмена"));
+  ), error && /* @__PURE__ */ React__default.createElement("p", { className: "aam_modal__error" }, error), /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__actions" }, /* @__PURE__ */ React__default.createElement(Button, { type: "submit", variant: "green", label: "Сохранить", onClick: handleUpdate, disabled: loading }), /* @__PURE__ */ React__default.createElement(Button, { type: "reset", variant: "green", label: "Отмена", onClick: onClose }))));
 }
 function ConfirmDeleteModal({ onConfirm, onCancel, username }) {
-  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__content" }, /* @__PURE__ */ React__default.createElement("h3", null, "Удаление администратора"), /* @__PURE__ */ React__default.createElement("p", null, "Вы уверены, что хотите удалить ", /* @__PURE__ */ React__default.createElement("strong", null, username), "?"), /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__actions" }, /* @__PURE__ */ React__default.createElement("button", { className: "aam_btn aam_btn--danger", onClick: onConfirm }, "Удалить"), /* @__PURE__ */ React__default.createElement("button", { className: "aam_btn", onClick: onCancel }, "Отмена"))));
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__content" }, /* @__PURE__ */ React__default.createElement("h3", { className: "aam_modal__title" }, "Удаление администратора"), /* @__PURE__ */ React__default.createElement("p", { className: "aam_modal__text" }, "Вы уверены, что хотите удалить ", /* @__PURE__ */ React__default.createElement("strong", null, username), "?"), /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__actions" }, /* @__PURE__ */ React__default.createElement(Button, { type: "submit", label: "Удалить", variant: "danger", onClick: onConfirm }), /* @__PURE__ */ React__default.createElement(Button, { type: "reset", label: "Отмена", variant: "green", onClick: onCancel }))));
 }
 function UserManager() {
+  const { role } = useOutletContext();
   const [admins, setAdmins] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [editAdmin, setEditAdmin] = useState(null);
   const [adminToDelete, setAdminToDelete] = useState(null);
+  if (role !== "superadmin") {
+    return /* @__PURE__ */ React__default.createElement("p", null, "У вас нет прав для просмотра администраторов.");
+  }
   const fetchAdmins = () => {
     setLoading(true);
     const token = localStorage.getItem("authToken");
@@ -7817,7 +7904,7 @@ function UserManager() {
     }
   };
   if (loading) return /* @__PURE__ */ React__default.createElement("p", null, "Загрузка администраторов...");
-  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_user-manager" }, /* @__PURE__ */ React__default.createElement("h2", null, "Управление администраторами"), /* @__PURE__ */ React__default.createElement("button", { onClick: () => setShowCreateModal(true) }, "➕ Новый админ"), admins.length === 0 ? /* @__PURE__ */ React__default.createElement("p", null, "Нет администраторов с ролью ", /* @__PURE__ */ React__default.createElement("code", null, "admin"), ".") : /* @__PURE__ */ React__default.createElement("table", { className: "aam_user-manager__table" }, /* @__PURE__ */ React__default.createElement("thead", null, /* @__PURE__ */ React__default.createElement("tr", null, /* @__PURE__ */ React__default.createElement("th", null, "ID"), /* @__PURE__ */ React__default.createElement("th", null, "Имя пользователя"), /* @__PURE__ */ React__default.createElement("th", null, "Роль"), /* @__PURE__ */ React__default.createElement("th", null, "Создан"), /* @__PURE__ */ React__default.createElement("th", null, "Действия"))), /* @__PURE__ */ React__default.createElement("tbody", null, admins.map((admin) => /* @__PURE__ */ React__default.createElement("tr", { key: admin.id }, /* @__PURE__ */ React__default.createElement("td", null, admin.id), /* @__PURE__ */ React__default.createElement("td", null, admin.username), /* @__PURE__ */ React__default.createElement("td", null, admin.role), /* @__PURE__ */ React__default.createElement("td", null, new Date(admin.created_at).toLocaleString("ru-RU")), /* @__PURE__ */ React__default.createElement("td", null, /* @__PURE__ */ React__default.createElement("button", { onClick: () => setEditAdmin(admin) }, "✏️"), /* @__PURE__ */ React__default.createElement("button", { onClick: () => setAdminToDelete(admin) }, "🗑️")))))), showCreateModal && /* @__PURE__ */ React__default.createElement(
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_user-manager" }, /* @__PURE__ */ React__default.createElement("h2", null, "Управление администраторами"), role === "superadmin" && /* @__PURE__ */ React__default.createElement("button", { className: "aam-user-btn aam-user-btn--add", onClick: () => setShowCreateModal(true) }, "➕ Новый админ"), admins.length === 0 ? /* @__PURE__ */ React__default.createElement("p", null, "Нет администраторов с ролью ", /* @__PURE__ */ React__default.createElement("code", null, "admin"), ".") : /* @__PURE__ */ React__default.createElement("table", { className: "aam_user-manager__table" }, /* @__PURE__ */ React__default.createElement("thead", null, /* @__PURE__ */ React__default.createElement("tr", null, /* @__PURE__ */ React__default.createElement("th", null, "ID"), /* @__PURE__ */ React__default.createElement("th", null, "Имя пользователя"), /* @__PURE__ */ React__default.createElement("th", null, "Роль"), /* @__PURE__ */ React__default.createElement("th", null, "Создан"), /* @__PURE__ */ React__default.createElement("th", null, "Действия"))), /* @__PURE__ */ React__default.createElement("tbody", null, admins.map((admin) => /* @__PURE__ */ React__default.createElement("tr", { key: admin.id }, /* @__PURE__ */ React__default.createElement("td", null, admin.id), /* @__PURE__ */ React__default.createElement("td", null, admin.username), /* @__PURE__ */ React__default.createElement("td", null, admin.role), /* @__PURE__ */ React__default.createElement("td", null, new Date(admin.created_at).toLocaleString("ru-RU")), /* @__PURE__ */ React__default.createElement("td", null, /* @__PURE__ */ React__default.createElement("button", { className: "aam-user-btn aam-user-btn--edit", onClick: () => setEditAdmin(admin) }, "✏️"), /* @__PURE__ */ React__default.createElement("button", { className: "aam-user-btn aam-user-btn--delete", onClick: () => setAdminToDelete(admin) }, "🗑️")))))), showCreateModal && /* @__PURE__ */ React__default.createElement(
     CreateAdminModal,
     {
       onClose: () => setShowCreateModal(false),
@@ -7839,8 +7926,340 @@ function UserManager() {
     }
   ));
 }
+function RichTextEditor({ value, onChange, placeholder = "" }) {
+  const editorRef = useRef(null);
+  const quillRef = useRef(null);
+  useEffect(() => {
+    let quillInstance;
+    if (!editorRef.current) return;
+    import("quill").then(({ default: Quill }) => {
+      quillInstance = new Quill(editorRef.current, {
+        theme: "snow",
+        placeholder,
+        modules: {
+          toolbar: [
+            [{ header: [2, 3, 4, false] }],
+            ["bold", "italic", "underline", "link"],
+            [{ list: "ordered" }, { list: "bullet" }],
+            [{ color: ["#48AE5A", "#F24942", "#000000", "#FFFFFF", false] }],
+            [{ background: ["#48AE5A", "#F24942", "#000000", "#FFFFFF", false] }],
+            [{ align: [] }],
+            ["clean"]
+          ]
+        }
+      });
+      if (value) {
+        quillInstance.clipboard.dangerouslyPasteHTML(value);
+      }
+      quillInstance.on("text-change", () => {
+        const html = quillInstance.root.innerHTML;
+        onChange(html);
+      });
+      quillRef.current = quillInstance;
+    });
+    return () => {
+      if (quillRef.current) {
+        quillRef.current.off("text-change");
+        quillRef.current = null;
+        quillInstance = null;
+      }
+    };
+  }, []);
+  useEffect(() => {
+    if (quillRef.current && value !== quillRef.current.root.innerHTML) {
+      quillRef.current.clipboard.dangerouslyPasteHTML(value || "");
+    }
+  }, [value]);
+  return /* @__PURE__ */ React.createElement("div", { className: "custom-quill-editor", ref: editorRef });
+}
+function CreateNewsModal({ onClose, onCreated }) {
+  const [slug, setSlug] = useState("");
+  const [priority, setPriority] = useState("B");
+  const [date, setDate] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [expireDate, setExpireDate] = useState("");
+  const [titles, setTitles] = useState({ ru: "", en: "" });
+  const [descriptions2, setDescriptions] = useState({ ru: "", en: "" });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  useEffect(() => {
+    if (!slug.trim()) {
+      const firstTitle = titles.ru || titles.en;
+      if (firstTitle.trim()) {
+        setSlug(slugify(firstTitle, { lower: true, strict: true }));
+      }
+    }
+  }, [titles.ru, titles.en]);
+  const handleCreate = async () => {
+    setLoading(true);
+    setError("");
+    const payload = {
+      slug,
+      priority,
+      dates: { date, startDate, expireDate },
+      titles,
+      descriptions: descriptions2
+    };
+    try {
+      const token = localStorage.getItem("authToken");
+      const res = await fetch("/api/admin/news", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err?.error || "Ошибка создания новости");
+      }
+      onCreated();
+      onClose();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const handleTitleChange = (lang, value) => {
+    setTitles((prev) => ({ ...prev, [lang]: value }));
+  };
+  const handleDescriptionChange = (lang, value) => {
+    setDescriptions((prev) => ({ ...prev, [lang]: value }));
+  };
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__content" }, /* @__PURE__ */ React__default.createElement("h3", { className: "aam_modal__title" }, "Создать новость"), error && /* @__PURE__ */ React__default.createElement("p", { className: "aam_modal__error" }, error), /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      className: "aam_modal__input",
+      type: "text",
+      placeholder: "Автоматически сгенерируется из заголовка",
+      value: slug,
+      onChange: (e) => setSlug(e.target.value)
+    }
+  ), /* @__PURE__ */ React__default.createElement(
+    "select",
+    {
+      className: "aam_modal__input",
+      value: priority,
+      onChange: (e) => setPriority(e.target.value)
+    },
+    /* @__PURE__ */ React__default.createElement("option", { value: "A" }, "Приоритет A"),
+    /* @__PURE__ */ React__default.createElement("option", { value: "B" }, "Приоритет B")
+  ), /* @__PURE__ */ React__default.createElement("label", { htmlFor: "publishDate" }, "Дата публикации", /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      className: "aam_modal__input",
+      type: "date",
+      id: "publishDate",
+      value: date,
+      onChange: (e) => setDate(e.target.value)
+    }
+  )), /* @__PURE__ */ React__default.createElement("label", { htmlFor: "startDate" }, "Начало отображения", /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      className: "aam_modal__input",
+      type: "date",
+      id: "startDate",
+      value: startDate,
+      onChange: (e) => setStartDate(e.target.value)
+    }
+  )), /* @__PURE__ */ React__default.createElement("label", { htmlFor: "expireDate" }, "Конец отображения", /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      className: "aam_modal__input",
+      type: "date",
+      id: "expireDate",
+      value: expireDate,
+      onChange: (e) => setExpireDate(e.target.value)
+    }
+  )), /* @__PURE__ */ React__default.createElement("hr", { className: "aam_modal__divider" }), ["ru", "en"].map((lang) => /* @__PURE__ */ React__default.createElement("div", { key: lang }, /* @__PURE__ */ React__default.createElement("h4", null, "Язык: ", lang.toUpperCase()), /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      className: "aam_modal__input",
+      type: "text",
+      placeholder: `Заголовок (${lang})`,
+      value: titles[lang],
+      onChange: (e) => handleTitleChange(lang, e.target.value)
+    }
+  ), /* @__PURE__ */ React__default.createElement(
+    RichTextEditor,
+    {
+      value: descriptions2[lang],
+      onChange: (value) => handleDescriptionChange(lang, value),
+      placeholder: `Описание (${lang})`
+    }
+  ))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__actions" }, /* @__PURE__ */ React__default.createElement(Button, { type: "submit", variant: "green", label: loading ? "Создание..." : "Создать", onClick: handleCreate, disabled: loading }), /* @__PURE__ */ React__default.createElement(Button, { type: "reset", variant: "green", label: "Отмена", onClick: onClose }))));
+}
+function EditNewsModal({ news: news2, onClose, onUpdated }) {
+  const [slug, setSlug] = useState(news2.slug);
+  const [priority, setPriority] = useState(news2.priority);
+  const [date, setDate] = useState(news2.dates?.date || "");
+  const [startDate, setStartDate] = useState(news2.dates?.startDate || "");
+  const [expireDate, setExpireDate] = useState(news2.dates?.expireDate || "");
+  const [titles, setTitles] = useState(news2.titles || { ru: "", en: "" });
+  const [descriptions2, setDescriptions] = useState(news2.descriptions || { ru: "", en: "" });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const handleUpdate = async () => {
+    setLoading(true);
+    setError("");
+    const payload = {
+      slug,
+      priority,
+      dates: { date, startDate, expireDate },
+      titles,
+      descriptions: descriptions2
+    };
+    try {
+      const token = localStorage.getItem("authToken");
+      const res = await fetch(`/api/admin/news/${news2.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err?.error || "Ошибка обновления");
+      }
+      onUpdated();
+      onClose();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const handleTitleChange = (lang, value) => {
+    setTitles((prev) => ({ ...prev, [lang]: value }));
+  };
+  const handleDescriptionChange = (lang, value) => {
+    setDescriptions((prev) => ({ ...prev, [lang]: value }));
+  };
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__content" }, /* @__PURE__ */ React__default.createElement("h3", { className: "aam_modal__title" }, "Редактировать новость"), error && /* @__PURE__ */ React__default.createElement("p", { className: "aam_modal__error" }, error), /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      className: "aam_modal__input",
+      type: "text",
+      placeholder: "Slug",
+      value: slug,
+      onChange: (e) => setSlug(e.target.value)
+    }
+  ), /* @__PURE__ */ React__default.createElement(
+    "select",
+    {
+      className: "aam_modal__input",
+      value: priority,
+      onChange: (e) => setPriority(e.target.value)
+    },
+    /* @__PURE__ */ React__default.createElement("option", { value: "A" }, "Приоритет A"),
+    /* @__PURE__ */ React__default.createElement("option", { value: "B" }, "Приоритет B")
+  ), /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      className: "aam_modal__input",
+      type: "date",
+      placeholder: "Дата публикации",
+      value: date,
+      onChange: (e) => setDate(e.target.value)
+    }
+  ), /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      className: "aam_modal__input",
+      type: "date",
+      placeholder: "Начало отображения",
+      value: startDate,
+      onChange: (e) => setStartDate(e.target.value)
+    }
+  ), /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      className: "aam_modal__input",
+      type: "date",
+      placeholder: "Конец отображения",
+      value: expireDate,
+      onChange: (e) => setExpireDate(e.target.value)
+    }
+  ), /* @__PURE__ */ React__default.createElement("hr", { className: "aam_modal__divider" }), ["ru", "en"].map((lang) => /* @__PURE__ */ React__default.createElement("div", { key: lang }, /* @__PURE__ */ React__default.createElement("h4", null, "Язык: ", lang.toUpperCase()), /* @__PURE__ */ React__default.createElement(
+    "input",
+    {
+      className: "aam_modal__input",
+      type: "text",
+      placeholder: `Заголовок (${lang})`,
+      value: titles[lang],
+      onChange: (e) => handleTitleChange(lang, e.target.value)
+    }
+  ), /* @__PURE__ */ React__default.createElement(
+    RichTextEditor,
+    {
+      value: descriptions2[lang],
+      onChange: (value) => handleDescriptionChange(lang, value),
+      placeholder: `Описание (${lang})`
+    }
+  ))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__actions" }, /* @__PURE__ */ React__default.createElement(Button, { type: "submit", variant: "green", label: loading ? "Сохранение..." : "Сохранить", onClick: handleUpdate, disabled: loading }), /* @__PURE__ */ React__default.createElement(Button, { type: "reset", variant: "green", label: "Отмена", onClick: onClose }))));
+}
+function ConfirmDeleteNewsModal({ onConfirm, onCancel, title }) {
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__content" }, /* @__PURE__ */ React__default.createElement("h3", { className: "aam_modal__title" }, "Удаление новости"), /* @__PURE__ */ React__default.createElement("p", { className: "aam_modal__text" }, "Вы уверены, что хотите удалить новость ", /* @__PURE__ */ React__default.createElement("strong", null, title), "?"), /* @__PURE__ */ React__default.createElement("div", { className: "aam_modal__actions" }, /* @__PURE__ */ React__default.createElement(Button, { type: "submit", label: "Удалить", variant: "danger", onClick: onConfirm }), /* @__PURE__ */ React__default.createElement(Button, { type: "reset", label: "Отмена", variant: "green", onClick: onCancel }))));
+}
+function NewsManager() {
+  const { role } = useOutletContext();
+  if (role !== "admin" && role !== "superadmin") {
+    return /* @__PURE__ */ React__default.createElement("p", null, "У вас нет прав для управления новостями.");
+  }
+  const [news2, setNews] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [editNews, setEditNews] = useState(null);
+  const [newsToDelete, setNewsToDelete] = useState(null);
+  const fetchNews = () => {
+    setLoading(true);
+    const token = localStorage.getItem("authToken");
+    fetch("/api/admin/news", {
+      headers: { Authorization: `Bearer ${token}` }
+    }).then(async (res) => {
+      if (!res.ok) throw new Error("Ошибка загрузки новостей");
+      const data = await res.json();
+      setNews(data);
+    }).catch((err) => console.error("Ошибка загрузки новостей:", err)).finally(() => setLoading(false));
+  };
+  useEffect(() => {
+    fetchNews();
+  }, []);
+  const handleConfirmDelete = async () => {
+    if (!newsToDelete) return;
+    const token = localStorage.getItem("authToken");
+    try {
+      const res = await fetch(`/api/admin/news/${newsToDelete}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err?.error || "Ошибка удаления новости");
+      }
+      setNewsToDelete(null);
+      fetchNews();
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+  if (loading) return /* @__PURE__ */ React__default.createElement("p", null, "Загрузка новостей...");
+  const newsArray = Object.entries(news2);
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_news-manager" }, /* @__PURE__ */ React__default.createElement("h2", null, "Управление новостями"), /* @__PURE__ */ React__default.createElement("button", { className: "aam-news-btn aam-news-btn--add", onClick: () => setShowCreateModal(true) }, "➕ Новая новость"), newsArray.length === 0 ? /* @__PURE__ */ React__default.createElement("p", null, "Новостей пока нет.") : /* @__PURE__ */ React__default.createElement("table", { className: "aam_news-manager__table" }, /* @__PURE__ */ React__default.createElement("thead", null, /* @__PURE__ */ React__default.createElement("tr", null, /* @__PURE__ */ React__default.createElement("th", null, "ID"), /* @__PURE__ */ React__default.createElement("th", null, "Slug"), /* @__PURE__ */ React__default.createElement("th", null, "Priority"), /* @__PURE__ */ React__default.createElement("th", null, "Дата"), /* @__PURE__ */ React__default.createElement("th", null, "Заголовок (RU)"), /* @__PURE__ */ React__default.createElement("th", null, "Действия"))), /* @__PURE__ */ React__default.createElement("tbody", null, newsArray.map(([id, item]) => /* @__PURE__ */ React__default.createElement("tr", { key: id }, /* @__PURE__ */ React__default.createElement("td", null, id), /* @__PURE__ */ React__default.createElement("td", null, item.slug), /* @__PURE__ */ React__default.createElement("td", null, item.priority), /* @__PURE__ */ React__default.createElement("td", null, item.dates.date ? new Date(item.dates.date).toLocaleDateString("ru-RU") : "-"), /* @__PURE__ */ React__default.createElement("td", null, item.titles.ru || "-"), /* @__PURE__ */ React__default.createElement("td", null, /* @__PURE__ */ React__default.createElement("button", { className: "aam-news-btn aam-news-btn--edit", onClick: () => setEditNews({ id, ...item }) }, "✏️"), /* @__PURE__ */ React__default.createElement("button", { className: "aam-news-btn aam-news-btn--delete", onClick: () => setNewsToDelete(id) }, "🗑️")))))), showCreateModal && /* @__PURE__ */ React__default.createElement(CreateNewsModal, { onClose: () => setShowCreateModal(false), onCreated: fetchNews }), editNews && /* @__PURE__ */ React__default.createElement(EditNewsModal, { news: editNews, onClose: () => setEditNews(null), onUpdated: fetchNews }), newsToDelete && /* @__PURE__ */ React__default.createElement(
+    ConfirmDeleteNewsModal,
+    {
+      username: news2[newsToDelete]?.titles.ru || `Новость #${newsToDelete}`,
+      onConfirm: handleConfirmDelete,
+      onCancel: () => setNewsToDelete(null)
+    }
+  ));
+}
 function App() {
-  return /* @__PURE__ */ React__default.createElement(SelectedItemProvider, null, /* @__PURE__ */ React__default.createElement(ScrollToTop, null), /* @__PURE__ */ React__default.createElement(Routes, null, /* @__PURE__ */ React__default.createElement(Route, { path: "/", element: /* @__PURE__ */ React__default.createElement(Home, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/about", element: /* @__PURE__ */ React__default.createElement(About, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/contacts", element: /* @__PURE__ */ React__default.createElement(Contacts, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/news", element: /* @__PURE__ */ React__default.createElement(News, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/news/:id", element: /* @__PURE__ */ React__default.createElement(DetailedNews, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment", element: /* @__PURE__ */ React__default.createElement(Equipment, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/webCenterBerlio", element: /* @__PURE__ */ React__default.createElement(WebCenterBerlio, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/oilAndCapital", element: /* @__PURE__ */ React__default.createElement(OilAndCapital, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/selfServiceCheckout", element: /* @__PURE__ */ React__default.createElement(SelfServiceCheckout, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/gsAutomationSystem", element: /* @__PURE__ */ React__default.createElement(GSAutomationSystem, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/invoicesSite", element: /* @__PURE__ */ React__default.createElement(InvoicesSite, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/invoicesSiteTariffs", element: /* @__PURE__ */ React__default.createElement(InvoicesSiteTariffs, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/berlioInternetClientApp", element: /* @__PURE__ */ React__default.createElement(BerlioInternetClientApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/berlioCardPayApp", element: /* @__PURE__ */ React__default.createElement(BerlioCardPayApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/smartPayApp", element: /* @__PURE__ */ React__default.createElement(SmartPayApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/personalAccWebApp", element: /* @__PURE__ */ React__default.createElement(PersonalAccWebApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients", element: /* @__PURE__ */ React__default.createElement(ForClients, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/signAndResign", element: /* @__PURE__ */ React__default.createElement(SignAndResign, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/cardUsageRules", element: /* @__PURE__ */ React__default.createElement(CardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/gettingElectronicCard", element: /* @__PURE__ */ React__default.createElement(GettingElectronicCard, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/dealResignation", element: /* @__PURE__ */ React__default.createElement(DealResignation, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/priceListsAndTariffs", element: /* @__PURE__ */ React__default.createElement(PriceListsAndTariffs, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/workWithPrivateAccount", element: /* @__PURE__ */ React__default.createElement(WorkWithPrivateAccount, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/documentsForDownload", element: /* @__PURE__ */ React__default.createElement(DocumentsForDownload, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/plasticCardUsageRules", element: /* @__PURE__ */ React__default.createElement(PlasticCardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/nonResidentsSupport", element: /* @__PURE__ */ React__default.createElement(NonResidentsSupport, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/tollRoads", element: /* @__PURE__ */ React__default.createElement(TollRoads, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/forFuelPayments", element: /* @__PURE__ */ React__default.createElement(ForFuelPayments, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/issuerRules", element: /* @__PURE__ */ React__default.createElement(IssuerRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/eMoneyRegulations", element: /* @__PURE__ */ React__default.createElement(EMoneyRegulations, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners", element: /* @__PURE__ */ React__default.createElement(ForPartners, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/voiceRefService", element: /* @__PURE__ */ React__default.createElement(VoiceReferenceService, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/loyaltyProgram", element: /* @__PURE__ */ React__default.createElement(LoyaltyProgram, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/documentsForDownload", element: /* @__PURE__ */ React__default.createElement(DocumentsForDownload, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/systemRules", element: /* @__PURE__ */ React__default.createElement(SystemRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/forBankInformation", element: /* @__PURE__ */ React__default.createElement(ForBankInfo, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/cardUsageRules", element: /* @__PURE__ */ React__default.createElement(CardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/plasticCardUsageRules", element: /* @__PURE__ */ React__default.createElement(PlasticCardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/forNotAResidentsServices", element: /* @__PURE__ */ React__default.createElement(ForNotAResidentsServices, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/administrator", element: /* @__PURE__ */ React__default.createElement(AdminLoginPage, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/adminDashboard", element: /* @__PURE__ */ React__default.createElement(AdminDashboardPage, null) }, /* @__PURE__ */ React__default.createElement(Route, { path: "users", element: /* @__PURE__ */ React__default.createElement(UserManager, null) }))), /* @__PURE__ */ React__default.createElement(CookieConsentModal, null));
+  return /* @__PURE__ */ React__default.createElement(SelectedItemProvider, null, /* @__PURE__ */ React__default.createElement(ScrollToTop, null), /* @__PURE__ */ React__default.createElement(Routes, null, /* @__PURE__ */ React__default.createElement(Route, { path: "/", element: /* @__PURE__ */ React__default.createElement(Home, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/about", element: /* @__PURE__ */ React__default.createElement(About, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/contacts", element: /* @__PURE__ */ React__default.createElement(Contacts, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/news", element: /* @__PURE__ */ React__default.createElement(News, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/news/:id", element: /* @__PURE__ */ React__default.createElement(DetailedNews, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment", element: /* @__PURE__ */ React__default.createElement(Equipment, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/webCenterBerlio", element: /* @__PURE__ */ React__default.createElement(WebCenterBerlio, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/oilAndCapital", element: /* @__PURE__ */ React__default.createElement(OilAndCapital, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/selfServiceCheckout", element: /* @__PURE__ */ React__default.createElement(SelfServiceCheckout, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/gsAutomationSystem", element: /* @__PURE__ */ React__default.createElement(GSAutomationSystem, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/invoicesSite", element: /* @__PURE__ */ React__default.createElement(InvoicesSite, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/invoicesSiteTariffs", element: /* @__PURE__ */ React__default.createElement(InvoicesSiteTariffs, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/berlioInternetClientApp", element: /* @__PURE__ */ React__default.createElement(BerlioInternetClientApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/berlioCardPayApp", element: /* @__PURE__ */ React__default.createElement(BerlioCardPayApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/smartPayApp", element: /* @__PURE__ */ React__default.createElement(SmartPayApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/equipment/personalAccWebApp", element: /* @__PURE__ */ React__default.createElement(PersonalAccWebApp, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients", element: /* @__PURE__ */ React__default.createElement(ForClients, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/signAndResign", element: /* @__PURE__ */ React__default.createElement(SignAndResign, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/cardUsageRules", element: /* @__PURE__ */ React__default.createElement(CardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/gettingElectronicCard", element: /* @__PURE__ */ React__default.createElement(GettingElectronicCard, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/dealResignation", element: /* @__PURE__ */ React__default.createElement(DealResignation, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/priceListsAndTariffs", element: /* @__PURE__ */ React__default.createElement(PriceListsAndTariffs, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/workWithPrivateAccount", element: /* @__PURE__ */ React__default.createElement(WorkWithPrivateAccount, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/documentsForDownload", element: /* @__PURE__ */ React__default.createElement(DocumentsForDownload, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/plasticCardUsageRules", element: /* @__PURE__ */ React__default.createElement(PlasticCardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/nonResidentsSupport", element: /* @__PURE__ */ React__default.createElement(NonResidentsSupport, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/tollRoads", element: /* @__PURE__ */ React__default.createElement(TollRoads, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/forFuelPayments", element: /* @__PURE__ */ React__default.createElement(ForFuelPayments, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/issuerRules", element: /* @__PURE__ */ React__default.createElement(IssuerRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/clients/eMoneyRegulations", element: /* @__PURE__ */ React__default.createElement(EMoneyRegulations, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners", element: /* @__PURE__ */ React__default.createElement(ForPartners, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/voiceRefService", element: /* @__PURE__ */ React__default.createElement(VoiceReferenceService, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/loyaltyProgram", element: /* @__PURE__ */ React__default.createElement(LoyaltyProgram, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/documentsForDownload", element: /* @__PURE__ */ React__default.createElement(DocumentsForDownload, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/systemRules", element: /* @__PURE__ */ React__default.createElement(SystemRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/forBankInformation", element: /* @__PURE__ */ React__default.createElement(ForBankInfo, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/cardUsageRules", element: /* @__PURE__ */ React__default.createElement(CardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/plasticCardUsageRules", element: /* @__PURE__ */ React__default.createElement(PlasticCardUsageRules, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/partners/forNotAResidentsServices", element: /* @__PURE__ */ React__default.createElement(ForNotAResidentsServices, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/administrator", element: /* @__PURE__ */ React__default.createElement(AdminLoginPage, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "/adminDashboard", element: /* @__PURE__ */ React__default.createElement(AdminDashboardPage, null) }, /* @__PURE__ */ React__default.createElement(Route, { path: "users", element: /* @__PURE__ */ React__default.createElement(UserManager, null) }), /* @__PURE__ */ React__default.createElement(Route, { path: "news", element: /* @__PURE__ */ React__default.createElement(NewsManager, null) }))), /* @__PURE__ */ React__default.createElement(CookieConsentModal, null));
 }
 i18n.use(initReactI18next).init({
   lng: "ru",

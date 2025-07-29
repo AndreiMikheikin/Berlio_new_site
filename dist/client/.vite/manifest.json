@@ -1,8 +1,17 @@
 {
   "node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js": {
-    "file": "assets/react-yandex-maps.esm-CUki7C0q.js",
+    "file": "assets/react-yandex-maps.esm-Btf31FvB.js",
     "name": "react-yandex-maps.esm",
     "src": "node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/index.html"
+    ]
+  },
+  "node_modules/quill/quill.js": {
+    "file": "assets/quill-D1kJuZmd.js",
+    "name": "quill",
+    "src": "node_modules/quill/quill.js",
     "isDynamicEntry": true,
     "imports": [
       "src/index.html"
@@ -45,15 +54,16 @@
     "src": "src/assets/fonts/Roboto-Medium.ttf"
   },
   "src/index.html": {
-    "file": "assets/index-DGmzyPMY.js",
+    "file": "assets/index-GoY9poDy.js",
     "name": "index",
     "src": "src/index.html",
     "isEntry": true,
     "dynamicImports": [
-      "node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js"
+      "node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js",
+      "node_modules/quill/quill.js"
     ],
     "css": [
-      "assets/index-Fl5Y0co3.css"
+      "assets/index-Dj3ArVzH.css"
     ],
     "assets": [
       "assets/OpenSans-Light-3sf3dutu.ttf",

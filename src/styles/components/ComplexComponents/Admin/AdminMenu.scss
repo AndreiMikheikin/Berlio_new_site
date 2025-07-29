@@ -1,0 +1,39 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as m;
+@use 'sass:color';
+
+.aam_admin-menu {
+    width: 100%;
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__item {
+        width: 100%;
+    }
+
+    &__link {
+        display: block;
+        width: 100%;
+        padding: 8px 12px;
+        background-color: $background-selection;
+        border-radius: 4px;
+        font-size: $font-size-small;
+        color: $white;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: color.scale($background-hover, $lightness: 6.5552699229%);
+            color: $text-secondary;
+        }
+
+        &--active {
+            background-color: $background-color;
+            font-weight: $font-weight-semibold;
+            color: $text-primary;
+        }
+    }
+}

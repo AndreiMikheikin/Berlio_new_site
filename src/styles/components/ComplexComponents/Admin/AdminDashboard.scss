@@ -1,0 +1,56 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as m;
+
+.aam_admin-dashboard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $background-selection;
+    border: solid 1px $background-hover;
+    padding: 8px 16px;
+    margin-bottom: 2px;
+    height: 60px;
+    @include m.text-p1;
+  }
+
+  &__welcome,
+  &__role {
+    margin: 0;
+    padding: 0 4px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex: 1;
+    gap: 2px;
+    height: 100%;
+  }
+
+  &__wrapper-tools {
+    width: 220px;
+    background-color: $background-selection;
+    border: solid 1px $background-hover;
+    padding: 8px;
+    @include m.text-p1;
+  }
+
+  &__wrapper-outlet {
+    flex: 1;
+    background-color: $background-selection;
+    border: solid 1px $background-hover;
+    padding: 16px;
+    overflow-y: auto;
+  }
+
+  &__loading {
+    @include m.text-p1;
+    padding: 24px;
+    text-align: center;
+  }
+}

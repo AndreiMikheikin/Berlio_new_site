@@ -1,14 +1,17 @@
 import React from 'react';
+import Button from '../../../Button/Button';
 
 function ConfirmDeleteModal({ onConfirm, onCancel, username }) {
   return (
     <div className="aam_modal">
       <div className="aam_modal__content">
-        <h3>Удаление администратора</h3>
-        <p>Вы уверены, что хотите удалить <strong>{username}</strong>?</p>
+        <h3 className="aam_modal__title">Удаление администратора</h3>
+        <p className="aam_modal__text">
+          Вы уверены, что хотите удалить <strong>{username}</strong>?
+        </p>
         <div className="aam_modal__actions">
-          <button className="aam_btn aam_btn--danger" onClick={onConfirm}>Удалить</button>
-          <button className="aam_btn" onClick={onCancel}>Отмена</button>
+          <Button type='submit' label='Удалить' variant="danger" onClick={onConfirm} />
+          <Button type='reset' label='Отмена' variant='green' onClick={onCancel} />
         </div>
       </div>
     </div>
