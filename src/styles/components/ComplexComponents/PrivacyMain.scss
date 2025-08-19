@@ -1,0 +1,154 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_privacy {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    width: 1280px;
+    padding: 60px 50px;
+
+    &__breadcrumbs {
+        @include m.text-p1;
+        color: $text-disabled;
+        margin-bottom: 15px;
+
+        a {
+            color: $background-color;
+            text-decoration: none;
+
+            &:hover {
+                color: $background-hover;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__header {
+        @include m.heading-h1;
+        word-wrap: break-word;
+    }
+
+    &__wrapper {
+        position: relative;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &__wrapper-tools {
+        position: relative;
+
+        .aam_privacy-menu {
+            position: relative;
+
+            &__list {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                height: 95px;
+            }
+
+            &__item {
+                @include m.text-p2;
+                text-align: center;
+                padding: 10px 0;
+                width: 25%;
+                height: 100%;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                transition: all 0.3 ease;
+
+                &:has(.aam_privacy-menu__link--active) {
+                    background-color: $background-color;
+                    box-shadow: $shadow-tertiary;
+                }
+
+                &:not(:has(.aam_privacy-menu__link--active)):hover {
+                    background-color: $background-hover;
+
+                    .aam_privacy-menu__link {
+                        color: $text-light;
+                    }
+                }
+
+                .aam_privacy-menu__link--active {
+                    color: $text-light;
+                }
+
+                .aam_privacy-menu__link {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    &__wrapper-outlet {
+        user-select: none;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+    }
+
+    &__site-nav {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 100px;
+    }
+
+    .aam_link-button {
+        margin-bottom: 50px;
+    }
+
+    .secondary-link {
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: $text-secondary;
+        transition: scale 0.3s ease;
+
+        &:hover {
+            svg {
+                scale: 1.07;
+            }
+
+            svg path {
+                fill: #48AE5A;
+            }
+
+            svg circle {
+                stroke: #48AE5A;
+            }
+        }
+    }
+
+    .home-link {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+        color: $text-secondary;
+    }
+}

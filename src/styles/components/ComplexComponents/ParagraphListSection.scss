@@ -1,0 +1,100 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_paragraph-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+
+  &__custom {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @include m.text-p2;
+    text-align: justify;
+
+    ul {
+      margin-left: 20px;
+    }
+
+    ul:not(:last-of-type) li::marker {
+      content: "— ";
+    }
+  }
+
+  &__item:not(:last-child) {
+    border-bottom: 1px solid $text-quaternary;
+  }
+
+  &__item {
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    @include m.heading-h3;
+  }
+
+  &__icon {
+    margin-left: 10px;
+  }
+
+  &__content {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @include m.text-p2;
+    text-align: justify;
+
+    &-enter {
+      max-height: 0;
+      opacity: 0;
+    }
+
+    &-enter-active {
+      max-height: 1000px; // можно больше, если тексты длинные
+      opacity: 1;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+    }
+
+    ol {
+      position: relative;
+      margin-left: 20px;
+
+      li {
+        list-style: decimal !important;
+      }
+    }
+
+    ul {
+      position: relative;
+      margin-left: 20px;
+
+      li::marker {
+        content: "— ";
+      }
+    }
+
+    &-exit {
+      max-height: 1000px;
+      opacity: 1;
+    }
+
+    &-exit-active {
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+    }
+  }
+}
+
+.aam_markdown-table {
+  @include m.markdown-table();
+}

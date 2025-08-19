@@ -1,0 +1,202 @@
+{
+    "applicantsInfo": [
+        {
+            "paragraphTitle": "privacyMain.applicantsInfoTitles.num1",
+            "content": [
+                "privacyMain.applicantsInfoContent.num1.item1"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.applicantsInfoTitles.num2",
+            "content": [
+                {
+                    "table": "| {{item1}} | {{item2}} | {{item3}} |\n| --- | --- | --- |\n| {{item4}} | {{item5}} | {{item6}} |\n| {{item7}} | {{item8}} | {{item9}} |\n\n{{item10}}",
+                    "item1": "privacyMain.applicantsInfoContent.num2.item1",
+                    "item2": "privacyMain.applicantsInfoContent.num2.item2",
+                    "item3": "privacyMain.applicantsInfoContent.num2.item3",
+                    "item4": "privacyMain.applicantsInfoContent.num2.item4",
+                    "item5": "privacyMain.applicantsInfoContent.num2.item5",
+                    "item6": "privacyMain.applicantsInfoContent.num2.item6",
+                    "item7": "privacyMain.applicantsInfoContent.num2.item7",
+                    "item8": "privacyMain.applicantsInfoContent.num2.item8",
+                    "item9": "privacyMain.applicantsInfoContent.num2.item9",
+                    "item10": "privacyMain.applicantsInfoContent.num2.item10"
+                }
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.applicantsInfoTitles.num3",
+            "content": [
+                "privacyMain.applicantsInfoContent.num3.item1"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.applicantsInfoTitles.num4",
+            "content": [
+                "privacyMain.applicantsInfoContent.num4.item1"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.applicantsInfoTitles.num5",
+            "content": [
+                "privacyMain.applicantsInfoContent.num5.item1",
+                "1. privacyMain.applicantsInfoContent.num5.item2\n2. privacyMain.applicantsInfoContent.num5.item3\n3. privacyMain.applicantsInfoContent.num5.item4\n4. privacyMain.applicantsInfoContent.num5.item5\n5. privacyMain.applicantsInfoContent.num5.item6\n6. privacyMain.applicantsInfoContent.num5.item7",
+                "privacyMain.applicantsInfoContent.num5.item8",
+                "privacyMain.applicantsInfoContent.num5.item9",
+                "privacyMain.applicantsInfoContent.num5.item10"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.applicantsInfoTitles.num6",
+            "content": [
+                "privacyMain.applicantsInfoContent.num6.item1",
+                "privacyMain.applicantsInfoContent.num6.item2"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.applicantsInfoTitles.num7",
+            "content": [
+                "privacyMain.applicantsInfoContent.num7.item1"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.applicantsInfoTitles.num8",
+            "content": [
+                "privacyMain.applicantsInfoContent.num8.item1"
+            ]
+        }
+    ],
+    "applicantsPrivacy": [
+        {
+            "paragraphTitle": "privacyMain.applicantsTitles.num1",
+            "content": [
+                "privacyMain.applicantsContent.num1.item1",
+                "privacyMain.applicantsContent.num1.item2",
+                "privacyMain.applicantsContent.num1.item3",
+                "privacyMain.applicantsContent.num1.item4",
+                "- privacyMain.applicantsContent.num1.item5\n- privacyMain.applicantsContent.num1.item6\n- privacyMain.applicantsContent.num1.item7\n- privacyMain.applicantsContent.num1.item8\n- privacyMain.applicantsContent.num1.item9",
+                "privacyMain.applicantsContent.num1.item10",
+                "privacyMain.applicantsContent.num1.item11",
+                "- privacyMain.applicantsContent.num1.item12\n- privacyMain.applicantsContent.num1.item13",
+                "privacyMain.applicantsContent.num1.item14",
+                "privacyMain.applicantsContent.num1.item15",
+                "privacyMain.applicantsContent.num1.item16",
+                "privacyMain.applicantsContent.num1.item17"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.applicantsTitles.num2",
+            "content": [
+                "privacyMain.applicantsContent.num2.item1",
+                "privacyMain.applicantsContent.num2.item2"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.applicantsTitles.num3",
+            "content": [
+                "privacyMain.applicantsContent.num3.item1",
+                "- privacyMain.applicantsContent.num3.item2\n- privacyMain.applicantsContent.num3.item3",
+                "privacyMain.applicantsContent.num3.item4",
+                "privacyMain.applicantsContent.num3.item5",
+                "privacyMain.applicantsContent.num3.item6",
+                "privacyMain.applicantsContent.num3.item7",
+                "privacyMain.applicantsContent.num3.item8",
+                "privacyMain.applicantsContent.num3.item9",
+                "- privacyMain.applicantsContent.num3.item10\n- privacyMain.applicantsContent.num3.item11",
+                "privacyMain.applicantsContent.num3.item12",
+                "privacyMain.applicantsContent.num3.item13",
+                "privacyMain.applicantsContent.num3.item14",
+                "privacyMain.applicantsContent.num3.item15",
+                "- privacyMain.applicantsContent.num3.item16\n- privacyMain.applicantsContent.num3.item17\n- privacyMain.applicantsContent.num3.item18\n- privacyMain.applicantsContent.num3.item19\n- privacyMain.applicantsContent.num3.item20",
+                "privacyMain.applicantsContent.num3.item21",
+                "privacyMain.applicantsContent.num3.item22",
+                "privacyMain.applicantsContent.num3.item23",
+                "privacyMain.applicantsContent.num3.item24",
+                "privacyMain.applicantsContent.num3.item25",
+                "- privacyMain.applicantsContent.num3.item26\n- privacyMain.applicantsContent.num3.item27\n- privacyMain.applicantsContent.num3.item28\n- privacyMain.applicantsContent.num3.item29\n- privacyMain.applicantsContent.num3.item30\n- privacyMain.applicantsContent.num3.item31\n- privacyMain.applicantsContent.num3.item32",
+                "privacyMain.applicantsContent.num3.item33",
+                "- privacyMain.applicantsContent.num3.item34\n- privacyMain.applicantsContent.num3.item35\n- privacyMain.applicantsContent.num3.item36",
+                "privacyMain.applicantsContent.num3.item37"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.applicantsTitles.num4",
+            "content": [
+                "privacyMain.applicantsContent.num4.item1",
+                "privacyMain.applicantsContent.num4.item2",
+                "privacyMain.applicantsContent.num4.item3",
+                "privacyMain.applicantsContent.num4.item4",
+                "privacyMain.applicantsContent.num4.item5",
+                "privacyMain.applicantsContent.num4.item6",
+                "privacyMain.applicantsContent.num4.item7",
+                "privacyMain.applicantsContent.num4.item8",
+                "- **privacyMain.applicantsContent.num4.item9** privacyMain.applicantsContent.num4.item10\n- **privacyMain.applicantsContent.num4.item11** privacyMain.applicantsContent.num4.item12\n- **privacyMain.applicantsContent.num4.item13** privacyMain.applicantsContent.num4.item14\n- **privacyMain.applicantsContent.num4.item15** privacyMain.applicantsContent.num4.item16\n- **privacyMain.applicantsContent.num4.item17** privacyMain.applicantsContent.num4.item18\n- **privacyMain.applicantsContent.num4.item19** privacyMain.applicantsContent.num4.item20",
+                "privacyMain.applicantsContent.num4.item21",
+                "privacyMain.applicantsContent.num4.item22",
+                "- **privacyMain.applicantsContent.num4.item23** privacyMain.applicantsContent.num4.item24\n- **privacyMain.applicantsContent.num4.item25** privacyMain.applicantsContent.num4.item26\n- **privacyMain.applicantsContent.num4.item27** privacyMain.applicantsContent.num4.item28\n- **privacyMain.applicantsContent.num4.item29** privacyMain.applicantsContent.num4.item30\n- **privacyMain.applicantsContent.num4.item31** privacyMain.applicantsContent.num4.item32\n- **privacyMain.applicantsContent.num4.item33** privacyMain.applicantsContent.num4.item34",
+                "privacyMain.applicantsContent.num4.item35",
+                "privacyMain.applicantsContent.num4.item36",
+                "privacyMain.applicantsContent.num4.item37",
+                "- privacyMain.applicantsContent.num4.item38\n- privacyMain.applicantsContent.num4.item39",
+                "privacyMain.applicantsContent.num4.item40",
+                "- privacyMain.applicantsContent.num4.item41\n- privacyMain.applicantsContent.num4.item42\n- privacyMain.applicantsContent.num4.item43",
+                "privacyMain.applicantsContent.num4.item44",
+                "privacyMain.applicantsContent.num4.item45",
+                "privacyMain.applicantsContent.num4.item46"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.applicantsTitles.num5",
+            "content": [
+                "privacyMain.applicantsContent.num5.item1",
+                "- privacyMain.applicantsContent.num5.item2\n- privacyMain.applicantsContent.num5.item3\n- privacyMain.applicantsContent.num5.item4\n- privacyMain.applicantsContent.num5.item5\n- privacyMain.applicantsContent.num5.item6\n- privacyMain.applicantsContent.num5.item7\n- privacyMain.applicantsContent.num5.item8\n- privacyMain.applicantsContent.num5.item9\n- privacyMain.applicantsContent.num5.item10\n- privacyMain.applicantsContent.num5.item11\n- privacyMain.applicantsContent.num5.item12\n- privacyMain.applicantsContent.num5.item13\n- privacyMain.applicantsContent.num5.item14\n- privacyMain.applicantsContent.num5.item15\n- privacyMain.applicantsContent.num5.item16\n- privacyMain.applicantsContent.num5.item17\n- privacyMain.applicantsContent.num5.item18",
+                "privacyMain.applicantsContent.num5.item19"
+            ]
+        }
+    ],
+    "applicantsApplication": [
+        {
+            "paragraphTitle": "privacyMain.applicantsApplication.title",
+            "content": [
+                {
+                    "table": "| {{item1}} | {{item2}} | {{item3}} | {{item4}} | {{item5}} |\n| --- | --- | --- | --- | --- |\n| {{item6}} | {{item7}} | {{item8}} | {{item9}} | {{item10}} |\n| {{item11}} | {{item12}} | {{item13}} | {{item14}} | {{item15}} |\n| {{item16}} | {{item17}} | {{item18}} | {{item19}} | {{item20}} |\n| {{item21}} | {{item22}} | {{item23}} | {{item24}} | {{item25}} |\n| {{item26}} | {{item27}} | {{item28}} | {{item29}} | {{item30}} |\n| {{item31}} | {{item32}} | {{item33}} | {{item34}} | {{item35}} |",
+                    "item1": "privacyMain.applicantsApplication.item1",
+                    "item2": "privacyMain.applicantsApplication.item2",
+                    "item3": "privacyMain.applicantsApplication.item3",
+                    "item4": "privacyMain.applicantsApplication.item4",
+                    "item5": "privacyMain.applicantsApplication.item5",
+                    "item6": "privacyMain.applicantsApplication.item6",
+                    "item7": "privacyMain.applicantsApplication.item7",
+                    "item8": "privacyMain.applicantsApplication.item8",
+                    "item9": "privacyMain.applicantsApplication.item9",
+                    "item10": "privacyMain.applicantsApplication.item10",
+                    "item11": "privacyMain.applicantsApplication.item11",
+                    "item12": "privacyMain.applicantsApplication.item12",
+                    "item13": "privacyMain.applicantsApplication.item13",
+                    "item14": "privacyMain.applicantsApplication.item14",
+                    "item15": "privacyMain.applicantsApplication.item15",
+                    "item16": "privacyMain.applicantsApplication.item16",
+                    "item17": "privacyMain.applicantsApplication.item17",
+                    "item18": "privacyMain.applicantsApplication.item18",
+                    "item19": "privacyMain.applicantsApplication.item19",
+                    "item20": "privacyMain.applicantsApplication.item20",
+                    "item21": "privacyMain.applicantsApplication.item21",
+                    "item22": "privacyMain.applicantsApplication.item22",
+                    "item23": "privacyMain.applicantsApplication.item23",
+                    "item24": "privacyMain.applicantsApplication.item24",
+                    "item25": "privacyMain.applicantsApplication.item25",
+                    "item26": "privacyMain.applicantsApplication.item26",
+                    "item27": "privacyMain.applicantsApplication.item27",
+                    "item28": "privacyMain.applicantsApplication.item28",
+                    "item29": "privacyMain.applicantsApplication.item29",
+                    "item30": "privacyMain.applicantsApplication.item30",
+                    "item31": "privacyMain.applicantsApplication.item31",
+                    "item32": "privacyMain.applicantsApplication.item32",
+                    "item33": "privacyMain.applicantsApplication.item33",
+                    "item34": "privacyMain.applicantsApplication.item34",
+                    "item35": "privacyMain.applicantsApplication.item35"
+                }
+            ]
+        }
+    ]
+}

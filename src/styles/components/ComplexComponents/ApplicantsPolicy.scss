@@ -1,0 +1,38 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_privacy-page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    padding-top: 60px;
+    width: 100%;
+
+    &__wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+    }
+
+    &__title {
+        @include m.heading-h3;
+        align-self: center;
+        text-align: center;
+    }
+
+    h2 {
+        text-transform: uppercase;
+        @include m.heading-h2;
+        align-self: center;
+        text-align: center;
+    }
+
+    &__content {
+        font-family: $font-family-primary;
+        color: $text-secondary;
+        text-align: justify;
+    }
+}

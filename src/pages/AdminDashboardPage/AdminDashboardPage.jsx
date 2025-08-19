@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { Outlet } from 'react-router-dom';
 import AdminDashboard from '../../components/ComplexComponents/AdminDashboard/AdminDashboard';
 import '../../styles/pages/AdminDashboardPage.scss';
 

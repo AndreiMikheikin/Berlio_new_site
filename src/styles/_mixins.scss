@@ -83,6 +83,7 @@
 
     .#{$prefix}__icon {
         text-align: center;
+
         svg {
             width: 60px;
             height: 60px;
@@ -107,5 +108,84 @@
         text-underline-position: from-font;
         text-decoration-skip-ink: none;
         text-align: center;
+    }
+}
+
+@mixin markdown-table() {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: $font-family-primary;
+    font-size: 14px;
+    color: $text-primary;
+
+    thead {
+        background-color: $text-secondary-dark;
+
+        th,
+        td {
+            text-align: center;
+            vertical-align: middle;
+        }
+    }
+
+    th,
+    td {
+        border: 1px solid $border-primary;
+        padding: 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    th {
+        font-weight: 600;
+        background-color: $text-quaternary;
+    }
+
+    tr:nth-child(even) {
+        background-color: $text-light;
+    }
+
+    // Адаптив
+    @media (max-width: 768px) {
+
+        &,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+            display: block;
+            width: 100%;
+        }
+
+        tr {
+            margin-bottom: 15px;
+            border: 1px solid $border-primary;
+            border-radius: 8px;
+            padding: 10px;
+            background: $text-quaternary;
+        }
+
+        th {
+            display: none;
+        }
+
+        td {
+            border: none;
+            position: relative;
+            padding-left: 45%;
+            text-align: left;
+            white-space: normal;
+            word-break: break-word;
+
+            &:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                top: 10px;
+                font-weight: bold;
+                color: $text-secondary;
+            }
+        }
     }
 }

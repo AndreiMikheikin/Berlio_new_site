@@ -34,7 +34,8 @@
         "voiceRefService": "S&P LLC 'Berlio' - Voice Reference and Information Service",
         "loyaltyProgram": "S&P LLC 'Berlio' - Loyalty Programm",
         "forBankInfo": "S&P LLC 'Berlio' - For Bank",
-        "detailedNews": "S&P LLC 'Berlio' - News Details"
+        "detailedNews": "S&P LLC 'Berlio' - News Details",
+        "privacy": "S&P LLC 'Berlio' - Privacy Policy"
     },
     "departmentsPhone": "Departments' Phones",
     "allContacts": "All Contacts",
@@ -54,12 +55,12 @@
     "brestShortAddress": "Brest, Karl Marx St. 33-43",
     "inBrestCity": "in Brest",
     "vitebskName": "Vitebsk Branch",
-    "vitebskAddress": "Vitebsk Region, Vitebsk, Pravda St. 37, Building 2",
-    "vitebskFooterAddress": "Pravda St. 37, Building 2, Office 84, Vitebsk, Belarus, 210029",
-    "vitebskShortAddress": "Vitebsk, Pravda St. 37b.2-84",
+    "vitebskAddress": "Vitebsk Region, Vitebsk, Pravda St. 37, Building 2, Room 84",
+    "vitebskFooterAddress": "Pravda St. 37, Building 2, Room 84, Vitebsk, Belarus, 210029",
+    "vitebskShortAddress": "Vitebsk, Pravda St. 37, b.2-84",
     "inVitebskCity": "in Vitebsk",
     "gomelName": "Gomel Branch",
-    "gomelAddress": "Gomel Region, Gomel, Rechitskaya St. 1A",
+    "gomelAddress": "Gomel Region, Gomel, Rechitskaya St. 1A-419",
     "gomelFooterAddress": "Rechitskaya St. 1A, Office 419, Gomel, Belarus, 246017",
     "gomelShortAddress": "Gomel, Rechitskaya St. 1A-419",
     "inGomelCity": "in Gomel",
@@ -145,7 +146,8 @@
         "selfServiceCheckout": "Self-service Checkout",
         "gsAutomationSystem": "Automation System for GS APP",
         "invoicesSite": "'Invoice Billing Site'",
-        "invoicesSiteTariffs": "Tariffs for access to the «Berlio Info» API"
+        "invoicesSiteTariffs": "Tariffs for access to the «Berlio Info» API",
+        "privacy": "Privacy Policy"
     },
     "mainBlock": {
         "companyName": "Company S&P LLC «BERLIO»",
@@ -1055,6 +1057,13 @@
         },
         "homeLink": "Home",
         "upLink": "Back to top"
+    },
+    "privacyMain": {
+        "name": "Data Processing Policies",
+        "cookieConsentPolicy": "Cookie Policy",
+        "buyersPrivacy": "Personal Data Processing Policy for Buyers",
+        "b2bPrivacy": "Personal Data Processing Policy for Customer Representatives",
+        "applicantsPrivacy": "Personal Data Processing Policy for Job Applicants"
     },
     "telFax": "(tel / fax)",
     "fax": "(fax)",
