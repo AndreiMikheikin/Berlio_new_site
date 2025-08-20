@@ -4,7 +4,6 @@ import PrivacyData from '../../../data/privacyData.json';
 import ParagraphListSection from "../ParagraphListSection/ParagraphListSection";
 import "../../../styles/components/ComplexComponents/ApplicantsPolicy.scss";
 
-
 const ApplicantsPolicy = () => {
     const { t } = useTranslation();
     const privacyInfo = PrivacyData.applicantsInfo;

@@ -94,11 +94,11 @@ function ParagraphListSection({ data, allowMultiple = false }) {
               in={isOpen}
               timeout={300}
               classNames="aam_paragraph-section__content"
-              unmountOnExit
+              unmountOnExit={false}
             >
               <div
                 id={`paragraph-content-${index}`}
-                className="aam_paragraph-section__content"
+                className={`aam_paragraph-section__content ${isOpen ? 'open' : 'closed'}`}
               >
                 {item.content.map((contentItem, pIndex) => {
                   if (typeof contentItem === 'object' && contentItem.table) {

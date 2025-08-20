@@ -1,4 +1,376 @@
 {
+    "cookiePrivacy": [
+        {
+            "paragraphTitle": "privacyMain.cookieDataTitles.num1",
+            "content": [
+                "privacyMain.cookieDataContent.num1.item1",
+                "privacyMain.cookieDataContent.num1.item2",
+                "privacyMain.cookieDataContent.num1.item3",
+                "privacyMain.cookieDataContent.num1.item4",
+                "privacyMain.cookieDataContent.num1.item5",
+                "privacyMain.cookieDataContent.num1.item6",
+                "privacyMain.cookieDataContent.num1.item7",
+                "privacyMain.cookieDataContent.num1.item8",
+                "privacyMain.cookieDataContent.num1.item9",
+                "privacyMain.cookieDataContent.num1.item10",
+                "privacyMain.cookieDataContent.num1.item11",
+                "privacyMain.cookieDataContent.num1.item12",
+                "privacyMain.cookieDataContent.num1.item13",
+                "privacyMain.cookieDataContent.num1.item14"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.cookieDataTitles.num2",
+            "content": [
+                "privacyMain.cookieDataContent.num2.item1",
+                "privacyMain.cookieDataContent.num2.item2",
+                "privacyMain.cookieDataContent.num2.item3",
+                "privacyMain.cookieDataContent.num2.item4",
+                "privacyMain.cookieDataContent.num2.item5",
+                "privacyMain.cookieDataContent.num2.item6",
+                "- privacyMain.cookieDataContent.num2.item7\n- privacyMain.cookieDataContent.num2.item8\n- privacyMain.cookieDataContent.num2.item9\n- privacyMain.cookieDataContent.num2.item10",
+                "privacyMain.cookieDataContent.num2.item11"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.cookieDataTitles.num3",
+            "content": [
+                "privacyMain.cookieDataContent.num3.item1",
+                "- privacyMain.cookieDataContent.num3.item2\n- privacyMain.cookieDataContent.num3.item3\n- privacyMain.cookieDataContent.num3.item4\n- privacyMain.cookieDataContent.num3.item5",
+                "privacyMain.cookieDataContent.num3.item6",
+                "- privacyMain.cookieDataContent.num3.item7\n- privacyMain.cookieDataContent.num3.item8",
+                "privacyMain.cookieDataContent.num3.item9",
+                "- privacyMain.cookieDataContent.num3.item10\n- privacyMain.cookieDataContent.num3.item11"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.cookieDataTitles.num4",
+            "content": [
+                "privacyMain.cookieDataContent.num4.item1",
+                "privacyMain.cookieDataContent.num4.item2",
+                "privacyMain.cookieDataContent.num4.item3",
+                "privacyMain.cookieDataContent.num4.item4",
+                "privacyMain.cookieDataContent.num4.item5",
+                "privacyMain.cookieDataContent.num4.item6",
+                "privacyMain.cookieDataContent.num4.item7"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.cookieDataTitles.num5",
+            "content": [
+                "privacyMain.cookieDataContent.num5.item1",
+                "- privacyMain.cookieDataContent.num5.item2\n- privacyMain.cookieDataContent.num5.item3",
+                "privacyMain.cookieDataContent.num5.item4",
+                "privacyMain.cookieDataContent.num5.item5",
+                "privacyMain.cookieDataContent.num5.item6",
+                "privacyMain.cookieDataContent.num5.item7",
+                "privacyMain.cookieDataContent.num5.item8",
+                "privacyMain.cookieDataContent.num5.item9",
+                "privacyMain.cookieDataContent.num5.item10",
+                "privacyMain.cookieDataContent.num5.item11"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.cookieDataTitles.num6",
+            "content": [
+                "privacyMain.cookieDataContent.num6.item1",
+                "privacyMain.cookieDataContent.num6.item2",
+                "privacyMain.cookieDataContent.num6.item3",
+                "- privacyMain.cookieDataContent.num6.item4\n- privacyMain.cookieDataContent.num6.item5\n- privacyMain.cookieDataContent.num6.item6\n- privacyMain.cookieDataContent.num6.item7\n- privacyMain.cookieDataContent.num6.item8\n- privacyMain.cookieDataContent.num6.item9",
+                "privacyMain.cookieDataContent.num6.item10",
+                "privacyMain.cookieDataContent.num6.item11",
+                "privacyMain.cookieDataContent.num6.item12",
+                "privacyMain.cookieDataContent.num6.item13"
+            ]
+        }
+    ],
+    "buyersPrivacy": [
+        {
+            "paragraphTitle": "privacyMain.buyersDataTitles.num1",
+            "content": [
+                "privacyMain.buyersDataContent.num1.item1",
+                "privacyMain.buyersDataContent.num1.item2",
+                "privacyMain.buyersDataContent.num1.item3",
+                "privacyMain.buyersDataContent.num1.item4",
+                "- privacyMain.buyersDataContent.num1.item5\n- privacyMain.buyersDataContent.num1.item6\n- privacyMain.buyersDataContent.num1.item7\n- privacyMain.buyersDataContent.num1.item8\n- privacyMain.buyersDataContent.num1.item9",
+                "privacyMain.buyersDataContent.num1.item10",
+                "privacyMain.buyersDataContent.num1.item11",
+                "- privacyMain.buyersDataContent.num1.item12\n- privacyMain.buyersDataContent.num1.item13\n- privacyMain.buyersDataContent.num1.item14\n- privacyMain.buyersDataContent.num1.item15\n  1. privacyMain.buyersDataContent.num1.item16\n  2. privacyMain.buyersDataContent.num1.item17\n  3. privacyMain.buyersDataContent.num1.item18",
+                "privacyMain.buyersDataContent.num1.item19",
+                "privacyMain.buyersDataContent.num1.item20",
+                "privacyMain.buyersDataContent.num1.item21",
+                "privacyMain.buyersDataContent.num1.item22"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.buyersDataTitles.num2",
+            "content": [
+                "privacyMain.buyersDataContent.num2.item1",
+                "privacyMain.buyersDataContent.num2.item2"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.buyersDataTitles.num3",
+            "content": [
+                "privacyMain.buyersDataContent.num3.item1",
+                "- privacyMain.buyersDataContent.num3.item2\n- privacyMain.buyersDataContent.num3.item3\n- privacyMain.buyersDataContent.num3.item4",
+                "privacyMain.buyersDataContent.num3.item5",
+                "- privacyMain.buyersDataContent.num3.item6\n- privacyMain.buyersDataContent.num3.item7",
+                "privacyMain.buyersDataContent.num3.item8",
+                "privacyMain.buyersDataContent.num3.item9",
+                "privacyMain.buyersDataContent.num3.item10",
+                "privacyMain.buyersDataContent.num3.item11",
+                "- privacyMain.buyersDataContent.num3.item12\n- privacyMain.buyersDataContent.num3.item13\n- privacyMain.buyersDataContent.num3.item14",
+                "privacyMain.buyersDataContent.num3.item15",
+                "- privacyMain.buyersDataContent.num3.item16\n- privacyMain.buyersDataContent.num3.item17\n- privacyMain.buyersDataContent.num3.item18\n- privacyMain.buyersDataContent.num3.item19\n- privacyMain.buyersDataContent.num3.item20\n- privacyMain.buyersDataContent.num3.item21\n- privacyMain.buyersDataContent.num3.item22\n- privacyMain.buyersDataContent.num3.item23\n- privacyMain.buyersDataContent.num3.item24\n- privacyMain.buyersDataContent.num3.item25",
+                "privacyMain.buyersDataContent.num3.item26",
+                "- privacyMain.buyersDataContent.num3.item27\n- privacyMain.buyersDataContent.num3.item28\n- privacyMain.buyersDataContent.num3.item29\n- privacyMain.buyersDataContent.num3.item30\n- privacyMain.buyersDataContent.num3.item31",
+                "privacyMain.buyersDataContent.num3.item32",
+                "privacyMain.buyersDataContent.num3.item33",
+                "privacyMain.buyersDataContent.num3.item34",
+                "privacyMain.buyersDataContent.num3.item35",
+                "privacyMain.buyersDataContent.num3.item36",
+                "- privacyMain.buyersDataContent.num3.item37\n- privacyMain.buyersDataContent.num3.item38\n- privacyMain.buyersDataContent.num3.item39\n- privacyMain.buyersDataContent.num3.item40",
+                "privacyMain.buyersDataContent.num3.item41",
+                "- privacyMain.buyersDataContent.num3.item42\n- privacyMain.buyersDataContent.num3.item43\n- privacyMain.buyersDataContent.num3.item44\n- privacyMain.buyersDataContent.num3.item45\n- privacyMain.buyersDataContent.num3.item46",
+                "privacyMain.buyersDataContent.num3.item47",
+                "privacyMain.buyersDataContent.num3.item48",
+                "- privacyMain.buyersDataContent.num3.item49\n- privacyMain.buyersDataContent.num3.item50\n- privacyMain.buyersDataContent.num3.item51\n- privacyMain.buyersDataContent.num3.item52\n- privacyMain.buyersDataContent.num3.item53\n- privacyMain.buyersDataContent.num3.item54",
+                "privacyMain.buyersDataContent.num3.item55",
+                "- privacyMain.buyersDataContent.num3.item56\n- privacyMain.buyersDataContent.num3.item57\n- privacyMain.buyersDataContent.num3.item58",
+                "privacyMain.buyersDataContent.num3.item59"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.buyersDataTitles.num4",
+            "content": [
+                "privacyMain.buyersDataContent.num4.item1",
+                "privacyMain.buyersDataContent.num4.item2",
+                "privacyMain.buyersDataContent.num4.item3",
+                "privacyMain.buyersDataContent.num4.item4",
+                "privacyMain.buyersDataContent.num4.item5",
+                "privacyMain.buyersDataContent.num4.item6",
+                "privacyMain.buyersDataContent.num4.item7",
+                "- **privacyMain.buyersDataContent.num4.item8** privacyMain.buyersDataContent.num4.item9\n- **privacyMain.buyersDataContent.num4.item10** privacyMain.buyersDataContent.num4.item11\n- **privacyMain.buyersDataContent.num4.item12** privacyMain.buyersDataContent.num4.item13\n- **privacyMain.buyersDataContent.num4.item14** privacyMain.buyersDataContent.num4.item15\n- **privacyMain.buyersDataContent.num4.item16** privacyMain.buyersDataContent.num4.item17\n- **privacyMain.buyersDataContent.num4.item18** privacyMain.buyersDataContent.num4.item19",
+                "privacyMain.buyersDataContent.num4.item20",
+                "privacyMain.buyersDataContent.num4.item21",
+                "- **privacyMain.buyersDataContent.num4.item22** privacyMain.buyersDataContent.num4.item23\n- **privacyMain.buyersDataContent.num4.item24** privacyMain.buyersDataContent.num4.item25\n- **privacyMain.buyersDataContent.num4.item26** privacyMain.buyersDataContent.num4.item27\n- **privacyMain.buyersDataContent.num4.item28** privacyMain.buyersDataContent.num4.item29\n- **privacyMain.buyersDataContent.num4.item30** privacyMain.buyersDataContent.num4.item31\n- **privacyMain.buyersDataContent.num4.item32** privacyMain.buyersDataContent.num4.item33",
+                "privacyMain.buyersDataContent.num4.item34",
+                "privacyMain.buyersDataContent.num4.item35",
+                "privacyMain.buyersDataContent.num4.item36",
+                "privacyMain.buyersDataContent.num4.item37",
+                "privacyMain.buyersDataContent.num4.item38",
+                "privacyMain.buyersDataContent.num4.item39"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.buyersDataTitles.num5",
+            "content": [
+                "privacyMain.buyersDataContent.num5.item1",
+                "- privacyMain.buyersDataContent.num5.item2\n- privacyMain.buyersDataContent.num5.item3\n- privacyMain.buyersDataContent.num5.item4\n- privacyMain.buyersDataContent.num5.item5\n- privacyMain.buyersDataContent.num5.item6\n- privacyMain.buyersDataContent.num5.item7\n- privacyMain.buyersDataContent.num5.item8\n- privacyMain.buyersDataContent.num5.item9\n- privacyMain.buyersDataContent.num5.item10\n- privacyMain.buyersDataContent.num5.item11\n- privacyMain.buyersDataContent.num5.item12\n- privacyMain.buyersDataContent.num5.item13\n- privacyMain.buyersDataContent.num5.item14\n- privacyMain.buyersDataContent.num5.item15\n- privacyMain.buyersDataContent.num5.item16",
+                "privacyMain.buyersDataContent.num5.item17"
+            ]
+        }
+    ],
+    "buyersApplication": [
+        {
+            "paragraphTitle": "privacyMain.buyersApplication.title",
+            "content": [
+                {
+                "table": "| {{item1}} | {{item2}} | {{item3}} | {{item4}} | {{item5}} |\n| --- | --- | --- | --- | --- |\n| {{item6}} | {{item7}} | {{item8}} | {{item9}} | {{item10}} |\n| {{item11}} | {{item12}} | {{item13}} | {{item14}} | {{item15}} |\n| {{item16}} | {{item17}} | {{item18}} | {{item19}} | {{item20}} |\n| {{item21}} | {{item22}} | {{item23}} | {{item24}} | {{item25}} |\n| {{item26}} | {{item27}} | {{item28}} | {{item29}} | {{item30}} |\n| {{item31}} | {{item32}} | {{item33}} | {{item34}} | {{item35}} |\n| {{item36}} | {{item37}} | {{item38}} | {{item39}} | {{item40}} |\n| {{item41}} | {{item42}} | {{item43}} | {{item44}} | {{item45}} |",
+                "item1": "privacyMain.buyersApplication.item1",
+                "item2": "privacyMain.buyersApplication.item2",
+                "item3": "privacyMain.buyersApplication.item3",
+                "item4": "privacyMain.buyersApplication.item4",
+                "item5": "privacyMain.buyersApplication.item5",
+                "item6": "privacyMain.buyersApplication.item6",
+                "item7": "privacyMain.buyersApplication.item7",
+                "item8": "privacyMain.buyersApplication.item8",
+                "item9": "privacyMain.buyersApplication.item9",
+                "item10": "privacyMain.buyersApplication.item10",
+                "item11": "privacyMain.buyersApplication.item11",
+                "item12": "privacyMain.buyersApplication.item12",
+                "item13": "privacyMain.buyersApplication.item13",
+                "item14": "privacyMain.buyersApplication.item14",
+                "item15": "privacyMain.buyersApplication.item15",
+                "item16": "privacyMain.buyersApplication.item16",
+                "item17": "privacyMain.buyersApplication.item17",
+                "item18": "privacyMain.buyersApplication.item18",
+                "item19": "privacyMain.buyersApplication.item19",
+                "item20": "privacyMain.buyersApplication.item20",
+                "item21": "privacyMain.buyersApplication.item21",
+                "item22": "privacyMain.buyersApplication.item22",
+                "item23": "privacyMain.buyersApplication.item23",
+                "item24": "privacyMain.buyersApplication.item24",
+                "item25": "privacyMain.buyersApplication.item25",
+                "item26": "privacyMain.buyersApplication.item26",
+                "item27": "privacyMain.buyersApplication.item27",
+                "item28": "privacyMain.buyersApplication.item28",
+                "item29": "privacyMain.buyersApplication.item29",
+                "item30": "privacyMain.buyersApplication.item30",
+                "item31": "privacyMain.buyersApplication.item31",
+                "item32": "privacyMain.buyersApplication.item32",
+                "item33": "privacyMain.buyersApplication.item33",
+                "item34": "privacyMain.buyersApplication.item34",
+                "item35": "privacyMain.buyersApplication.item35",
+                "item36": "privacyMain.buyersApplication.item36",
+                "item37": "privacyMain.buyersApplication.item37",
+                "item38": "privacyMain.buyersApplication.item38",
+                "item39": "privacyMain.buyersApplication.item39",
+                "item40": "privacyMain.buyersApplication.item40",
+                "item41": "privacyMain.buyersApplication.item41",
+                "item42": "privacyMain.buyersApplication.item42",
+                "item43": "privacyMain.buyersApplication.item43",
+                "item44": "privacyMain.buyersApplication.item44",
+                "item45": "privacyMain.buyersApplication.item45"
+                }
+            ]
+        }
+    ],
+    "b2bPrivacy": [
+        {
+            "paragraphTitle": "privacyMain.b2bDataTitles.num1",
+            "content": [
+                "privacyMain.b2bDataContent.num1.item1",
+                "privacyMain.b2bDataContent.num1.item2",
+                "privacyMain.b2bDataContent.num1.item3",
+                "privacyMain.b2bDataContent.num1.item4",
+                "- privacyMain.b2bDataContent.num1.item5\n- privacyMain.b2bDataContent.num1.item6\n- privacyMain.b2bDataContent.num1.item7\n- privacyMain.b2bDataContent.num1.item8\n- privacyMain.b2bDataContent.num1.item9",
+                "privacyMain.b2bDataContent.num1.item10",
+                "privacyMain.b2bDataContent.num1.item11",
+                "- privacyMain.b2bDataContent.num1.item12\n- privacyMain.b2bDataContent.num1.item13\n- privacyMain.b2bDataContent.num1.item14\n- privacyMain.b2bDataContent.num1.item15\n  1. privacyMain.b2bDataContent.num1.item16\n  2. privacyMain.b2bDataContent.num1.item17\n  3. privacyMain.b2bDataContent.num1.item18\n- privacyMain.b2bDataContent.num1.item19\n  - privacyMain.b2bDataContent.num1.item20\n  - privacyMain.b2bDataContent.num1.item21\n- privacyMain.b2bDataContent.num1.item22",
+                "privacyMain.b2bDataContent.num1.item23",
+                "privacyMain.b2bDataContent.num1.item24",
+                "privacyMain.b2bDataContent.num1.item25",
+                "privacyMain.b2bDataContent.num1.item26"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.b2bDataTitles.num2",
+            "content": [
+                "privacyMain.b2bDataContent.num2.item1",
+                "privacyMain.b2bDataContent.num2.item2"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.b2bDataTitles.num3",
+            "content": [
+                "privacyMain.b2bDataContent.num3.item1",
+                "- privacyMain.b2bDataContent.num3.item2\n- privacyMain.b2bDataContent.num3.item3\n- privacyMain.b2bDataContent.num3.item4",
+                "privacyMain.b2bDataContent.num3.item5",
+                "- privacyMain.b2bDataContent.num3.item6\n- privacyMain.b2bDataContent.num3.item7",
+                "privacyMain.b2bDataContent.num3.item8",
+                "privacyMain.b2bDataContent.num3.item9",
+                "privacyMain.b2bDataContent.num3.item10",
+                "privacyMain.b2bDataContent.num3.item11",
+                "- privacyMain.b2bDataContent.num3.item12\n- privacyMain.b2bDataContent.num3.item13\n- privacyMain.b2bDataContent.num3.item14",
+                "privacyMain.b2bDataContent.num3.item15",
+                "- privacyMain.b2bDataContent.num3.item16\n- privacyMain.b2bDataContent.num3.item17\n- privacyMain.b2bDataContent.num3.item18\n- privacyMain.b2bDataContent.num3.item19\n- privacyMain.b2bDataContent.num3.item20\n- privacyMain.b2bDataContent.num3.item21\n- privacyMain.b2bDataContent.num3.item22\n- privacyMain.b2bDataContent.num3.item23\n- privacyMain.b2bDataContent.num3.item24\n- privacyMain.b2bDataContent.num3.item25",
+                "privacyMain.b2bDataContent.num3.item26",
+                "- privacyMain.b2bDataContent.num3.item27\n- privacyMain.b2bDataContent.num3.item28\n- privacyMain.b2bDataContent.num3.item29\n- privacyMain.b2bDataContent.num3.item30\n- privacyMain.b2bDataContent.num3.item31",
+                "privacyMain.b2bDataContent.num3.item32",
+                "privacyMain.b2bDataContent.num3.item33",
+                "privacyMain.b2bDataContent.num3.item34",
+                "privacyMain.b2bDataContent.num3.item35",
+                "privacyMain.b2bDataContent.num3.item36",
+                "- privacyMain.b2bDataContent.num3.item37\n- privacyMain.b2bDataContent.num3.item38\n- privacyMain.b2bDataContent.num3.item39\n- privacyMain.b2bDataContent.num3.item40",
+                "privacyMain.b2bDataContent.num3.item41",
+                "- privacyMain.b2bDataContent.num3.item42\n- privacyMain.b2bDataContent.num3.item43\n- privacyMain.b2bDataContent.num3.item44\n- privacyMain.b2bDataContent.num3.item45\n- privacyMain.b2bDataContent.num3.item46",
+                "privacyMain.b2bDataContent.num3.item47",
+                "privacyMain.b2bDataContent.num3.item48",
+                "- privacyMain.b2bDataContent.num3.item49\n- privacyMain.b2bDataContent.num3.item50\n- privacyMain.b2bDataContent.num3.item51\n- privacyMain.b2bDataContent.num3.item52\n- privacyMain.b2bDataContent.num3.item53\n- privacyMain.b2bDataContent.num3.item54",
+                "privacyMain.b2bDataContent.num3.item55",
+                "- privacyMain.b2bDataContent.num3.item56\n- privacyMain.b2bDataContent.num3.item57\n- privacyMain.b2bDataContent.num3.item58",
+                "privacyMain.b2bDataContent.num3.item59"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.b2bDataTitles.num4",
+            "content": [
+                "privacyMain.b2bDataContent.num4.item1",
+                "privacyMain.b2bDataContent.num4.item2",
+                "privacyMain.b2bDataContent.num4.item3",
+                "privacyMain.b2bDataContent.num4.item4",
+                "privacyMain.b2bDataContent.num4.item5",
+                "privacyMain.b2bDataContent.num4.item6",
+                "privacyMain.b2bDataContent.num4.item7",
+                "- **privacyMain.b2bDataContent.num4.item8** privacyMain.b2bDataContent.num4.item9\n- **privacyMain.b2bDataContent.num4.item10** privacyMain.b2bDataContent.num4.item11\n- **privacyMain.b2bDataContent.num4.item12** privacyMain.b2bDataContent.num4.item13\n- **privacyMain.b2bDataContent.num4.item14** privacyMain.b2bDataContent.num4.item15\n- **privacyMain.b2bDataContent.num4.item16** privacyMain.b2bDataContent.num4.item17\n- **privacyMain.b2bDataContent.num4.item18** privacyMain.b2bDataContent.num4.item19",
+                "privacyMain.b2bDataContent.num4.item20",
+                "privacyMain.b2bDataContent.num4.item21",
+                "- **privacyMain.b2bDataContent.num4.item22** privacyMain.b2bDataContent.num4.item23\n- **privacyMain.b2bDataContent.num4.item24** privacyMain.b2bDataContent.num4.item25\n- **privacyMain.b2bDataContent.num4.item26** privacyMain.b2bDataContent.num4.item27\n- **privacyMain.b2bDataContent.num4.item28** privacyMain.b2bDataContent.num4.item29\n- **privacyMain.b2bDataContent.num4.item30** privacyMain.b2bDataContent.num4.item31\n- **privacyMain.b2bDataContent.num4.item32** privacyMain.b2bDataContent.num4.item33",
+                "privacyMain.b2bDataContent.num4.item34",
+                "privacyMain.b2bDataContent.num4.item35",
+                "privacyMain.b2bDataContent.num4.item36",
+                "- privacyMain.b2bDataContent.num4.item37\n- privacyMain.b2bDataContent.num4.item38\n- privacyMain.b2bDataContent.num4.item39",
+                "privacyMain.b2bDataContent.num4.item40",
+                "privacyMain.b2bDataContent.num4.item41",
+                "privacyMain.b2bDataContent.num4.item42"
+            ]
+        },
+        {
+            "paragraphTitle": "privacyMain.b2bDataTitles.num5",
+            "content": [
+                "privacyMain.b2bDataContent.num5.item1",
+                "- privacyMain.b2bDataContent.num5.item2\n- privacyMain.b2bDataContent.num5.item3\n- privacyMain.b2bDataContent.num5.item4\n- privacyMain.b2bDataContent.num5.item5\n- privacyMain.b2bDataContent.num5.item6\n- privacyMain.b2bDataContent.num5.item7\n- privacyMain.b2bDataContent.num5.item8\n- privacyMain.b2bDataContent.num5.item9\n- privacyMain.b2bDataContent.num5.item10\n- privacyMain.b2bDataContent.num5.item11\n- privacyMain.b2bDataContent.num5.item12\n- privacyMain.b2bDataContent.num5.item13\n- privacyMain.b2bDataContent.num5.item14\n- privacyMain.b2bDataContent.num5.item15\n- privacyMain.b2bDataContent.num5.item16\n- privacyMain.b2bDataContent.num5.item17\n- privacyMain.b2bDataContent.num5.item18",
+                "privacyMain.b2bDataContent.num5.item19"
+            ]
+        }
+    ],
+    "b2bApplication": [
+        {
+            "paragraphTitle": "privacyMain.b2bApplication.title",
+            "content": [
+                {
+                "table": "| {{item1}} | {{item2}} | {{item3}} | {{item4}} | {{item5}} |\n| --- | --- | --- | --- | --- |\n| {{item6}} | {{item7}} | {{item8}} | {{item9}} | {{item10}} |\n| {{item11}} | {{item12}} | {{item13}} | {{item14}} | {{item15}} |\n| {{item16}} | {{item17}} | {{item18}} | {{item19}} | {{item20}} |\n| {{item21}} | {{item22}} | {{item23}} | {{item24}} | {{item25}} |\n| {{item26}} | {{item27}} | {{item28}} | {{item29}} | {{item30}} |\n| {{item31}} | {{item32}} | {{item33}} | {{item34}} | {{item35}} |\n| {{item36}} | {{item37}} | {{item38}} | {{item39}} | {{item40}} |\n| {{item41}} | {{item42}} | {{item43}} | {{item44}} | {{item45}} |\n| {{item46}} | {{item47}} | {{item48}} | {{item49}} | {{item50}} |\n| {{item51}} | {{item52}} | {{item53}} | {{item54}} | {{item55}} |\n| {{item56}} | {{item57}} | {{item58}} | {{item59}} | {{item60}} |\n| {{item61}} | {{item62}} | {{item63}} | {{item64}} | {{item65}} |\n| {{item66}} | {{item67}} | {{item68}} | {{item69}} | {{item70}} |\n| {{item71}} | {{item72}} | {{item73}} | {{item74}} | {{item75}} |",
+                "item1": "privacyMain.b2bApplication.item1",
+                "item2": "privacyMain.b2bApplication.item2",
+                "item3": "privacyMain.b2bApplication.item3",
+                "item4": "privacyMain.b2bApplication.item4",
+                "item5": "privacyMain.b2bApplication.item5",
+                "item6": "privacyMain.b2bApplication.item6",
+                "item7": "privacyMain.b2bApplication.item7",
+                "item8": "privacyMain.b2bApplication.item8",
+                "item9": "privacyMain.b2bApplication.item9",
+                "item10": "privacyMain.b2bApplication.item10",
+                "item11": "privacyMain.b2bApplication.item11",
+                "item12": "privacyMain.b2bApplication.item12",
+                "item13": "privacyMain.b2bApplication.item13",
+                "item14": "privacyMain.b2bApplication.item14",
+                "item15": "privacyMain.b2bApplication.item15",
+                "item16": "privacyMain.b2bApplication.item16",
+                "item17": "privacyMain.b2bApplication.item17",
+                "item18": "privacyMain.b2bApplication.item18",
+                "item19": "privacyMain.b2bApplication.item19",
+                "item20": "privacyMain.b2bApplication.item20",
+                "item21": "privacyMain.b2bApplication.item21",
+                "item22": "privacyMain.b2bApplication.item22",
+                "item23": "privacyMain.b2bApplication.item23",
+                "item24": "privacyMain.b2bApplication.item24",
+                "item25": "privacyMain.b2bApplication.item25",
+                "item26": "privacyMain.b2bApplication.item26",
+                "item27": "privacyMain.b2bApplication.item27",
+                "item28": "privacyMain.b2bApplication.item28",
+                "item29": "privacyMain.b2bApplication.item29",
+                "item30": "privacyMain.b2bApplication.item30",
+                "item31": "privacyMain.b2bApplication.item31",
+                "item32": "privacyMain.b2bApplication.item32",
+                "item33": "privacyMain.b2bApplication.item33",
+                "item34": "privacyMain.b2bApplication.item34",
+                "item35": "privacyMain.b2bApplication.item35",
+                "item36": "privacyMain.b2bApplication.item36",
+                "item37": "privacyMain.b2bApplication.item37",
+                "item38": "privacyMain.b2bApplication.item38",
+                "item39": "privacyMain.b2bApplication.item39",
+                "item40": "privacyMain.b2bApplication.item40",
+                "item41": "privacyMain.b2bApplication.item41",
+                "item42": "privacyMain.b2bApplication.item42",
+                "item43": "privacyMain.b2bApplication.item43",
+                "item44": "privacyMain.b2bApplication.item44",
+                "item45": "privacyMain.b2bApplication.item45"
+                }
+            ]
+        }
+    ],
     "applicantsInfo": [
         {
             "paragraphTitle": "privacyMain.applicantsInfoTitles.num1",

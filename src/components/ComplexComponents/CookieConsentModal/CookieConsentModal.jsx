@@ -114,7 +114,7 @@ function CookieConsentModal({ forceVisible = false, onConsentSaved = () => { } }
         </p>
 
         <a
-          href="/Berlio_new_site/cookie-policy"
+          href="/privacy/cookie-consent-policy"
           target="_blank"
           rel="noopener noreferrer"
           className="aam_cookie-modal__link"

@@ -20,7 +20,7 @@
       margin-left: 20px;
     }
 
-    ul:not(:last-of-type) li::marker {
+    ul:not(:last-of-type)>li::marker {
       content: "— ";
     }
   }
@@ -46,12 +46,20 @@
   }
 
   &__content {
+    max-height: 0;
     overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
     @include m.text-p2;
     text-align: justify;
+
+    &.open {
+      max-height: 5000px; // или auto с JS, если нужен точный размер
+      opacity: 1;
+    }
 
     &-enter {
       max-height: 0;
@@ -59,7 +67,7 @@
     }
 
     &-enter-active {
-      max-height: 1000px; // можно больше, если тексты длинные
+      max-height: 5000px; // можно больше, если тексты длинные
       opacity: 1;
       transition: max-height 0.3s ease, opacity 0.3s ease;
     }
@@ -76,10 +84,10 @@
     ul {
       position: relative;
       margin-left: 20px;
+    }
 
-      li::marker {
-        content: "— ";
-      }
+    ul>li::marker {
+      content: "— ";
     }
 
     &-exit {

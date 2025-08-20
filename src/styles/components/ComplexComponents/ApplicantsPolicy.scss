@@ -31,8 +31,13 @@
     }
 
     &__content {
+        margin-top: 10px;
         font-family: $font-family-primary;
         color: $text-secondary;
         text-align: justify;
+    }
+
+    &__button {
+        margin-top: 20px;
     }
 }
