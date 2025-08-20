@@ -58,9 +58,10 @@ const ApplicantsPolicy = () => {
             </div>
 
             <div className="aam_privacy-page__wrapper">
-                <h2 className="aam_privacy-page__title">
-                    {t('privacyMain.applicantsPrivacy')}
-                </h2>
+                <div className="aam_privacy-page__title">
+                    <h2>{t('privacyMain.applicantsData.title')}</h2>
+                    <h3>{t('privacyMain.applicantsData.subTitle')}</h3>
+                </div>
 
                 <div className="aam_privacy-page__content">
                     <ParagraphListSection data={privacyData} allowMultiple />
