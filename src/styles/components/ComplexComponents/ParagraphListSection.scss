@@ -57,7 +57,7 @@
     text-align: justify;
 
     &.open {
-      max-height: 5000px; // или auto с JS, если нужен точный размер
+      max-height: 7000px; // или auto с JS, если нужен точный размер
       opacity: 1;
     }
 
@@ -67,7 +67,7 @@
     }
 
     &-enter-active {
-      max-height: 5000px; // можно больше, если тексты длинные
+      max-height: 7000px; // можно больше, если тексты длинные
       opacity: 1;
       transition: max-height 0.3s ease, opacity 0.3s ease;
     }

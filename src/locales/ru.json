@@ -1062,7 +1062,7 @@
     },
     "privacyMain": {
         "name": "Обработка персональных данных",
-        "cookieConsentPolicy": "Обработки файлов cookies",
+        "cookieConsentPolicy": "Обработка файлов cookies",
         "cookieData": {
             "title": "ПОЛИТИКА",
             "subTitle": "НП ООО «БЕРЛИО» в отношении обработки файлов куки"
