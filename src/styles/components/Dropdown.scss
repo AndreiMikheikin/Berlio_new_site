@@ -8,11 +8,12 @@
 
   &-toggle {
     display: flex;
+    text-align: left;
     align-items: center;
     justify-content: space-between;
     font-family: $font-family-primary;
     font-weight: $font-weight-regular;
-    font-size: $font-size-regular;
+    font-size: calc($font-size-regular - 2px);
     border: none;
     background-color: $white; // Используем переменную для фона
     cursor: pointer;

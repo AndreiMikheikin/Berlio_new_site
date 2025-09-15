@@ -89,7 +89,12 @@ function Dropdown({
                 onClick={() => handleSelect(item)}
               >
                 <span className="aam_dropdown-item__address">{t(item.address)}</span>
-                <span className="aam_dropdown-item__phone">{item.phoneNumber[0]}</span>
+                <span className="aam_dropdown-item__phone">
+                  <span>{item.phoneNumber[0]}</span>
+                  {item.id === 1 && item.phoneNumber[1] && (
+                    <span>{', '}{item.phoneNumber[1]}</span>
+                  )}
+                </span>
               </button>
             </li>
           ))}

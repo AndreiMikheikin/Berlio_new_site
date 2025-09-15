@@ -69,6 +69,125 @@ const menuContent = {
   ],
   clients: [
     {
+      title: 'electronicBerlioCards',
+      links: [
+        {
+          href: '/clients/serviceInEPS',
+          text: 'serviceInEPS',
+          target: '_self',
+        },
+        {
+          href: '/clients/goodsAndServicePayment',
+          text: 'goodsAndServicePayment',
+          target: '_self',
+        },
+        {
+          href: '/clients/contractConclusion',
+          text: 'contractConclusion',
+          target: '_self',
+        },
+        {
+          href: '/clients/documentsForDownload',
+          text: 'documentsForDownload',
+          target: '_self',
+        },
+        {
+          href: '/clients/gettingElectronicCard',
+          text: 'gettingElectronicCard',
+          target: '_self',
+        },
+        {
+          href: '/clients/workWithPrivateAccount',
+          text: 'personalAccountUsage',
+          target: '_self',
+        },
+      ],
+    },
+    {
+      title: 'fuelBerlioCards',
+      links: [
+        {
+          href: '/clients/tollRoadsService',
+          text: 'tollRoadsService',
+          target: '_blank',
+        },
+        {
+          href: '/clients/tollRoadsPayment',
+          text: 'tollRoadsPayment',
+          target: '_self',
+        },
+        {
+          href: '/clients/tollRoads',
+          text: 'tollRoads',
+          target: '_self',
+        },
+        {
+          href: '/clients/forFuelPayments',
+          text: 'fuelPayment',
+          target: '_self',
+        },
+        {
+          href: '/clients/fuelCardsUsage',
+          text: 'fuelCardUsage',
+          target: '_self',
+        },
+      ],
+    },
+    {
+      title: 'regulatoryDocuments',
+      links: [
+        {
+          href: '/clients/lowAndRegulatory',
+          text: 'lowAndRegulatory',
+          target: '_self',
+        },
+        {
+          href: '/clients/IFRReport',
+          text: 'IFRReport',
+          target: '_self',
+        },
+        {
+          href: '/clients/localActsInEPS',
+          text: 'localActsInEPS',
+          target: '_self',
+        },
+      ],
+    },
+    {
+      title: 'servicesAndSoftware',
+      links: [
+        /* {
+          href: '/equipment/berlioInternetClientApp',
+          text: 'berlioInternetClient',
+          target: '_self',
+        }, */
+        {
+          href: '/equipment/berlioCardPayApp',
+          text: 'berlioCardPayApp',
+          target: '_self',
+        },
+        {
+          href: '/equipment/smartPayApp',
+          text: 'smartPayApp',
+          target: '_self',
+        },
+        {
+          href: '/equipment/selfServiceCheckout',
+          text: 'selfServiceCashRegister',
+          target: '_self',
+        },
+        {
+          href: '/equipment/personalAccWebApp',
+          text: 'clientCabinetSoftware',
+          target: '_self',
+        },
+      ],
+    },
+  ],
+
+  // ВЕРСИЯ МЕНЮ КЛИЕНТОВ 1.0.0
+  /* clients: [
+    {
       title: 'electronicPaymentSystem',
       links: [
         {
@@ -178,7 +297,7 @@ const menuContent = {
         },
       ],
     },
-  ],
+  ], */
 };
 
 function NavigationDropdownMenu({

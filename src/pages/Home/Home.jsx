@@ -34,11 +34,11 @@ function Home() {
       <Header />
       <Navigation />
       <SearchInput placeholder={t('search')} />
+      <NewsSection />
       <MainBlock />
       <PaymentSystem />
       <FuelCards />
       <ActualSection />
-      <NewsSection />
       <LogoSection
         title={t('ourPartnersLogoSection.name')}
         logos={partnersLogos.logos}

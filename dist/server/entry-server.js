@@ -1739,7 +1739,7 @@ function Dropdown({
       onClick: () => handleSelect(item)
     },
     /* @__PURE__ */ React__default.createElement("span", { className: "aam_dropdown-item__address" }, t(item.address)),
-    /* @__PURE__ */ React__default.createElement("span", { className: "aam_dropdown-item__phone" }, item.phoneNumber[0])
+    /* @__PURE__ */ React__default.createElement("span", { className: "aam_dropdown-item__phone" }, /* @__PURE__ */ React__default.createElement("span", null, item.phoneNumber[0]), item.id === 1 && item.phoneNumber[1] && /* @__PURE__ */ React__default.createElement("span", null, ", ", item.phoneNumber[1]))
   ))), linkText && linkHref && /* @__PURE__ */ React__default.createElement(
     "div",
     {
@@ -1804,8 +1804,9 @@ function ContactInfo() {
   if (!displayedItem || !Array.isArray(displayedItem.phoneNumber) || displayedItem.phoneNumber.length === 0) {
     return null;
   }
-  const phone = displayedItem.phoneNumber[0];
-  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_contact-info" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_service-location" }, t("customerService"), " ", t(displayedItem.inCity)), /* @__PURE__ */ React__default.createElement("a", { href: `tel:${phone}`, className: "aam_contact-details" }, /* @__PURE__ */ React__default.createElement(PhoneIcon, { className: "aam_phone-icon" }), /* @__PURE__ */ React__default.createElement("div", { className: "aam_phone-number" }, phone)));
+  const firstPhone = displayedItem.phoneNumber[0];
+  const secondPhone = displayedItem.id === 1 && displayedItem.phoneNumber[1] ? displayedItem.phoneNumber[1] : null;
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_contact-info" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_service-location" }, t("customerService"), " ", t(displayedItem.inCity)), /* @__PURE__ */ React__default.createElement("a", { href: `tel:${firstPhone}`, className: "aam_contact-details" }, /* @__PURE__ */ React__default.createElement(PhoneIcon, { className: "aam_phone-icon" }), /* @__PURE__ */ React__default.createElement("div", { className: "aam_phone-number" }, firstPhone)), secondPhone && /* @__PURE__ */ React__default.createElement("a", { href: `tel:${secondPhone}`, className: "aam_contact-details" }, /* @__PURE__ */ React__default.createElement(PhoneIcon, { className: "aam_phone-icon" }), /* @__PURE__ */ React__default.createElement("div", { className: "aam_phone-number" }, secondPhone)));
 }
 function LinkButton({
   children,
@@ -1890,7 +1891,7 @@ function Header() {
   return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement(LocaleSwitcher, { className: "aam_locale-switcher" }), /* @__PURE__ */ React__default.createElement("header", { className: "aam_header", id: "header" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_header__logo" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/", "aria-label": t("backToHome") }, /* @__PURE__ */ React__default.createElement(Logo, null))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_header__dropdown" }, /* @__PURE__ */ React__default.createElement(
     Dropdown,
     {
-      label: t("departmentsPhone"),
+      label: /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, t("departmentsPhone"), " ", /* @__PURE__ */ React__default.createElement("br", null), t("departments")),
       onSelect: handleSelect,
       linkText: t("allContacts"),
       linkHref: "/contacts"
@@ -2058,56 +2059,51 @@ const menuContent = {
   ],
   clients: [
     {
-      title: "electronicPaymentSystem",
+      title: "electronicBerlioCards",
       links: [
         {
-          href: "/clients/signAndResign",
+          href: "/clients/serviceInEPS",
+          text: "serviceInEPS",
+          target: "_self"
+        },
+        {
+          href: "/clients/goodsAndServicePayment",
+          text: "goodsAndServicePayment",
+          target: "_self"
+        },
+        {
+          href: "/clients/contractConclusion",
           text: "contractConclusion",
           target: "_self"
         },
         {
+          href: "/clients/documentsForDownload",
+          text: "documentsForDownload",
+          target: "_self"
+        },
+        {
           href: "/clients/gettingElectronicCard",
-          text: "eCardReceipt",
-          target: "_self"
-        },
-        {
-          href: "/clients/cardUsageRules",
-          text: "eCardUsage",
-          target: "_self"
-        },
-        {
-          href: "/clients/dealResignation",
-          text: "contractTermination",
-          target: "_self"
-        },
-        {
-          href: "/clients/priceListsAndTariffs",
-          text: "ratesAndTariffs",
+          text: "gettingElectronicCard",
           target: "_self"
         },
         {
           href: "/clients/workWithPrivateAccount",
           text: "personalAccountUsage",
           target: "_self"
-        },
-        {
-          href: "/clients/documentsForDownload",
-          text: "downloadableDocuments",
-          target: "_self"
         }
       ]
     },
     {
-      title: "fuelCardsAndGasStations",
+      title: "fuelBerlioCards",
       links: [
         {
-          href: "https://map.berlio.by",
-          text: "gasStationsAndRoutes",
+          href: "/clients/tollRoadsService",
+          text: "tollRoadsService",
           target: "_blank"
         },
         {
-          href: "/clients/plasticCardUsageRules",
-          text: "fuelCardUsage",
+          href: "/clients/tollRoadsPayment",
+          text: "tollRoadsPayment",
           target: "_self"
         },
         {
@@ -2119,6 +2115,11 @@ const menuContent = {
           href: "/clients/forFuelPayments",
           text: "fuelPayment",
           target: "_self"
+        },
+        {
+          href: "/clients/fuelCardsUsage",
+          text: "fuelCardUsage",
+          target: "_self"
         }
       ]
     },
@@ -2126,13 +2127,18 @@ const menuContent = {
       title: "regulatoryDocuments",
       links: [
         {
-          href: "/clients/issuerRules",
-          text: "berlioEWalletRules",
+          href: "/clients/lowAndRegulatory",
+          text: "lowAndRegulatory",
           target: "_self"
         },
         {
-          href: "/clients/eMoneyRegulations",
-          text: "berlioUsageRegulations",
+          href: "/clients/IFRReport",
+          text: "IFRReport",
+          target: "_self"
+        },
+        {
+          href: "/clients/localActsInEPS",
+          text: "localActsInEPS",
           target: "_self"
         }
       ]
@@ -2140,11 +2146,11 @@ const menuContent = {
     {
       title: "servicesAndSoftware",
       links: [
-        {
-          href: "/equipment/berlioInternetClientApp",
-          text: "berlioInternetClient",
-          target: "_self"
-        },
+        /* {
+          href: '/equipment/berlioInternetClientApp',
+          text: 'berlioInternetClient',
+          target: '_self',
+        }, */
         {
           href: "/equipment/berlioCardPayApp",
           text: "berlioCardPayApp",
@@ -2168,6 +2174,119 @@ const menuContent = {
       ]
     }
   ]
+  // ВЕРСИЯ МЕНЮ КЛИЕНТОВ 1.0.0
+  /* clients: [
+    {
+      title: 'electronicPaymentSystem',
+      links: [
+        {
+          href: '/clients/signAndResign',
+          text: 'contractConclusion',
+          target: '_self',
+        },
+        {
+          href: '/clients/gettingElectronicCard',
+          text: 'eCardReceipt',
+          target: '_self',
+        },
+        {
+          href: '/clients/cardUsageRules',
+          text: 'eCardUsage',
+          target: '_self',
+        },
+        {
+          href: '/clients/dealResignation',
+          text: 'contractTermination',
+          target: '_self',
+        },
+        {
+          href: '/clients/priceListsAndTariffs',
+          text: 'ratesAndTariffs',
+          target: '_self',
+        },
+        {
+          href: '/clients/workWithPrivateAccount',
+          text: 'personalAccountUsage',
+          target: '_self',
+        },
+        {
+          href: '/clients/documentsForDownload',
+          text: 'downloadableDocuments',
+          target: '_self',
+        },
+      ],
+    },
+    {
+      title: 'fuelCardsAndGasStations',
+      links: [
+        {
+          href: 'https://map.berlio.by',
+          text: 'gasStationsAndRoutes',
+          target: '_blank',
+        },
+        {
+          href: '/clients/plasticCardUsageRules',
+          text: 'fuelCardUsage',
+          target: '_self',
+        },
+        {
+          href: '/clients/tollRoads',
+          text: 'tollRoads',
+          target: '_self',
+        },
+        {
+          href: '/clients/forFuelPayments',
+          text: 'fuelPayment',
+          target: '_self',
+        },
+      ],
+    },
+    {
+      title: 'regulatoryDocuments',
+      links: [
+        {
+          href: '/clients/issuerRules',
+          text: 'berlioEWalletRules',
+          target: '_self',
+        },
+        {
+          href: '/clients/eMoneyRegulations',
+          text: 'berlioUsageRegulations',
+          target: '_self',
+        },
+      ],
+    },
+    {
+      title: 'servicesAndSoftware',
+      links: [
+        {
+          href: '/equipment/berlioInternetClientApp',
+          text: 'berlioInternetClient',
+          target: '_self',
+        },
+        {
+          href: '/equipment/berlioCardPayApp',
+          text: 'berlioCardPayApp',
+          target: '_self',
+        },
+        {
+          href: '/equipment/smartPayApp',
+          text: 'smartPayApp',
+          target: '_self',
+        },
+        {
+          href: '/equipment/selfServiceCheckout',
+          text: 'selfServiceCashRegister',
+          target: '_self',
+        },
+        {
+          href: '/equipment/personalAccWebApp',
+          text: 'clientCabinetSoftware',
+          target: '_self',
+        },
+      ],
+    },
+  ], */
 };
 function NavigationDropdownMenu({
   isOpen,
@@ -2337,7 +2456,8 @@ const routes = {
   forNotAResidentsServices: "/partners/forNotAResidentsServices"
 };
 const pageTitles$1 = { "/": "НП ООО «Берлио»", "home": "НП ООО «Берлио» - Главная", "about": "НП ООО «Берлио» - О Берлио", "contacts": "НП ООО «Берлио» - Контакты", "news": "НП ООО «Берлио» - Новости", "equipment": "НП ООО «Берлио» - Оборудование и ПО", "webCenter": "НП ООО «Берлио» - “Веб Центр БЕРЛИО”", "oilAndCapital": "НП ООО «Берлио» - ППП “НЕФТЬ И КАПИТАЛ”", "selfServiceCheckout": "НП ООО «Берлио» - Касса самообслуживания", "gsAutomationSystem": "НП ООО «Берлио» - ППП “Система автоматизации АЗС”", "invoicesSite": "НП ООО «Берлио» - “Сайт для выставления счетов-фактур”", "invoicesSiteTariffs": "НП ООО «Берлио» - Тарифы “API BERLIO-INFO”", "forClients": "НП ООО «Берлио» - Для клиентов", "signAndResign": "НП ООО «Берлио» - Заключение и Перезаключение договоров", "gettingElectronicCard": "НП ООО «Берлио» - Получение электронной карты", "cardUsageRules": "НП ООО «Берлио» - Правила пользования электронной картой", "dealResignation": "НП ООО «Берлио» - Расторжение договора", "priceListsAndTariffs": "НП ООО «Берлио» - Прейскуранты и тарифы", "workWithPrivateAccount": "НП ООО «Берлио» - Работа в ЛК", "documentsForDownload": "НП ООО «Берлио» - Документы для скачивания", "systemRules": "НП ООО «Берлио» - Правила платежной системы электронных денег “БЕРЛИО”", "plasticCardUsageRules": "НП ООО «Берлио» - Правила пользования топливной картой", "nonResidentsSupport": "НП ООО «Берлио» - Услуги в отношении нерезидентов РБ", "tollRoads": "НП ООО «Берлио» - Платные дороги", "issuerRules": "НП ООО «Берлио» - Правила платежной системы электронных денег “БЕРЛИО”", "eMoneyRegulations": "НП ООО «Берлио» - Регламент использования электронных денег", "bicApp": "НП ООО «Берлио» - Берлио интернет клиент", "bcpApp": "НП ООО «Берлио» - Приложение “BERLIOCARDPAY”", "smartPayApp": "НП ООО «Берлио» - Приложение “SMARTPAY”", "personalAccWebApp": "НП ООО «Берлио» - Приложение “Личный кабинет клиента”", "forPartners": "НП ООО «Берлио» - Для партнеров", "voiceRefService": "НП ООО «Берлио» - Голосовая справочно-информационная служба", "loyaltyProgram": "НП ООО «Берлио» - Программа лояльности", "forBankInfo": "НП ООО «Берлио» - Для банка", "detailedNews": "НП ООО «Берлио» - Подробности новости", "adminLogin": "НП ООО «Берлио» - Авторизация", "adminDashboard": "НП ООО «Берлио» - Панель администратора", "privacy": "НП ООО «Берлио» - Конфиденциальность" };
-const departmentsPhone$1 = "Телефоны филиалов";
+const departmentsPhone$1 = "Телефоны";
+const departments = "Центров обслуживания";
 const allContacts$1 = "Все контакты";
 const searchAzs$1 = "Поиск АЗС";
 const personalAccount$1 = "Личный кабинет";
@@ -2400,18 +2520,12 @@ const downloadableDocuments$1 = "Документы для скачивания"
 const berlioPaymentRules$1 = "Правила платежной системы электронных денег «БЕРЛИО»";
 const bankInformation$1 = "Информация для банка";
 const electronicPaymentSystem$1 = "Электронная платежная система";
-const contractConclusion$1 = "Заключение и перезаключение договора";
 const eCardReceipt$1 = "Получение эл.карточки";
 const eCardUsage$1 = "Использование эл.карточки";
 const contractTermination$1 = "Расторжение договора";
 const ratesAndTariffs$1 = "Прейскурант и тарифы";
-const personalAccountUsage$1 = "Работа с личным кабинетом";
 const fuelCardsAndGasStations$1 = "Топливные карты и АЗС";
 const gasStationsAndRoutes$1 = "АЗС и маршруты";
-const fuelCardUsage$1 = "Использование топливных карт";
-const tollRoads$1 = "Платные дороги (BelToll)";
-const fuelPayment$1 = "Оплата за топливо";
-const regulatoryDocuments$1 = "Нормативные документы";
 const berlioEWalletRules$1 = "Электронные деньги “БЕРЛИО” ОАО “Белгазпромбанк”. Правила";
 const berlioUsageRegulations$1 = "Регламент использования электронных денег “БЕРЛИО”";
 const servicesAndSoftware$1 = "Сервисы и ПО";
@@ -2419,7 +2533,24 @@ const berlioInternetClient$1 = "Приложение “Berlio Internet client�
 const berlioCardPayApp$1 = "Приложение “BERLIOCARDPAY”";
 const smartPayApp$1 = "Приложение “Smartpay”";
 const clientCabinetSoftware$1 = "ПО “Личный кабинет клиента”";
-const breadCrumbs$1 = { "home": "Главная", "about": "О Берлио", "forPartners": "Для партнеров", "voiceRefService": "Голосовая справочно-информационная служба", "loyaltyProgram": "Программа лояльности", "forBankInfo": "Информация для банка", "forClients": "Для клиентов", "signAndResign": "Заключение и перезаключение договора", "gettingCard": "Получение электронной карты", "dealResignation": "Расторжение договора", "priceListsAndTariffs": "Прейскуранты и тарифы", "workWithPrivateAccount": "Работа в личном кабинете", "documentsForDownload": "Досументы для скачивания", "eMoneyRegulations": "Регламент использования электронных денег", "bicApp": "Приложение “Berlio Internet Client”", "berlioCardPay": "Приложение “BERLIOCARDPAY”", "smartPayApp": "Приложение “SMARTPAY”", "personalAccWebApp": "Приложение “Личный кабинет клиента”", "news": "Новости", "detailedNews": "Детали новости", "equipment": "Оборудование и ПО", "webCenter": "ПО “Веб Центр БЕРЛИО”", "oilAndCapital": "ППП “НЕФТЬ И КАПИТАЛ”", "selfServiceCheckout": "Касса самообслуживания", "gsAutomationSystem": "ППП “Система автоматизации АЗС”", "invoicesSite": "“Сайт для выставления счетов-фактур”", "invoicesSiteTariffs": "Тарифы для доступа к API «Berlio Info»", "privacy": "Конфиденциальность" };
+const electronicBerlioCards = "Электронные карты «Берлио»";
+const fuelBerlioCards = "Топливные карты «Берлио»";
+const regulatoryDocuments$1 = "Документы";
+const serviceInEPS = "Обслуживание в ЭПС  «Берлио»";
+const goodsAndServicePayment = "Оплата товаров (работ, услуг)";
+const contractConclusion$1 = "Заключение договора ЭПС «Берлио»";
+const documentsForDownload = "Формы и списки документов (для скачивания)";
+const gettingElectronicCard = "Получение электронной карты";
+const personalAccountUsage$1 = "Работа с личным кабинетом";
+const tollRoadsService = "Обслуживание в «BelToll»";
+const tollRoadsPayment = "Плата за проезд «BelToll»";
+const tollRoads$1 = "Заключение договора «BelToll»";
+const fuelPayment$1 = "Оплата топлива на АЗС";
+const fuelCardUsage$1 = "Выпуск в обращение и использование топливных карт";
+const lowAndRegulatory = "Законодательство";
+const IFRReport = "Отчёт об оценке ИФР";
+const localActsInEPS = "Локально-правовые акты ЭПС «Берлио»";
+const breadCrumbs$1 = { "home": "Главная", "about": "О Берлио", "forPartners": "Для партнеров", "voiceRefService": "Голосовая справочно-информационная служба", "loyaltyProgram": "Программа лояльности", "forBankInfo": "Информация для банка", "forClients": "Для клиентов", "signAndResign": "Заключение и перезаключение договора", "gettingCard": "Получение электронной карты", "dealResignation": "Расторжение договора", "priceListsAndTariffs": "Прейскуранты и тарифы", "workWithPrivateAccount": "Работа в личном кабинете", "documentsForDownload": "Документы для скачивания", "eMoneyRegulations": "Регламент использования электронных денег", "bicApp": "Приложение “Berlio Internet Client”", "berlioCardPay": "Приложение “BERLIOCARDPAY”", "smartPayApp": "Приложение “SMARTPAY”", "personalAccWebApp": "Приложение “Личный кабинет клиента”", "news": "Новости", "detailedNews": "Детали новости", "equipment": "Оборудование и ПО", "webCenter": "ПО “Веб Центр БЕРЛИО”", "oilAndCapital": "ППП “НЕФТЬ И КАПИТАЛ”", "selfServiceCheckout": "Касса самообслуживания", "gsAutomationSystem": "ППП “Система автоматизации АЗС”", "invoicesSite": "“Сайт для выставления счетов-фактур”", "invoicesSiteTariffs": "Тарифы для доступа к API «Berlio Info»", "privacy": "Конфиденциальность" };
 const mainBlock$1 = { "companyName": "Компания НП ООО «БЕРЛИО»", "headline": "Система электронных расчетов на АЗС", "tagline": "используйте электронную карту «БЕРЛИО» и заправляйтесь за 3 минуты", "fuelCardUsage": "Использование топливных карт", "belTollServices": "позволяет оплачивать услуги в системе BelToll (оплата платных дорог)", "nonResidentServices": "Услуги в отношении нерезидентов РБ", "nonResidentSupport": "компания также поддерживает клиентов из ближнего зарубежья", "readMore": "Подробнее" };
 const aboutBlock$1 = { "name": "Наша компания", "alt": "Офис НП ООО «Берлио»", "description": "Компания работает на рынке производителей и услуг с 1992 года. Количество объектов, принимающих к оплате карты «БЕРЛИО»: 804 — Беларусь, 379 — Россия" };
 const systemSection$1 = { "name": "Система “БЕРЛИО”", "listTitle": "а также", "listItem1": "Разработка и сопровождение программного обеспечения под заказ; разработка, производство, установка и техническое обслуживание оборудования", "listItem2": "Информационно-техническое обслуживание клиентов по системе безналичных расчетов «БЕРЛИО» на автозаправочных станциях, в магазинах и на объектах услуг в Беларуси", "listItem3": "Разработка, производство, установка и обслуживание оборудования управления на автозаправочных станциях, СТО, пунктах взимания дорожных сборов, в магазинах и в других торговых объектах", "listItem4": "Разработка, производство, установка и обслуживание оборудования по обеспечению расчетов по электронным картам", "alt1": "Логотип BERLIO на стеле", "alt2": "Заправка автомобиля" };
@@ -2483,6 +2614,7 @@ const adminLogin = { "pageTitle": "Авторизация администрат
 const translationRu = {
   pageTitles: pageTitles$1,
   departmentsPhone: departmentsPhone$1,
+  departments,
   allContacts: allContacts$1,
   searchAzs: searchAzs$1,
   personalAccount: personalAccount$1,
@@ -2545,18 +2677,12 @@ const translationRu = {
   berlioPaymentRules: berlioPaymentRules$1,
   bankInformation: bankInformation$1,
   electronicPaymentSystem: electronicPaymentSystem$1,
-  contractConclusion: contractConclusion$1,
   eCardReceipt: eCardReceipt$1,
   eCardUsage: eCardUsage$1,
   contractTermination: contractTermination$1,
   ratesAndTariffs: ratesAndTariffs$1,
-  personalAccountUsage: personalAccountUsage$1,
   fuelCardsAndGasStations: fuelCardsAndGasStations$1,
   gasStationsAndRoutes: gasStationsAndRoutes$1,
-  fuelCardUsage: fuelCardUsage$1,
-  tollRoads: tollRoads$1,
-  fuelPayment: fuelPayment$1,
-  regulatoryDocuments: regulatoryDocuments$1,
   berlioEWalletRules: berlioEWalletRules$1,
   berlioUsageRegulations: berlioUsageRegulations$1,
   servicesAndSoftware: servicesAndSoftware$1,
@@ -2564,6 +2690,23 @@ const translationRu = {
   berlioCardPayApp: berlioCardPayApp$1,
   smartPayApp: smartPayApp$1,
   clientCabinetSoftware: clientCabinetSoftware$1,
+  electronicBerlioCards,
+  fuelBerlioCards,
+  regulatoryDocuments: regulatoryDocuments$1,
+  serviceInEPS,
+  goodsAndServicePayment,
+  contractConclusion: contractConclusion$1,
+  documentsForDownload,
+  gettingElectronicCard,
+  personalAccountUsage: personalAccountUsage$1,
+  tollRoadsService,
+  tollRoadsPayment,
+  tollRoads: tollRoads$1,
+  fuelPayment: fuelPayment$1,
+  fuelCardUsage: fuelCardUsage$1,
+  lowAndRegulatory,
+  IFRReport,
+  localActsInEPS,
   breadCrumbs: breadCrumbs$1,
   mainBlock: mainBlock$1,
   aboutBlock: aboutBlock$1,
@@ -3462,7 +3605,7 @@ function SecondaryFooter() {
   return /* @__PURE__ */ React__default.createElement("footer", { className: "aam_secondary-footer" }, /* @__PURE__ */ React__default.createElement("nav", { className: "aam_footer-links" }, /* @__PURE__ */ React__default.createElement("ul", null, /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement(Link, { to: "/rules" }, t("rulesOfUse"))), /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement(Link, { to: "/offer" }, t("offerAgreement"))), /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement(Link, { to: "/privacy" }, t("privacy"))), /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement(Link, { to: "/help" }, t("help"))))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_footer-copyright" }, t("copyright", { year: currentYear })));
 }
 const newsDataFallback = {
-  "1": { "slug": "initial-news", "priority": "A", "dates": { "date": "2025-07-27T21:00:00.000Z", "startDate": "2025-07-27T21:00:00.000Z", "expireDate": "2025-07-30T21:00:00.000Z" }, "titles": { "ru": 'Рады приветствовать Вас на новом сайте НП ООО "Берлио"!', "en": 'We are pleased to welcome you to the new website of S&P LLC "Berlio"!' }, "descriptions": { "ru": '<h2 class="ql-align-center"><strong style="color: rgb(72, 174, 90);">Уважаемые клиенты</strong><span style="color: rgb(72, 174, 90);">,</span></h2><h2 class="ql-align-center"><br></h2><p class="ql-align-justify">	Мы с радостью сообщаем, что интерфейс нашего сайта обновился! Надеемся, что опыт пользования новым сайтом оставит лишь положительные впечатления. </p><p><br></p><p><em>С уважением,</em></p><p><strong style="color: rgb(242, 73, 66);">команда НП ООО "Берлио"</strong></p>', "en": '<h2 class="ql-align-center"><span style="color: rgb(72, 174, 90);">Dear clients,</span></h2><h2 class="ql-align-center"><br></h2><p class="ql-align-justify">	We are pleased to inform you that the interface of our website has been updated! We hope that your experience with the new site will leave only positive impressions.</p><p><br></p><p><em>Sincerely,</em></p><p><span style="color: rgb(242, 73, 66);">The team of S&amp;P LLC "Berlio"</span></p>' } }
+  "1": { "slug": "initial-news", "priority": "A", "dates": { "date": "2025-09-07T21:00:00.000Z", "startDate": "2025-09-07T21:00:00.000Z", "expireDate": "2025-09-27T21:00:00.000Z" }, "titles": { "ru": 'Рады приветствовать Вас на новом сайте НП ООО "Берлио"!', "en": 'We are pleased to welcome you to the new website of S&P LLC "Berlio"!' }, "descriptions": { "ru": '<h2 class="ql-align-center"><strong style="color: rgb(72, 174, 90);">Уважаемые клиенты</strong><span style="color: rgb(72, 174, 90);">,</span></h2><h2 class="ql-align-center"><br></h2><p class="ql-align-justify">	Мы с радостью сообщаем, что интерфейс нашего сайта обновился! Надеемся, что опыт пользования новым сайтом оставит лишь положительные впечатления. </p><p><br></p><p><em>С уважением,</em></p><p><strong style="color: rgb(242, 73, 66);">команда НП ООО "Берлио"</strong></p>', "en": '<h2 class="ql-align-center"><span style="color: rgb(72, 174, 90);">Dear clients,</span></h2><h2 class="ql-align-center"><br></h2><p class="ql-align-justify">	We are pleased to inform you that the interface of our website has been updated! We hope that your experience with the new site will leave only positive impressions.</p><p><br></p><p><em>Sincerely,</em></p><p><span style="color: rgb(242, 73, 66);">The team of S&amp;P LLC "Berlio"</span></p>' } }
 };
 function LeftArrowIcon({
   fillColor = "#48AE5A",
@@ -3726,7 +3869,7 @@ const partnersLogos = {
 function Home() {
   const { t } = useTranslation();
   process.env.NODE_ENV === "production";
-  return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement(Helmet, null, /* @__PURE__ */ React__default.createElement("title", null, t("pageTitles.home")), /* @__PURE__ */ React__default.createElement("meta", { name: "description", content: "Описание компании Берлио" }), /* @__PURE__ */ React__default.createElement("meta", { name: "keywords", content: "Берлио, Главная" }), /* @__PURE__ */ React__default.createElement("meta", { name: "author", content: "AndreiMikheikin" })), /* @__PURE__ */ React__default.createElement(Header, null), /* @__PURE__ */ React__default.createElement(Navigation, null), /* @__PURE__ */ React__default.createElement(SearchInput, { placeholder: t("search") }), /* @__PURE__ */ React__default.createElement(MainBlock, null), /* @__PURE__ */ React__default.createElement(PaymentSystem, null), /* @__PURE__ */ React__default.createElement(FuelCards, null), /* @__PURE__ */ React__default.createElement(ActualSection, null), /* @__PURE__ */ React__default.createElement(NewsSection, null), /* @__PURE__ */ React__default.createElement(
+  return /* @__PURE__ */ React__default.createElement(React__default.Fragment, null, /* @__PURE__ */ React__default.createElement(Helmet, null, /* @__PURE__ */ React__default.createElement("title", null, t("pageTitles.home")), /* @__PURE__ */ React__default.createElement("meta", { name: "description", content: "Описание компании Берлио" }), /* @__PURE__ */ React__default.createElement("meta", { name: "keywords", content: "Берлио, Главная" }), /* @__PURE__ */ React__default.createElement("meta", { name: "author", content: "AndreiMikheikin" })), /* @__PURE__ */ React__default.createElement(Header, null), /* @__PURE__ */ React__default.createElement(Navigation, null), /* @__PURE__ */ React__default.createElement(SearchInput, { placeholder: t("search") }), /* @__PURE__ */ React__default.createElement(NewsSection, null), /* @__PURE__ */ React__default.createElement(MainBlock, null), /* @__PURE__ */ React__default.createElement(PaymentSystem, null), /* @__PURE__ */ React__default.createElement(FuelCards, null), /* @__PURE__ */ React__default.createElement(ActualSection, null), /* @__PURE__ */ React__default.createElement(
     LogoSection,
     {
       title: t("ourPartnersLogoSection.name"),

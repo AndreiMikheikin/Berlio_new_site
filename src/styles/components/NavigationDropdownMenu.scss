@@ -151,20 +151,12 @@
                 }
             }
 
-            .aam_navigation-dropdown-menu__block:first-child {
+            .aam_navigation-dropdown-menu__block:first-child{
                 width: 231px;
-                gap: 10px;
+                gap: 20px;
 
                 li {
                     width: 180px;
-                }
-            }
-
-            .aam_navigation-dropdown-menu__block:nth-child(2) {
-                width: 225px;
-
-                li {
-                    width: 150px;
                 }
             }
 
@@ -186,6 +178,15 @@
 
             .aam_navigation-dropdown-menu__block:not(:first-child) {
                 gap: 35px;
+            }
+
+            .aam_navigation-dropdown-menu__block:nth-child(2) {
+                width: 225px;
+                gap: 20px;
+
+                li {
+                    width: 150px;
+                }
             }
 
             // Когда меню открыто

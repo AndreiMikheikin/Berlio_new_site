@@ -28,7 +28,12 @@ function Header() {
         </div>
         <div className="aam_header__dropdown">
           <Dropdown
-            label={t('departmentsPhone')}
+            label={
+              <>
+                {t('departmentsPhone')} <br />
+                {t('departments')}
+              </>
+            }
             onSelect={handleSelect}
             linkText={t('allContacts')}
             linkHref="/contacts"
