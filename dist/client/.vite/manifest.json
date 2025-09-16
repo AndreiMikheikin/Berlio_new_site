@@ -1,6 +1,6 @@
 {
   "node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js": {
-    "file": "assets/react-yandex-maps.esm-CJjnoe2X.js",
+    "file": "assets/react-yandex-maps.esm-BJv0TGqQ.js",
     "name": "react-yandex-maps.esm",
     "src": "node_modules/@pbe/react-yandex-maps/dist/react-yandex-maps.esm.js",
     "isDynamicEntry": true,
@@ -9,7 +9,7 @@
     ]
   },
   "node_modules/quill/quill.js": {
-    "file": "assets/quill-Chsavi54.js",
+    "file": "assets/quill-ngi7XsHA.js",
     "name": "quill",
     "src": "node_modules/quill/quill.js",
     "isDynamicEntry": true,
@@ -54,7 +54,7 @@
     "src": "src/assets/fonts/Roboto-Medium.ttf"
   },
   "src/index.html": {
-    "file": "assets/index-U3PD4_xn.js",
+    "file": "assets/index-BzFldpLT.js",
     "name": "index",
     "src": "src/index.html",
     "isEntry": true,

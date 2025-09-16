@@ -120,7 +120,7 @@ function Dropdown({
 }
 
 Dropdown.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.node.isRequired,
   onSelect: PropTypes.func.isRequired,
   linkText: PropTypes.string,
   linkHref: PropTypes.string,
