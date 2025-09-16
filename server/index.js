@@ -13,6 +13,9 @@ import newsRoute from './routes/api/admin-news.js';
 import sqlExplorerRoutes from './routes/api/sql-explorer.js';
 import uploadRouter from './routes/api/~upload.js';
 
+import logBookLoginRoute from './routes/api/log-book-login.js';
+import logBookRoutes from './routes/api/log-book.js';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -31,6 +34,10 @@ app.use('/api/admin', adminsRoute);
 app.use('/api/admin', newsRoute);
 app.use('/api/sql-explorer', sqlExplorerRoutes);
 app.use('/upload', uploadRouter);
+
+// 2.1 API endpoints для Журнала
+app.use('/api/log-book-login', logBookLoginRoute);
+app.use('/api/log-book', logBookRoutes);
 
 // 3. Отдаём ассеты и фавикон напрямую
 app.use('/assets', express.static(path.join(clientDist, 'assets')));
