@@ -77,12 +77,12 @@ const menuContent = {
           target: '_self',
         },
         {
-          href: '/clients/goodsAndServicePayment',
+          href: '/clients/forFuelPayments',
           text: 'goodsAndServicePayment',
           target: '_self',
         },
         {
-          href: '/clients/contractConclusion',
+          href: '/clients/signAndResign',
           text: 'contractConclusion',
           target: '_self',
         },

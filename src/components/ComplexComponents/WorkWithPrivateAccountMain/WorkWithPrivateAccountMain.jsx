@@ -93,19 +93,54 @@ function WorkWithPrivateAccountMain() {
         />
       </div>
 
-      <strong className="aam_work-with-private-account__text">{t('workWithPrivateAccount.middleDescriptinon')}</strong>
+      <div className="aam_work-with-private-account__container">
+        <strong className="aam_work-with-private-account__container--text">{t('workWithPrivateAccount.middleDescriptinon')}</strong>
 
-      <ServiceCard
-        className="aam_work-with-private-account__service-card"
-        Icon={PdfIcon}
-        title={t('workWithPrivateAccount.cardTitle1')}
-        description=""
-        link={`${baseUrl}/assets/documents/1.pdf`}
-        onClick={() => handleLinkClick(
-          t('workWithPrivateAccount.cardTitle1'),
-          `${baseUrl}/assets/documents/1.pdf`,
-        )}
-      />
+        <ServiceCard
+          className="aam_work-with-private-account__container--service-card"
+          Icon={PdfIcon}
+          title={t('workWithPrivateAccount.cardTitle1')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление об изменении (смены) номера мобильного телефона «Мастер-телефон» .pdf`}
+          onClick={() => handleLinkClick(
+            t('workWithPrivateAccount.cardTitle1'),
+            `${baseUrl}/assets/documents/Заявление об изменении (смены) номера мобильного телефона «Мастер-телефон» .pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_work-with-private-account__container--service-card"
+          Icon={PdfIcon}
+          title={t('workWithPrivateAccount.cardTitle2')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление об установлении суточной, месячной нормы, категории, приоритета электронной карты (категории).pdf`}
+          onClick={() => handleLinkClick(
+            t('workWithPrivateAccount.cardTitle2'),
+            `${baseUrl}/assets/documents/Заявление об установлении суточной, месячной нормы, категории, приоритета электронной карты (категории).pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_work-with-private-account__container--service-card"
+          Icon={PdfIcon}
+          title={t('workWithPrivateAccount.cardTitle3')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление об установлении суточной, месячной нормы, категории, приоритета электронной карты (нормы).pdf`}
+          onClick={() => handleLinkClick(
+            t('workWithPrivateAccount.cardTitle3'),
+            `${baseUrl}/assets/documents/Заявление об установлении суточной, месячной нормы, категории, приоритета электронной карты (нормы).pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_work-with-private-account__container--service-card"
+          Icon={PdfIcon}
+          title={t('workWithPrivateAccount.cardTitle4')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление об установлении суточной, месячной нормы, категории, приоритета электронной карты (приоритет).pdf`}
+          onClick={() => handleLinkClick(
+            t('workWithPrivateAccount.cardTitle4'),
+            `${baseUrl}/assets/documents/Заявление об установлении суточной, месячной нормы, категории, приоритета электронной карты (приоритет).pdf`,
+          )}
+        />
+      </div>
 
       {/* Navigation */}
       {/* Кнопка перехода на сайт */}

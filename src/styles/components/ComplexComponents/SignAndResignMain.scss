@@ -42,7 +42,7 @@
             margin-bottom: 15px;
         }
 
-        strong a{
+        strong a {
             text-decoration: underline;
 
             &:hover {
@@ -61,33 +61,47 @@
         @include m.heading-h3;
     }
 
+    &__participants-list li {
+        list-style-type: disc;
+        list-style-position: inside;
+        margin-left: 15px;
+    }
+
     &__card-boxes {
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-start;
+        align-items: flex-start;
         flex-wrap: wrap;
         margin-bottom: 35px;
     }
 
-    &__card-box, .aam_service-card {
+    .aam_service-card {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+        justify-content: flex-start;
         gap: 15px;
-        width: 30%;
+        width: auto;
         padding: 20px;
-    }
 
-    &__icon {
-        margin-bottom: 10px;
-
-        svg {
-            width: 53px;
-            height: 64px;
+        &__button {
+            flex-direction: row;
+            text-align: left;
+            justify-content: flex-start;
         }
 
-        svg path {
-            fill: #48AE5A;
+        &__icon {
+            margin-bottom: 10px;
+
+            svg {
+                width: 53px;
+                height: 64px;
+            }
+
+            svg path {
+                fill: #48AE5A;
+            }
         }
     }
 
@@ -100,7 +114,8 @@
         text-align: center;
     }
 
-    &__customer-service, &__system-usage {
+    &__customer-service,
+    &__system-usage {
         @include m.text-p1;
         line-height: 1.5;
         margin-bottom: 15px;
@@ -121,7 +136,8 @@
         margin-bottom: 30px;
     }
 
-    &__operator-documents, &__emissioner-documents {
+    &__operator-documents,
+    &__emissioner-documents {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -129,6 +145,7 @@
 
         h3 {
             @include m.heading-h4;
+            text-align: left
         }
     }
 

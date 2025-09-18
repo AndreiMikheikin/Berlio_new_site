@@ -38,7 +38,8 @@
 
     &__card-boxes {
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
+        justify-content: flex-start;
         width: 100%;
         flex-wrap: wrap;
         gap: 10px;
@@ -48,16 +49,27 @@
     &__card-box, .aam_service-card {
         align-self: flex-start;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 15px;
         width: 30%;
         padding: 20px;
     }
 
     .aam_service-card {
-        align-self: center;
+        flex-direction: row;
+        align-self: flex-start;
+        width: 100%;
+        gap: 10px;
+
+        &__button {
+            flex-direction: row;
+        }
+
+        &__title {
+            text-align: left;
+        }
     }
 
     &__icon {
@@ -75,7 +87,7 @@
 
     &__card-description {
         @include m.text-p1;
-        text-align: center;
+        text-align: left;
     }
 
     &__site-nav {

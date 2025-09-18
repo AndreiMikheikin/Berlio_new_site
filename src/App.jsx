@@ -16,6 +16,7 @@ import GSAutomationSystem from './pages/GSAutomationSystem/GSAutomationSystem';
 import InvoicesSite from './pages/InvoicesSite/InvoicesSite';
 import InvoicesSiteTariffs from './pages/InvoicesSiteTariffs/InvoicesSiteTariffs';
 import ForClients from './pages/ForClients/ForClients';
+import ServiceInEPSPage from './pages/ServiceInEPSPage/ServiceInEPSPage';
 import SignAndResign from './pages/SignAndResign/SignAndResign';
 import GettingElectronicCard from './pages/GettingElectronicCard/GettingElectronicCard';
 import CardUsageRules from './pages/CardUsageRules/CardUsageRules';
@@ -84,6 +85,8 @@ function App() {
         <Route path="/equipment/smartPayApp" element={<SmartPayApp />} />
         <Route path="/equipment/personalAccWebApp" element={<PersonalAccWebApp />} />
         <Route path="/clients" element={<ForClients />} />
+        <Route path="/clients/serviceInEPS" element={<ServiceInEPSPage />} />
+        <Route path="/clients/forFuelPayments" element={<ForFuelPayments />} />
         <Route path="/clients/signAndResign" element={<SignAndResign />} />
         <Route path="/clients/cardUsageRules" element={<CardUsageRules />} />
         <Route path="/clients/gettingElectronicCard" element={<GettingElectronicCard />} />
@@ -94,7 +97,6 @@ function App() {
         <Route path="/clients/plasticCardUsageRules" element={<PlasticCardUsageRules />} />
         <Route path="/clients/nonResidentsSupport" element={<NonResidentsSupport />} />
         <Route path="/clients/tollRoads" element={<TollRoads />} />
-        <Route path="/clients/forFuelPayments" element={<ForFuelPayments />} />
         <Route path="/clients/issuerRules" element={<IssuerRules />} />
         <Route path="/clients/eMoneyRegulations" element={<EMoneyRegulations />} />
         <Route path="/partners" element={<ForPartners />} />

@@ -50,7 +50,99 @@ function DocumentsForDownloadMain() {
       {/* Title */}
       <h1 className="aam_documents-for-download-main__header">{t('documentsForDownloadMain.name')}</h1>
 
-      {/* Application Docs */}
+      {/* Lists */}
+      <h2 className="aam_documents-for-download-main__boxes-header">{t('documentsForDownloadMain.boxesHeaders.lists')}</h2>
+      <div className="aam_documents-for-download-main__card-boxes">
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.lsts.cardTitle1')}
+          description=""
+          link={`${baseUrl}/assets/documents/Список документов для заключения Договора присоединения.pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.lsts.cardTitle1'),
+            `${baseUrl}/assets/documents/Список документов для заключения Договора присоединения.pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.lsts.cardTitle2')}
+          description=""
+          link={`${baseUrl}/assets/documents/Список документов для заключения Договора пользования с ГУ  «Белавтострада» (BelToll).pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.lsts.cardTitle2'),
+            `${baseUrl}/assets/documents/Список документов для заключения Договора пользования с ГУ  «Белавтострада» (BelToll).pdf`,
+          )}
+        />
+      </div>
+
+      {/* Agreements */}
+      <h2 className="aam_documents-for-download-main__boxes-header">{t('documentsForDownloadMain.boxesHeaders.agreements')}</h2>
+      <div className="aam_documents-for-download-main__card-boxes">
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.agr.cardTitle1')}
+          description=""
+          link={`${baseUrl}/assets/documents/Соглашение о расторжении договора на обслуживание (организация).pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.agr.cardTitle1'),
+            `${baseUrl}/assets/documents/Соглашение о расторжении договора на обслуживание (организация).pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.agr.cardTitle2')}
+          description=""
+          link={`${baseUrl}/assets/documents/Соглашение о расторжении договора на обслуживание (ИП, уполномоченное лицо - родственник).pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.agr.cardTitle2'),
+            `${baseUrl}/assets/documents/Соглашение о расторжении договора на обслуживание (ИП, уполномоченное лицо - родственник).pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.agr.cardTitle3')}
+          description=""
+          link={`${baseUrl}/assets/documents/Соглашение о расторжении договора на обслуживание (ИП, уполномоченное лицо - работник).pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.agr.cardTitle3'),
+            `${baseUrl}/assets/documents/Соглашение о расторжении договора на обслуживание (ИП, уполномоченное лицо - работник).pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.agr.cardTitle4')}
+          description=""
+          link={`${baseUrl}/assets/documents/Соглашение о расторжении договора на обслуживание (ИП).pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.agr.cardTitle4'),
+            `${baseUrl}/assets/documents/Соглашение о расторжении договора на обслуживание (ИП).pdf`,
+          )}
+        />
+      </div>
+
+      {/* Registration Card */}
+      <h2 className="aam_documents-for-download-main__boxes-header">{t('documentsForDownloadMain.boxesHeaders.regCard')}</h2>
+      <div className="aam_documents-for-download-main__card-boxes">
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.rCard.cardTitle1')}
+          description=""
+          link={`${baseUrl}/assets/documents/Регистрационная карточка клиента_общая (для ознакомления).pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.rCard.cardTitle1'),
+            `${baseUrl}/assets/documents/Регистрационная карточка клиента_общая (для ознакомления).pdf`,
+          )}
+        />
+      </div>
+
+      {/* Applications */}
       <h2 className="aam_documents-for-download-main__boxes-header">{t('documentsForDownloadMain.boxesHeaders.applications')}</h2>
       <div className="aam_documents-for-download-main__card-boxes">
         <ServiceCard
@@ -58,190 +150,213 @@ function DocumentsForDownloadMain() {
           Icon={PdfIcon}
           title={t('documentsForDownloadMain.app.cardTitle1')}
           description=""
-          link={`${baseUrl}/assets/documents/1.pdf`}
+          link={`${baseUrl}/assets/documents/Заявление на получение «Справки-акта о реализации» подписанной ЭЦП.pdf`}
           onClick={() => handlePdfClick(
             t('documentsForDownloadMain.app.cardTitle1'),
-            `${baseUrl}/assets/documents/1.pdf`,
+            `${baseUrl}/assets/documents/Заявление на получение «Справки-акта о реализации» подписанной ЭЦП.pdf`,
           )}
         />
         <ServiceCard
           className="aam_documents-for-download-main__service-card"
-          Icon={DocxIcon}
+          Icon={PdfIcon}
           title={t('documentsForDownloadMain.app.cardTitle2')}
           description=""
-          link={`${baseUrl}/assets/documents/1.doc`}
-          onClick={() => handleDocClick(
+          link={`${baseUrl}/assets/documents/Заявление о блокировке, разблокировке лицевого счёта.pdf`}
+          onClick={() => handlePdfClick(
             t('documentsForDownloadMain.app.cardTitle2'),
-            `${baseUrl}/assets/documents/1.doc`,
+            `${baseUrl}/assets/documents/Заявление о блокировке, разблокировке лицевого счёта.pdf`,
           )}
         />
         <ServiceCard
           className="aam_documents-for-download-main__service-card"
-          Icon={DocxIcon}
+          Icon={PdfIcon}
           title={t('documentsForDownloadMain.app.cardTitle3')}
           description=""
-          link={`${baseUrl}/assets/documents/1.doc`}
-          onClick={() => handleDocClick(
+          link={`${baseUrl}/assets/documents/Заявление о блокировке, разблокировке средств доступа электронной платежной системы «Берлио».pdf`}
+          onClick={() => handlePdfClick(
             t('documentsForDownloadMain.app.cardTitle3'),
-            `${baseUrl}/assets/documents/1.doc`,
-          )}
-        />
-      </div>
-
-      {/* Sample Letters */}
-      <h2 className="aam_documents-for-download-main__boxes-header">{t('documentsForDownloadMain.boxesHeaders.sampleLetters')}</h2>
-      <div className="aam_documents-for-download-main__card-boxes">
-        <ServiceCard
-          className="aam_documents-for-download-main__service-card"
-          Icon={DocxIcon}
-          title={t('documentsForDownloadMain.letters.cardTitle1')}
-          description=""
-          link={`${baseUrl}/assets/documents/1.doc`}
-          onClick={() => handleDocClick(
-            t('documentsForDownloadMain.letters.cardTitle1'),
-            `${baseUrl}/assets/documents/1.doc`,
+            `${baseUrl}/assets/documents/Заявление о блокировке, разблокировке средств доступа электронной платежной системы «Берлио».pdf`,
           )}
         />
         <ServiceCard
           className="aam_documents-for-download-main__service-card"
           Icon={PdfIcon}
-          title={t('documentsForDownloadMain.letters.cardTitle2')}
+          title={t('documentsForDownloadMain.app.cardTitle4')}
           description=""
-          link={`${baseUrl}/assets/documents/1.pdf`}
+          link={`${baseUrl}/assets/documents/Заявление о возврате ошибочно перечисленной суммы денежных средств.pdf`}
           onClick={() => handlePdfClick(
-            t('documentsForDownloadMain.letters.cardTitle2'),
-            `${baseUrl}/assets/documents/1.pdf`,
-          )}
-        />
-        <ServiceCard
-          className="aam_documents-for-download-main__service-card"
-          Icon={DocxIcon}
-          title={t('documentsForDownloadMain.letters.cardTitle3')}
-          description=""
-          link={`${baseUrl}/assets/documents/1.doc`}
-          onClick={() => handleDocClick(
-            t('documentsForDownloadMain.letters.cardTitle3'),
-            `${baseUrl}/assets/documents/1.doc`,
-          )}
-        />
-        <ServiceCard
-          className="aam_documents-for-download-main__service-card"
-          Icon={DocxIcon}
-          title={t('documentsForDownloadMain.letters.cardTitle4')}
-          description=""
-          link={`${baseUrl}/assets/documents/1.doc`}
-          onClick={() => handleDocClick(
-            t('documentsForDownloadMain.letters.cardTitle4'),
-            `${baseUrl}/assets/documents/1.doc`,
-          )}
-        />
-        <ServiceCard
-          className="aam_documents-for-download-main__service-card"
-          Icon={DocxIcon}
-          title={t('documentsForDownloadMain.letters.cardTitle5')}
-          description=""
-          link={`${baseUrl}/assets/documents/1.doc`}
-          onClick={() => handleDocClick(
-            t('documentsForDownloadMain.letters.cardTitle5'),
-            `${baseUrl}/assets/documents/1.doc`,
-          )}
-        />
-        <ServiceCard
-          className="aam_documents-for-download-main__service-card"
-          Icon={DocxIcon}
-          title={t('documentsForDownloadMain.letters.cardTitle6')}
-          description=""
-          link={`${baseUrl}/assets/documents/1.doc`}
-          onClick={() => handleDocClick(
-            t('documentsForDownloadMain.letters.cardTitle6'),
-            `${baseUrl}/assets/documents/1.doc`,
-          )}
-        />
-        <ServiceCard
-          className="aam_documents-for-download-main__service-card"
-          Icon={DocxIcon}
-          title={t('documentsForDownloadMain.letters.cardTitle7')}
-          description=""
-          link={`${baseUrl}/assets/documents/1.doc`}
-          onClick={() => handleDocClick(
-            t('documentsForDownloadMain.letters.cardTitle7'),
-            `${baseUrl}/assets/documents/1.doc`,
-          )}
-        />
-        <ServiceCard
-          className="aam_documents-for-download-main__service-card"
-          Icon={DocxIcon}
-          title={t('documentsForDownloadMain.letters.cardTitle8')}
-          description=""
-          link={`${baseUrl}/assets/documents/1.doc`}
-          onClick={() => handleDocClick(
-            t('documentsForDownloadMain.letters.cardTitle8'),
-            `${baseUrl}/assets/documents/1.doc`,
-          )}
-        />
-        <ServiceCard
-          className="aam_documents-for-download-main__service-card"
-          Icon={DocxIcon}
-          title={t('documentsForDownloadMain.letters.cardTitle9')}
-          description=""
-          link={`${baseUrl}/assets/documents/1.doc`}
-          onClick={() => handleDocClick(
-            t('documentsForDownloadMain.letters.cardTitle9'),
-            `${baseUrl}/assets/documents/1.doc`,
-          )}
-        />
-        <ServiceCard
-          className="aam_documents-for-download-main__service-card"
-          Icon={DocxIcon}
-          title={t('documentsForDownloadMain.letters.cardTitle10')}
-          description=""
-          link={`${baseUrl}/assets/documents/1.doc`}
-          onClick={() => handleDocClick(
-            t('documentsForDownloadMain.letters.cardTitle10'),
-            `${baseUrl}/assets/documents/1.doc`,
-          )}
-        />
-      </div>
-
-      {/* Payment Orders */}
-      <h2 className="aam_documents-for-download-main__boxes-header">{t('documentsForDownloadMain.boxesHeaders.paymentOrders')}</h2>
-      <div className="aam_documents-for-download-main__card-boxes">
-        <ServiceCard
-          className="aam_documents-for-download-main__service-card"
-          Icon={PdfIcon}
-          title={t('documentsForDownloadMain.orders.cardTitle1')}
-          description=""
-          link={`${baseUrl}/assets/documents/1.pdf`}
-          onClick={() => handlePdfClick(
-            t('documentsForDownloadMain.orders.cardTitle1'),
-            `${baseUrl}/assets/documents/1.pdf`,
+            t('documentsForDownloadMain.app.cardTitle4'),
+            `${baseUrl}/assets/documents/Заявление о возврате ошибочно перечисленной суммы денежных средств.pdf`,
           )}
         />
         <ServiceCard
           className="aam_documents-for-download-main__service-card"
           Icon={PdfIcon}
-          title={t('documentsForDownloadMain.orders.cardTitle2')}
+          title={t('documentsForDownloadMain.app.cardTitle5')}
           description=""
-          link={`${baseUrl}/assets/documents/1.pdf`}
+          link={`${baseUrl}/assets/documents/Заявление о закрытии лицевого счёта.pdf`}
           onClick={() => handlePdfClick(
-            t('documentsForDownloadMain.orders.cardTitle2'),
-            `${baseUrl}/assets/documents/1.pdf`,
+            t('documentsForDownloadMain.app.cardTitle5'),
+            `${baseUrl}/assets/documents/Заявление о закрытии лицевого счёта.pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.app.cardTitle6')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление о запросе информации о ПИН-коде.pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.app.cardTitle6'),
+            `${baseUrl}/assets/documents/Заявление о запросе информации о ПИН-коде.pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.app.cardTitle7')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление о переносе электронной карты с одного лицевого счёта на другой лицевой счёт.pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.app.cardTitle7'),
+            `${baseUrl}/assets/documents/Заявление о переносе электронной карты с одного лицевого счёта на другой лицевой счёт.pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.app.cardTitle8')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление о перераспределении сумм между лицевыми счетами Клиента (перенос).pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.app.cardTitle8'),
+            `${baseUrl}/assets/documents/Заявление о перераспределении сумм между лицевыми счетами Клиента (перенос).pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.app.cardTitle9')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление о перераспределении сумм между лицевыми счетами Клиента (распределение).pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.app.cardTitle9'),
+            `${baseUrl}/assets/documents/Заявление о перераспределении сумм между лицевыми счетами Клиента (распределение).pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.app.cardTitle10')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление о присоединении к договору присоединения (ИП).pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.app.cardTitle10'),
+            `${baseUrl}/assets/documents/Заявление о присоединении к договору присоединения (ИП).pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.app.cardTitle11')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление о присоединении к договору присоединения (ИП, уполномоченное лицо - работник).pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.app.cardTitle11'),
+            `${baseUrl}/assets/documents/Заявление о присоединении к договору присоединения (ИП, уполномоченное лицо - работник).pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.app.cardTitle12')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление о присоединении к договору присоединения (ИП, уполномоченное лицо - родственник).pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.app.cardTitle12'),
+            `${baseUrl}/assets/documents/Заявление о присоединении к договору присоединения (ИП, уполномоченное лицо - родственник).pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.app.cardTitle13')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление о присоединении к договору присоединения (организация).pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.app.cardTitle13'),
+            `${baseUrl}/assets/documents/Заявление о присоединении к договору присоединения (организация).pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.app.cardTitle14')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление о расторжении договора.pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.app.cardTitle14'),
+            `${baseUrl}/assets/documents/Заявление о расторжении договора.pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.app.cardTitle15')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление о регистрации транспортных средств в системе BelToll (2-3 оси).pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.app.cardTitle15'),
+            `${baseUrl}/assets/documents/Заявление о регистрации транспортных средств в системе BelToll (2-3 оси).pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.app.cardTitle16')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление о регистрации транспортных средств в системе BelToll (4+ оси).pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.app.cardTitle16'),
+            `${baseUrl}/assets/documents/Заявление о регистрации транспортных средств в системе BelToll (4+ оси).pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.app.cardTitle17')}
+          description=""
+          link={`${baseUrl}/assets/documents/Заявление об открытии и обслуживании лицевого счёта.pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.app.cardTitle17'),
+            `${baseUrl}/assets/documents/Заявление об открытии и обслуживании лицевого счёта.pdf`,
           )}
         />
       </div>
 
-      {/* Notifications */}
-      <h2 className="aam_documents-for-download-main__boxes-header">{t('documentsForDownloadMain.boxesHeaders.notifications')}</h2>
+      {/* Other */}
+      <h2 className="aam_documents-for-download-main__boxes-header">{t('documentsForDownloadMain.boxesHeaders.other')}</h2>
       <div className="aam_documents-for-download-main__card-boxes">
         <ServiceCard
           className="aam_documents-for-download-main__service-card"
-          Icon={DocxIcon}
-          title={t('documentsForDownloadMain.notify.cardTitle1')}
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.oth.cardTitle1')}
           description=""
-          link={`${baseUrl}/assets/documents/1.doc`}
-          onClick={() => handleDocClick(
-            t('documentsForDownloadMain.notify.cardTitle1'),
-            `${baseUrl}/assets/documents/1.doc`,
+          link={`${baseUrl}/assets/documents/Платежное поручение на покупку электронных денег.pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.oth.cardTitle1'),
+            `${baseUrl}/assets/documents/Платежное поручение на покупку электронных денег.pdf`,
+          )}
+        />
+        <ServiceCard
+          className="aam_documents-for-download-main__service-card"
+          Icon={PdfIcon}
+          title={t('documentsForDownloadMain.oth.cardTitle2')}
+          description=""
+          link={`${baseUrl}/assets/documents/Доверенность.pdf`}
+          onClick={() => handlePdfClick(
+            t('documentsForDownloadMain.oth.cardTitle2'),
+            `${baseUrl}/assets/documents/Доверенность.pdf`,
           )}
         />
       </div>

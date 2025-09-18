@@ -72,7 +72,7 @@ function SignAndResignSection() {
       {/* Варианты оформления с выпадающими списками */}
       <div
         className="aam_sign-and-resign-section__dropdown-section"
-        ref={(el) => { dropdownRefs.current[2] = el; }}
+        ref={(el) => { dropdownRefs.current[1] = el; }}
       >
         <NavigationDropdown
           label={(

@@ -5,6 +5,7 @@ import LeftArrowIcon from '../../SVGIcons/LeftArrowIcon';
 import UpArrowInCircleIcon from '../../SVGIcons/UpArrowInCircleIcon';
 import CardBox from '../../CardBox/CardBox';
 import ClientIcon from '../../SVGIcons/ClientIcon';
+import DepartmentEmailDropdown from '../../DeprtmentEmailDropdown/DepartmentEmailDropdown';
 import '../../../styles/components/ComplexComponents/GettingElectronicCardMain.scss';
 
 function GettingElectronicCardMain() {
@@ -37,7 +38,7 @@ function GettingElectronicCardMain() {
           <li>
             {t('gettingCardMain.list1.item3')}
             {' '}
-            <a href="mailto:info@berlio.by" rel="noopener noreferrer">{t('gettingCardMain.mailLink')}</a>
+            <DepartmentEmailDropdown />
           </li>
         </ul>
         <strong className="aam_getting-card-main__description--footer">{t('gettingCardMain.applicationFooter')}</strong>
