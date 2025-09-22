@@ -6,7 +6,7 @@
     "footerAddress": "minskFooterAddress",
     "footerShortAddress": "minskShortAddress",
     "inCity": "inMinskCity",
-    "phoneNumber": ["+375 29 623 08 88", "+375 29 773 08 88", "+375 17 369 12 75 {{fax}}"],
+    "phoneNumber": ["+375 29 623 08 88", "+375 29 773 08 88"],
     "email": ["berlio@berlio.by", "info_minsk@berlio.by", "cto_minsk@berlio.by"],
     "workingHours": ["workingHours", "fridayWorkingHours", "daysOff"],
     "departmentsImage": "/assets/images/minskOffice.png",

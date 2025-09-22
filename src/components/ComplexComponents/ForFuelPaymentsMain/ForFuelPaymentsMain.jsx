@@ -4,6 +4,7 @@ import LeftArrowIcon from '../../SVGIcons/LeftArrowIcon';
 import UpArrowInCircleIcon from '../../SVGIcons/UpArrowInCircleIcon';
 import { useTranslation } from "react-i18next";
 import PdfIcon from '../../SVGIcons/PdfIcon';
+import '../../../styles/components/ComplexComponents/ForFuelPaymentsMain.scss';
 
 const ForFuelPaymentsMain = () => {
   const { t } = useTranslation();

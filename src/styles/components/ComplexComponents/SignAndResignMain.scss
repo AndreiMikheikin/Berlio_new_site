@@ -62,6 +62,8 @@
     }
 
     &__participants-list li {
+        @include m.text-p1;
+        text-align: left;
         list-style-type: disc;
         list-style-position: inside;
         margin-left: 15px;
@@ -102,6 +104,10 @@
             svg path {
                 fill: #48AE5A;
             }
+        }
+
+        &__description {
+            align-self: flex-start
         }
     }
 
@@ -151,5 +157,55 @@
 
     &__footer {
         @include m.text-p1;
+    }
+
+    &__site-nav {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .aam_link-button {
+        margin-bottom: 50px;
+    }
+
+    .secondary-link {
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: $text-secondary;
+        transition: scale 0.3s ease;
+
+        &:hover {
+            svg {
+                scale: 1.07;
+            }
+
+            svg path {
+                fill: #48AE5A;
+            }
+
+            svg circle {
+                stroke: #48AE5A;
+            }
+        }
+    }
+
+    .home-link {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+        color: $text-secondary;
     }
 }

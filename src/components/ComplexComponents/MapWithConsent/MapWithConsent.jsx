@@ -15,10 +15,7 @@ function MapWithConsent({ coordinates }) {
 }
 
 MapWithConsent.propTypes = {
-  coordinates: PropTypes.shape({
-    lat: PropTypes.number.isRequired,
-    lng: PropTypes.number.isRequired,
-  }).isRequired,
+  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default MapWithConsent;
