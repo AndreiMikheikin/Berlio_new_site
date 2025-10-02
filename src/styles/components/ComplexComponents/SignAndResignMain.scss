@@ -28,17 +28,22 @@
 
     &__header {
         @include m.heading-h1;
-        font-size: 40px;
         line-height: 1.1;
         word-wrap: break-word;
         margin-bottom: 10px;
     }
 
-    &__description {
+    &__description,
+    &__customer-service,
+    &__system-usage {
         @include m.text-p1;
         margin-bottom: 35px;
 
-        p {
+        ul {
+            margin-top: 15px;
+        }
+
+        &-first {
             margin-bottom: 15px;
         }
 
@@ -49,127 +54,90 @@
                 color: $background-color;
             }
         }
+    }
 
-        ul li {
-            list-style-type: disc;
-            list-style-position: inside;
-            margin-left: 15px;
-        }
+    // Общий стиль для всех списков внутри секций
+    ul li {
+        list-style-type: disc;
+        list-style-position: inside;
+        margin-left: 15px;
+        @include m.text-p1;
+        text-align: left;
     }
 
     &__participants {
         @include m.heading-h3;
     }
 
-    &__participants-list li {
-        @include m.text-p1;
-        text-align: left;
-        list-style-type: disc;
-        list-style-position: inside;
-        margin-left: 15px;
-    }
-
-    &__card-boxes {
+    &__doc-list {
         display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        margin-bottom: 35px;
-    }
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px 0;
+        padding: 0;
+        list-style: none;
 
-    .aam_service-card {
-        display: flex;
-        flex-direction: row;
-        text-align: left;
-        align-items: flex-start;
-        justify-content: flex-start;
-        gap: 15px;
-        width: auto;
-        padding: 20px;
-
-        &__button {
-            flex-direction: row;
-            text-align: left;
-            justify-content: flex-start;
+        li {
+            display: flex;
+            align-items: center;
         }
 
-        &__icon {
-            margin-bottom: 10px;
+        a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: $text-primary;
+            transition: color 0.2s ease;
 
-            svg {
-                width: 53px;
-                height: 64px;
-            }
-
-            svg path {
-                fill: #48AE5A;
+            &:hover {
+                color: $background-hover;
             }
         }
-
-        &__description {
-            align-self: flex-start
-        }
     }
 
-    &__card-title {
-        @include m.heading-h3;
-    }
-
-    &__card-description {
-        @include m.text-p1;
-        text-align: center;
-    }
-
-    &__customer-service,
-    &__system-usage {
-        @include m.text-p1;
-        line-height: 1.5;
-        margin-bottom: 15px;
-
-        ul li {
-            list-style-type: disc;
-            list-style-position: inside;
-            margin-left: 15px;
-        }
-    }
-
-    &__system-usage {
-        margin-bottom: 35px;
+    &__doc-icon {
+        width: 20px;
+        height: 25px;
     }
 
     &__documents-title {
         @include m.heading-h3;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     &__operator-documents,
     &__emissioner-documents {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 30px;
+        align-items: flex-start; // раньше было center → так удобнее для текста
+        gap: 10px;
+        margin-bottom: 35px;
 
         h3 {
-            @include m.heading-h4;
-            text-align: left
+            @include m.heading-h5;
+            text-align: left;
         }
+    }
+
+    &__customer-service,
+    &__system-usage {
+        @include m.text-p1;
+        line-height: 1.5;
     }
 
     &__footer {
         @include m.text-p1;
     }
+}
 
-    &__site-nav {
-        position: relative;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .aam_link-button {
-        margin-bottom: 50px;
-    }
+// Навигация вынесена отдельно, потому что класс другой
+.aam_sign-and-resign-section__site-nav {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .secondary-link {
         @include m.text-p2;

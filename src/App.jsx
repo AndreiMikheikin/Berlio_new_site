@@ -52,6 +52,8 @@ import CookieConsentPolicy from './components/ComplexComponents/CookieConsentPol
 import BuyersPolicy from './components/ComplexComponents/BuyersPolicy/BuyersPolicy';
 import B2BPolicy from './components/ComplexComponents/B2BPolicy/B2BPolicy';
 import ApplicantsPolicy from './components/ComplexComponents/ApplicantsPolicy/ApplicantsPolicy';
+import Legislation from './pages/Legislation/Legislation';
+import ReportIFR from './pages/ReportIFR/ReportIFR';
 
 const PrivacyIndexRedirect = () => {
   const navigate = useNavigate();
@@ -99,6 +101,9 @@ function App() {
         <Route path="/clients/tollRoads" element={<TollRoads />} />
         <Route path="/clients/issuerRules" element={<IssuerRules />} />
         <Route path="/clients/eMoneyRegulations" element={<EMoneyRegulations />} />
+        <Route path="/clients/legislation" element={<Legislation />} />
+        <Route path="/clients/reportIFR" element={<ReportIFR />} />
+
         <Route path="/partners" element={<ForPartners />} />
         <Route path="/partners/voiceRefService" element={<VoiceReferenceService />} />
         <Route path="/partners/loyaltyProgram" element={<LoyaltyProgram />} />

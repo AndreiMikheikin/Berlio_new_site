@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import LeftArrowIcon from '../../SVGIcons/LeftArrowIcon';
 import UpArrowInCircleIcon from '../../SVGIcons/UpArrowInCircleIcon';
-import { useTranslation } from "react-i18next";
 import PdfIcon from '../../SVGIcons/PdfIcon';
+import { useTranslation } from "react-i18next";
 import '../../../styles/components/ComplexComponents/ForFuelPaymentsMain.scss';
 
 const ForFuelPaymentsMain = () => {
@@ -16,85 +16,80 @@ const ForFuelPaymentsMain = () => {
     window.open(link, '_blank', 'noopener,noreferrer');
   };
 
+  const docsSection1 = [
+    {
+      title: t('forFuelPaymentsMain.section1.listItem1'),
+      link: `${baseUrl}/assets/documents/Платежное паручение для резидентов.pdf`,
+      noDownload: true
+    },
+    {
+      title: t('forFuelPaymentsMain.section1.listItem2'),
+      link: `${baseUrl}/assets/documents/Платежное паручение для не резидентов.pdf`,
+      noDownload: true
+    },
+  ];
+
   return (
     <main className="aam_for-fuel-payments">
       {/* Breadcrumbs */}
       <div className="aam_for-fuel-payments__breadcrumbs">
-        <Link to="/">{t('breadCrumbs.home')}</Link>
-        {' '}
-        /
-        {' '}
-        <Link to="/clients">{t('breadCrumbs.forClients')}</Link>
-        {' '}
-        /
-        {' '}
+        <Link to="/">{t('breadCrumbs.home')}</Link> /{' '}
+        <Link to="/clients">{t('breadCrumbs.forClients')}</Link> /{' '}
         {t('breadCrumbs.forFuelPayments')}
       </div>
 
       {/* Title */}
       <h1 className="aam_for-fuel-payments__header">{t('forFuelPaymentsMain.name')}</h1>
 
-      {/* Description */}
+      {/* Sections */}
       <div className="aam_for-fuel-payments__description">
         <section className="aam_for-fuel-payments__description--section">
           <h2 className="aam_for-fuel-payments__description--section-header">
             {t('forFuelPaymentsMain.section1.header')}
           </h2>
           <p>
-            {t('forFuelPaymentsMain.section1.description')}
-            {' '}
+            {t('forFuelPaymentsMain.section1.description')}{' '}
             <a href="https://belgazprombank.by/" target="_blank" rel="noopener noreferrer">
               {t('forFuelPaymentsMain.section1.link')}
             </a>
           </p>
-          <ul>
-            <li>
-              <PdfIcon />
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLinkClick(`${baseUrl}/assets/documents/Платежное паручение для резидентов.pdf`);
-                }}
-              >
-                {t('forFuelPaymentsMain.section1.listItem1')}
-              </a>
-            </li>
-            <li>
-              <PdfIcon />
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLinkClick(`${baseUrl}/assets/documents/Платежное паручение для не резидентов.pdf`);
-                }}
-              >
-                {t('forFuelPaymentsMain.section1.listItem2')}
-              </a>
-            </li>
+          <ul className="aam_for-fuel-payments__doc-list">
+            {docsSection1.map(({ title, link, noDownload }) => (
+              <li key={title}>
+                <a
+                  href={link}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick(link);
+                  }}
+                  target={noDownload ? "_blank" : "_self"}
+                  rel="noreferrer"
+                >
+                  <PdfIcon className="aam_for-fuel-payments__doc-icon" />
+                  <span>{title}</span>
+                </a>
+              </li>
+            ))}
           </ul>
         </section>
+
         <section className="aam_for-fuel-payments__description--section">
           <h2 className="aam_for-fuel-payments__description--section-header">
             {t('forFuelPaymentsMain.section2.header')}
           </h2>
           <p>{t('forFuelPaymentsMain.section2.description')}</p>
           <p>
-            {t('forFuelPaymentsMain.section2.phones')}
-            {': '}
-            <a href="tel:+">397-10-81</a>
-            {', '}
-            <a href="tel:+">369-10-82</a>
-            {', '}
-            <a href="tel:+">210-00-00</a>
-            {'.'}
+            {t('forFuelPaymentsMain.section2.phones')}:{' '}
+            <a href="tel:+375173971081">+375 (17) 397-10-81</a>,
+            <a href="tel:+375173691082">+375 (17) 369-10-82</a>,
+            <a href="tel:+375172100000">+375 (17) 210-00-00</a>.
           </p>
           <p>
-            {t('forFuelPaymentsMain.section2.email')}
-            {': '}
-            <a href="mailto:info@berlio.by" rel="noopener noreferrer">info@berlio.by</a>
+            {t('forFuelPaymentsMain.section2.email')}:{' '}
+            <a href="mailto:info@berlio.by">info_minsk@berlio.by</a>
           </p>
         </section>
+
         <section className="aam_for-fuel-payments__description--section">
           <h2 className="aam_for-fuel-payments__description--section-header">
             {t('forFuelPaymentsMain.section3.header')}
@@ -106,9 +101,8 @@ const ForFuelPaymentsMain = () => {
           <p>{t('forFuelPaymentsMain.section3.description')}</p>
         </section>
       </div>
-      <p>{t('forFuelPaymentsMain.description')}</p>
 
-      {/* Кнопки навигации по сайту */}
+      {/* Navigation */}
       <div className="aam_for-fuel-payments__site-nav">
         <Link to="/" className="home-link">
           <LeftArrowIcon className="icon" />
@@ -118,12 +112,7 @@ const ForFuelPaymentsMain = () => {
           type="button"
           onClick={() => {
             const element = document.getElementById('header');
-            if (element) {
-              element.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-              });
-            }
+            if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }}
           className="secondary-link"
         >
@@ -133,6 +122,6 @@ const ForFuelPaymentsMain = () => {
       </div>
     </main>
   );
-}
+};
 
 export default ForFuelPaymentsMain;

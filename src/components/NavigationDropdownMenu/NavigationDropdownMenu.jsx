@@ -137,12 +137,12 @@ const menuContent = {
       title: 'regulatoryDocuments',
       links: [
         {
-          href: '/clients/lowAndRegulatory',
+          href: '/clients/legislation',
           text: 'lowAndRegulatory',
           target: '_self',
         },
         {
-          href: '/clients/IFRReport',
+          href: '/clients/reportIFR',
           text: 'IFRReport',
           target: '_self',
         },

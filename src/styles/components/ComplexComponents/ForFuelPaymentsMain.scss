@@ -5,7 +5,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 15px;
     width: 1280px;
     padding: 60px 50px;
@@ -28,66 +27,77 @@
 
     &__header {
         @include m.heading-h1;
-        font-size: 40px;
         line-height: 1.1;
         word-wrap: break-word;
         margin-bottom: 10px;
     }
 
     &__description {
-        margin-bottom: 35px;
         display: flex;
         flex-direction: column;
         gap: 35px;
+        margin-bottom: 35px;
+        @include m.text-p1;
 
         &--section {
-            @include m.text-p1;
-            text-align: left;
             display: flex;
             flex-direction: column;
             gap: 15px;
+            text-align: left;
 
             &-header {
                 @include m.heading-h3;
-            }
-        }
-
-        ul li {
-            list-style-type: none;
-            list-style-position: inside;
-            margin-left: 15px;
-
-            svg {
-                width: 38px;
-                height: auto;
-                position: relative;
-                top: 5px;
+                margin-bottom: 5px;
             }
 
-            a {
-                @include m.heading-h4;
-                margin-left: 10px;
+            p {
+                margin-bottom: 15px;
             }
 
-            a:hover {
-                text-decoration: underline;
-                color: $background-color;
+            ul li {
+                @include m.text-p1;
             }
-        }
-
-        a {
-            @include m.text-p1;
-            font-weight: $font-weight-semibold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-            color: $background-color;
         }
     }
 
-    p {
-        @include m.text-p1;
+    &__doc-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            display: flex;
+            align-items: center;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: $text-primary;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: $background-hover;
+
+                svg path {
+                    fill: #48AE5A;
+                }
+            }
+        }
+    }
+
+    &__doc-icon {
+        width: 20px;
+        height: 25px;
+
+        svg path {
+            fill: $text-secondary;
+        }
     }
 
     &__site-nav {
@@ -96,10 +106,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-
-    .aam_link-button {
-        margin-bottom: 50px;
     }
 
     .secondary-link {
@@ -115,14 +121,14 @@
         &:hover {
             svg {
                 scale: 1.07;
-            }
 
-            svg path {
-                fill: #48AE5A;
-            }
+                path {
+                    fill: #48AE5A;
+                }
 
-            svg circle {
-                stroke: #48AE5A;
+                circle {
+                    stroke: #48AE5A;
+                }
             }
         }
     }

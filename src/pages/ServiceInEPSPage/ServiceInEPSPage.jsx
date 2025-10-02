@@ -14,7 +14,7 @@ function SignAndResign() {
   return (
     <>
       <Helmet>
-        <title>{t('pageTitles.signAndResign')}</title>
+        <title>{t('pageTitles.serviceInEPS')}</title>
         <meta name="description" content="Описание компании Берлио" />
         <meta name="keywords" content="Берлио, Новости" />
         <meta name="author" content="AndreiMikheikin" />

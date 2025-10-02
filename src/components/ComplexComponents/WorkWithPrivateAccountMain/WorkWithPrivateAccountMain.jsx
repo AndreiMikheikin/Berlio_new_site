@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import CardBox from '../../CardBox/CardBox';
-import ServiceCard from '../../ServiceCard/ServiceCard';
 import LinkButton from '../../LinkButton/LinkButton';
 import PdfIcon from '../../SVGIcons/PdfIcon';
 import InfoIcon from '../../SVGIcons/InfoIcon';
@@ -94,52 +93,30 @@ function WorkWithPrivateAccountMain() {
       </div>
 
       <div className="aam_work-with-private-account__container">
-        <strong className="aam_work-with-private-account__container--text">{t('workWithPrivateAccount.middleDescriptinon')}</strong>
+        <strong className="aam_work-with-private-account__container--text">
+          {t('workWithPrivateAccount.middleDescriptinon')}
+        </strong>
 
-        <ServiceCard
-          className="aam_work-with-private-account__container--service-card"
-          Icon={PdfIcon}
-          title={t('workWithPrivateAccount.cardTitle1')}
-          description=""
-          link={`${baseUrl}/assets/documents/Заявление об изменении (смены) номера мобильного телефона «Мастер-телефон» .pdf`}
-          onClick={() => handleLinkClick(
-            t('workWithPrivateAccount.cardTitle1'),
-            `${baseUrl}/assets/documents/Заявление об изменении (смены) номера мобильного телефона «Мастер-телефон» .pdf`,
-          )}
-        />
-        <ServiceCard
-          className="aam_work-with-private-account__container--service-card"
-          Icon={PdfIcon}
-          title={t('workWithPrivateAccount.cardTitle2')}
-          description=""
-          link={`${baseUrl}/assets/documents/Заявление об установлении суточной, месячной нормы, категории, приоритета электронной карты (категории).pdf`}
-          onClick={() => handleLinkClick(
-            t('workWithPrivateAccount.cardTitle2'),
-            `${baseUrl}/assets/documents/Заявление об установлении суточной, месячной нормы, категории, приоритета электронной карты (категории).pdf`,
-          )}
-        />
-        <ServiceCard
-          className="aam_work-with-private-account__container--service-card"
-          Icon={PdfIcon}
-          title={t('workWithPrivateAccount.cardTitle3')}
-          description=""
-          link={`${baseUrl}/assets/documents/Заявление об установлении суточной, месячной нормы, категории, приоритета электронной карты (нормы).pdf`}
-          onClick={() => handleLinkClick(
-            t('workWithPrivateAccount.cardTitle3'),
-            `${baseUrl}/assets/documents/Заявление об установлении суточной, месячной нормы, категории, приоритета электронной карты (нормы).pdf`,
-          )}
-        />
-        <ServiceCard
-          className="aam_work-with-private-account__container--service-card"
-          Icon={PdfIcon}
-          title={t('workWithPrivateAccount.cardTitle4')}
-          description=""
-          link={`${baseUrl}/assets/documents/Заявление об установлении суточной, месячной нормы, категории, приоритета электронной карты (приоритет).pdf`}
-          onClick={() => handleLinkClick(
-            t('workWithPrivateAccount.cardTitle4'),
-            `${baseUrl}/assets/documents/Заявление об установлении суточной, месячной нормы, категории, приоритета электронной карты (приоритет).pdf`,
-          )}
-        />
+        <ul className="aam_work-with-private-account__container--doc-list">
+          {[
+            
+          ].map(({ title, link }) => (
+            <li key={title}>
+              <a
+                href={link}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick(title, link);
+                }}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <PdfIcon className="aam_work-with-private-account__container--doc-icon" />
+                <span>{title}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
 
       {/* Navigation */}

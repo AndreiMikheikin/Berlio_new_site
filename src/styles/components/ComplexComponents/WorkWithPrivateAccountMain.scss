@@ -2,169 +2,190 @@
 @use '../../mixins' as m;
 
 .aam_work-with-private-account {
-    position: relative;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  width: 1280px;
+  padding: 60px 50px;
+
+  &__breadcrumbs {
+    @include m.text-p1;
+    color: $text-disabled;
+    margin-bottom: 15px;
+
+    a {
+      color: $background-color;
+      text-decoration: none;
+
+      &:hover {
+        color: $background-hover;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__header {
+    @include m.heading-h1;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    @include m.text-p1;
+    margin-bottom: 35px;
+
+    strong {
+      display: block; // чтобы margin-bottom работал
+      margin-bottom: 15px;
+    }
+
+    ol {
+      padding-left: 20px;
+
+      li {
+        list-style-type: decimal;
+        list-style-position: inside;
+        margin-left: 15px;
+      }
+    }
+  }
+
+  &__sections {
+    @include m.heading-h2;
+    margin-bottom: 15px;
+  }
+
+  &__card-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
+    margin-bottom: 35px;
+  }
+
+  &__card-box {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 15px;
-    width: 1280px;
-    padding: 60px 50px;
+    width: 30%;
+    padding: 20px;
+  }
 
-    &__breadcrumbs {
-        @include m.text-p1;
-        color: $text-disabled;
-        margin-bottom: 15px;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 35px;
+
+    &--text {
+      @include m.text-p1;
+      font-weight: $font-weight-semibold;
+    }
+
+    &--doc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: flex;
+        align-items: center;
 
         a {
-            color: $background-color;
-            text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          text-decoration: none;
+          color: $text-primary;
+          transition: color 0.2s ease, transform 0.2s ease;
 
-            &:hover {
-                color: $background-hover;
-                text-decoration: underline;
-            }
-        }
-    }
+          &:hover {
+            color: $background-hover;
 
-    &__header {
-        @include m.heading-h1;
-        word-wrap: break-word;
-        margin-bottom: 10px;
-    }
-
-    &__description {
-        @include m.text-p1;
-        margin-bottom: 35px;
-
-        strong {
-            margin-bottom: 15px;
-        }
-
-        ol li {
-            list-style-type: decimal;
-            list-style-position: inside;
-            margin-left: 15px;
-        }
-    }
-
-    &__sections {
-        @include m.heading-h2;
-    }
-
-    &__text {
-        @include m.text-p2;
-    }
-
-    &__card-boxes {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 35px;
-    }
-
-    &__card-box{
-        align-self: flex-start;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-        width: 30%;
-        padding: 20px;
-    }
-
-    .aam_service-card {
-        gap: 15px;
-        width: 100%;
-        padding: 20px;
-
-        &__title {
-            @include m.heading-h4;
-            text-align: left;
-        }
-    }
-
-    &__container {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        justify-content: flex-start;
-
-        &--service-card {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-        }
-    }
-
-    &__icon {
-        margin-bottom: 10px;
-
-        svg {
-            width: 76px;
-            height: 76px;
-        }
-    }
-
-    &__card-title {
-        @include m.heading-h3;
-    }
-
-    &__card-description {
-        @include m.text-p1;
-        text-align: center;
-    }
-
-    &__site-nav {
-        position: relative;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .aam_link-button {
-        align-self: center;
-        margin-top: 60px;
-        margin-bottom: 50px;
-    }
-
-    .secondary-link {
-        @include m.text-p2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-        color: $text-secondary;
-        transition: scale 0.3s ease;
-
-        &:hover {
             svg {
-                scale: 1.07;
+              transform: scale(1.07);
             }
 
             svg path {
-                fill: #48AE5A;
+              fill: #48AE5A;
             }
+          }
 
-            svg circle {
-                stroke: #48AE5A;
-            }
+          span {
+            @include m.text-p1;
+          }
         }
+      }
     }
 
-    .home-link {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        @include m.text-p2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        text-decoration: none;
-        color: $text-secondary;
+    &--doc-icon {
+      width: 20px;
+      height: 25px;
+
+      svg path {
+        fill: $text-secondary;
+      }
     }
+  }
+
+  &__site-nav {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .aam_link-button {
+    align-self: center;
+    margin-top: 60px;
+    margin-bottom: 50px;
+  }
+
+  .secondary-link {
+    @include m.text-p2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: $text-secondary;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      svg {
+        transform: scale(1.07);
+      }
+
+      svg path {
+        fill: #48AE5A;
+      }
+
+      svg circle {
+        stroke: #48AE5A;
+      }
+    }
+  }
+
+  .home-link {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    @include m.text-p2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: $text-secondary;
+  }
 }

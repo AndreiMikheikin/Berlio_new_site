@@ -5,6 +5,7 @@ import LinkButton from '../../LinkButton/LinkButton';
 import LeftArrowIcon from '../../SVGIcons/LeftArrowIcon';
 import NavigationDropdown from '../../NavigationDropdown/NavigationDropdown';
 import UpArrowInCircleIcon from '../../SVGIcons/UpArrowInCircleIcon';
+import docSign from '/assets/images/docSign.jpg';
 import '../../../styles/components/ComplexComponents/SignAndResignSection.scss';
 
 function SignAndResignSection() {
@@ -14,6 +15,19 @@ function SignAndResignSection() {
   const [dropdownPositions, setDropdownPositions] = useState({});
 
   const dropdownRefs = useRef({});
+
+  const handlePdfClick = (title, link) => {
+    const linkElement = document.createElement('a');
+    linkElement.href = link;
+    linkElement.download = title.endsWith('.pdf') ? title : `${title}.pdf`; // Добавляем расширение, если его нет
+    document.body.appendChild(linkElement);
+    linkElement.click();
+    document.body.removeChild(linkElement);
+  };
+
+  const handleLinkClick = (link) => {
+    window.open(link, '_blank', 'noopener,noreferrer');
+  };
 
   // Запоминаем позиции dropdown после рендера
   useEffect(() => {
@@ -46,7 +60,7 @@ function SignAndResignSection() {
       } else {
         // Первый закрыт → корректируем, но вычитаем высоту второго
         offset = dropdownPositions[2] - dropdownPositions[1]
-        + window.scrollY - secondDropdownHeight;
+          + window.scrollY - secondDropdownHeight;
       }
 
       // Выполняем прокрутку
@@ -58,19 +72,34 @@ function SignAndResignSection() {
   const baseUrl = isProduction ? (process.env.PUBLIC_URL || '') : '';
 
   return (
-    <section className="aam_sign-and-resign-section">
+    <main className="aam_sign-and-resign-section">
+
+      {/* Breadcrumbs */}
+      <div className="aam_sign-and-resign-section__breadcrumbs">
+        <Link to="/">{t('breadCrumbs.home')}</Link>
+        {' '}
+        /
+        {' '}
+        <Link to="/clients">{t('breadCrumbs.forClients')}</Link>
+        {' '}
+        /
+        {' '}
+        {t('breadCrumbs.signAndResign')}
+      </div>
+
       {/* Заголовок */}
-      <h2 className="aam_sign-and-resign-section__title">
-        {t('signAndResignSection.name')}
-      </h2>
+      <h1 className="aam_sign-and-resign-section__title">
+        {t('signAndResignSection.nameOLD')} {/* временно */}
+        {/* {t('signAndResignSection.name')} */}
+      </h1>
 
       {/* Описание */}
-      <p className="aam_sign-and-resign-section__description">
+      {/* <p className="aam_sign-and-resign-section__description">
         {t('signAndResignSection.description')}
-      </p>
+      </p> */}
 
       {/* Варианты оформления с выпадающими списками */}
-      <div
+      {/* <div
         className="aam_sign-and-resign-section__dropdown-section"
         ref={(el) => { dropdownRefs.current[1] = el; }}
       >
@@ -156,17 +185,175 @@ function SignAndResignSection() {
             <li>{t('signAndResignSection.customerServiceSignList.item7')}</li>
           </ul>
         </div>
+      </div> */}
+
+      {/* Описание временное */}
+      <div className="aam_sign-and-resign-section__description">
+        <p>{t('signAndResignSection.descriptionOLD.item1')}</p>
+
+        <ol>
+          <li>
+            <strong>{t('signAndResignSection.descriptionOLD.item2')}</strong>
+            {t('signAndResignSection.descriptionOLD.item3')}
+          </li>
+          <li>
+            <strong>{t('signAndResignSection.descriptionOLD.item4')}</strong>
+            {t('signAndResignSection.descriptionOLD.item5')}
+          </li>
+        </ol>
+
+        <p>
+          <strong>{t('signAndResignSection.descriptionOLD.item6')}</strong>
+          {t('signAndResignSection.descriptionOLD.item7')}
+          <strong>{t('signAndResignSection.descriptionOLD.item8')}</strong>
+          {t('signAndResignSection.descriptionOLD.item9')}
+          <a
+            href="https://belgazprombank.by/about/bankomaty_i_ofisy/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://belgazprombank.by
+          </a>
+        </p>
+
+        <img src={docSign} alt={t('signAndResignSection.descriptionOLD.item9-5')} title={t('signAndResignSection.descriptionOLD.item9-5')} className="aam_sign-and-resign-section__image" />
+        <ul>
+          <li>
+            <strong>{t('signAndResignSection.descriptionOLD.item10')}</strong>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick(
+                      "/assets/documents/Договор присоединения Клиента к обслуживанию в электронной платежной системе «Берлио».pdf"
+                    );
+                  }}
+                >
+                  {t('signAndResignSection.descriptionOLD.item10-5')}
+                </a>
+                {' '}
+                {t('signAndResignSection.descriptionOLD.item11')}
+              </li>
+              <li>{t('signAndResignSection.descriptionOLD.item12')}</li>
+              <li>{t('signAndResignSection.descriptionOLD.item13')}</li>
+              <li>
+                {t('signAndResignSection.descriptionOLD.item14')}
+                {' '}
+                <a
+                  href='#docs'
+                >
+                  {t('signAndResignSection.descriptionOLD.item14-1')}
+                </a>
+                {' '}
+                {t('signAndResignSection.descriptionOLD.item14-2')}
+              </li>
+              <li>
+                {t('signAndResignSection.descriptionOLD.item15')}
+                {/* О договоре присоединения */}
+                <p className="aam_sign-and-resign-section__deal-fact">
+                  <strong>{t('signAndResignSection.dealFact')}</strong>
+                </p>
+                <ul>
+                  <li>{t('signAndResignSection.dealFactList.item1')}</li>
+                  <li>{t('signAndResignSection.dealFactList.item2')}</li>
+                  <li>{t('signAndResignSection.dealFactList.item3')}</li>
+                </ul>
+              </li>
+
+            </ul>
+          </li>
+
+          <li>
+            <strong id='docs'>{t('signAndResignSection.descriptionOLD.item16')}</strong>
+            <ul>
+              <li>
+                {t('signAndResignSection.descriptionOLD.item17')}
+                {' '}
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick(
+                      "/assets/documents/Договор присоединения Клиента к обслуживанию в электронной платежной системе «Берлио».pdf"
+                    );
+                  }}
+                >
+                  {t('signAndResignSection.descriptionOLD.item17-1')}
+                </a>
+              </li>
+              <li>{t('signAndResignSection.descriptionOLD.item18')}</li>
+              <li>{t('signAndResignSection.descriptionOLD.item19')}</li>
+              <li>{t('signAndResignSection.descriptionOLD.item20')}</li>
+              <li>{t('signAndResignSection.descriptionOLD.item21')}</li>
+              <li>{t('signAndResignSection.descriptionOLD.item22')}</li>
+              <li>{t('signAndResignSection.descriptionOLD.item23')}</li>
+              <li>
+                {t('signAndResignSection.descriptionOLD.item24')}
+                {' '}
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handlePdfClick(
+                      "Согласие на получение документов в электронном виде с ЭЦП.pdf",
+                      "/assets/documents/Согласие на получение документов в электронном виде с ЭЦП.pdf"
+                    );
+                  }}
+                >
+                  {t('signAndResignSection.descriptionOLD.item24-5')}
+                </a>
+              </li>
+              <li>
+                {t('signAndResignSection.descriptionOLD.item25')}
+                {' '}
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handlePdfClick(
+                      "Заявление на внесение изменений в личном кабинете.pdf",
+                      "/assets/documents/Заявление на внесение изменений в личном кабинете.pdf"
+                    );
+                  }}
+                >
+                  {t('signAndResignSection.descriptionOLD.item25-5')}
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <strong className="aam_sign-and-resign-section__asside">{t('signAndResignSection.descriptionOLD.item26')}</strong>
+          </li>
+
+          <li>
+            <strong>{t('signAndResignSection.descriptionOLD.item27')}</strong>
+            <ul>
+              <li>
+                <a
+                  href="https://belgazprombank.by/korporativnim_klientam/raschetno_kassovoe_obsluzhivani/berlio-ur/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://belgazprombank.by/korporativnim_klientam/raschetno_kassovoe_obsluzhivani/berlio-ur/
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
 
       {/* О договоре присоединения */}
-      <div className="aam_sign-and-resign-section__deal-fact">
+      {/* <div className="aam_sign-and-resign-section__deal-fact">
         <strong>{t('signAndResignSection.dealFact')}</strong>
         <ul>
           <li>{t('signAndResignSection.dealFactList.item1')}</li>
           <li>{t('signAndResignSection.dealFactList.item2')}</li>
           <li>{t('signAndResignSection.dealFactList.item3')}</li>
         </ul>
-      </div>
+      </div> */}
 
       {/* footer секции */}
       <p className="aam_sign-and-resign-section__footer">
@@ -211,7 +398,7 @@ function SignAndResignSection() {
           {t('signAndResignSection.upLink')}
         </button>
       </div>
-    </section>
+    </main>
   );
 }
 

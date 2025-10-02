@@ -1,0 +1,118 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_legislation-main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 1280px;
+    padding: 60px 50px;
+
+    &__breadcrumbs {
+        @include m.text-p1;
+        color: $text-disabled;
+        margin-bottom: 15px;
+
+        a {
+            color: $background-color;
+            text-decoration: none;
+
+            &:hover {
+                color: $background-hover;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__header {
+        @include m.heading-h1;
+        margin-bottom: 35px;
+    }
+
+    &__list-title {
+        @include m.heading-h3;
+        margin-bottom: 20px;
+    }
+
+    &__doc-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px 0;
+        padding: 0;
+        list-style: none;
+        margin-bottom: 60px;
+
+        li {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: $text-primary;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: $background-hover;
+            }
+        }
+    }
+
+    &__doc-icon {
+        display: block;
+        width: 20px;
+        height: 25px;
+        flex-shrink: 0;
+    }
+
+    &__site-nav {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .secondary-link {
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: $text-secondary;
+        transition: scale 0.3s ease;
+
+        &:hover {
+            svg {
+                scale: 1.07;
+
+                path {
+                    fill: #48AE5A;
+                }
+
+                circle {
+                    stroke: #48AE5A;
+                }
+            }
+        }
+    }
+
+    .home-link {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+        color: $text-secondary;
+    }
+}
