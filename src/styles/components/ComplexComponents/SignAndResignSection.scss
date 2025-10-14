@@ -134,6 +134,37 @@
         }
     }
 
+    &__contacts {
+        position: relative;
+        width: 100%;
+
+        &-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: $font-family-tertiary;
+            margin-top: -15px;
+        }
+
+        &-table th,
+        &-table td {
+            border: 1px solid $border-secondary;
+            padding: 10px 14px;
+            vertical-align: top;
+            @include m.text-p1;
+        }
+
+        &-table th {
+            @include m.text-p2;
+            font-weight: $font-weight-bold;
+            text-align: left;
+            padding: 20px 14px;
+        }
+
+        &-table thead {
+            background-color: $text-quaternary;
+        }
+    }
+
     &__image {
         width: 1180px;
         border-radius: 10px;

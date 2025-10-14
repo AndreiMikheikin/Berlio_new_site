@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import Deps from '../../../data/departmentAdresses.json';
 import LinkButton from '../../LinkButton/LinkButton';
 import LeftArrowIcon from '../../SVGIcons/LeftArrowIcon';
 import NavigationDropdown from '../../NavigationDropdown/NavigationDropdown';
@@ -67,6 +68,11 @@ function SignAndResignSection() {
       window.scrollTo({ top: offset, behavior: 'smooth' });
     }
   };
+
+  const replacePlaceholders = (phone) =>
+    phone
+      .replace("{{fax}}", t("fax"))
+      .replace("{{telFax}}", t("telFax"));
 
   const isProduction = process.env.NODE_ENV === 'production';
   const baseUrl = isProduction ? (process.env.PUBLIC_URL || '') : '';
@@ -222,6 +228,8 @@ function SignAndResignSection() {
             <strong>{t('signAndResignSection.descriptionOLD.item10')}</strong>
             <ul>
               <li>
+                {t('signAndResignSection.descriptionOLD.item10-5')}
+                {' '}
                 <a
                   href="#"
                   onClick={(e) => {
@@ -231,7 +239,28 @@ function SignAndResignSection() {
                     );
                   }}
                 >
-                  {t('signAndResignSection.descriptionOLD.item10-5')}
+                  {t('signAndResignSection.descriptionOLD.item10-6')}
+                </a>
+                {' '}
+                {t('signAndResignSection.descriptionOLD.item10-7')}
+                {' '}
+                <a
+                  href="/clients/ServiceInEPS#LPADocs">
+                  {t('signAndResignSection.descriptionOLD.item10-8')}
+                </a>
+                {' '}
+                {t('signAndResignSection.descriptionOLD.item10-9')}
+                {' , '}
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick(
+                      "/assets/documents/Заявление о присоединении к договору присоединения (общая форма).pdf"
+                    );
+                  }}
+                >
+                  {t('signAndResignSection.descriptionOLD.item10-10')}
                 </a>
                 {' '}
                 {t('signAndResignSection.descriptionOLD.item11')}
@@ -321,6 +350,9 @@ function SignAndResignSection() {
                   {t('signAndResignSection.descriptionOLD.item25-5')}
                 </a>
               </li>
+              <li>
+                {t('signAndResignSection.descriptionOLD.item25-6')}
+              </li>
             </ul>
           </li>
 
@@ -342,7 +374,39 @@ function SignAndResignSection() {
               </li>
             </ul>
           </li>
+          <li><strong>{t('signAndResignSection.descriptionOLD.item28')}</strong></li>
         </ul>
+
+        <div className="aam_sign-and-resign-section__contacts">
+          <table className="aam_sign-and-resign-section__contacts-table">
+            <thead>
+              <tr>
+                <th>{t('signAndResignSection.table.thead1')}</th>
+                <th>{t('signAndResignSection.table.thead2')}</th>
+                <th>{t('signAndResignSection.table.thead3')}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Deps.map((dep) => (
+                <tr key={dep.id}>
+                  <td>
+                    <strong>{t(dep.departmentsName)}</strong>
+                    <br />
+                    {t('pageTitles./')}
+                    <br />
+                    {t(dep.footerAddress)}
+                  </td>
+                  <td>
+                    {dep.phoneNumber.map((phone, i) => (
+                      <div key={i}>{replacePlaceholders(phone)}</div>
+                    ))}
+                  </td>
+                  <td>{dep.email?.[1] || "—"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/* О договоре присоединения */}
@@ -371,9 +435,9 @@ function SignAndResignSection() {
       </p>
 
       {/* Кнопка перехода на сайт */}
-      <LinkButton href={`${baseUrl}/contacts`} target="_self" className="green">
+      {/* <LinkButton href={`${baseUrl}/contacts`} target="_self" className="green">
         {t('signAndResignSection.contactsLink')}
-      </LinkButton>
+      </LinkButton> */}
 
       {/* Кнопки навигации по сайту */}
       <div className="aam_sign-and-resign-section__site-nav">

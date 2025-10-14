@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import useScrollToHash from '../../../hooks/scrollToHash';
 import PdfIcon from '../../SVGIcons/PdfIcon';
 import LeftArrowIcon from '../../SVGIcons/LeftArrowIcon';
 import UpArrowInCircleIcon from '../../SVGIcons/UpArrowInCircleIcon';
@@ -8,6 +9,7 @@ import GlobeIcon from '../../SVGIcons/GlobeIcon';
 import '../../../styles/components/ComplexComponents/SignAndResignMain.scss';
 
 function ServiceInEPS() {
+  useScrollToHash();
   const { t } = useTranslation();
 
   const handleLinkClick = (title, link) => {
@@ -151,7 +153,7 @@ function ServiceInEPS() {
       </div>
 
       {/* Documents */}
-      <div className="aam_sign-and-resign__documents">
+      <div id="LPADocs" className="aam_sign-and-resign__documents">
         <h2 className="aam_sign-and-resign__documents-title">{t('signAndResignMain.documentsTitle')}</h2>
 
         <div className="aam_sign-and-resign__operator-documents">
