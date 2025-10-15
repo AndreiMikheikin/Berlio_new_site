@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Deps from '../../../data/departmentAdresses.json';
+import PdfIcon from '../../SVGIcons/PdfIcon';
 import LinkButton from '../../LinkButton/LinkButton';
 import LeftArrowIcon from '../../SVGIcons/LeftArrowIcon';
 import NavigationDropdown from '../../NavigationDropdown/NavigationDropdown';
@@ -296,7 +297,28 @@ function SignAndResignSection() {
 
           <li>
             <strong id='docs'>{t('signAndResignSection.descriptionOLD.item16')}</strong>
-            <ul>
+
+            <ul className="aam_sign-and-resign-section__doc-list">
+              <li>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handlePdfClick(
+                      t('documentsForDownloadMain.lsts.cardTitle1'),
+                      `${baseUrl}/assets/documents/Список документов для заключения Договора присоединения.pdf`
+                    );
+                  }}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <PdfIcon className="aam_sign-and-resign-section__doc-icon" />
+                  <span>{t('documentsForDownloadMain.lsts.cardTitle1')}</span>
+                </a>
+              </li>
+            </ul>
+
+            {/* <ul>
               <li>
                 {t('signAndResignSection.descriptionOLD.item17')}
                 {' '}
@@ -353,11 +375,7 @@ function SignAndResignSection() {
               <li>
                 {t('signAndResignSection.descriptionOLD.item25-6')}
               </li>
-            </ul>
-          </li>
-
-          <li>
-            <strong className="aam_sign-and-resign-section__asside">{t('signAndResignSection.descriptionOLD.item26')}</strong>
+            </ul> */}
           </li>
 
           <li>
@@ -407,6 +425,9 @@ function SignAndResignSection() {
             </tbody>
           </table>
         </div>
+
+        <strong className="aam_sign-and-resign-section__asside">{t('signAndResignSection.descriptionOLD.item26')}</strong>
+
       </div>
 
       {/* О договоре присоединения */}
@@ -420,7 +441,7 @@ function SignAndResignSection() {
       </div> */}
 
       {/* footer секции */}
-      <p className="aam_sign-and-resign-section__footer">
+      {/* <p className="aam_sign-and-resign-section__footer">
         <strong>
           {t('signAndResignSection.footer.beforeTel')}
           {' '}
@@ -432,7 +453,7 @@ function SignAndResignSection() {
           .
           {t('signAndResignSection.footer.afterTel')}
         </strong>
-      </p>
+      </p> */}
 
       {/* Кнопка перехода на сайт */}
       {/* <LinkButton href={`${baseUrl}/contacts`} target="_self" className="green">

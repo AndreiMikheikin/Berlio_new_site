@@ -43,7 +43,7 @@ function ForClientsMain() {
   return (
     <div className="aam_for-clients-main">
       {/* Breadcrumbs */}
-      <div className="aam_about-block__breadcrumbs">
+      <div className="aam_for-clients-main__breadcrumbs">
         <Link to="/">{t('breadCrumbs.home')}</Link>
         /
         {t('breadCrumbs.forClients')}
@@ -69,7 +69,7 @@ function ForClientsMain() {
               target: link.href.startsWith('http') ? '_blank' : '_self',
               rel: link.href.startsWith('http') ? 'noopener noreferrer' : undefined,
             })) : []}
-            customClass={`clientsCard-${cardData.title.replace(/\s+/g, '-')}`} // Можно сделать кастомный класс на основе title
+            customClass={`clientsCard-${cardData.title.replace(/\s+/g, '-').replace(/[^\w-]/g, '')}`} // Можно сделать кастомный класс на основе title
             loading="lazy"
           />
         ))}

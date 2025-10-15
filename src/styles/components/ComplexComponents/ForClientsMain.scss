@@ -42,18 +42,25 @@
         flex-wrap: wrap;
         gap: 5px;
         justify-content: space-between;
+
+        .clientsCard-forClientsMainclientInfotitle1 .aam_information-card__hover-overlay {
+            padding: 80px 8px;
+        }
+
+        .clientsCard-forClientsMainclientInfotitle2 .aam_information-card__hover-overlay {
+            padding: 170px 27px;
+        }
+
+        .clientsCard-forClientsMainclientInfotitle3 .aam_information-card__hover-overlay {
+            padding: 170px 13px;
+        }
+
+        .clientsCard-forClientsMainclientInfotitle4 .aam_information-card__hover-overlay {
+            padding: 90px 26px;
+
+            a:first-of-type {
+                display: none;
+            }
+        }
     }
 }
-
-.aam_information-card.clientsCard-1 .aam_information-card__hover-overlay {
-    padding: 80px 8px;
-  }
-  .aam_information-card.clientsCard-2 .aam_information-card__hover-overlay {
-    padding: 170px 27px;
-  }
-  .aam_information-card.clientsCard-3 .aam_information-card__hover-overlay {
-    padding: 170px 13px;
-  }
-  .aam_information-card.clientsCard-4 .aam_information-card__hover-overlay {
-    padding: 90px 26px;
-  }

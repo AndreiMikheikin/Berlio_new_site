@@ -3,6 +3,7 @@ import { H as Helmet } from "./entry-server.js";
 import { useTranslation } from "react-i18next";
 import { D as DepartmentAdresses, H as Header, N as Navigation, S as SearchInput, F as Footer, a as SecondaryFooter } from "./SecondaryFooter.js";
 import { L as Link } from "./index.js";
+import { P as PdfIcon } from "./PdfIcon.js";
 import { L as LeftArrowIcon } from "./LeftArrowIcon.js";
 import { U as UpArrowInCircleIcon } from "./UpArrowInCircleIcon.js";
 import "react-dom/server";
@@ -43,7 +44,7 @@ function SignAndResignSection() {
   }, []);
   const replacePlaceholders = (phone) => phone.replace("{{fax}}", t("fax")).replace("{{telFax}}", t("telFax"));
   const isProduction = process.env.NODE_ENV === "production";
-  isProduction ? process.env.PUBLIC_URL || "" : "";
+  const baseUrl = isProduction ? process.env.PUBLIC_URL || "" : "";
   return /* @__PURE__ */ React__default.createElement("main", { className: "aam_sign-and-resign-section" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_sign-and-resign-section__breadcrumbs" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/" }, t("breadCrumbs.home")), " ", "/", " ", /* @__PURE__ */ React__default.createElement(Link, { to: "/clients" }, t("breadCrumbs.forClients")), " ", "/", " ", t("breadCrumbs.signAndResign")), /* @__PURE__ */ React__default.createElement("h1", { className: "aam_sign-and-resign-section__title" }, t("signAndResignSection.nameOLD"), " "), /* @__PURE__ */ React__default.createElement("div", { className: "aam_sign-and-resign-section__description" }, /* @__PURE__ */ React__default.createElement("p", null, t("signAndResignSection.descriptionOLD.item1")), /* @__PURE__ */ React__default.createElement("ol", null, /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement("strong", null, t("signAndResignSection.descriptionOLD.item2")), t("signAndResignSection.descriptionOLD.item3")), /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement("strong", null, t("signAndResignSection.descriptionOLD.item4")), t("signAndResignSection.descriptionOLD.item5"))), /* @__PURE__ */ React__default.createElement("p", null, /* @__PURE__ */ React__default.createElement("strong", null, t("signAndResignSection.descriptionOLD.item6")), t("signAndResignSection.descriptionOLD.item7"), /* @__PURE__ */ React__default.createElement("strong", null, t("signAndResignSection.descriptionOLD.item8")), t("signAndResignSection.descriptionOLD.item9"), /* @__PURE__ */ React__default.createElement(
     "a",
     {
@@ -88,45 +89,23 @@ function SignAndResignSection() {
       href: "#docs"
     },
     t("signAndResignSection.descriptionOLD.item14-1")
-  ), " ", t("signAndResignSection.descriptionOLD.item14-2")), /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.descriptionOLD.item15"), /* @__PURE__ */ React__default.createElement("p", { className: "aam_sign-and-resign-section__deal-fact" }, /* @__PURE__ */ React__default.createElement("strong", null, t("signAndResignSection.dealFact"))), /* @__PURE__ */ React__default.createElement("ul", null, /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.dealFactList.item1")), /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.dealFactList.item2")), /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.dealFactList.item3")))))), /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement("strong", { id: "docs" }, t("signAndResignSection.descriptionOLD.item16")), /* @__PURE__ */ React__default.createElement("ul", null, /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.descriptionOLD.item17"), " ", /* @__PURE__ */ React__default.createElement(
-    "a",
-    {
-      href: "#",
-      onClick: (e) => {
-        e.preventDefault();
-        handleLinkClick(
-          "/assets/documents/Договор присоединения Клиента к обслуживанию в электронной платежной системе «Берлио».pdf"
-        );
-      }
-    },
-    t("signAndResignSection.descriptionOLD.item17-1")
-  )), /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.descriptionOLD.item18")), /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.descriptionOLD.item19")), /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.descriptionOLD.item20")), /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.descriptionOLD.item21")), /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.descriptionOLD.item22")), /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.descriptionOLD.item23")), /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.descriptionOLD.item24"), " ", /* @__PURE__ */ React__default.createElement(
+  ), " ", t("signAndResignSection.descriptionOLD.item14-2")), /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.descriptionOLD.item15"), /* @__PURE__ */ React__default.createElement("p", { className: "aam_sign-and-resign-section__deal-fact" }, /* @__PURE__ */ React__default.createElement("strong", null, t("signAndResignSection.dealFact"))), /* @__PURE__ */ React__default.createElement("ul", null, /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.dealFactList.item1")), /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.dealFactList.item2")), /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.dealFactList.item3")))))), /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement("strong", { id: "docs" }, t("signAndResignSection.descriptionOLD.item16")), /* @__PURE__ */ React__default.createElement("ul", { className: "aam_sign-and-resign-section__doc-list" }, /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement(
     "a",
     {
       href: "#",
       onClick: (e) => {
         e.preventDefault();
         handlePdfClick(
-          "Согласие на получение документов в электронном виде с ЭЦП.pdf",
-          "/assets/documents/Согласие на получение документов в электронном виде с ЭЦП.pdf"
+          t("documentsForDownloadMain.lsts.cardTitle1"),
+          `${baseUrl}/assets/documents/Список документов для заключения Договора присоединения.pdf`
         );
-      }
+      },
+      target: "_blank",
+      rel: "noreferrer"
     },
-    t("signAndResignSection.descriptionOLD.item24-5")
-  )), /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.descriptionOLD.item25"), " ", /* @__PURE__ */ React__default.createElement(
-    "a",
-    {
-      href: "#",
-      onClick: (e) => {
-        e.preventDefault();
-        handlePdfClick(
-          "Заявление на внесение изменений в личном кабинете.pdf",
-          "/assets/documents/Заявление на внесение изменений в личном кабинете.pdf"
-        );
-      }
-    },
-    t("signAndResignSection.descriptionOLD.item25-5")
-  )), /* @__PURE__ */ React__default.createElement("li", null, t("signAndResignSection.descriptionOLD.item25-6")))), /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement("strong", { className: "aam_sign-and-resign-section__asside" }, t("signAndResignSection.descriptionOLD.item26"))), /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement("strong", null, t("signAndResignSection.descriptionOLD.item27")), /* @__PURE__ */ React__default.createElement("ul", null, /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement(
+    /* @__PURE__ */ React__default.createElement(PdfIcon, { className: "aam_sign-and-resign-section__doc-icon" }),
+    /* @__PURE__ */ React__default.createElement("span", null, t("documentsForDownloadMain.lsts.cardTitle1"))
+  )))), /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement("strong", null, t("signAndResignSection.descriptionOLD.item27")), /* @__PURE__ */ React__default.createElement("ul", null, /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement(
     "a",
     {
       href: "https://belgazprombank.by/korporativnim_klientam/raschetno_kassovoe_obsluzhivani/berlio-ur/",
@@ -134,7 +113,7 @@ function SignAndResignSection() {
       rel: "noopener noreferrer"
     },
     "https://belgazprombank.by/korporativnim_klientam/raschetno_kassovoe_obsluzhivani/berlio-ur/"
-  )))), /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement("strong", null, t("signAndResignSection.descriptionOLD.item28")))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_sign-and-resign-section__contacts" }, /* @__PURE__ */ React__default.createElement("table", { className: "aam_sign-and-resign-section__contacts-table" }, /* @__PURE__ */ React__default.createElement("thead", null, /* @__PURE__ */ React__default.createElement("tr", null, /* @__PURE__ */ React__default.createElement("th", null, t("signAndResignSection.table.thead1")), /* @__PURE__ */ React__default.createElement("th", null, t("signAndResignSection.table.thead2")), /* @__PURE__ */ React__default.createElement("th", null, t("signAndResignSection.table.thead3")))), /* @__PURE__ */ React__default.createElement("tbody", null, DepartmentAdresses.map((dep) => /* @__PURE__ */ React__default.createElement("tr", { key: dep.id }, /* @__PURE__ */ React__default.createElement("td", null, /* @__PURE__ */ React__default.createElement("strong", null, t(dep.departmentsName)), /* @__PURE__ */ React__default.createElement("br", null), t("pageTitles./"), /* @__PURE__ */ React__default.createElement("br", null), t(dep.footerAddress)), /* @__PURE__ */ React__default.createElement("td", null, dep.phoneNumber.map((phone, i) => /* @__PURE__ */ React__default.createElement("div", { key: i }, replacePlaceholders(phone)))), /* @__PURE__ */ React__default.createElement("td", null, dep.email?.[1] || "—"))))))), /* @__PURE__ */ React__default.createElement("p", { className: "aam_sign-and-resign-section__footer" }, /* @__PURE__ */ React__default.createElement("strong", null, t("signAndResignSection.footer.beforeTel"), " ", /* @__PURE__ */ React__default.createElement("a", { href: "tel:+375 29 623 08 88" }, t("signAndResignSection.footer.tel1")), " ", t("signAndResignSection.footer.betweenTels"), " ", /* @__PURE__ */ React__default.createElement("a", { href: "tel:+375 17 210 00 00" }, t("signAndResignSection.footer.tel2")), ".", t("signAndResignSection.footer.afterTel"))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_sign-and-resign-section__site-nav" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/", className: "home-link" }, /* @__PURE__ */ React__default.createElement(LeftArrowIcon, { className: "icon" }), t("signAndResignSection.homeLink")), /* @__PURE__ */ React__default.createElement(
+  )))), /* @__PURE__ */ React__default.createElement("li", null, /* @__PURE__ */ React__default.createElement("strong", null, t("signAndResignSection.descriptionOLD.item28")))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_sign-and-resign-section__contacts" }, /* @__PURE__ */ React__default.createElement("table", { className: "aam_sign-and-resign-section__contacts-table" }, /* @__PURE__ */ React__default.createElement("thead", null, /* @__PURE__ */ React__default.createElement("tr", null, /* @__PURE__ */ React__default.createElement("th", null, t("signAndResignSection.table.thead1")), /* @__PURE__ */ React__default.createElement("th", null, t("signAndResignSection.table.thead2")), /* @__PURE__ */ React__default.createElement("th", null, t("signAndResignSection.table.thead3")))), /* @__PURE__ */ React__default.createElement("tbody", null, DepartmentAdresses.map((dep) => /* @__PURE__ */ React__default.createElement("tr", { key: dep.id }, /* @__PURE__ */ React__default.createElement("td", null, /* @__PURE__ */ React__default.createElement("strong", null, t(dep.departmentsName)), /* @__PURE__ */ React__default.createElement("br", null), t("pageTitles./"), /* @__PURE__ */ React__default.createElement("br", null), t(dep.footerAddress)), /* @__PURE__ */ React__default.createElement("td", null, dep.phoneNumber.map((phone, i) => /* @__PURE__ */ React__default.createElement("div", { key: i }, replacePlaceholders(phone)))), /* @__PURE__ */ React__default.createElement("td", null, dep.email?.[1] || "—")))))), /* @__PURE__ */ React__default.createElement("strong", { className: "aam_sign-and-resign-section__asside" }, t("signAndResignSection.descriptionOLD.item26"))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_sign-and-resign-section__site-nav" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/", className: "home-link" }, /* @__PURE__ */ React__default.createElement(LeftArrowIcon, { className: "icon" }), t("signAndResignSection.homeLink")), /* @__PURE__ */ React__default.createElement(
     "button",
     {
       type: "button",

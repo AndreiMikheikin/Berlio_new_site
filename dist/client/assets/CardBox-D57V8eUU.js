@@ -1,2 +1,0 @@
-import{j as e,P as s}from"./index-BcP1mcEX.js";function d({CSSSelectorPrefix:i,Icon:r,title:a,description:n=""}){return e.jsxs("div",{className:`${i}__card-box`,children:[r&&e.jsx("div",{className:`${i}__icon`,children:e.jsx(r,{})}),e.jsx("h3",{className:`${i}__card-title`,children:a}),n&&e.jsx("div",{className:`${i}__card-description`,children:n})]})}d.propTypes={Icon:s.elementType,title:s.string.isRequired,description:s.oneOfType([s.string,s.node]),CSSSelectorPrefix:s.string.isRequired};export{d as C};
-//# sourceMappingURL=CardBox-D57V8eUU.js.map

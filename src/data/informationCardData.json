@@ -72,32 +72,28 @@
       "bg-image": "BG4",
       "links": [
         {
-          "href": "/clients/signAndResign",
+          "href": "/clients/serviceInEPS",
           "label": "forClientsMain.clientInfo.label1"
         },
         {
-          "href": "/clients/gettingElectronicCard",
+          "href": "/clients/forFuelPayments",
           "label": "forClientsMain.clientInfo.label2"
         },
         {
-          "href": "/clients/cardUsageRules",
+          "href": "/clients/signAndResign",
           "label": "forClientsMain.clientInfo.label3"
         },
         {
-          "href": "/clients/dealResignation",
+          "href": "/clients/documentsForDownload",
           "label": "forClientsMain.clientInfo.label4"
         },
         {
-          "href": "/clients/priceListsAndTariffs",
+          "href": "/clients/gettingElectronicCard",
           "label": "forClientsMain.clientInfo.label5"
         },
         {
           "href": "/clients/workWithPrivateAccount",
           "label": "forClientsMain.clientInfo.label6"
-        },
-        {
-          "href": "/clients/documentsForDownload",
-          "label": "forClientsMain.clientInfo.label7"
         }
       ]
     },
@@ -107,19 +103,23 @@
       "bg-image": "BG5",
       "links": [
         {
-          "href": "https://map.berlio.by",
+          "href": "/clients/tollRoadsService",
+          "label": "forClientsMain.clientInfo.label7"
+        },
+        {
+          "href": "/clients/tollRoadsPayment",
           "label": "forClientsMain.clientInfo.label8"
         },
         {
-          "href": "/clients/plasticCardUsageRules",
+          "href": "/clients/tollRoads",
           "label": "forClientsMain.clientInfo.label9"
         },
         {
-          "href": "/clients/tollRoads",
+          "href": "/clients/forFuelPayments",
           "label": "forClientsMain.clientInfo.label10"
         },
         {
-          "href": "/clients/forFuelPayments",
+          "href": "/clients/fuelCardsUsage",
           "label": "forClientsMain.clientInfo.label11"
         }
       ]
@@ -130,12 +130,16 @@
       "bg-image": "BG6",
       "links": [
         {
-          "href": "/clients/issuerRules",
+          "href": "/clients/legislation",
           "label": "forClientsMain.clientInfo.label12"
         },
         {
-          "href": "/clients/eMoneyRegulations",
+          "href": "/clients/reportIFR",
           "label": "forClientsMain.clientInfo.label13"
+        },
+        {
+          "href": "/clients/localActsInEPS",
+          "label": "forClientsMain.clientInfo.label14"
         }
       ]
     },
@@ -146,23 +150,23 @@
       "links": [
         {
           "href": "/equipment/berlioInternetClientApp",
-          "label": "forClientsMain.clientInfo.label14"
-        },
-        {
-          "href": "/equipment/berlioCardPayApp",
           "label": "forClientsMain.clientInfo.label15"
         },
         {
-          "href": "/equipment/smartPayApp",
+          "href": "/equipment/berlioCardPayApp",
           "label": "forClientsMain.clientInfo.label16"
         },
         {
-          "href": "/equipment/selfServiceCheckout",
+          "href": "/equipment/smartPayApp",
           "label": "forClientsMain.clientInfo.label17"
         },
         {
-          "href": "/equipment/personalAccWebApp",
+          "href": "/equipment/selfServiceCheckout",
           "label": "forClientsMain.clientInfo.label18"
+        },
+        {
+          "href": "/equipment/personalAccWebApp",
+          "label": "forClientsMain.clientInfo.label19"
         }
       ]
     }

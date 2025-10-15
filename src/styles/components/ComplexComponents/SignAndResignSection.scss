@@ -134,6 +134,45 @@
         }
     }
 
+    &__doc-list {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+
+        li {
+            display: flex;
+            align-items: center;
+
+            a {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                text-decoration: none;
+                color: $text-primary;
+                transition: color 0.2s ease;
+
+                &:hover {
+                    color: $background-hover;
+
+                    svg path {
+                        fill: #48AE5A;
+                    }
+                }
+            }
+        }
+    }
+
+    &__doc-icon {
+        position: relative;
+        width: 20px;
+        height: 25px;
+
+        svg path {
+            fill: $text-secondary;
+        }
+    }
+
     &__contacts {
         position: relative;
         width: 100%;

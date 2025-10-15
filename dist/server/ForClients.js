@@ -94,7 +94,7 @@ function ForClientsMain() {
   }, []);
   const isProduction = process.env.NODE_ENV === "production";
   const baseUrl = isProduction ? process.env.PUBLIC_URL || "" : "";
-  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_for-clients-main" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_about-block__breadcrumbs" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/" }, t("breadCrumbs.home")), "/", t("breadCrumbs.forClients")), /* @__PURE__ */ React__default.createElement("h1", { className: "aam_for-clients-main__title" }, t("forClientsMain.title")), /* @__PURE__ */ React__default.createElement("p", { className: "aam_for-clients-main__description" }, t("forClientsMain.description")), /* @__PURE__ */ React__default.createElement("div", { className: "aam_for-clients-main__cards" }, cards.map((cardData) => /* @__PURE__ */ React__default.createElement(
+  return /* @__PURE__ */ React__default.createElement("div", { className: "aam_for-clients-main" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_for-clients-main__breadcrumbs" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/" }, t("breadCrumbs.home")), "/", t("breadCrumbs.forClients")), /* @__PURE__ */ React__default.createElement("h1", { className: "aam_for-clients-main__title" }, t("forClientsMain.title")), /* @__PURE__ */ React__default.createElement("p", { className: "aam_for-clients-main__description" }, t("forClientsMain.description")), /* @__PURE__ */ React__default.createElement("div", { className: "aam_for-clients-main__cards" }, cards.map((cardData) => /* @__PURE__ */ React__default.createElement(
     InformationCard,
     {
       key: cardData.title,
@@ -107,7 +107,7 @@ function ForClientsMain() {
         target: link.href.startsWith("http") ? "_blank" : "_self",
         rel: link.href.startsWith("http") ? "noopener noreferrer" : void 0
       })) : [],
-      customClass: `clientsCard-${cardData.title.replace(/\s+/g, "-")}`,
+      customClass: `clientsCard-${cardData.title.replace(/\s+/g, "-").replace(/[^\w-]/g, "")}`,
       loading: "lazy"
     }
   ))));
