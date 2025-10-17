@@ -3,6 +3,8 @@ import { B as Button, H as Helmet } from "./entry-server.js";
 import { useTranslation } from "react-i18next";
 import { H as Header, N as Navigation, S as SearchInput, F as Footer, a as SecondaryFooter } from "./SecondaryFooter.js";
 import { L as Link } from "./index.js";
+import { P as PdfIcon } from "./PdfIcon.js";
+import { G as GlobeIcon } from "./GlobeIcon.js";
 import { S as ServiceCard } from "./ServiceCard.js";
 import { O as OilIcon } from "./OilIcon.js";
 import { P as PaymentCardIcon } from "./PaymentCardIcon.js";
@@ -23,9 +25,50 @@ import "uuid";
 import "./LeftArrowIcon.js";
 import "./UpArrowInCircleIcon.js";
 const mainAboutJPG = "/assets/images/mainAbout.jpg";
+const lider = "/assets/images/lider.png";
+const awarding = "/assets/images/awarding.jpg";
 function MainAbout() {
   const { t } = useTranslation();
-  return /* @__PURE__ */ React__default.createElement("main", { className: "aam_about-block" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_about-block__breadcrumbs" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/" }, t("breadCrumbs.home")), " ", "/", t("breadCrumbs.about")), /* @__PURE__ */ React__default.createElement("h1", { className: "aam_about-block__title" }, t("aboutBlock.name")), /* @__PURE__ */ React__default.createElement("img", { src: mainAboutJPG, alt: t("aboutBlock.alt"), className: "aam_about-block__image", loading: "lazy" }), /* @__PURE__ */ React__default.createElement("div", { className: "aam_about-block__description" }, t("aboutBlock.description")));
+  const isProduction = process.env.NODE_ENV === "production";
+  const baseUrl = isProduction ? process.env.PUBLIC_URL || "" : "";
+  const handleLinkClick = (link) => {
+    window.open(link, "_blank", "noopener,noreferrer");
+  };
+  const docsSection = [
+    {
+      title: t("aboutBlock.documents.list.item1"),
+      link: `${baseUrl}/assets/documents/Свидетельство о государственной регистрации.pdf`,
+      noDownload: true
+    },
+    {
+      title: t("aboutBlock.documents.list.item2"),
+      link: `${baseUrl}/assets/documents/Устав.pdf`,
+      noDownload: true
+    },
+    {
+      title: t("aboutBlock.documents.list.item3"),
+      link: `https://www.nbrb.by/payment/register_of_payment_service_providers`,
+      noDownload: true
+    }
+  ];
+  return /* @__PURE__ */ React__default.createElement("main", { className: "aam_about-block" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_about-block__breadcrumbs" }, /* @__PURE__ */ React__default.createElement(Link, { to: "/" }, t("breadCrumbs.home")), " ", "/", t("breadCrumbs.about")), /* @__PURE__ */ React__default.createElement("h1", { className: "aam_about-block__title" }, t("aboutBlock.name")), /* @__PURE__ */ React__default.createElement("section", { className: "aam_about-block__lider-section" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_about-block__lider-section--title" }, /* @__PURE__ */ React__default.createElement("img", { src: lider, alt: t("aboutBlock.lider.alt"), title: t("aboutBlock.liderAlt") }), /* @__PURE__ */ React__default.createElement("h2", null, t("aboutBlock.lider.title"))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_about-block__lider-section--description" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_about-block__lider-section--description-block" }, /* @__PURE__ */ React__default.createElement("h3", null, t("aboutBlock.lider.blockTitle1")), /* @__PURE__ */ React__default.createElement("p", null, t("aboutBlock.lider.blockText1"))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_about-block__lider-section--description-block" }, /* @__PURE__ */ React__default.createElement("h3", null, t("aboutBlock.lider.blockTitle2")), /* @__PURE__ */ React__default.createElement("p", null, t("aboutBlock.lider.blockText2"))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_about-block__lider-section--description-block" }, /* @__PURE__ */ React__default.createElement("h3", null, t("aboutBlock.lider.blockTitle3")), /* @__PURE__ */ React__default.createElement("p", null, t("aboutBlock.lider.blockText3"))))), /* @__PURE__ */ React__default.createElement("img", { src: mainAboutJPG, alt: t("aboutBlock.alt"), className: "aam_about-block__image", loading: "lazy" }), /* @__PURE__ */ React__default.createElement("div", { className: "aam_about-block__description" }, /* @__PURE__ */ React__default.createElement("p", null, t("aboutBlock.description1")), /* @__PURE__ */ React__default.createElement("p", null, /* @__PURE__ */ React__default.createElement("a", { href: "https://digitalleaders.by/berlio", target: "_blank", rel: "noopener noreferrer" }, t("aboutBlock.description2-1")), " ", t("aboutBlock.description2-2")), /* @__PURE__ */ React__default.createElement("p", null, /* @__PURE__ */ React__default.createElement("a", { href: "https://www.sb.by/articles/kakie-it-produkty-belorusskikh-predpriyatiy-pokazali-naivysshuyu-effektivnost-vybrali-samye-aktualny.html?action=preview", target: "_blank", rel: "noopener noreferrer" }, t("aboutBlock.description3-1")), " ", t("aboutBlock.description3-2")), /* @__PURE__ */ React__default.createElement("div", { className: "aam_about-block__description-image" }, /* @__PURE__ */ React__default.createElement("img", { src: awarding, alt: t("aboutBlock.awardingSubTitle"), title: t("aboutBlock.awardingSubTitle") }), /* @__PURE__ */ React__default.createElement("p", null, t("aboutBlock.description4"))), /* @__PURE__ */ React__default.createElement("p", null, t("aboutBlock.description5")), /* @__PURE__ */ React__default.createElement("p", null, t("aboutBlock.description6")), /* @__PURE__ */ React__default.createElement("p", null, t("aboutBlock.description7"))), /* @__PURE__ */ React__default.createElement("section", { className: "aam_about-block__documents" }, /* @__PURE__ */ React__default.createElement("h2", { className: "aam_about-block__documents--title" }, t("aboutBlock.documents.title")), /* @__PURE__ */ React__default.createElement("div", null, /* @__PURE__ */ React__default.createElement("ul", { className: "aam_about-block__documents--list" }, docsSection.map(({ title, link, noDownload }) => {
+    const isExternal = link.startsWith("http");
+    const Icon = isExternal ? GlobeIcon : PdfIcon;
+    return /* @__PURE__ */ React__default.createElement("li", { key: title }, /* @__PURE__ */ React__default.createElement(
+      "a",
+      {
+        href: link,
+        onClick: (e) => {
+          e.preventDefault();
+          handleLinkClick(link);
+        },
+        target: noDownload ? "_blank" : "_self",
+        rel: "noreferrer"
+      },
+      /* @__PURE__ */ React__default.createElement(Icon, { className: "aam_about-block__documents--list-icon" }),
+      /* @__PURE__ */ React__default.createElement("span", null, title)
+    ));
+  }))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_about-block__documents--info" }, /* @__PURE__ */ React__default.createElement("div", { className: "aam_about-block__documents--info-block" }, /* @__PURE__ */ React__default.createElement("h3", { className: "aam_about-block__documents--info-block-title" }, t("aboutBlock.documents.info.title1")), /* @__PURE__ */ React__default.createElement("p", { className: "aam_about-block__documents--info-block-description" }, t("aboutBlock.documents.info.description1"))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_about-block__documents--info-block" }, /* @__PURE__ */ React__default.createElement("h3", { className: "aam_about-block__documents--info-block-title" }, t("aboutBlock.documents.info.title2")), /* @__PURE__ */ React__default.createElement("p", { className: "aam_about-block__documents--info-block-description" }, t("aboutBlock.documents.info.description2"))), /* @__PURE__ */ React__default.createElement("div", { className: "aam_about-block__documents--info-block" }, /* @__PURE__ */ React__default.createElement("h3", { className: "aam_about-block__documents--info-block-title" }, t("aboutBlock.documents.info.title3")), /* @__PURE__ */ React__default.createElement("p", { className: "aam_about-block__documents--info-block-description" }, t("aboutBlock.documents.info.description3"))))));
 }
 const SySJPG1 = "/assets/images/systemSection1.jpg";
 const SySJPG2 = "/assets/images/systemSection2.jpg";

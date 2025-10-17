@@ -8,6 +8,7 @@
     gap: 40px;
     width: 1280px;
     padding: 60px 50px;
+    padding-top: 30px;
 
     &__title {
         @include m.heading-h2;
