@@ -6,20 +6,24 @@ import LinkTo from '../../LinkTo/LinkTo';
 import actual1 from '/assets/images/actual1.jpg';
 import actual2 from '/assets/images/actual2.jpg';
 import actual3 from '/assets/images/actual3.jpg';
+import TerminalSignature from '../../TerminalSignature/TerminalSignature';
 
-function ActualBlock({
-  title, description, imageUrl, href,
-}) {
+function ActualBlock({ title, description, imageUrl, href, terminal }) {
   return (
     <div className="aam_actual-block">
       <img src={imageUrl} alt={title} className="aam_actual-block__image" loading="lazy" />
       <div className="aam_actual-block__content">
         <h3 className="aam_actual-block__title">{title}</h3>
-        <p className="aam_actual-block__description">{description}</p>
-        <LinkTo
-          href={href}
-          text=""
-        />
+
+        {description && (
+          <p className="aam_actual-block__description">{description}</p>
+        )}
+
+        {terminal && (
+          <div className="aam_actual-block__terminal">{terminal}</div>
+        )}
+
+        <LinkTo href={href} text="" />
       </div>
     </div>
   );
@@ -27,7 +31,8 @@ function ActualBlock({
 
 ActualBlock.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string, // теперь необязательный
+  terminal: PropTypes.node,      // новый проп для JSX
   imageUrl: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
 };
@@ -41,19 +46,19 @@ function ActualSection() {
       <div className="aam_actual-section__blocks">
         <ActualBlock
           title={t('actualSection.actualBlockTitle1')}
-          description={t('actualSection.actualBlockDescription1')}
+          terminal={<TerminalSignature text={`На https://map.berlio.by\nнастраиваются фильтры отображения`} />}
           imageUrl={actual1}
           href="https://map.berlio.by/"
         />
         <ActualBlock
           title={t('actualSection.actualBlockTitle2')}
-          description={t('actualSection.actualBlockDescription2')}
+          terminal={<TerminalSignature text={`Полный список контактов\nцентров обслуживания клиентов`} />}
           imageUrl={actual2}
           href="/contacts"
         />
         <ActualBlock
           title={t('actualSection.actualBlockTitle3')}
-          description={t('actualSection.actualBlockDescription3')}
+          terminal={<TerminalSignature text={`Все точки обслуживания\nЭПС \u00ABБерлио\u00BB`} />}
           imageUrl={actual3}
           href="https://map.berlio.by/"
         />

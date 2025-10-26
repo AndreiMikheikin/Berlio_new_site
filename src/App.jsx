@@ -49,6 +49,7 @@ const B2BPolicy = lazy(() => import('./components/ComplexComponents/B2BPolicy/B2
 const ApplicantsPolicy = lazy(() => import('./components/ComplexComponents/ApplicantsPolicy/ApplicantsPolicy'));
 const Legislation = lazy(() => import('./pages/Legislation/Legislation'));
 const ReportIFR = lazy(() => import('./pages/ReportIFR/ReportIFR'));
+const LocalActsInEPS = lazy(() => import('./pages/LocalActsInEPS/LocalActsInEPS'));
 
 // Админка
 const AdminLoginPage = lazy(() => import('./pages/AdminLoginPage/AdminLoginPage'));
@@ -106,6 +107,7 @@ function App() {
           <Route path="/clients/eMoneyRegulations" element={<EMoneyRegulations />} />
           <Route path="/clients/legislation" element={<Legislation />} />
           <Route path="/clients/reportIFR" element={<ReportIFR />} />
+          <Route path="/clients/localActsInEPS" element={<LocalActsInEPS />} />
 
           {/* Партнёры */}
           <Route path="/partners" element={<ForPartners />} />

@@ -70,6 +70,12 @@
                 background-color: $error-color;
                 color: $white;
             }
+
+            &__terminal {
+                display: inline-block;
+                min-width: 245px;
+                min-height: 40px;
+            }
         }
 
         .aam_actual-block:first-of-type>.aam_actual-block__content {

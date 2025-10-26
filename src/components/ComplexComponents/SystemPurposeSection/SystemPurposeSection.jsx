@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import PaymentWirelessIcon from '../../SVGIcons/PaymentWirelessIcon';
-import TerminalWindowIcon from '../../SVGIcons/TerminalWindowIcon';
-import PaymentCardIcon from '../../SVGIcons/PaymentCardIcon';
+import LaptopIcon from '../../SVGIcons/LaptopIcon';
+import GlobeIcon from '../../SVGIcons/GlobeIcon';
+import MobileIcon from '../../SVGIcons/MobileIcon';
 import '../../../styles/components/ComplexComponents/SystemPurposeSection.scss';
 import CardBox from '../../CardBox/CardBox';
 import FuelDispenser from '/assets/images/fuel-dispenser.jpg';
@@ -22,17 +22,17 @@ function SystemPurposeSection() {
       <div className="aam_purpose-section__cards-box">
         <CardBox
           CSSSelectorPrefix="aam_purpose-section"
-          Icon={PaymentWirelessIcon}
+          Icon={LaptopIcon}
           title={t('purposeSection.cardTitle1')}
         />
         <CardBox
           CSSSelectorPrefix="aam_purpose-section"
-          Icon={TerminalWindowIcon}
+          Icon={GlobeIcon}
           title={t('purposeSection.cardTitle2')}
         />
         <CardBox
           CSSSelectorPrefix="aam_purpose-section"
-          Icon={PaymentCardIcon}
+          Icon={MobileIcon}
           title={t('purposeSection.cardTitle3')}
         />
       </div>

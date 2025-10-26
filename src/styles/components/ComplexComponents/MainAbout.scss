@@ -157,10 +157,6 @@
 
                 &:hover {
                     color: $background-hover;
-
-                    svg path {
-                        fill: #48AE5A;
-                    }
                 }
             }
         }
@@ -168,10 +164,6 @@
         &--list-icon {
             width: 20px;
             height: 25px;
-
-            svg path {
-                fill: $text-secondary;
-            }
         }
 
         &--info {

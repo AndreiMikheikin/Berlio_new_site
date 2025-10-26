@@ -1,0 +1,42 @@
+.aam_terminal {
+    display: block;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 255, 0, 0.25);
+    text-shadow: 0 0 2px #00ff00, 0 0 5px #00ff00, 0 0 8px #00ff00;
+    white-space: pre;
+    cursor: pointer;
+    user-select: none;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    min-width: 245px;
+    min-height: 40px;
+
+    &--hidden {
+        opacity: 0;
+    }
+
+    &:hover {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.4);
+        border-color: rgba(0, 255, 0, 0.4);
+    }
+
+    .aam_terminal-cursor {
+        display: inline-block;
+        width: 6px;
+        height: 1em;
+        background-color: #00ff00;
+        margin-left: 3px;
+        margin-bottom: -1px;
+        animation: blink 1s steps(1) infinite;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
