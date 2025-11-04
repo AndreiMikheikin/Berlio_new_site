@@ -23,6 +23,7 @@ router.post('/', async (req, res) => {
     }
 
     const user = rows[0];
+    /* console.log('DB user row:', user); */
 
     const passwordMatch = await comparePassword(password, user.password_hash);
     if (!passwordMatch) {

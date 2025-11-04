@@ -1,6 +1,9 @@
+dist
 node_modules
 convert.*
 superadmin-hash.js
 .env*
 !.env.example
 ~*
+src/contexts/generate-qr.js
+src/assets/qr

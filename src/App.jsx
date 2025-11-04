@@ -58,6 +58,10 @@ const UserManager = lazy(() => import('./components/ComplexComponents/AdminDashb
 const NewsManager = lazy(() => import('./components/ComplexComponents/AdminDashboard/NewsManager/NewsManager'));
 const SQLExplorer = lazy(() => import('./components/ComplexComponents/AdminDashboard/SQLExplorer/SQLExplorer'));
 
+// Журнал учета ком. тайны
+const LogBookLoginPage = lazy(() => import('./pages/LogBookLoginPage/LogBookLoginPage'));
+const LogBookPage = lazy(() => import('./pages/LogBookPage/LogBookPage'));
+
 const PrivacyIndexRedirect = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -136,6 +140,10 @@ function App() {
             <Route path="news" element={<NewsManager />} />
             <Route path="sql-explorer" element={<SQLExplorer />} />
           </Route>
+
+          {/* Журнал учета комю тайны */}
+          <Route path="/log-book-login" element={<LogBookLoginPage />} />
+          <Route path="/log-book" element={<LogBookPage />} />
         </Routes>
       </Suspense>
       <CookieConsentModal />

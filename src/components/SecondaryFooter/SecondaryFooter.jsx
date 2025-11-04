@@ -3,7 +3,7 @@ import '../../styles/components/SecondaryFooter.scss';
 import { Link } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
-import TerminalSignature from '../TerminalSignature/TerminalSignature';
+import SecretPortal from '../ComplexComponents/SecretPortal/SecretPortal';
 
 function SecondaryFooter() {
   const { t } = useTranslation();
@@ -28,10 +28,7 @@ function SecondaryFooter() {
         </ul>
       </nav>
 
-      <TerminalSignature
-        text={`Круто!!!\nХорошего дня! `}
-        hiddenUntilHover = {true}
-      />
+      <SecretPortal />
 
       <div className="aam_footer-copyright">
         {t('copyright', { year: currentYear })}

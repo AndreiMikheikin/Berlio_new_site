@@ -1,0 +1,58 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as m;
+
+.aam_logbook-login-page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    margin: 8px;
+    padding: 16px;
+    border: 10px inset $border-primary;
+    box-shadow: 0px 10px 16px 0px #5F5F5F1F;
+    background-color: $text-disabled;
+    width: 100%;
+    height: calc(100vh - 16px);
+    color: $text-primary;
+
+    &__title {
+        @include m.heading-h1;
+        text-align: center;
+        text-shadow:
+            0px 2px 12px #F5F5F5,
+            1px 3px 12px #F5F5F5E6,
+            -1px 5px 12px #F5F5F5CC;
+    }
+}
+
+.aam_logbook-login__form {
+    flex-grow: 1;
+    max-height: 40vh;
+    width: 60%;
+    padding: 24px;
+    border: 10px inset $border-primary;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    @include m.text-p1;
+
+    &--input {
+        width: 20%;
+        min-width: 380px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+
+        input {
+            padding: 10px;
+            border: 1px solid $background-hover;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    }
+}

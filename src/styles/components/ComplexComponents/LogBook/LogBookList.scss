@@ -1,0 +1,149 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as m;
+
+.aam_logbook {
+  padding: 20px 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  width: 100%;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    button {
+      padding: 5px;
+      border-radius: 0;
+      border: 3px solid $background-color;
+      max-width: 34.8px;
+      max-height: 34.8px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    button:hover svg>path {
+      fill: #FFF;
+    }
+  }
+
+  &__table-wrapper {
+    max-height: 70vh; // 👈 ограничение по высоте
+    overflow-y: auto; // 👈 скролл по вертикали
+    overflow-x: hidden;
+    border-radius: 4px;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+    th,
+    td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      font-size: 0.95rem;
+      width: auto; // по умолчанию
+    }
+
+    th:first-child,
+    td:first-child {
+      width: 70px; // чуть шире для ID
+      text-align: center;
+    }
+
+    th.aam_last-child-th,
+    td.aam_last-child-td {
+      width: 100px; // немного шире для кнопок
+      text-align: center;
+    }
+
+    th:nth-child(2),
+    td:nth-child(2) {
+      width: 160px; // получатель
+    }
+
+    th:nth-child(3),
+    td:nth-child(3) {
+      width: 250px; // документ
+    }
+
+    th:nth-child(4),
+    td:nth-child(4) {
+      width: 240px; // конфиденц. инфо
+    }
+
+    th:nth-child(5),
+    td:nth-child(5) {
+      width: 140px; // дата
+    }
+
+    th:nth-child(6),
+    td:nth-child(6) {
+      width: 180px; // подпись
+    }
+
+    th {
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+      color: #555;
+      font-weight: 600;
+
+      span {
+        margin-left: 4px;
+        color: gray;
+        font-size: 0.8rem;
+      }
+    }
+
+    tr {
+      transition: background 0.2s;
+
+      &:hover {
+        background-color: #f9f9f9;
+      }
+    }
+
+    td {
+      vertical-align: middle;
+      text-align: center;
+
+      button {
+        display: inline-flex;
+        padding: 5px;
+        border-radius: 0;
+        max-width: 34.8px;
+        max-height: 34.8px;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
+      }
+
+      button.aam_edit {
+        border: 3px solid $background-color;
+      }
+
+      button.aam_delete {
+        border: 3px solid $error-color;
+        margin-left: 5px;
+      }
+
+      button:hover svg>path {
+        fill: #FFF;
+      }
+    }
+  }
+}
