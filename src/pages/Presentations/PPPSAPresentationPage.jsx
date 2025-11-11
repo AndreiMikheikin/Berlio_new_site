@@ -8,7 +8,7 @@ import PPPSASlide1 from '../../components/ComplexComponents/PresentationSlides/P
 import PPPSASlide2 from '../../components/ComplexComponents/PresentationSlides/PPPSAPresentation/Slide2';
 
 const slides = [
-  { id: 1, component: <PPPSASlide1 />, duration: 2000 }, // 10 секунд
+  { id: 1, component: <PPPSASlide1 />, duration: 7000 }, // 7 секунд
   { id: 2, component: <PPPSASlide2 />, duration: 15000 }, // 15 секунд
   // новые слайды сюда
 ];

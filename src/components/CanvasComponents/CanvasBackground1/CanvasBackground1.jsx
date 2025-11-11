@@ -87,7 +87,7 @@ export default function CanvasBackground1() {
 
                 { text: "}\n\n", color: "#D6DEEB" }
             ],
-            x: '5%',
+            x: '30%',
             y: '50%',
             font: '12px monospace',
             color: '#D6DEEB',
