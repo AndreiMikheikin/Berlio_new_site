@@ -23,6 +23,7 @@
     "cookie": "^1.0.2",
     "dotenv": "^17.2.0",
     "express": "^4.21.2",
+    "framer-motion": "^12.23.24",
     "i18next": "^24.2.2",
     "i18next-browser-languagedetector": "^8.0.4",
     "jsonwebtoken": "^9.0.2",

@@ -67,7 +67,7 @@ const TerminalSignature = ({
       }`}
       style={{
         opacity: isVisible ? 1 : 0,
-        transition: 'opacity 0.6s ease'
+        transition: 'opacity 0.6s ease 10s',
       }}
       onMouseEnter={() => handleHover(true)}
       onMouseLeave={() => handleHover(false)}

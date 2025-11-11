@@ -1,0 +1,69 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  background: linear-gradient(to right, #626262, #a1a1a1);
+}
+
+.aam_ppp-sa-presentation-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  &--header {
+    position: relative;
+    width: 100%;
+    z-index: 2; // поверх CanvasBackground
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 2.5rem;
+    background: rgba(11, 14, 20, 0.4);
+    backdrop-filter: blur(10px);
+    margin-top: 2rem;
+
+    &_company-name,
+    &_product-name {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #66d839;
+      text-transform: uppercase;
+      user-select: none;
+      white-space: nowrap;
+    }
+  }
+
+  &--slides-container {
+    position: absolute; // абсолютный поверх канваса
+    top: 120px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; // поверх CanvasBackground
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+}
+
+// адаптив
+@media (max-width: 768px) {
+  .aam_ppp-sa-presentation-page--header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
+
+    &_company-name {
+      font-size: 0.9rem;
+    }
+  }
+}

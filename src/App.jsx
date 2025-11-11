@@ -62,6 +62,9 @@ const SQLExplorer = lazy(() => import('./components/ComplexComponents/AdminDashb
 const LogBookLoginPage = lazy(() => import('./pages/LogBookLoginPage/LogBookLoginPage'));
 const LogBookPage = lazy(() => import('./pages/LogBookPage/LogBookPage'));
 
+// Презентации
+const PPPSAPresentationPage = lazy(() => import('./pages/Presentations/PPPSAPresentationPage'));
+
 const PrivacyIndexRedirect = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -144,6 +147,11 @@ function App() {
           {/* Журнал учета комю тайны */}
           <Route path="/log-book-login" element={<LogBookLoginPage />} />
           <Route path="/log-book" element={<LogBookPage />} />
+
+          {/* Презентации */}
+          <Route path="/presentations">
+            <Route path="pppsa" element={<PPPSAPresentationPage />} />
+          </Route>
         </Routes>
       </Suspense>
       <CookieConsentModal />

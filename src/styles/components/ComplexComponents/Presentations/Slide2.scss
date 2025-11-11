@@ -1,0 +1,127 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as m;
+
+.aam_slide2-section {
+    position: relative;
+    width: 100%;
+    height: 88%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+    margin-top: 15px;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+
+    &--header {
+        align-self: flex-start;
+        line-height: 1.5;
+        width: 40%;
+        padding: 15px 25px;
+        background-color: $background-color;
+        color: $white;
+    }
+
+    img {
+        width: 25%;
+        height: auto;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+    }
+
+    &--container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 30px;
+        gap: 10%;
+        width: 100%;
+        height: 100%;
+
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-evenly;
+            padding: 0.5rem 2.5rem;
+            background: rgba(11, 14, 20, 0.1);
+            backdrop-filter: blur(2px);
+            border-radius: 10px;
+            margin-bottom: 35px;
+            gap: 10px;
+            width: 100%;
+            min-width: 45%;
+            height: 100%;
+
+            > div {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                width: 100%;
+
+                p {
+                    @include m.text-p1;
+                    font-size: $font-size-large;
+                    line-height: 1.25;
+                    text-align: left;
+
+                    strong {
+                        color: $white;
+                    }
+                }
+            }
+
+            &-list {
+                p {
+                    color: $white;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    @include m.text-p1;
+                    font-size: $font-size-large;
+                    line-height: 1.25;
+                }
+            }
+
+            &:nth-child(even) {
+                align-items: flex-end;
+                text-align: right;
+
+                > div p {
+                    text-align: right;
+                }
+
+                .aam_slide2-section--container-wrapper-list p {
+                    text-align: right;
+                }
+
+                ul {
+                    text-align: right;
+                }
+            }
+
+            p {
+                @include m.text-p1;
+                text-align: justify;
+                font-size: $font-size-large;
+                line-height: 1.25;
+
+                strong {
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    &--container:first-of-type {
+        height: 20%;
+    }
+}
