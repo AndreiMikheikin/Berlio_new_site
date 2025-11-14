@@ -121,11 +121,11 @@ const menuContent = {
           text: 'tollRoads',
           target: '_self',
         },
-        {
+       /*  {
           href: '/clients/forFuelPayments',
           text: 'fuelPayment',
           target: '_self',
-        },
+        }, */
         {
           href: '/clients/fuelCardsUsage',
           text: 'fuelCardUsage',

@@ -40,15 +40,22 @@ function GettingElectronicCardMain() {
             {' '}
             <DepartmentEmailDropdown />
           </li>
+          <li> с указанием:
+            <ul>
+              <li>количества электронных карт;</li>
+              <li>номера корпоративного телефона (в случае возникновения дополнительных вопросов).</li>
+            </ul>
+          </li>
         </ul>
-        <strong className="aam_getting-card-main__description--footer">{t('gettingCardMain.applicationFooter')}</strong>
+
+        <strong className="aam_getting-card-main__description--footer">{t('gettingCardMain.applicationFooter')}{'.'}</strong>
       </div>
 
       {/* Documents */}
       <div className="aam_getting-card-main__documents">
         <h2 className="aam_getting-card-main__documents--header">{t('gettingCardMain.documentsHeader')}</h2>
         <div className="aam_getting-card-main__card-boxes">
-          <CardBox
+          {/* <CardBox
             CSSSelectorPrefix="aam_getting-card-main"
             Icon={ClientIcon}
             title={t('gettingCardMain.supervisor')}
@@ -65,21 +72,22 @@ function GettingElectronicCardMain() {
                 </li>
               </ul>
                           )}
-          />
+          /> */}
           <CardBox
             CSSSelectorPrefix="aam_getting-card-main"
-            Icon={ClientIcon}
-            title={t('gettingCardMain.notSupervisor')}
+            /* Icon={ClientIcon}
+            title={t('gettingCardMain.notSupervisor')} */
+            title={''}
             description={(
               <ul>
                 <li style={{ listStyleType: 'decimal', listStylePosition: 'outside', lineHeight: '24.51px' }}>
-                  {t('gettingCardMain.notSupList.item1')}
+                  {t('gettingCardMain.notSupList.item1')}{' или '}{t('gettingCardMain.supList.item1')}{', печать (при использовании);'}
                 </li>
                 <li style={{ listStyleType: 'decimal', listStylePosition: 'outside', lineHeight: '24.51px' }}>
-                  {t('gettingCardMain.notSupList.item2')}
+                  {t('gettingCardMain.notSupList.item2')}{';'}
                 </li>
                 <li style={{ listStyleType: 'decimal', listStylePosition: 'outside', lineHeight: '24.51px' }}>
-                  {t('gettingCardMain.notSupList.item3')}
+                  {t('gettingCardMain.notSupList.item3')}{'.'}
                 </li>
               </ul>
                           )}

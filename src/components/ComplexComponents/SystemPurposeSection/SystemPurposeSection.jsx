@@ -51,21 +51,18 @@ function SystemPurposeSection() {
             <li>{t('purposeSection.listItem2')}</li>
             <li>{t('purposeSection.listItem3')}</li>
             <li>{t('purposeSection.listItem4')}</li>
-            <li>{t('purposeSection.listItem5')}</li>
           </ol>
-          <ol start={6}>
+          <ol start={5}>
+            <li>{t('purposeSection.listItem5')}</li>
             <li>{t('purposeSection.listItem6')}</li>
             <li>{t('purposeSection.listItem7')}</li>
             <li>{t('purposeSection.listItem8')}</li>
+          </ol>
+          <ol start={9}>
             <li>{t('purposeSection.listItem9')}</li>
             <li>{t('purposeSection.listItem10')}</li>
-          </ol>
-          <ol start={11}>
             <li>{t('purposeSection.listItem11')}</li>
             <li>{t('purposeSection.listItem12')}</li>
-            <li>{t('purposeSection.listItem13')}</li>
-            <li>{t('purposeSection.listItem14')}</li>
-            <li>{t('purposeSection.listItem15')}</li>
           </ol>
         </ul>
       </div>

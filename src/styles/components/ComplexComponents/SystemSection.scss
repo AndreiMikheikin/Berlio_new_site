@@ -7,7 +7,7 @@
     flex-direction: column;
     gap: 40px;
     width: 1280px;
-    padding: 60px 50px;
+    padding: 10px 50px 60px;
     padding-top: 30px;
 
     &__title {
@@ -26,6 +26,12 @@
         flex-direction: column;
         align-items: flex-start;
 
+        ol {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
         ol li {
             @include m.text-p1;
             line-height: 24.51px;
@@ -37,7 +43,6 @@
     &__list-title {
         align-self: center;
         @include m.heading-h3;
-        margin-bottom: 30px;
     }
 
     &__images {

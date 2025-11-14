@@ -36,10 +36,11 @@ function ForPartnersMain() {
   return (
     <div className="aam_for-partners-main">
       {/* Breadcrumbs */}
-      <div className="aam_about-block__breadcrumbs">
+      <div className="aam_for-partners-main__breadcrumbs">
         <Link to="/">{t('breadCrumbs.home')}</Link>
         {' '}
         /
+        {' '}
         {t('breadCrumbs.forPartners')}
       </div>
 

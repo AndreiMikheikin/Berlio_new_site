@@ -45,7 +45,9 @@ function ForClientsMain() {
       {/* Breadcrumbs */}
       <div className="aam_for-clients-main__breadcrumbs">
         <Link to="/">{t('breadCrumbs.home')}</Link>
+        {' '}
         /
+        {' '}
         {t('breadCrumbs.forClients')}
       </div>
 
@@ -63,7 +65,7 @@ function ForClientsMain() {
             title={t(cardData.title)}
             bgImage={cardData.bgImage}
             IconComponent={cardData.IconComponent}
-            links={Array.isArray(cardData.links) ? cardData.links.map((link) => ({
+            links={Array.isArray(cardData.links) ? cardData.links.filter(link => !link.disabled).map((link) => ({
               href: link.href.startsWith('http') ? link.href : `${baseUrl}${link.href}`,
               label: t(link.label),
               target: link.href.startsWith('http') ? '_blank' : '_self',

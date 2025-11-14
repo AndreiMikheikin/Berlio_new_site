@@ -16,6 +16,23 @@ function SystemSection() {
       {/* Title */}
       <h2 className="aam_system-section__title">{t('systemSection.name')}</h2>
 
+      <div className="aam_system-section__additional-services">
+        <ol>
+          <li>{t('systemSection.listItem1')}</li>
+          <li>{t('systemSection.listItem2')}</li>
+          <li>{t('systemSection.listItem3')}</li>
+          <li>{t('systemSection.listItem4')}</li>
+          <li>{t('systemSection.listItem5')}</li>
+        </ol>
+      </div>
+
+      {/* Images */}
+      <div className="aam_system-section__images">
+        <img src={SySJPG1} alt={t('systemSection.alt1')} className="aam_system-section__image" loading="lazy" />
+        <img src={SySJPG2} alt={t('systemSection.alt2')} className="aam_system-section__image" loading="lazy" />
+      </div>
+
+      <p className="aam_system-section__list-title">{t('systemSection.listTitle')}</p>
       {/* Services */}
       <div className="aam_system-section__services">
         <ServiceCard
@@ -36,23 +53,6 @@ function SystemSection() {
           description={t('systemSection.cardDescription.desc3')}
           link="/clients/serviceInEPS"
         />
-      </div>
-
-      <div className="aam_system-section__additional-services">
-        <p className="aam_system-section__list-title">{t('systemSection.listTitle')}</p>
-        <ol>
-          <li>{t('systemSection.listItem1')}</li>
-          <li>{t('systemSection.listItem2')}</li>
-          <li>{t('systemSection.listItem3')}</li>
-          <li>{t('systemSection.listItem4')}</li>
-          <li>{t('systemSection.listItem5')}</li>
-        </ol>
-      </div>
-
-      {/* Images */}
-      <div className="aam_system-section__images">
-        <img src={SySJPG1} alt={t('systemSection.alt1')} className="aam_system-section__image" loading="lazy" />
-        <img src={SySJPG2} alt={t('systemSection.alt2')} className="aam_system-section__image" loading="lazy" />
       </div>
     </section>
   );

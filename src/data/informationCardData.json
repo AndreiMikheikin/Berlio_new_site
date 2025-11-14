@@ -116,7 +116,8 @@
         },
         {
           "href": "/clients/forFuelPayments",
-          "label": "forClientsMain.clientInfo.label10"
+          "label": "forClientsMain.clientInfo.label10",
+          "disabled": "true"
         },
         {
           "href": "/clients/fuelCardsUsage",

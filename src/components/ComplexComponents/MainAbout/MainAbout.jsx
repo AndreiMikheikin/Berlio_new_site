@@ -43,6 +43,7 @@ function MainAbout() {
         <Link to="/">{t('breadCrumbs.home')}</Link>
         {' '}
         /
+        {' '}
         {t('breadCrumbs.about')}
       </div>
 
@@ -66,7 +67,7 @@ function MainAbout() {
           </div>
           <div className="aam_about-block__lider-section--description-block">
             <h3>{t('aboutBlock.lider.blockTitle3')}</h3>
-            <p>{t('aboutBlock.lider.blockText3')}</p>
+            <p style={{ whiteSpace: 'pre-line' }}>{t('aboutBlock.lider.blockText3')}</p>
           </div>
         </div>
       </section>
