@@ -63,6 +63,11 @@ const LegislationMain = () => {
             link: `${baseUrl}/assets/documents/Стандарт проведения расчётов СПР 7.01-2020`,
             noDownload: true,
         },
+        {
+            title: t('legislationMain.list.item9'),
+            link: `https://pravo.by/document/?guid=12551&p0=B22238859&p1=1&p5=0`,
+            noDownload: true,
+        },
     ];
 
     const renderDocItem = ({ title, link, noDownload }) => {

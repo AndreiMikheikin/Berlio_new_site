@@ -29,6 +29,7 @@ function EditLogBookModal({ entry, onClose, onSubmit, userName }) {
           <input name="document_info" value={form.document_info} onChange={handleChange} required />
           <input name="confidential_info" value={form.confidential_info} onChange={handleChange} required />
           <input name="provided_at" type="date" value={form.provided_at?.split('T')[0] || ''} onChange={handleChange} required />
+          <input name="access_method" value={form.access_method} onChange={handleChange} required />
           <div className="aam_modal__actions">
             <Button variant='green' type="submit" label='Сохранить'>Сохранить</Button>
             <Button variant='gray' type="button" onClick={onClose} label='Отмена'>Отмена</Button>

@@ -66,7 +66,8 @@ export async function renderPage(url, initialLang = 'ru') {
       )
       .replace('__HYDRATE_FLAG__', hydrate ? 'true' : 'false')
       .replace('__I18N_LANG__', JSON.stringify(lang))
-      .replace('__I18N_LANG_SHORT__', lang.split('-')[0] || 'ru');
+      .replace('__I18N_LANG_SHORT__', lang.split('-')[0] || 'ru')
+      .replace('__SSR_PAGE_VIEW__', 'true');
   } catch (err) {
     console.error('Error in render():', err.stack || err);
     throw err;

@@ -1,7 +1,30 @@
+@use "sass:math";
+
 .aam_logo-section.aam_home-logo-section {
     .aam_logo-section__site-nav {
         a {
             display: none;
         }
     }
+}
+
+.aam_home_preloader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  z-index: 5;
+}
+
+.aam_home_spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #dcdcdc;
+  border-top-color: #005bbb; /* фирменный оттенок можешь заменить */
+  border-radius: 50%;
+  animation: aam_home_spin 0.7s linear infinite;
+}
+
+@keyframes aam_home_spin {
+  to { transform: rotate(360deg); }
 }

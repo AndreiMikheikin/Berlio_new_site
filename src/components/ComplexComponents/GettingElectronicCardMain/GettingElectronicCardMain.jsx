@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import LeftArrowIcon from '../../SVGIcons/LeftArrowIcon';
 import UpArrowInCircleIcon from '../../SVGIcons/UpArrowInCircleIcon';
 import CardBox from '../../CardBox/CardBox';
-import ClientIcon from '../../SVGIcons/ClientIcon';
 import DepartmentEmailDropdown from '../../DeprtmentEmailDropdown/DepartmentEmailDropdown';
 import '../../../styles/components/ComplexComponents/GettingElectronicCardMain.scss';
 

@@ -7,6 +7,7 @@ function CreateLogBookModal({ onClose, onSubmit, userName }) {
     document_info: '',
     confidential_info: '',
     provided_at: '',
+    access_method: '',
   });
 
   const handleChange = (e) =>
@@ -51,6 +52,12 @@ function CreateLogBookModal({ onClose, onSubmit, userName }) {
           <input
             name="provided_at"
             type="date"
+            onChange={handleChange}
+            required
+          />
+          <input
+            name="access_method"
+            placeholder="Способ предоставления"
             onChange={handleChange}
             required
           />

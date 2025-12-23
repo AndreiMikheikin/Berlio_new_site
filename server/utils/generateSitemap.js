@@ -1,4 +1,4 @@
-import routes from '../../src/contexts/routes.js'
+import routes from '../../src/contexts/routes.meta.js'
 
 const BASE_URL = 'https://new.berlio.by'
 

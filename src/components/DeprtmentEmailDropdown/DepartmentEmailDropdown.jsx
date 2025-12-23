@@ -32,7 +32,7 @@ export default function DepartmentEmailDropdown() {
   }, []);
 
   return (
-    <div className="aam_department-dropdown" ref={dropdownRef}>
+    <span className="aam_department-dropdown" ref={dropdownRef}>
       <button
         type="button"
         className="aam_department-dropdown__toggle"
@@ -56,6 +56,6 @@ export default function DepartmentEmailDropdown() {
           ))}
         </ul>
       )}
-    </div>
+    </span>
   );
 }

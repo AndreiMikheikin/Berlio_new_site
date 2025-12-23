@@ -123,6 +123,7 @@ function LogBookList({ token, userRole, userName }) {
                 { key: 'document_info', label: 'Наименование документа' },
                 { key: 'confidential_info', label: 'Наименование сведений' },
                 { key: 'provided_at', label: 'Дата' },
+                { key: 'access_method', label: 'Способ предоставления' },
                 { key: 'recipient_signature', label: 'Подпись' }
               ].map(col => (
                 <th
@@ -146,6 +147,7 @@ function LogBookList({ token, userRole, userName }) {
                 <td>{e.document_info}</td>
                 <td>{userRole === 'superadmin' || e.recipient_signature === userName ? e.confidential_info : '***'}</td>
                 <td>{new Date(e.provided_at).toLocaleDateString('ru-RU')}</td>
+                <td>{e.access_method}</td>
                 <td>{e.recipient_signature}</td>
                 {userRole === 'superadmin' && (
                   <td className='aam_last-child-td'>

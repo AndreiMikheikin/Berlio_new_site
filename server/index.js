@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import { renderPage } from './ssr/render.js';
 import { generateSitemap } from './utils/generateSitemap.js';
 import cookie from 'cookie';
+import pageViewRoute from './routes/api/page-view.js';
 
 import cookieConsentRoute from './routes/api/save-cookie-consent.js';
 import loginRoute from './routes/api/login.js';
@@ -16,6 +17,9 @@ import uploadRouter from './routes/api/~upload.js';
 import logBookLoginRoute from './routes/api/log-book-login.js';
 import logBookRoutes from './routes/api/log-book.js';
 
+import { matchRoute } from './ssr/matchRoute.js';
+import { incrementPageView } from './utils/pageViews.js';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -27,6 +31,7 @@ const clientDist = path.resolve(__dirname, '../dist/client');
 app.use(express.json());
 
 // 2. API endpoints
+app.use('/api/page-views', pageViewRoute);
 app.use('/api/cookie-consent', cookieConsentRoute);
 app.use('/api/login', loginRoute);
 app.use('/api/admin', adminRoute);
@@ -79,7 +84,17 @@ app.get('*', async (req, res, next) => {
   try {
     const cookies = cookie.parse(req.headers.cookie || '');
     const lang = cookies.lang || 'ru';
-    console.log('SSR rendering:', url, '| lang:', lang);
+
+    const matchedRoute = matchRoute(url);
+
+    if (matchedRoute?.sitemap) {
+      await incrementPageView({
+        route: matchedRoute.path,
+        entity: matchedRoute.entity || (matchedRoute.key === 'newsDetail' ? 'news' : null),
+        entityId: matchedRoute.params?.id || null,
+        ua: req.headers['user-agent'],
+      });
+    }
 
     const html = await renderPage(url, lang);
     res.status(200).type('text/html').end(html);

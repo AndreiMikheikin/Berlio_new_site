@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+
 import Header from '../../components/ComplexComponents/Header/Header';
 import Navigation from '../../components/ComplexComponents/Navigation/Navigation';
 import SearchInput from '../../components/SearchInput/SearchInput';
@@ -13,14 +14,11 @@ import SecondaryFooter from '../../components/SecondaryFooter/SecondaryFooter';
 import NewsSection from '../../components/ComplexComponents/NewsSection/NewsSection';
 import LogoSection from '../../components/ComplexComponents/LogoSection/LogoSection';
 
+import partnersLogos from '../../data/partnersLogoData.json';
 import '../../styles/pages/Home.scss';
 
-import partnersLogos from '../../data/partnersLogoData.json';
-
-function Home() {
+const Home = () => {
   const { t } = useTranslation();
-
-  const isProduction = process.env.NODE_ENV === 'production';
 
   return (
     <>
@@ -39,16 +37,18 @@ function Home() {
       <PaymentSystem />
       <FuelCards />
       <ActualSection />
+
       <LogoSection
         title={t('ourPartnersLogoSection.name')}
         logos={partnersLogos.logos}
         logoBasePath="/assets/images/"
         customClass="aam_home-logo-section"
       />
+
       <Footer />
       <SecondaryFooter />
     </>
   );
-}
+};
 
 export default Home;

@@ -1,0 +1,575 @@
+// Переменные
+$holiday-gold: #FFD700;
+$holiday-red: #D62828;
+$holiday-green: #2E8B57;
+$holiday-blue: #0A2463;
+$holiday-silver: #E8E8E8;
+$glow-color: rgba(255, 215, 0, 0.7);
+
+// Основные стили
+.aam_preloader-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0A2463 0%, #1B3B6F 50%, #2E8B57 100%);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  
+  // Состояния загрузки стилей
+  &.styles-loading {
+    // Пока стили не загружены - скрываем весь контент
+    .aam_preloader-content {
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
+  }
+  
+  &.styles-loaded {
+    opacity: 1;
+    
+    // Стили загружены, но контент еще скрыт
+    .aam_preloader-content {
+      &.content-hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+      
+      &.content-visible {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+      }
+    }
+  }
+  
+  // Первый слой звезд (мелкие, быстрые)
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(1px 1px at 20% 20%, white 90%, transparent),
+      radial-gradient(1px 1px at 30% 50%, white 90%, transparent),
+      radial-gradient(1px 1px at 40% 80%, white 90%, transparent),
+      radial-gradient(1px 1px at 60% 30%, white 90%, transparent),
+      radial-gradient(1px 1px at 70% 60%, white 90%, transparent),
+      radial-gradient(1px 1px at 80% 10%, white 90%, transparent),
+      radial-gradient(1px 1px at 90% 40%, white 90%, transparent),
+      radial-gradient(1px 1px at 10% 70%, white 90%, transparent),
+      radial-gradient(1px 1px at 25% 90%, white 90%, transparent),
+      radial-gradient(1px 1px at 45% 15%, white 90%, transparent),
+      radial-gradient(1px 1px at 65% 75%, white 90%, transparent),
+      radial-gradient(1px 1px at 85% 25%, white 90%, transparent),
+      radial-gradient(1px 1px at 95% 55%, white 90%, transparent),
+      radial-gradient(1px 1px at 15% 35%, white 90%, transparent),
+      radial-gradient(1px 1px at 35% 65%, white 90%, transparent),
+      radial-gradient(1px 1px at 55% 95%, white 90%, transparent),
+      radial-gradient(1px 1px at 75% 5%, white 90%, transparent);
+    background-size: 100px 100px;
+    opacity: 0;
+    animation: twinkle-fast 1.5s infinite alternate;
+    
+    .styles-loaded & {
+      opacity: 0.4;
+      animation-delay: 0.3s;
+    }
+  }
+  
+  // Второй слой звезд (средние, средняя скорость)
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(2px 2px at 10% 30%, white 90%, transparent),
+      radial-gradient(2px 2px at 20% 60%, white 90%, transparent),
+      radial-gradient(2px 2px at 30% 10%, white 90%, transparent),
+      radial-gradient(2px 2px at 40% 40%, white 90%, transparent),
+      radial-gradient(2px 2px at 50% 70%, white 90%, transparent),
+      radial-gradient(2px 2px at 60% 20%, white 90%, transparent),
+      radial-gradient(2px 2px at 70% 50%, white 90%, transparent),
+      radial-gradient(2px 2px at 80% 80%, white 90%, transparent),
+      radial-gradient(2px 2px at 90% 30%, white 90%, transparent),
+      radial-gradient(2px 2px at 15% 75%, white 90%, transparent),
+      radial-gradient(2px 2px at 25% 45%, white 90%, transparent),
+      radial-gradient(2px 2px at 35% 15%, white 90%, transparent),
+      radial-gradient(2px 2px at 45% 85%, white 90%, transparent),
+      radial-gradient(2px 2px at 55% 55%, white 90%, transparent),
+      radial-gradient(2px 2px at 65% 25%, white 90%, transparent),
+      radial-gradient(2px 2px at 75% 95%, white 90%, transparent),
+      radial-gradient(2px 2px at 85% 65%, white 90%, transparent),
+      radial-gradient(2px 2px at 95% 35%, white 90%, transparent);
+    background-size: 150px 150px;
+    opacity: 0;
+    animation: twinkle-medium 2.5s infinite alternate;
+    z-index: 2;
+    
+    .styles-loaded & {
+      opacity: 0.3;
+      animation-delay: 0.5s;
+    }
+  }
+}
+
+.aam_preloader-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(#FFD700, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(#D62828, 0.1) 0%, transparent 50%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  
+  .content-visible & {
+    opacity: 1;
+  }
+}
+
+.aam_preloader-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.aam_preloader-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 1100px;
+  padding: 3rem;
+  text-align: center;
+  
+  // Изначально скрываем все элементы
+  > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  // Показываем элементы с задержкой при появлении контента
+  .content-visible & {
+    > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    // Последовательная анимация элементов
+    .aam_preloader-icon {
+      transition-delay: 0.2s;
+    }
+    
+    .aam_text-content {
+      transition-delay: 0.4s;
+    }
+    
+    .aam_preloader-progress-container {
+      transition-delay: 0.6s;
+    }
+  }
+}
+
+// Иконка прелоадера
+.aam_preloader-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 140px;
+  position: relative;
+  
+  .content-visible & {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    
+    .content-visible & {
+      opacity: 1;
+      animation: pulse 2s infinite;
+    }
+  }
+}
+
+.aam_snowflake-icon {
+  font-size: 5rem;
+  color: white;
+  text-shadow: 
+    0 0 30px rgba(255, 215, 0, 0.8),
+    0 0 60px rgba(255, 215, 0, 0.4),
+    0 0 90px rgba(255, 215, 0, 0.2);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  
+  .content-visible & {
+    animation: spin 15s linear infinite;
+  }
+}
+
+.aam_text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+// Заголовок
+.aam_holiday-title {
+  font-family: 'Playfair Display', 'Great Vibes', 'Dancing Script', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  background: linear-gradient(135deg, 
+    $holiday-gold 0%, 
+    #FFEC8B 25%, 
+    $holiday-red 50%, 
+    #FF6347 75%, 
+    $holiday-green 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  margin-bottom: 1rem;
+  
+  // Контур для лучшей читаемости
+  text-shadow: 
+    1px 1px 0 rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+// Подзаголовок с улучшенной анимацией
+.aam_holiday-subtitle {
+  font-family: 'Montserrat', 'Cinzel', sans-serif;
+  font-size: 1.4rem;
+  color: $holiday-silver;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  max-width: 1000px;
+  line-height: 1.6;
+  padding: 0 1rem;
+  margin: 0 auto 2rem;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+  // Начальное состояние - скрыто
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  // Нежный блеск текста
+  text-shadow: 
+    0 0 1px rgba(255, 255, 255, 0.5),
+    0 0 2px rgba(255, 215, 0, 0.3);
+  
+  // Декоративные кавычки
+  &::before, &::after {
+    content: '"';
+    color: $holiday-gold;
+    font-size: 2rem;
+    font-family: 'Great Vibes', cursive;
+    opacity: 0.7;
+  }
+  
+  &::before {
+    margin-right: 10px;
+  }
+  
+  &::after {
+    margin-left: 10px;
+  }
+  
+  // Показываем только когда контент видим
+  .content-visible & {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s; // Большая задержка для subtitle
+  }
+  
+  // Анимации смены текста
+  &.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow:
+      0 0 10px rgba(255, 215, 0, 0.5),
+      0 0 20px rgba(255, 215, 0, 0.3),
+      0 0 40px rgba(255, 215, 0, 0.2);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                text-shadow 0.6s ease;
+  }
+  
+  &.fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+    text-shadow: none;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                text-shadow 0.6s ease;
+  }
+}
+
+// Контейнер для предотвращения прыжков
+.aam_dynamic-text-container {
+  position: relative;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+// Прогресс и кнопка
+.aam_preloader-progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 1rem;
+  
+  // Добавляем класс visible для отдельной анимации
+  &.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}
+
+.aam_preloader-progress {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.aam_progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.aam_progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, 
+    $holiday-green, 
+    $holiday-gold, 
+    $holiday-red,
+    #FF6347);
+  border-radius: 4px;
+  position: relative;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(255, 255, 255, 0.6), 
+      transparent);
+    animation: shimmer 3s infinite;
+  }
+}
+
+.aam_progress-sparkle {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  filter: blur(2px);
+  animation: sparkle 1s infinite alternate;
+  box-shadow: 0 0 20px white;
+}
+
+.aam_progress-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  min-width: 60px;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  background: linear-gradient(135deg, $holiday-gold, $holiday-silver);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.aam_skip-button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.15), 
+    rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white !important;
+  padding: 1rem 3rem !important;
+  border-radius: 50px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(255, 255, 255, 0.2), 
+      transparent);
+    transition: left 0.7s;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.25), 
+      rgba(255, 255, 255, 0.15)) !important;
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 
+      0 10px 30px rgba(0, 0, 0, 0.3),
+      0 0 30px rgba(255, 215, 0, 0.4) !important;
+    border-color: rgba(255, 215, 0, 0.6) !important;
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &:active {
+    transform: translateY(-1px) scale(1.02) !important;
+  }
+}
+
+// Анимации
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes sparkle {
+  from {
+    opacity: 0.6;
+    transform: translateY(-50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.3);
+    box-shadow: 0 0 25px white, 0 0 50px rgba(255, 215, 0, 0.8);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.001);
+    opacity: 0.8;
+  }
+}
+
+@keyframes twinkle-fast {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes twinkle-medium {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .aam_preloader-center {
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+  
+  .aam_holiday-title {
+    font-size: 2.5rem;
+  }
+  
+  .aam_holiday-subtitle {
+    font-size: 1.1rem;
+    min-height: 60px;
+  }
+  
+  .aam_preloader-icon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .aam_snowflake-icon {
+    font-size: 3.5rem;
+  }
+}
