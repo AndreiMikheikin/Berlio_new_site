@@ -22,7 +22,7 @@ export class Edge {
     gradient.addColorStop(1, this.v2.color);
 
     ctx.strokeStyle = gradient;
-    ctx.lineWidth = 1.5;
+    ctx.lineWidth = 2.5;
     ctx.stroke();
 
     ctx.globalAlpha = 1;

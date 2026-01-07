@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berlio Canvas Animation</title>
+    <style>
+        @keyframes slide {
+    0% {
+        background-position: 0 0, 0 0, 0 0, 0 0;
+    }
+    50% {
+        background-position: 200% 100%, 150% 120%, 100% 80%, 120% 100%;
+    }
+    100% {
+        background-position: 0 0, 0 0, 0 0, 0 0;
+    }
+}
+
+body {
+    background: #000;
+       /*  linear-gradient(180deg, #005f73 0%, #0a9396 40%, #94d2bd 100%),
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05), transparent 30%),
+        radial-gradient(circle at 70% 50%, rgba(255,255,255,0.04), transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,0.03), transparent 35%),
+        linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%); */
+    
+    background-blend-mode: overlay;
+    background-size: 200% 200%, 150% 150%, 120% 120%, 100% 100%, cover;
+    animation: slide 15s infinite linear;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        canvas {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // === пути (сокращенные) ===
+        const paths = [
+            'M7.87 17.72L33.98 17.68c4.36 0 7.52 0.82 9.47 2.45 1.94 1.63 2.64 3.68 2.07 6.08 -0.47 2.03 -1.71 3.77 -3.71 5.23 -0.64 0.46 -1.34 0.86 -2.07 1.18 -0.22 0.09 -0.4 0.24 -0.53 0.43 -0.13 0.19 -0.19 0.4 -0.19 0.62 0 0.22 0.08 0.44 0.21 0.62 0.13 0.18 0.32 0.32 0.54 0.41 1.2 0.45 2.26 1.17 3.08 2.1 1.2 1.44 1.54 3.25 1.02 5.43 -0.42 1.8 -1.37 3.47 -2.75 4.81 -1.47 1.46 -3.26 2.61 -5.26 3.38 -1.28 0.52 -3.13 0.9 -5.55 1.13 -3.23 0.32 -5.35 0.49 -6.38 0.49L1.39 52.06c-0.19 0 -0.37 -0.04 -0.54 -0.11 -0.17 -0.07 -0.32 -0.18 -0.44 -0.31 -0.12 -0.13 -0.2 -0.29 -0.24 -0.46 -0.04 -0.17 -0.04 -0.34 0 -0.51Z M18.8 31.17h6.07c2.18 0 3.76 -0.28 4.75 -0.87 0.48 -0.27 0.89 -0.63 1.21 -1.06 0.32 -0.43 0.54 -0.91 0.65 -1.42 0.23 -1 0 -1.78 -0.74 -2.34 -0.99 -0.58 -2.39 -0.85 -4.51 -0.85h-5.17c-0.28 0 -0.55 0.09 -0.77 0.25 -0.22 0.16 -0.37 0.39 -0.43 0.65l-1.31 5.62Z m-3.15 13.48l7.11 -0.01c2.41 0 4.18 -0.33 5.32 -0.98 0.53 -0.28 0.98 -0.65 1.34 -1.1 0.36 -0.45 0.61 -0.97 0.74 -1.51 0.13 -0.44 0.12 -0.91 -0.04 -1.35 -0.16 -0.43 -0.45 -0.81 -0.85 -1.09 -0.83 -0.62 -2.48 -0.93 -4.92 -0.92h-6.09c-0.28 0 -0.55 0.09 -0.77 0.25 -0.22 0.16 -0.37 0.39 -0.43 0.65l-1.41 6.06Z',
+            'M57.87 17.64l34.87 -0.05c0.18 0 0.37 0.03 0.53 0.11 0.17 0.07 0.32 0.18 0.43 0.31 0.12 0.13 0.2 0.29 0.24 0.45 0.04 0.17 0.04 0.34 0 0.51l-1.18 5.07c-0.06 0.25 -0.21 0.48 -0.43 0.65 -0.22 0.16 -0.49 0.25 -0.77 0.25l-21.43 0.03c-0.28 0 -0.55 0.09 -0.77 0.25 -0.22 0.16 -0.37 0.39 -0.43 0.65l-0.74 3.18c-0.04 0.17 -0.04 0.34 0 0.51 0.04 0.17 0.12 0.32 0.24 0.45 0.12 0.13 0.26 0.24 0.43 0.31 0.17 0.07 0.35 0.11 0.53 0.11l18.66 -0.03c0.18 0 0.37 0.03 0.53 0.11 0.17 0.07 0.32 0.18 0.43 0.31 0.12 0.13 0.2 0.29 0.24 0.45 0.04 0.17 0.04 0.34 0 0.51l-1.1 4.71c-0.06 0.25 -0.21 0.48 -0.43 0.65 -0.22 0.16 -0.49 0.25 -0.77 0.25l-21.43 0.03c-0.28 0 -0.55 0.09 -0.77 0.25 -0.22 0.16 -0.37 0.39 -0.43 0.65l-1.05 4.49c-0.04 0.17 -0.04 0.34 0 0.51 0.04 0.17 0.12 0.32 0.24 0.45 0.12 0.13 0.26 0.24 0.43 0.31 0.17 0.07 0.35 0.11 0.53 0.11l21.04 -0.03c0.18 0 0.37 0.04 0.53 0.11 0.17 0.07 0.31 0.18 0.43 0.31 0.12 0.13 0.2 0.29 0.24 0.45 0.04 0.17 0.04 0.34 0 0.51l-1.28 5.49c-0.06 0.25 -0.21 0.48 -0.43 0.65 -0.22 0.16 -0.49 0.25 -0.77 0.25l-34.87 0.05c-0.18 0 -0.36 -0.04 -0.53 -0.11 -0.17 -0.07 -0.31 -0.18 -0.43 -0.31 -0.12 -0.13 -0.2 -0.29 -0.24 -0.45 -0.04 -0.17 -0.04 -0.34 0 -0.51l7.5 -32.06c0.06 -0.25 0.21 -0.48 0.43 -0.65 0.22 -0.16 0.49 -0.25 0.77 -0.25Z',
+            'M190.88 56.83c0.23 -0.05 25.42 -0.17 25.06 0.01 -40.13 19.35 -87.79 4.88 -95.27 -18.3 -0.08 -0.26 -0.25 -0.49 -0.49 -0.65 -0.23 -0.16 -0.52 -0.24 -0.81 -0.24l-2.9 0.03h-0.43c-0.31 0 -0.62 0.1 -0.86 0.28 -0.25 0.18 -0.41 0.44 -0.48 0.72l-3.34 14.22c-0.06 0.28 -0.23 0.53 -0.47 0.71 -0.24 0.18 -0.54 0.28 -0.85 0.28l-14.69 0.03c-0.21 0 -0.41 -0.04 -0.6 -0.13 -0.19 -0.08 -0.35 -0.21 -0.48 -0.37 -0.13 -0.15 -0.22 -0.33 -0.27 -0.52 -0.05 -0.19 -0.05 -0.39 0 -0.57l9.64 -40.12c0.07 -0.29 0.24 -0.54 0.49 -0.72 0.25 -0.18 0.56 -0.28 0.87 -0.28l14.93 0.08c0.21 0 0.41 0.05 0.6 0.14 0.19 0.09 0.35 0.22 0.48 0.38 0.13 0.15 0.22 0.33 0.26 0.52 0.04 0.19 0.04 0.39 -0.01 0.57l-4.68 14.53c-0.05 0.19 -0.05 0.38 -0.01 0.57 0.04 0.19 0.13 0.36 0.26 0.51 0.13 0.15 0.29 0.28 0.48 0.37 0.19 0.09 0.39 0.14 0.6 0.14 2.82 0 6.03 -0.18 7.29 -0.82 0.14 -0.07 0.29 -0.12 0.44 -0.16 4.98 -1.31 7.68 -3.64 8.33 -6.31 1.07 -4.35 -2.99 -11.07 -13.64 -13.33 -1.75 -0.38 -4.52 -0.94 -10.5 -0.99 -2.18 -0.02 -4.01 -0.02 -5.59 0.03 -2.98 0.05 -5.13 0.17 -7.21 0.35 -11.71 1.06 -18.24 2.71 -26.97 5.62 -0.06 0.02 -0.13 0.03 -0.19 0.03l-14.37 0.05c-0.26 0 -0.51 -0.08 -0.71 -0.24 -0.2 -0.15 -0.34 -0.36 -0.39 -0.6 -0.05 -0.23 -0.01 -0.48 0.11 -0.69 0.12 -0.21 0.32 -0.37 0.56 -0.46 15.83 -6.37 35.56 -10.75 55.53 -10.75 28.55 0 70.22 22.11 26.90 33.59 -0.28 0.07 -0.52 0.22 -0.70 0.43 -0.18 0.21 -0.28 0.47 -0.30 0.74 -1.07 17.71 27.98 27.34 53.27 20.91 0.06 -0.03 0.13 -0.06 0.19 -0.09Z',
+            'M163.20 17.69l12.39 -0.02c0.19 0 0.37 0.04 0.54 0.11 0.17 0.07 0.32 0.18 0.44 0.32 0.12 0.14 0.20 0.29 0.24 0.46 0.04 0.17 0.04 0.35 0 0.52l-5.50 23.03c-0.04 0.17 -0.04 0.35 0 0.52 0.04 0.17 0.13 0.33 0.24 0.46 0.12 0.14 0.27 0.25 0.44 0.32 0.17 0.07 0.35 0.11 0.54 0.11l18.68 -0.03c0.19 0 0.37 0.04 0.54 0.11 0.17 0.07 0.32 0.18 0.44 0.32 0.12 0.14 0.20 0.30 0.24 0.47 0.04 0.17 0.04 0.35 0 0.52l-1.47 6.13c-0.06 0.26 -0.21 0.49 -0.44 0.65 -0.22 0.16 -0.50 0.25 -0.78 0.25l-33.17 0.05c-0.19 0 -0.37 -0.04 -0.54 -0.11 -0.17 -0.07 -0.32 -0.18 -0.44 -0.32 -0.12 -0.14 -0.20 -0.30 -0.24 -0.47 -0.04 -0.17 -0.04 -0.35 0 -0.52l7.50 -31.96c0.06 -0.26 0.21 -0.49 0.44 -0.65 0.22 -0.16 0.50 -0.25 0.78 -0.25Z',
+            'M205.83 17.62l12.43 -0.02c0.19 0 0.37 0.04 0.54 0.11 0.17 0.07 0.32 0.18 0.44 0.32 0.12 0.14 0.20 0.29 0.24 0.46 0.04 0.17 0.04 0.35 0 0.52l-7.61 31.96c-0.06 0.26 -0.22 0.49 -0.44 0.65 -0.22 0.16 -0.50 0.25 -0.78 0.25l-11.43 0.02c-0.19 0 -0.37 -0.04 -0.54 -0.11 -0.17 -0.07 -0.32 -0.18 -0.44 -0.32 -0.12 -0.14 -0.20 -0.29 -0.24 -0.46 -0.04 -0.17 -0.04 -0.35 0 -0.52l7.61 -31.96c0.06 -0.26 0.22 -0.49 0.44 -0.65 0.22 -0.16 0.50 -0.25 0.78 -0.25Z',
+            'M223.98 34.76c1.33 -5.60 4.42 -9.96 9.27 -13.08 4.85 -3.13 10.94 -4.69 18.27 -4.71 7.52 -0.01 12.94 1.51 16.27 4.56 3.33 3.05 4.35 7.34 3.05 12.86 -0.95 4 -2.63 7.29 -5.01 9.86 -2.49 2.64 -5.62 4.69 -9.13 5.99 -3.69 1.44 -8.05 2.15 -13.05 2.17 -5.09 0 -9.16 -0.61 -12.21 -1.83 -2.93 -1.13 -5.31 -3.20 -6.72 -5.83 -1.44 -2.66 -1.68 -5.99 -0.73 -10Z m13.94 0.02c-0.83 3.46 -0.58 5.95 0.76 7.46 1.34 1.51 3.46 2.26 6.38 2.25 2.99 0 5.49 -0.74 7.50 -2.23 2 -1.48 3.46 -4.14 4.35 -7.98 0.76 -3.22 0.48 -5.58 -0.89 -7.07 -1.37 -1.49 -3.52 -2.22 -6.45 -2.22 -2.66 -0.05 -5.25 0.76 -7.33 2.29 -2.06 1.50 -3.50 4 -4.33 7.50Z',
+            'M215.34 12.74c5.51 0 9.97 -2.82 9.97 -6.30 0 -3.48 -4.46 -6.30 -9.97 -6.30 -5.51 0 -9.97 2.82 -9.97 6.30 0 3.48 4.46 6.30 9.97 6.30Z'
+        ];
+
+        // === параметры ===
+        const GLOBAL_SPEED = 75;
+        const TOTAL_POINTS = 1500;
+        const MAX_EDGE_RADIUS = 75;
+        const MAX_EDGES_PER_VERTEX = 7;
+
+        let EDGE_RADIUS = 55;
+        let currentMaxEdges = 1;
+        let vertices = [];
+        let edges = [];
+        let colorHue = 180;
+        let scale = 1;
+        let offsetX = 0;
+        let offsetY = 0;
+        let lastTime = performance.now();
+
+        // === HSL цвета для градиентов ===
+        const redHSL = { h: 3, s: 75, l: 55 };    // #F24942
+        const greenHSL = { h: 140, s: 55, l: 50 }; // #48AE5A
+
+        // === тип градиента для каждого path ===
+        const pathColorsConfig = [
+            redHSL,
+            redHSL,
+            greenHSL,
+            redHSL,
+            redHSL,
+            redHSL,
+            greenHSL
+        ];
+
+        // === создаём массив цветов для вершин каждого path ===
+        const pathColors = paths.map((p, i) => {
+            const temp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            temp.setAttribute('d', p);
+            const pathLength = temp.getTotalLength();
+            const totalLength = paths.reduce((sum, path) => {
+                const tempPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                tempPath.setAttribute('d', path);
+                return sum + tempPath.getTotalLength();
+            }, 0);
+
+            const numPoints = Math.max(10, Math.floor(TOTAL_POINTS * (pathLength / totalLength)));
+            const baseColor = pathColorsConfig[i] || { h: 180, s: 50, l: 50 }; // Fallback цвет
+
+            // Создаем градиент вдоль пути с небольшими вариациями
+            const colors = [];
+            for (let j = 0; j <= numPoints; j++) {
+                const t = j / numPoints;
+
+                // Небольшие вариации для естественного вида
+                const hueVariation = (Math.random() - 0.5) * 15; // ±7.5 градусов
+                const saturationVariation = (Math.random() - 0.5) * 15; // ±7.5%
+                const lightnessVariation = (Math.random() - 0.5) * 20; // ±10%
+
+                const h = baseColor.h + hueVariation;
+                const s = Math.max(30, Math.min(90, baseColor.s + saturationVariation));
+                const l = Math.max(35, Math.min(75, baseColor.l + lightnessVariation));
+
+                colors.push(`hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`);
+            }
+            return colors;
+        });
+
+        // === класс Edge ===
+        class Edge {
+            constructor(v1, v2) {
+                this.v1 = v1;
+                this.v2 = v2;
+            }
+            draw(ctx, alpha = 1) {
+                ctx.beginPath();
+                ctx.moveTo(this.v1.x, this.v1.y);
+                ctx.lineTo(this.v2.x, this.v2.y);
+
+                ctx.globalAlpha = alpha;
+
+                const gradient = ctx.createLinearGradient(
+                    this.v1.x, this.v1.y,
+                    this.v2.x, this.v2.y
+                );
+
+                gradient.addColorStop(0, this.v1.color);
+                gradient.addColorStop(1, this.v2.color);
+
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        // === класс Vertex ===
+        class Vertex {
+            constructor(x, y) {
+                this.original = { x, y };
+                this.x = x;
+                this.y = y;
+                this.initialized = false; // Флаг инициализации
+                const angle = Math.random() * 2 * Math.PI;
+                this.vx = Math.cos(angle);
+                this.vy = Math.sin(angle);
+                this.speed = GLOBAL_SPEED * (0.8 + Math.random() * 0.4);
+                this.radius = 2; //0.5 + Math.random() * 0.5;
+                //this.color = `hsl(${colorHue + Math.floor(Math.random() * 60)},70%,60%)`;
+                this.bounceCount = 0;
+                this.returning = false;
+                this.target = { x, y };
+                this.hasMoved = false;
+                this.isMoving = false;
+                this.startDelay = Math.random() * 900 + 100;
+                this.delayElapsed = 0;
+                this.canStart = false;
+                this.startProgress = 0;
+                this.edgeCount = 0;
+            }
+
+            update(dt) {
+                // В режиме idle не обновляем
+                if (mode === 'idle') return;
+
+                // Обрабатываем задержку старта
+                if (!this.canStart) {
+                    this.delayElapsed += dt * 1000;
+                    if (this.delayElapsed >= this.startDelay) {
+                        this.canStart = true;
+                        this.startProgress = 0;
+                        this.initialized = true; // Отмечаем что вершина инициализирована
+                    } else {
+                        return;
+                    }
+                }
+
+                // Плавный старт в течение 200ms
+                if (this.startProgress < 1) {
+                    this.startProgress += dt * 5;
+                    this.startProgress = Math.min(this.startProgress, 1);
+                }
+
+                const currentSpeed = this.speed * this.startProgress;
+
+                // Отмечаем, что точка начала движение
+                if (!this.hasMoved && currentSpeed > 0.1) {
+                    this.hasMoved = true;
+                    this.isMoving = true;
+                }
+
+                if (this.returning) {
+                    const dx = this.target.x - this.x;
+                    const dy = this.target.y - this.y;
+                    const dist = Math.hypot(dx, dy);
+                    if (dist <= currentSpeed * dt) {
+                        this.x = this.target.x;
+                        this.y = this.target.y;
+                        this.vx = 0;
+                        this.vy = 0;
+                        this.returning = false;
+                        this.bounceCount = 0;
+                        this.isMoving = false;
+                        this.startProgress = 0;
+                        return;
+                    }
+                    this.vx = dx / dist;
+                    this.vy = dy / dist;
+                    this.x += this.vx * currentSpeed * dt;
+                    this.y += this.vy * currentSpeed * dt;
+                    this.isMoving = true;
+                    return;
+                }
+
+                if (this.vx !== 0 || this.vy !== 0) {
+                    this.x += this.vx * currentSpeed * dt;
+                    this.y += this.vy * currentSpeed * dt;
+                    this.isMoving = true;
+
+                    let bouncedHoriz = this.x <= 0 || this.x >= canvas.width;
+                    let bouncedVert = this.y <= 0 || this.y >= canvas.height;
+
+                    // Считаем bounceCount пропорционально размерам экрана
+                    if (bouncedHoriz || bouncedVert) {
+                        const horizontalWeight = canvas.width >= canvas.height ? 2 : 1;
+                        const verticalWeight = canvas.width <= canvas.height ? 2 : 1;
+
+                        if (bouncedHoriz) this.bounceCount += horizontalWeight;
+                        if (bouncedVert) this.bounceCount += verticalWeight;
+
+                        // Меняем направления
+                        if (bouncedHoriz) this.vx *= -1;
+                        if (bouncedVert) this.vy *= -1;
+
+                        if (this.bounceCount >= 2 && !this.returning) this.returning = true;
+                    }
+                } else {
+                    this.isMoving = false;
+                }
+            }
+
+            draw(ctx) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+
+            get isAtOrigin() {
+                // Считаем что вершина на месте только если она была инициализирована и вернулась
+                return this.initialized &&
+                    Math.abs(this.x - this.original.x) < 0.5 &&
+                    Math.abs(this.y - this.original.y) < 0.5;
+            }
+        }
+
+        // === утилиты ===
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            const logoWidth = 272;
+            const logoHeight = 66;
+            scale = Math.min(canvas.width / (logoWidth * 2), canvas.height / (logoHeight * 2));
+            offsetX = (canvas.width - logoWidth * scale) / 2;
+            offsetY = (canvas.height - logoHeight * scale) / 2;
+
+            updateEdgeRadius(); // Обновляем радиус при изменении размера
+        }
+
+        function getPointsFromPath(pathStr, numPoints) {
+            const temp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            temp.setAttribute('d', pathStr);
+            const len = temp.getTotalLength();
+            const points = [];
+            for (let i = 0; i <= numPoints; i++) {
+                const p = temp.getPointAtLength((i / numPoints) * len);
+                points.push({ x: p.x * scale + offsetX, y: p.y * scale + offsetY });
+            }
+            return points;
+        }
+
+        function initVertices() {
+            const lengths = paths.map(p => {
+                const temp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                temp.setAttribute('d', p);
+                return temp.getTotalLength();
+            });
+            const totalLength = lengths.reduce((a, b) => a + b, 0);
+
+            vertices = [];
+
+            paths.forEach((p, pathIndex) => {
+                const portion = lengths[pathIndex] / totalLength;
+                const count = Math.max(10, Math.floor(TOTAL_POINTS * portion));
+                const points = getPointsFromPath(p, count);
+
+                // Создаем вершины с цветами из соответствующего path
+                points.forEach((point, pointIndex) => {
+                    const vertex = new Vertex(point.x, point.y);
+                    // Используем цвет из pathColors, если доступен
+                    if (pathColors[pathIndex] && pathColors[pathIndex][pointIndex]) {
+                        vertex.color = pathColors[pathIndex][pointIndex];
+                    } else {
+                        // Fallback цвет если что-то пошло не так
+                        vertex.color = `hsl(${pathColorsConfig[pathIndex]?.h || 180}, ${pathColorsConfig[pathIndex]?.s || 50}%, ${pathColorsConfig[pathIndex]?.l || 50}%)`;
+                    }
+                    vertices.push(vertex);
+                });
+            });
+        }
+
+        // Каждую секунду увеличиваем
+        setInterval(() => {
+            if (currentMaxEdges < MAX_EDGES_PER_VERTEX) currentMaxEdges++;
+        }, 1000);
+
+        function findEdges() {
+            const edgesList = [];
+
+            // Сбрасываем счётчики рёбер перед новым кадром
+            vertices.forEach(v => v.edgeCount = 0);
+
+            for (let i = 0; i < vertices.length; i++) {
+                const a = vertices[i];
+
+                for (let j = i + 1; j < vertices.length; j++) {
+                    const b = vertices[j];
+
+                    // Условие движения
+                    if (!a.isMoving && !b.isMoving) continue;
+                    if ((a.isMoving && !b.isMoving) || (!a.isMoving && b.isMoving)) continue;
+
+                    // Ограничение по количеству рёбер
+                    if (a.edgeCount >= currentMaxEdges || b.edgeCount >= currentMaxEdges) continue;
+
+                    // Проверяем дистанцию
+                    const dx = a.x - b.x;
+                    const dy = a.y - b.y;
+                    const dist = Math.hypot(dx, dy);
+
+                    if (dist <= EDGE_RADIUS) {
+                        const edge = new Edge(a, b);
+                        const alpha = 1 - dist / EDGE_RADIUS;
+
+                        edgesList.push({ edge, alpha });
+
+                        // Увеличиваем счётчики
+                        a.edgeCount++;
+                        b.edgeCount++;
+                    }
+                }
+            }
+
+            return edgesList;
+        }
+
+        function drawLogo() {
+            ctx.save();
+            ctx.translate(offsetX, offsetY);
+            ctx.scale(scale, scale);
+            ctx.strokeStyle = `hsla(${colorHue}, 50%, 30%, 0.1)`;
+            ctx.lineWidth = 0.5;
+            paths.forEach(p => ctx.stroke(new Path2D(p)));
+            ctx.restore();
+        }
+
+        function drawEdges() {
+            edges = findEdges();
+            edges.forEach(({ edge, alpha }) => edge.draw(ctx, alpha * 0.6));
+        }
+
+        let mode = 'idle';
+        let edgesVisible = false;
+
+        // === циклы ===
+        function startCycle() {
+            mode = 'scatter';
+            edgesVisible = false;
+
+            vertices.forEach(v => {
+                const angle = Math.random() * 2 * Math.PI;
+                v.vx = Math.cos(angle);
+                v.vy = Math.sin(angle);
+                v.speed = GLOBAL_SPEED * (0.8 + Math.random() * 0.4);
+                v.returning = false;
+                v.bounceCount = 0;
+                v.hasMoved = false;
+                v.isMoving = false;
+                v.startDelay = Math.random() * 900 + 100;
+                v.delayElapsed = 0;
+                v.canStart = false;
+                v.startProgress = 0;
+                v.initialized = false; // Сбрасываем флаг инициализации
+
+                // Начинаем не с исходной позиции, а с небольшого смещения
+                v.x = v.original.x + (Math.random() - 0.5) * 2;
+                v.y = v.original.y + (Math.random() - 0.5) * 2;
+            });
+
+            setTimeout(() => edgesVisible = true, 1000);
+        }
+
+        function resetCycle() {
+            mode = 'idle';
+            edgesVisible = false;
+
+            vertices.forEach(v => {
+                v.x = v.original.x;
+                v.y = v.original.y;
+                v.vx = 0;
+                v.vy = 0;
+                v.speed = 0;
+                v.returning = false;
+                v.bounceCount = 0;
+                v.hasMoved = false;
+                v.isMoving = false;
+                v.startDelay = Math.random() * 900 + 100;
+                v.delayElapsed = 0;
+                v.canStart = false;
+                v.startProgress = 0;
+                v.initialized = false;
+            });
+
+            // Запускаем следующий цикл через 3 секунды
+            setTimeout(startCycle, 3000);
+        }
+
+        // === анимация ===
+        function animate() {
+            const now = performance.now();
+            const dt = Math.min((now - lastTime) / 1000, 0.1);
+            lastTime = now;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawLogo();
+
+            vertices.forEach(v => v.update(dt));
+            vertices.forEach(v => v.draw(ctx));
+
+            // Рисуем рёбра только если разрешено
+            if (edgesVisible) drawEdges();
+
+            // Проверяем, все ли точки вернулись на место
+            const allHome = vertices.every(v => v.isAtOrigin);
+            if (allHome && mode !== 'idle') {
+                resetCycle();
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        function autoChangeColor() {
+            colorHue = (colorHue + 0.1) % 360;
+        }
+
+        function updateEdgeRadius() {
+            const diag = Math.sqrt(canvas.width ** 2 + canvas.height ** 2);
+            const minRadius = 15;  // минимальный радиус для маленьких экранов
+            const maxRadius = MAX_EDGE_RADIUS;  // максимальный радиус для больших экранов
+            const minDiag = 500;   // минимальная диагональ (мобильные устройства)
+            const maxDiag = 2000;  // максимальная диагональ (десктопы)
+
+            // Линейная интерполяция с ограничением
+            let newRadius = minRadius + (diag - minDiag) * (maxRadius - minRadius) / (maxDiag - minDiag);
+            EDGE_RADIUS = Math.max(minRadius, Math.min(maxRadius, newRadius));
+
+            // Можно добавить лог для отладки:
+            // console.log(`Screen: ${canvas.width}x${canvas.height}, Diag: ${diag.toFixed(0)}, Edge Radius: ${EDGE_RADIUS.toFixed(1)}`);
+        }
+
+        // === запуск ===
+        resizeCanvas();
+        initVertices();
+        updateEdgeRadius();
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initVertices();
+        });
+
+        // Запускаем первый цикл через секунду
+        setTimeout(startCycle, 1000);
+
+        requestAnimationFrame(animate);
+        setInterval(autoChangeColor, 50);
+        updateEdgeRadius();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Геометрическая лингвистика — Canvas</title>
+  <style>
+    :root{--bg:#0b1020;--panel:#0f1724;--accent:#6ee7b7;--muted:#94a3b8}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#e6eef8}
+    .wrap{display:grid;grid-template-columns:1fr 320px;height:100%;gap:18px;padding:18px}
+    canvas{display:block;width:100%;height:100%;background:linear-gradient(180deg,#071026 0%, rgba(7,16,38,.6) 100%);border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,.6)}
+    .panel{background:linear-gradient(180deg,var(--panel),#0b1220);padding:16px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,.6);min-height:200px}
+    h1{font-size:16px;margin:0 0 12px}
+    label{display:block;font-size:13px;color:var(--muted);margin-top:10px}
+    .row{display:flex;gap:8px;align-items:center}
+    input[type=range]{width:100%}
+    button{background:transparent;border:1px solid rgba(255,255,255,.06);padding:8px 10px;border-radius:8px;color:var(--accent);cursor:pointer}
+    .small{font-size:12px;color:var(--muted)}
+    .controls{display:flex;flex-direction:column}
+    .footer{margin-top:12px;font-size:12px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div>
+      <canvas id="c"></canvas>
+    </div>
+
+    <div class="panel">
+      <h1>Геометрическая лингвистика — параметры</h1>
+      <div class="controls">
+        <label>Скорость вершин: <span id="speedLabel">1.5</span></label>
+        <input id="speed" type="range" min="0.1" max="6" step="0.1" value="1.5" />
+
+        <label>Радиус связи (connectionRadius): <span id="radiusLabel">120</span></label>
+        <input id="radius" type="range" min="20" max="500" step="1" value="120" />
+
+        <label>Макс вершин: <span id="maxLabel">120</span></label>
+        <input id="max" type="range" min="10" max="800" step="1" value="120" />
+
+        <label>Режим жизни: <span id="lifeLabel">distance</span></label>
+        <select id="lifeMode">
+          <option value="distance">distance (по пройденному пути)</option>
+          <option value="time">time (по времени)</option>
+        </select>
+
+        <label>Максимум (ms или px): <span id="lifeValueLabel">400</span></label>
+        <input id="lifeValue" type="range" min="50" max="3000" step="10" value="400" />
+
+        <label>Генерация новых вершин (нажатие мыши создаёт 1):</label>
+        <div class="row">
+          <button id="clear">Очистить</button>
+          <button id="pause">Пауза</button>
+          <button id="spawnBurst">Спавн 20</button>
+        </div>
+
+        <div class="footer">
+          Нажми в канвасе, чтобы добавить вершину. Версии: Vertex, Edge. Все вершины используют одну скорость. 
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('c')
+    const ctx = canvas.getContext('2d')
+
+    function resize(){
+      const dpr = Math.max(1, window.devicePixelRatio || 1)
+      canvas.width = canvas.clientWidth * dpr
+      canvas.height = canvas.clientHeight * dpr
+      ctx.setTransform(dpr,0,0,dpr,0,0)
+    }
+    window.addEventListener('resize', resize)
+
+    const verts = []
+    let paused = false
+
+    const speedInput = document.getElementById('speed')
+    const radiusInput = document.getElementById('radius')
+    const maxInput = document.getElementById('max')
+    const lifeMode = document.getElementById('lifeMode')
+    const lifeValue = document.getElementById('lifeValue')
+
+    const speedLabel = document.getElementById('speedLabel')
+    const radiusLabel = document.getElementById('radiusLabel')
+    const maxLabel = document.getElementById('maxLabel')
+    const lifeLabel = document.getElementById('lifeLabel')
+    const lifeValueLabel = document.getElementById('lifeValueLabel')
+
+    speedInput.addEventListener('input', ()=>{speedLabel.textContent = speedInput.value})
+    radiusInput.addEventListener('input', ()=>{radiusLabel.textContent = radiusInput.value})
+    maxInput.addEventListener('input', ()=>{maxLabel.textContent = maxInput.value})
+    lifeMode.addEventListener('change', ()=>{lifeLabel.textContent = lifeMode.value})
+    lifeValue.addEventListener('input', ()=>{lifeValueLabel.textContent = lifeValue.value})
+
+    document.getElementById('clear').addEventListener('click', ()=>{verts.length = 0})
+    document.getElementById('pause').addEventListener('click', (e)=>{paused = !paused; e.target.textContent = paused ? 'Запустить' : 'Пауза'})
+    document.getElementById('spawnBurst').addEventListener('click', ()=>{for(let i=0;i<20;i++) spawnRandom()})
+
+    class Vertex {
+      constructor(x, y, movementVector, speed, lifetimeConfig){
+        this.x = x
+        this.y = y
+        const mag = Math.hypot(movementVector.x, movementVector.y) || 1
+        this.vx = movementVector.x / mag
+        this.vy = movementVector.y / mag
+        this.speed = speed
+
+        this.lifeMode = lifetimeConfig.mode
+        this.maxLifeValue = lifetimeConfig.value
+        this.birthTime = performance.now()
+        this.traveled = 0
+
+        this.radius = 3 + Math.random()*3
+        this.color = `hsl(${Math.floor(Math.random()*60)+180},70%,60%)`
+      }
+
+      getLifeRatio(){
+        if(this.lifeMode === 'time'){
+          return Math.max(0, 1 - (performance.now() - this.birthTime) / this.maxLifeValue)
+        }
+        return Math.max(0, 1 - this.traveled / this.maxLifeValue)
+      }
+
+      update(dt){
+        const dx = this.vx * this.speed * dt
+        const dy = this.vy * this.speed * dt
+        this.x += dx
+        this.y += dy
+        this.traveled += Math.hypot(dx, dy)
+
+        if(this.x < 0){ this.x = 0; this.vx *= -1 }
+        if(this.y < 0){ this.y = 0; this.vy *= -1 }
+        if(this.x > canvas.clientWidth){ this.x = canvas.clientWidth; this.vx *= -1 }
+        if(this.y > canvas.clientHeight){ this.y = canvas.clientHeight; this.vy *= -1 }
+      }
+
+      isAlive(){
+        return this.getLifeRatio() > 0
+      }
+
+      draw(ctx){
+        const alpha = this.getLifeRatio()
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2)
+        ctx.fillStyle = this.color
+        ctx.globalAlpha = alpha
+        ctx.fill()
+        ctx.globalAlpha = 1
+      }
+    }
+
+    class Edge {
+      constructor(v1, v2){ this.v1 = v1; this.v2 = v2 }
+      draw(ctx, alpha=1){
+        ctx.beginPath()
+        ctx.moveTo(this.v1.x, this.v1.y)
+        ctx.lineTo(this.v2.x, this.v2.y)
+        ctx.globalAlpha = alpha
+        ctx.strokeStyle = '#abc'
+        ctx.lineWidth = 1
+        ctx.stroke()
+        ctx.globalAlpha = 1
+      }
+    }
+
+    function spawnRandom(x, y){
+      if(verts.length >= Number(maxInput.value)) return
+      const px = (typeof x === 'number') ? x : Math.random()*canvas.clientWidth
+      const py = (typeof y === 'number') ? y : Math.random()*canvas.clientHeight
+      const angle = Math.random()*Math.PI*2
+      const mv = {x: Math.cos(angle), y: Math.sin(angle)}
+      const lifetimeConfig = {mode: lifeMode.value, value: Number(lifeValue.value)}
+      const v = new Vertex(px, py, mv, Number(speedInput.value), lifetimeConfig)
+      verts.push(v)
+      return v
+    }
+
+    function findEdges(){
+      const edges = []
+      const r = Number(radiusInput.value)
+      for(let i=0;i<verts.length;i++){
+        for(let j=i+1;j<verts.length;j++){
+          const a = verts[i], b = verts[j]
+          const dx = a.x - b.x, dy = a.y - b.y
+          const dist = Math.hypot(dx,dy)
+          if(dist <= r){
+            const e = new Edge(a,b)
+            const alpha = 1 - (dist / r)
+            edges.push({edge:e,alpha})
+          }
+        }
+      }
+      return edges
+    }
+
+    for(let i=0;i<30;i++) spawnRandom()
+
+    canvas.addEventListener('click', (ev)=>{
+      const rect = canvas.getBoundingClientRect()
+      const x = ev.clientX - rect.left
+      const y = ev.clientY - rect.top
+      spawnRandom(x,y)
+    })
+
+    let last = performance.now()
+    resize()
+    function loop(now){
+      const dtMs = now - last
+      const dt = dtMs / 16.666
+      last = now
+      if(!paused){
+        for(let i=verts.length-1;i>=0;i--){
+          const v = verts[i]
+          v.update(dt)
+          if(!v.isAlive()) verts.splice(i,1)
+        }
+      }
+
+      ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight)
+
+      const edges = findEdges()
+      edges.forEach(({edge,alpha})=>edge.draw(ctx, alpha*0.8))
+
+      verts.forEach(v=>v.draw(ctx))
+
+      requestAnimationFrame(loop)
+    }
+    requestAnimationFrame(loop)
+  </script>
+</body>
+</html>

@@ -4,7 +4,7 @@ import { Edge } from '../Edge/Edge';
 import { Vertex } from '../Vertex/Vertex';
 
 // Константы
-const MAX_EDGES_PER_VERTEX = 5;
+const MAX_EDGES_PER_VERTEX = 3;
 
 // HSL цвета для градиентов
 const redHSL = { h: 3, s: 75, l: 55 };
@@ -38,7 +38,7 @@ export default function CanvasBackground2({
         vertices: [],
         edges: [],
         colorHue: 180,
-        scale: scale, // начальное значение из пропсов
+        scale: scale,
         offsetX: 0,
         offsetY: 0,
         lastTime: 0,
@@ -49,16 +49,19 @@ export default function CanvasBackground2({
         edgesVisible: false,
         canvas: null,
         pathColors: [],
-        INITIAL_DELAY: initialDelay
+        INITIAL_DELAY: initialDelay,
+        // Добавляем кеш для рёбер
+        cachedEdges: [],
+        lastEdgeUpdate: 0,
+        edgeUpdateInterval: 200
     });
 
-    // Синхронизация глобальной скорости и начального EDGE_RADIUS при изменении пропсов
+    // Синхронизация пропсов
     useEffect(() => {
         stateRef.current.GLOBAL_SPEED = globalSpeed;
     }, [globalSpeed]);
 
     useEffect(() => {
-        // Устанавливаем начальный EDGE_RADIUS при изменении пропа
         stateRef.current.EDGE_RADIUS = edgeRadius;
     }, [edgeRadius]);
 
@@ -79,7 +82,6 @@ export default function CanvasBackground2({
 
             const colors = [];
             for (let j = 0; j <= numPoints; j++) {
-                const t = j / numPoints;
                 const hueVariation = (Math.random() - 0.5) * 15;
                 const saturationVariation = (Math.random() - 0.5) * 15;
                 const lightnessVariation = (Math.random() - 0.5) * 20;
@@ -145,7 +147,6 @@ export default function CanvasBackground2({
         const canvas = state.canvas;
         if (!canvas) return;
 
-        // Если задан жёсткий диапазон (минимум == максимум) — используем фиксированный радиус
         if (minEdgeRadius === maxEdgeRadius) {
             state.EDGE_RADIUS = minEdgeRadius;
             return;
@@ -173,42 +174,54 @@ export default function CanvasBackground2({
         const logoWidth = 272;
         const logoHeight = 66;
 
-        // Используем актуальный scale из stateRef
         const targetWidth = canvas.width * state.scale;
         const calculatedScale = targetWidth / logoWidth;
 
-        // Обновляем offset с новым scale
         state.offsetX = (canvas.width - logoWidth * calculatedScale) / 2;
         state.offsetY = (canvas.height - logoHeight * calculatedScale) / 2;
 
-        // Переинициализируем вершины с новыми параметрами
         initVertices(calculatedScale, state.offsetX, state.offsetY);
-
         updateEdgeRadius();
     }, [initVertices, updateEdgeRadius]);
 
+    // Оптимизированный findEdges - вызывается только раз в секунду
     const findEdges = useCallback(() => {
         const state = stateRef.current;
-        const edgesList = [];
+        const now = Date.now();
+        
+        // Если прошло меньше секунды с последнего обновления, возвращаем кеш
+        if (now - state.lastEdgeUpdate < state.edgeUpdateInterval && state.cachedEdges.length > 0) {
+            return state.cachedEdges;
+        }
 
+        const edgesList = [];
         state.vertices.forEach(v => v.edgeCount = 0);
 
-        for (let i = 0; i < state.vertices.length; i++) {
-            const a = state.vertices[i];
+        // Быстрая проверка: если вершины не двигаются, не ищем рёбра
+        const movingVertices = state.vertices.filter(v => v.isMoving);
+        if (movingVertices.length === 0) {
+            state.cachedEdges = edgesList;
+            state.lastEdgeUpdate = now;
+            return edgesList;
+        }
 
-            for (let j = i + 1; j < state.vertices.length; j++) {
-                const b = state.vertices[j];
+        // Оптимизация: предварительно вычисляем квадрат радиуса
+        const radiusSq = state.EDGE_RADIUS * state.EDGE_RADIUS;
 
-                if (!a.isMoving && !b.isMoving) continue;
-                if ((a.isMoving && !b.isMoving) || (!a.isMoving && b.isMoving)) continue;
+        for (let i = 0; i < movingVertices.length; i++) {
+            const a = movingVertices[i];
+
+            for (let j = i + 1; j < movingVertices.length; j++) {
+                const b = movingVertices[j];
 
                 if (a.edgeCount >= state.currentMaxEdges || b.edgeCount >= state.currentMaxEdges) continue;
 
                 const dx = a.x - b.x;
                 const dy = a.y - b.y;
-                const dist = Math.hypot(dx, dy);
+                const distSq = dx * dx + dy * dy;
 
-                if (dist <= state.EDGE_RADIUS) {
+                if (distSq <= radiusSq) {
+                    const dist = Math.sqrt(distSq);
                     const edge = new Edge(a, b);
                     const alpha = 1 - dist / state.EDGE_RADIUS;
 
@@ -220,6 +233,10 @@ export default function CanvasBackground2({
             }
         }
 
+        // Сохраняем в кеш
+        state.cachedEdges = edgesList;
+        state.lastEdgeUpdate = now;
+        
         return edgesList;
     }, []);
 
@@ -235,7 +252,6 @@ export default function CanvasBackground2({
     }, []);
 
     const drawEdges = useCallback((ctx) => {
-        const state = stateRef.current;
         const edges = findEdges();
         edges.forEach(({ edge, alpha }) => edge.draw(ctx, alpha * 0.6));
     }, [findEdges]);
@@ -244,6 +260,10 @@ export default function CanvasBackground2({
         const state = stateRef.current;
         state.mode = 'scatter';
         state.edgesVisible = false;
+        
+        // Очищаем кеш рёбер при старте нового цикла
+        state.cachedEdges = [];
+        state.lastEdgeUpdate = 0;
 
         state.vertices.forEach(v => {
             const angle = Math.random() * 2 * Math.PI;
@@ -253,7 +273,7 @@ export default function CanvasBackground2({
             v.returning = false;
             v.bounceCount = 0;
             v.hasMoved = false;
-            v.isMoving = false;
+            v.isMoving = false; // Начинаем с false, активируем постепенно
             v.startDelay = Math.random() * 900 + 100;
             v.delayElapsed = 0;
             v.canStart = false;
@@ -273,6 +293,10 @@ export default function CanvasBackground2({
         const state = stateRef.current;
         state.mode = 'idle';
         state.edgesVisible = false;
+        
+        // Очищаем кеш рёбер при сбросе
+        state.cachedEdges = [];
+        state.lastEdgeUpdate = 0;
 
         state.vertices.forEach(v => {
             v.x = v.original.x;
@@ -312,10 +336,16 @@ export default function CanvasBackground2({
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawLogo(ctx);
 
+        // Обновляем вершины
         state.vertices.forEach(v => v.update(dt));
+        
+        // Отрисовываем вершины
         state.vertices.forEach(v => v.draw(ctx));
 
-        if (state.edgesVisible) drawEdges(ctx);
+        // Рисуем рёбра (используется кешированный результат)
+        if (state.edgesVisible) {
+            drawEdges(ctx);
+        }
 
         const allHome = state.vertices.every(v => v.isAtOrigin);
         if (allHome && state.mode !== 'idle') {
@@ -337,6 +367,9 @@ export default function CanvasBackground2({
         const edgeInterval = setInterval(() => {
             if (state.currentMaxEdges < MAX_EDGES_PER_VERTEX) {
                 state.currentMaxEdges++;
+                // При изменении currentMaxEdges сбрасываем кеш рёбер
+                state.cachedEdges = [];
+                state.lastEdgeUpdate = 0;
             }
         }, 1000);
 
@@ -365,7 +398,7 @@ export default function CanvasBackground2({
     // Эффект для обновления scale при изменении пропса
     useEffect(() => {
         stateRef.current.scale = scale;
-        resizeCanvas(); // Пересчитываем при изменении scale
+        resizeCanvas();
     }, [scale, resizeCanvas]);
 
     return (

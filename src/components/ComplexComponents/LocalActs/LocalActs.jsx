@@ -27,7 +27,8 @@ function LocalActs() {
     // Конфиг документов
     const operatorDocs = [
         { title: t('signAndResignMain.cardTitle1'), link: `${baseUrl}/assets/documents/1.pdf` },
-        { title: t('signAndResignMain.cardTitle2'), link: `${baseUrl}/assets/documents/Правил обслуживания клиентов в ЭПС «Берлио».pdf` },
+        { title: t('signAndResignMain.cardTitle2'), link: `${baseUrl}/assets/documents/Правила обслуживания клиентов в ЭПС «Берлио»
+        .pdf` },
         {
             title: t('signAndResignMain.cardTitle3'),
             link: `${baseUrl}/assets/documents/Договор присоединения Клиента к обслуживанию в электронной платежной системе «Берлио».pdf`,

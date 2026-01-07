@@ -29,7 +29,7 @@ export default function NewYearPreloader({ skipLoading }) {
   // Динамический текст
   const dynamicText = [
     `Пусть ${year} год принесёт Вам тепло, вдохновение и радость!`,
-    'И улыбка — без сомненья — пусть коснётся ваших глаз,',
+    'И улыбка, без сомненья, пусть коснётся ваших глаз,',
     'И хорошее настроение не покинет больше вас!',
     'Сказочного Рождества и счастливого Нового года!'
   ];
@@ -130,10 +130,10 @@ export default function NewYearPreloader({ skipLoading }) {
         top="0"
         totalPoints={1500}
         edgeRadius={100}
-        vertexRadius={1.5}
-        globalSpeed={88}
-        minEdgeRadius={50}
-        maxEdgeRadius={60}
+        vertexRadius={2}
+        globalSpeed={92}
+        minEdgeRadius={80}
+        maxEdgeRadius={110}
         initialDelay={2000}
       />
 

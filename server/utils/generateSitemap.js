@@ -1,27 +1,36 @@
-import routes from '../../src/contexts/routes.meta.js'
+import routesMeta from '../../src/contexts/routes.meta.js';
 
-const BASE_URL = 'https://new.berlio.by'
+const BASE_URL = 'https://new.berlio.by';
 
-const excludedFromSitemap = ['/administrator']
+const excludedFromSitemap = [
+  '/administrator',
+];
 
 export function generateSitemap(lastmod = new Date().toISOString()) {
-  // фильтруем статичные роуты (без :param)
-  const staticRoutes = Object.values(routes).filter(
-    route => !route.includes(':') && !excludedFromSitemap.includes(route)
-  )
+  const staticRoutes = routesMeta
+    .filter(route =>
+      route.sitemap === true &&          // явно разрешён
+      typeof route.path === 'string' &&
+      !route.dynamic &&                  // ❗ динамику исключаем
+      !route.path.includes(':') &&
+      !excludedFromSitemap.includes(route.path)
+    )
+    .map(route => route.path);
 
-  // убираем дубли с помощью Set
-  const uniqueRoutes = Array.from(new Set(staticRoutes))
+  const uniqueRoutes = [...new Set(staticRoutes)];
 
-  const urls = uniqueRoutes.map(route => `
+  const urls = uniqueRoutes
+    .map(path => `
   <url>
-    <loc>${BASE_URL}${route}</loc>
+    <loc>${BASE_URL}${path}</loc>
     <lastmod>${lastmod}</lastmod>
     <priority>0.7</priority>
-  </url>`).join('\n')
+  </url>`
+    )
+    .join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls}
-</urlset>`
+</urlset>`;
 }

@@ -306,7 +306,7 @@ function SignAndResignSection() {
                     e.preventDefault();
                     handlePdfClick(
                       t('documentsForDownloadMain.lsts.cardTitle1'),
-                      `${baseUrl}/assets/documents/Список документов для заключения Договора присоединения.pdf`
+                      `${baseUrl}/assets/documents/Список документов для заключения Договора присоединения temp.pdf`
                     );
                   }}
                   target="_blank"

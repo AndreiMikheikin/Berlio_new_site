@@ -20,11 +20,17 @@ const isInRange = (startMMDD, endMMDD, now = new Date()) => {
   let start = parseMMDD(startMMDD, year);
   let end = parseMMDD(endMMDD, year);
 
-  // Если пересечение года (декабрь → январь)
-  if (end < start) end.setFullYear(end.getFullYear() + 1);
+  if (end < start) { // диапазон переходит через год
+    if (now.getMonth() + 1 < start.getMonth() + 1) { // если сейчас январь
+      start.setFullYear(year - 1); // start = прошлый декабрь
+    } else { // сейчас декабрь
+      end.setFullYear(year + 1);
+    }
+  }
 
   return now >= start && now <= end;
 };
+
 
 function usePreloader() {
   const [activePreloader, setActivePreloader] = useState(null);
