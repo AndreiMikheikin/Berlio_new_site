@@ -48,6 +48,14 @@
     border-collapse: collapse;
     background-color: #fff;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    table-layout: fixed;
+
+    thead th {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      background-color: #fff;
+    }
 
     th,
     td {

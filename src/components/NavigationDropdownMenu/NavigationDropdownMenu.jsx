@@ -156,11 +156,11 @@ const menuContent = {
     {
       title: 'servicesAndSoftware',
       links: [
-        /* {
+        {
           href: '/equipment/berlioInternetClientApp',
           text: 'berlioInternetClient',
           target: '_self',
-        }, */
+        },
         {
           href: '/equipment/berlioCardPayApp',
           text: 'berlioCardPayApp',

@@ -6,10 +6,149 @@ import CanvasBackground1 from '../../components/CanvasComponents/CanvasBackgroun
 import '../../styles/pages/Presentations/PPPSAPresentationPage.scss';
 import PPPSASlide1 from '../../components/ComplexComponents/PresentationSlides/PPPSAPresentation/Slide1';
 import PPPSASlide2 from '../../components/ComplexComponents/PresentationSlides/PPPSAPresentation/Slide2';
+import PPPSASlide3 from '../../components/ComplexComponents/PresentationSlides/PPPSAPresentation/Slide3';
+import PPPSASlide4 from '../../components/ComplexComponents/PresentationSlides/PPPSAPresentation/Slide4';
+import PPPSASlide5 from '../../components/ComplexComponents/PresentationSlides/PPPSAPresentation/Slide5';
+import PPPSASlide6 from '../../components/ComplexComponents/PresentationSlides/PPPSAPresentation/Slide6';
+import PPPSASlide7 from '../../components/ComplexComponents/PresentationSlides/PPPSAPresentation/Slide7';
+import PPPSASlide8 from '../../components/ComplexComponents/PresentationSlides/PPPSAPresentation/Slide8';
+import PPPSASlide9 from '../../components/ComplexComponents/PresentationSlides/PPPSAPresentation/Slide9';
+import PPPSASlide10 from '../../components/ComplexComponents/PresentationSlides/PPPSAPresentation/Slide10';
+import PPPSASlide11 from '../../components/ComplexComponents/PresentationSlides/PPPSAPresentation/Slide11';
+import PPPSASlide12 from '../../components/ComplexComponents/PresentationSlides/PPPSAPresentation/Slide12';
+import PPPSASlide13 from '../../components/ComplexComponents/PresentationSlides/PPPSAPresentation/Slide13';
 
 const slides = [
-  { id: 1, component: <PPPSASlide1 />, duration: 7000 }, // 7 секунд
-  { id: 2, component: <PPPSASlide2 />, duration: 15000 }, // 15 секунд
+  {
+    id: 1,
+    component: <PPPSASlide1 />,
+    duration: 8000,
+    header: {
+      key: 'company',
+      text: 'НП ООО «БЕРЛИО»',
+      isActive: true,
+    },
+  },
+  {
+    id: 2,
+    component: <PPPSASlide2 />,
+    duration: 10000,
+    header: {
+      key: 'product-1',
+      text: 'ППП «Система автоматизации АЗС»',
+      isActive: false,
+    },
+  },
+  {
+    id: 3,
+    component: <PPPSASlide3 />,
+    duration: 8000,
+    header: {
+      key: 'product-1',
+      text: 'ППП «Система автоматизации АЗС»',
+      isActive: false,
+    },
+  },
+  {
+    id: 4,
+    component: <PPPSASlide4 />,
+    duration: 8000,
+    header: {
+      key: 'product-1',
+      text: 'ППП «Система автоматизации АЗС»',
+      isActive: false,
+    },
+  },
+  {
+    id: 5,
+    component: <PPPSASlide5 />,
+    duration: 11000,
+    header: {
+      key: 'product-1',
+      text: 'ППП «Система автоматизации АЗС»',
+      isActive: false,
+    },
+  },
+  {
+    id: 6,
+    component: <PPPSASlide6 />,
+    duration: 7000,
+    header: {
+      key: 'product-1',
+      text: 'ППП «Система автоматизации АЗС»',
+      isActive: false,
+    },
+  },
+  {
+    id: 7,
+    component: <PPPSASlide7 />,
+    duration: 9000,
+    header: {
+      key: 'product-2',
+      text: 'ПО «ОФИС»',
+      isActive: false,
+    },
+  },
+  {
+    id: 8,
+    component: <PPPSASlide8 />,
+    duration: 9000,
+    header: {
+      key: 'product-2',
+      text: 'ПО «ОФИС»',
+      isActive: false,
+    },
+  },
+  {
+    id: 9,
+    component: <PPPSASlide9 />,
+    duration: 12000,
+    header: {
+      key: 'product-3',
+      text: 'ПО «Уличный платежный терминал самообслуживания»',
+      isActive: false,
+    },
+  },
+  {
+    id: 10,
+    component: <PPPSASlide10 />,
+    duration: 12000,
+    header: {
+      key: 'product-4',
+      text: 'ПО «Касса самообслуживания»',
+      isActive: false,
+    },
+  },
+  {
+    id: 11,
+    component: <PPPSASlide11 />,
+    duration: 12000,
+    header: {
+      key: 'product-5',
+      text: 'Мобильное приложение для физических лиц',
+      isActive: false,
+    },
+  },
+  {
+    id: 12,
+    component: <PPPSASlide12 />,
+    duration: 12000,
+    header: {
+      key: 'product-5',
+      text: 'Мобильное приложение для физических лиц',
+      isActive: false,
+    },
+  },
+  {
+    id: 13,
+    component: <PPPSASlide13 />,
+    duration: 12000,
+    header: {
+      key: 'product-6',
+      text: 'ПО «API Berlio Info»',
+      isActive: false,
+    },
+  },
   // новые слайды сюда
 ];
 
@@ -39,6 +178,12 @@ function PPPSAPresentationPage() {
 
   const currentSlide = slides[currentIndex];
 
+  const headerConfig = currentSlide?.header ?? {
+    key: 'default',
+    text: 'ППП «Система автоматизации АЗС»',
+    isActive: false,
+  };
+
   return (
     <>
       <Helmet>
@@ -57,18 +202,15 @@ function PPPSAPresentationPage() {
           {mounted ? (
             <AnimatePresence mode='wait'>
               <motion.span
-                key={currentIndex === 0 ? 'company' : 'product'}
-                className={`aam_ppp-sa-presentation-page--header_company-name ${
-                  currentIndex === 0 ? 'active' : ''
-                }`}
+                key={headerConfig.key}
+                className={`aam_ppp-sa-presentation-page--header_company-name ${headerConfig.isActive ? 'active' : ''
+                  }`}
                 initial={{ opacity: 0, x: slideDirection * 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -slideDirection * 50 }}
                 transition={{ duration: 0.6, ease: 'easeInOut' }}
               >
-                {currentIndex === 0
-                  ? 'НП ООО «БЕРЛИО»'
-                  : 'ППП «Система автоматизации АЗС»'}
+                {headerConfig.text}
               </motion.span>
             </AnimatePresence>
           ) : (

@@ -49,7 +49,6 @@ export async function render(url, initialLang = 'ru') {
         const head = `
           ${helmet.title?.toString() || ''}
           ${helmet.meta?.toString() || ''}
-          ${helmet.link?.toString() || ''}
         `;
 
         resolve({

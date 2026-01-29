@@ -27,6 +27,7 @@ const Home = () => {
         <meta name="description" content="Описание компании Берлио" />
         <meta name="keywords" content="Берлио, Главная" />
         <meta name="author" content="AndreiMikheikin" />
+        <meta name="google-site-verification" content="4BVE7j5fIhALaBehtqTFvdml5bt08FeadGwlmBYPbe4" />
       </Helmet>
 
       <Header />

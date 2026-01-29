@@ -46,8 +46,9 @@ app.use('/api/log-book', logBookRoutes);
 
 // 3. Отдаём ассеты и фавикон напрямую
 app.use('/assets', express.static(path.join(clientDist, 'assets')));
-app.use('/favicon.svg', express.static(path.join(clientDist, 'favicon.svg')));
 app.use('/favicon.ico', express.static(path.join(clientDist, 'favicon.ico')));
+app.use('/favicon.svg', express.static(path.join(clientDist, 'favicon.svg')));
+app.use('/favicon.png', express.static(path.join(clientDist, 'favicon.png')));
 app.use('/data/newsData.json', express.static(path.join(clientDist, 'data/newsData.json')));
 
 // 4. Генерация sitemap.xml
