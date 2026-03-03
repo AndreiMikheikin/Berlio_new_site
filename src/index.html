@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,8 +19,19 @@
       background: #fff;
       color: #003366;
     }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+
+      /* прозрачность */
+      background: rgba(255, 255, 255, 0.75);
+    }
   </style>
 </head>
+
 <body>
   <!-- Корень React -->
   <div id="root"><!--app-html--></div>
@@ -29,4 +41,5 @@
 
   <script type="module" src="index.jsx"></script>
 </body>
+
 </html>

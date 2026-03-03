@@ -6,6 +6,8 @@ import CookieConsentModal from './components/ComplexComponents/CookieConsentModa
 import usePreloader from './hooks/usePreloader';
 import PreloaderPortal from './components/PreloaderPortal/PreloaderPortal';
 import usePageView from './hooks/usePageView';
+import CanvasBackground from './components/CanvasComponents/CanvasBackground3/CanvasBackgroud3';
+
 
 // Ленивые импорты страниц
 const Home = lazy(() => import('./pages/Home/Home'));
@@ -52,6 +54,7 @@ const B2BPolicy = lazy(() => import('./components/ComplexComponents/B2BPolicy/B2
 const ApplicantsPolicy = lazy(() => import('./components/ComplexComponents/ApplicantsPolicy/ApplicantsPolicy'));
 const Legislation = lazy(() => import('./pages/Legislation/Legislation'));
 const ReportIFR = lazy(() => import('./pages/ReportIFR/ReportIFR'));
+const RiskManagment = lazy(() => import('./pages/RiskManagment/RiskManagment'));
 const LocalActsInEPS = lazy(() => import('./pages/LocalActsInEPS/LocalActsInEPS'));
 
 // Админка
@@ -67,6 +70,7 @@ const LogBookLoginPage = lazy(() => import('./pages/LogBookLoginPage/LogBookLogi
 const LogBookPage = lazy(() => import('./pages/LogBookPage/LogBookPage'));
 
 // Презентации
+const PresentationsPageMain = lazy(() => import('./pages/PresentationsPage/PresentationsPageMain'));
 const PPPSAPresentationPage = lazy(() => import('./pages/Presentations/PPPSAPresentationPage'));
 
 const PrivacyIndexRedirect = () => {
@@ -102,6 +106,10 @@ function App() {
 
       <SelectedItemProvider>
         <ScrollToTop />
+
+        {/* ГЛОБАЛЬНЫЙ CANVAS-ФОН */}
+        <CanvasBackground className="aam_canvas-background" />
+
         <Suspense fallback={<div className="aam_loader">Loading...</div>}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -139,12 +147,14 @@ function App() {
             <Route path="/clients/eMoneyRegulations" element={<EMoneyRegulations />} />
             <Route path="/clients/legislation" element={<Legislation />} />
             <Route path="/clients/reportIFR" element={<ReportIFR />} />
+            <Route path="/clients/riskManagment" element={<RiskManagment />} />
             <Route path="/clients/localActsInEPS" element={<LocalActsInEPS />} />
 
             {/* Партнёры */}
             <Route path="/partners" element={<ForPartners />} />
             <Route path="/partners/voiceRefService" element={<VoiceReferenceService />} />
             <Route path="/partners/loyaltyProgram" element={<LoyaltyProgram />} />
+            <Route path="/partners/gettingElectronicCard" element={<GettingElectronicCard />} />
             <Route path="/partners/documentsForDownload" element={<DocumentsForDownload />} />
             <Route path="/partners/systemRules" element={<SystemRules />} />
             <Route path="/partners/forBankInformation" element={<ForBankInfo />} />
@@ -175,9 +185,8 @@ function App() {
             <Route path="/log-book" element={<LogBookPage />} />
 
             {/* Презентации */}
-            <Route path="/presentations">
-              <Route path="pppsa" element={<PPPSAPresentationPage />} />
-            </Route>
+            <Route path="/presentations" element={<PresentationsPageMain />} />
+            <Route path="/presentations/pppsa" element={<PPPSAPresentationPage />} />
           </Routes>
         </Suspense>
 

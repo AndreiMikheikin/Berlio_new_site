@@ -59,8 +59,8 @@
     // Общий стиль для всех списков внутри секций
     ul li {
         list-style-type: disc;
-        list-style-position: inside;
-        margin-left: 15px;
+        list-style-position: outside;
+        margin-left: 30px;
         @include m.text-p1;
         text-align: left;
     }
@@ -76,6 +76,7 @@
         margin: 10px 0;
         padding: 0;
         list-style: none;
+        margin-left: -30px;
 
         li {
             display: flex;

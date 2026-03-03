@@ -6,4 +6,6 @@ superadmin-hash.js
 !.env.example
 ~*
 src/contexts/generate-qr.js
+src/contexts/dataURL.js
 src/assets/qr
+server/temp*

@@ -23,7 +23,7 @@ function SecondaryFooter() {
             <Link to="/privacy">{t('privacy')}</Link>
           </li>
           <li>
-            <Link to="/help">{t('help')}</Link>
+            <Link to="/presentations">Презентации</Link>
           </li>
         </ul>
       </nav>

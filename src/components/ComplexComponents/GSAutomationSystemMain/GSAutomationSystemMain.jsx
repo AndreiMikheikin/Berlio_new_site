@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LeftArrowIcon from '../../SVGIcons/LeftArrowIcon';
 import UpArrowInCircleIcon from '../../SVGIcons/UpArrowInCircleIcon';
-import AutomationScheme from '/assets/images/Obshchaya-skhema-SA.png';
+import AutomationScheme from '/assets/images/scheme.png';
 import '../../../styles/components/ComplexComponents/GSAutomationSystemMain.scss';
 
 function GSAutomationSystemMain() {

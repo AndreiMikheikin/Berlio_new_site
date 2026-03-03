@@ -39,6 +39,25 @@
 
   <!--helmet-head-->
   <!--preload-links-->
+  <style>
+    /* Критичный стиль, например глобальные шрифты или базовые цвета */
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #fff;
+      color: #003366;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+
+      /* прозрачность */
+      background: rgba(255, 255, 255, 0.75);
+    }
+  </style>
 </head>
 
 <body>

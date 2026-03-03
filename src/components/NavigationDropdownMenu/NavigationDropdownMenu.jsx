@@ -147,6 +147,11 @@ const menuContent = {
           target: '_self',
         },
         {
+          href: '/clients/riskManagment',
+          text: 'riskManagment',
+          target: '_self',
+        },
+        {
           href: '/clients/localActsInEPS',
           text: 'localActsInEPS',
           target: '_self',

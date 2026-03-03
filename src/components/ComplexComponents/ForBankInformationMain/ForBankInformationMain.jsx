@@ -36,7 +36,7 @@ function ForBankInformationMain() {
           Icon={OilIcon}
           title={t('forBankInfoMain.system')}
           description={t('forBankInfoMain.systemTagline')}
-          link="/partners/cardUsageRules"
+          link="/partners/gettingElectronicCard"
         />
         <ServiceCard
           CSSSelectorPrefix="aam_for-bank-info-main"

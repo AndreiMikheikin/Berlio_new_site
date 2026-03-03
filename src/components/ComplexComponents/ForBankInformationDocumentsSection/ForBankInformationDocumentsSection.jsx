@@ -46,10 +46,10 @@ function ForBankInformationDocumentsSection() {
           Icon={PdfIcon}
           title={t('forBankInfoDoc.cardTitle1')}
           description=""
-          link={`${baseUrl}/assets/documents/1.pdf`}
+          link={`${baseUrl}/assets/documents/Правила эмитента электронных денег «Берлио».pdf`}
           onClick={() => handleLinkClick(
             t('forBankInfoDoc.cardTitle1'),
-            `${baseUrl}/assets/documents/1.pdf`,
+            `${baseUrl}/assets/documents/Правила эмитента электронных денег «Берлио».pdf`,
           )}
         />
         <ServiceCard
@@ -57,10 +57,10 @@ function ForBankInformationDocumentsSection() {
           Icon={PdfIcon}
           title={t('forBankInfoDoc.cardTitle2')}
           description=""
-          link={`${baseUrl}/assets/documents/1.pdf`}
+          link={`${baseUrl}/assets/documents/Правила оператора электронной платежной системы «Берлио».pdf`}
           onClick={() => handleLinkClick(
             t('forBankInfoDoc.cardTitle2'),
-            `${baseUrl}/assets/documents/1.pdf`,
+            `${baseUrl}/assets/documents/Правила оператора электронной платежной системы «Берлио».pdf`,
           )}
         />
       </div>

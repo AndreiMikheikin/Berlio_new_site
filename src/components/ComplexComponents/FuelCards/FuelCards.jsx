@@ -30,10 +30,10 @@ function FuelCards() {
       <ServiceCard
         Icon={PdfIcon}
         title={t('fuelCards.cardTitle')}
-        link="/assets/documents/1.pdf"
+        link="/assets/documents/Выпуск в обращение и использование топливных карт.pdf"
         onClick={() => handleLinkClick(
           t('fuelCards.cardTitle'),
-          '/assets/documents/1.pdf',
+          '/assets/documents/Выпуск в обращение и использование топливных карт.pdf',
         )}
       />
     </section>
