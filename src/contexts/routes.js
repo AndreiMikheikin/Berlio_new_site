@@ -35,6 +35,7 @@ const routes = {
   eMoneyRegulationsMain: '/clients/eMoneyRegulations',
   legislationMain: '/clients/legislation',
   reportIFRMain: '/clients/reportIFR',
+  riskManagmentMain: '/clients/riskManagment',
   localActsInEPSMain: '/clients/localActsInEPS',
 
   forPartnersMain: '/partners',

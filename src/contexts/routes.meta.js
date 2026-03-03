@@ -66,6 +66,7 @@ const routesMeta = [
   { key: 'eMoneyRegulations', path: '/clients/eMoneyRegulations', sitemap: true, ssr: true },
   { key: 'legislation', path: '/clients/legislation', sitemap: true, ssr: true },
   { key: 'reportIFR', path: '/clients/reportIFR', sitemap: true, ssr: true },
+  { key: 'riskManagment', path: '/clients/riskManagment', sitemap: true, ssr: true },
   { key: 'localActsInEPS', path: '/clients/localActsInEPS', sitemap: true, ssr: true },
 
   // --- Partners ---

@@ -17,6 +17,9 @@ import uploadRouter from './routes/api/~upload.js';
 import logBookLoginRoute from './routes/api/log-book-login.js';
 import logBookRoutes from './routes/api/log-book.js';
 
+import mailBookLoginRoute from './routes/api/mail-book-login.js';
+import mailBookRoutes from './routes/api/mail-book.js';
+
 import { matchRoute } from './ssr/matchRoute.js';
 import { incrementPageView } from './utils/pageViews.js';
 
@@ -44,6 +47,10 @@ app.use('/upload', uploadRouter);
 app.use('/api/log-book-login', logBookLoginRoute);
 app.use('/api/log-book', logBookRoutes);
 
+// 2.2 API endpoints для Журнала исходящей корреспонденции
+app.use('/api/mail-book-login', mailBookLoginRoute);
+app.use('/api/mail-book', mailBookRoutes);
+
 // 3. Отдаём ассеты и фавикон напрямую
 app.use('/assets', express.static(path.join(clientDist, 'assets')));
 app.use('/favicon.ico', express.static(path.join(clientDist, 'favicon.ico')));
@@ -68,14 +75,14 @@ app.get('/robots.txt', (req, res) => {
 User-agent: *
 Disallow: /administrator
 
-Sitemap: http://new.berlio.by/sitemap.xml
+Sitemap: https://new.berlio.by/sitemap.xml
   `.trim();
 
   res.type('text/plain').send(robotsContent);
 });
 
 // 6. SSR для HTML-запросов
-app.get('*', async (req, res, next) => {
+app.get(/^\/(?!api\/).*$/, async (req, res, next) => {
   const url = req.originalUrl;
 
   if (/\.(ico|png|jpe?g|gif|svg|woff2?|ttf|eot|otf|webm|mp4)$/i.test(url)) {
