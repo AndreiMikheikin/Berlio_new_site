@@ -32,6 +32,22 @@
         margin-bottom: 10px;
     }
 
+    &__blog-link {
+        align-self: flex-end;
+        @include m.heading-h4;
+        margin-bottom: 10px;
+
+        a {
+            color: $background-color;
+            text-decoration: none;
+
+            &:hover {
+                color: $background-hover;
+                text-decoration: underline;
+            }
+        }
+    }
+
     &__lider-section {
         display: flex;
         flex-direction: column;

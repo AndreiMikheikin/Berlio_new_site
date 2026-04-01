@@ -134,6 +134,14 @@
         }
     }
 
+    &__deal-fact-urgent {
+        @include m.text-p1;
+        display: block;
+        margin-top: -20px;
+        margin-bottom: 35px;
+        font-weight: 800;
+    }
+
     &__doc-list {
         display: flex;
         flex-direction: column;

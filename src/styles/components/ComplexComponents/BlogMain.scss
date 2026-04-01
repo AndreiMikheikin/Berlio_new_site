@@ -1,0 +1,167 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_blog-main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 1280px;
+    padding: 10px 50px 60px;
+
+    &__breadcrumbs {
+        @include m.text-p1;
+        color: $text-disabled;
+        margin-bottom: 15px;
+
+        a {
+            color: $background-color;
+            text-decoration: none;
+
+            &:hover {
+                color: $background-hover;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__header {
+        @include m.heading-h1;
+        margin-bottom: 35px;
+    }
+
+    &__description {
+        @include m.text-p1;
+        margin-bottom: 20px;
+    }
+
+    &__list-title {
+        @include m.heading-h3;
+        margin-bottom: 20px;
+    }
+
+    &__blog-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px; // увеличенный отступ между карточками
+        margin: 20px 0 60px;
+        list-style: none;
+        justify-content: center;
+
+        &--item {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 5px 0;
+            max-width: 260px; // чуть шире для комфортного чтения
+            background-color: $white; // белый фон карточки
+            border: 1px solid $border-secondary; // светлая рамка (#77bb77)
+            border-radius: 16px;
+            box-shadow: $shadow-primary; // мягкая тень
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            overflow: hidden;
+
+            &:hover {
+                transform: translateY(-6px);
+                box-shadow: $shadow-tertiary; // зелёная тень при наведении
+                border-color: $background-color; // рамка становится основного цвета
+            }
+
+            a {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                text-decoration: none;
+                color: inherit;
+
+                img {
+                    width: 200px;
+                    height: auto; // фиксированная высота для единообразия
+                    object-fit: cover;
+                    transition: transform 0.4s ease;
+                    background-color: $text-light; // фон на время загрузки
+                    align-self: center;
+                }
+
+                h5 {
+                    font-family: $font-family-primary;
+                    font-weight: $font-weight-semibold;
+                    font-size: $font-size-regular; // 18px
+                    line-height: $line-height-small; // 1.2
+                    color: $text-primary;
+                    margin: 16px 16px 8px;
+                    padding: 0;
+                    text-align: left;
+                }
+
+                span {
+                    font-family: $font-family-primary;
+                    font-weight: $font-weight-regular;
+                    font-size: $font-size-small; // 14px
+                    line-height: $line-height-regular; // 1.5
+                    color: $text-tertiary; // #4D4D4D
+                    margin: 0 16px 20px;
+                    text-align: left;
+
+                    // Обрезаем длинный текст
+                    display: -webkit-box;
+                    line-clamp: 3;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            &:hover a img {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    &__site-nav {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .secondary-link {
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: $text-secondary;
+        transition: scale 0.3s ease;
+
+        &:hover {
+            svg {
+                scale: 1.07;
+
+                path {
+                    fill: #48AE5A;
+                }
+
+                circle {
+                    stroke: #48AE5A;
+                }
+            }
+        }
+    }
+
+    .home-link {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+        color: $text-secondary;
+    }
+}

@@ -54,13 +54,13 @@ function ForBankInformationDocumentsSection() {
         />
         <ServiceCard
           className="aam_for-bank-info-doc-section__service-card"
-          Icon={PdfIcon}
+          Icon={DocIcon}
           title={t('forBankInfoDoc.cardTitle2')}
           description=""
-          link={`${baseUrl}/assets/documents/Правила оператора электронной платежной системы «Берлио».pdf`}
+          link={`${baseUrl}/assets/documents/Правила оператора электронной платежной системы «Берлио».docx`}
           onClick={() => handleLinkClick(
             t('forBankInfoDoc.cardTitle2'),
-            `${baseUrl}/assets/documents/Правила оператора электронной платежной системы «Берлио».pdf`,
+            `${baseUrl}/assets/documents/Правила оператора электронной платежной системы «Берлио».docx`,
           )}
         />
       </div>

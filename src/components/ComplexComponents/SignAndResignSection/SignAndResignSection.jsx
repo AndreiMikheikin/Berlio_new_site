@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Deps from '../../../data/departmentAdresses.json';
 import PdfIcon from '../../SVGIcons/PdfIcon';
+import DocxIcon from '../../SVGIcons/DocxIcon';
 import LinkButton from '../../LinkButton/LinkButton';
 import LeftArrowIcon from '../../SVGIcons/LeftArrowIcon';
 import NavigationDropdown from '../../NavigationDropdown/NavigationDropdown';
@@ -236,7 +237,7 @@ function SignAndResignSection() {
                   onClick={(e) => {
                     e.preventDefault();
                     handleLinkClick(
-                      "/assets/documents/Договор присоединения Клиента к обслуживанию в электронной платежной системе «Берлио».pdf"
+                      "/assets/documents/Договор присоединения  Клиента к обслуживанию в электронной платежной системе «Берлио».pdf"
                     );
                   }}
                 >
@@ -291,8 +292,10 @@ function SignAndResignSection() {
                   <li>{t('signAndResignSection.dealFactList.item3')}</li>
                 </ul>
               </li>
-
             </ul>
+            <strong className="aam_sign-and-resign-section__deal-fact-urgent">
+              {t('signAndResignSection.descriptionOLD.item15-5')}
+            </strong>
           </li>
 
           <li>
@@ -306,7 +309,7 @@ function SignAndResignSection() {
                     e.preventDefault();
                     handlePdfClick(
                       t('documentsForDownloadMain.lsts.cardTitle1'),
-                      `${baseUrl}/assets/documents/Список документов для заключения Договора присоединения temp.pdf`
+                      `${baseUrl}/assets/documents/Список документов для заключения Договора присоединения.pdf`
                     );
                   }}
                   target="_blank"
@@ -327,7 +330,7 @@ function SignAndResignSection() {
                   onClick={(e) => {
                     e.preventDefault();
                     handleLinkClick(
-                      "/assets/documents/Договор присоединения Клиента к обслуживанию в электронной платежной системе «Берлио».pdf"
+                      "/assets/documents/Договор присоединения  Клиента к обслуживанию в электронной платежной системе «Берлио».pdf"
                     );
                   }}
                 >

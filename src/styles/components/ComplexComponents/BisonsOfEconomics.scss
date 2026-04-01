@@ -1,0 +1,464 @@
+@use '../../variables' as *;
+@use '../../mixins' as m;
+
+.aam_bisons-of-economics {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 1280px;
+    padding: 10px 50px 60px;
+
+    &__breadcrumbs {
+        @include m.text-p1;
+        color: $text-disabled;
+        margin-bottom: 15px;
+
+        a {
+            color: $background-color;
+            text-decoration: none;
+
+            &:hover {
+                color: $background-hover;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__header {
+        @include m.heading-h1;
+        margin-bottom: 35px;
+    }
+
+    
+
+    &__site-nav {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .secondary-link {
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: $text-secondary;
+        transition: scale 0.3s ease;
+
+        &:hover {
+            svg {
+                scale: 1.07;
+
+                path {
+                    fill: #48AE5A;
+                }
+
+                circle {
+                    stroke: #48AE5A;
+                }
+            }
+        }
+    }
+
+    .home-link {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include m.text-p2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+        color: $text-secondary;
+    }
+}
+
+.aam_blog-article {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    background-color: hsla(0, 0%, 100%, 0.7);
+    border-radius: 32px;
+    box-shadow: 0px 15px 30px -8px rgba($background-hover, 0.15);
+    overflow: hidden;
+    border: 1px solid rgba($border-secondary, 0.3);
+    transition: all 0.3s ease;
+
+    &__wrapper {
+        padding: 50px 50px 40px 50px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-bottom: 40px;
+        align-items: flex-start;
+    }
+
+    &__image-col {
+        flex-shrink: 0;
+        width: 430px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    &__image-wrapper {
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0px 12px 25px -8px rgba($background-hover, 0.25);
+        border: 2px solid $border-secondary;
+        background-color: $text-light;
+        transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+
+        &:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 20px 30px -5px $background-hover;
+            border-color: $background-hover;
+        }
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        object-position: center 20%;
+    }
+
+    &__fallback {
+        background: linear-gradient(145deg, $background-color 0%, $border-secondary 100%);
+        width: 100%;
+        height: 460px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 25px 15px;
+        color: $white;
+        text-align: center;
+        position: relative;
+    }
+
+    &__fallback-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 30% 40%, rgba($white, 0.2) 0%, rgba($background-hover, 0.3) 100%);
+    }
+
+    &__fallback-content {
+        position: relative;
+        z-index: 2;
+        text-shadow: 0 4px 12px rgba($text-primary, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__fallback-name {
+        font-size: $font-size-regular; // 18px
+        border-bottom: 2px solid rgba($white, 0.5);
+        display: inline-block;
+        padding-bottom: 5px;
+        font-weight: $font-weight-semibold;
+        margin-bottom: 10px;
+    }
+
+    &__fallback-title {
+        font-size: $font-size-small;
+        opacity: 0.9;
+    }
+
+    &__caption {
+        margin-top: 12px;
+        text-align: center;
+        font-size: $font-size-small;
+        color: $text-tertiary;
+    }
+
+    &__caption-name {
+        font-weight: $font-weight-semibold;
+        color: $background-hover;
+    }
+
+    &__logo-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        padding-top: 10px;
+        border-top: 1px solid rgba($border-secondary, 0.3);
+    }
+
+    &__logo {
+        height: 200px;
+        width: auto;
+        object-fit: contain;
+        opacity: 0.9;
+        transition: opacity 0.3s, transform 0.3s;
+
+        &:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+    }
+
+    &__content-col {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        flex: 1;
+        min-width: 280px;
+        width: 100%;
+        padding-top: 5px;
+    }
+
+    &__quote-title {
+        font-size: $font-size-heading;
+        font-weight: $font-weight-bold;
+        line-height: $line-height-small;
+        margin: 0 0 20px 0;
+        color: $text-primary;
+        letter-spacing: -0.02em;
+        border-left: 6px solid $border-secondary;
+        padding-left: clamp(15px, 3vw, 30px);
+        text-align: left;
+    }
+
+    &__meta {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        margin-top: 15px;
+        flex-wrap: wrap;
+    }
+
+    &__badge {
+        background: $background-color;
+        color: $white;
+        padding: 6px 18px;
+        border-radius: 40px;
+        font-size: $font-size-small;
+        font-weight: $font-weight-semibold;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        box-shadow: 0 4px 8px rgba($background-color, 0.2);
+        white-space: nowrap;
+    }
+
+    &__magazine-link {
+        text-decoration: none;
+        display: inline-block;
+
+        span {
+            color: $text-tertiary;
+            font-style: italic;
+            border-bottom: 1px dashed $border-secondary;
+            font-size: $font-size-small;
+            padding-bottom: 2px;
+        }
+    }
+
+    &__highlight {
+        margin-top: 25px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    &__highlight-text {
+        font-size: $font-size-regular;
+        font-size: clamp(15px, 3.5vw, 18px);
+        color: $text-secondary;
+        background: $text-light;
+        padding: clamp(15px, 3vw, 25px) clamp(15px, 4vw, 25px);
+        border-radius: 30px 15px 15px 30px;
+        border-left: 4px solid $border-secondary;
+        margin: 0;
+        word-break: break-word;
+        hyphens: auto;
+        line-height: $line-height-regular;
+    }
+
+    &__highlight-strong {
+        font-weight: $font-weight-bold;
+        color: $text-primary;
+    }
+
+    &__text-content {
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+        gap: 20px;
+        font-size: $font-size-regular;
+        color: $text-secondary;
+    }
+
+    &__dropcap {
+        margin-bottom: 5px;
+
+        &::first-letter {
+            font-size: 70px;
+            float: left;
+            line-height: 0.8;
+            margin-right: 15px;
+            color: $border-secondary;
+            font-weight: $font-weight-bold;
+            text-shadow: 2px 2px 0 rgba($border-secondary, 0.2);
+        }
+    }
+
+    &__info-block {
+        background: $text-light;
+        padding: 30px 35px;
+        border-radius: 30px;
+        margin: 15px 0;
+        border: 1px solid $border-secondary;
+        box-shadow: inset 0 2px 5px rgba($text-primary, 0.02);
+    }
+
+    &__info-text {
+        margin: 0;
+        color: $text-secondary;
+    }
+
+    &__info-strong {
+        font-weight: $font-weight-bold;
+        color: $text-primary;
+    }
+
+    &__separator {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid $border-secondary;
+        border-top: 2px solid $border-secondary;
+        padding: 15px 0;
+        margin: 20px 0 10px 0;
+        text-transform: uppercase;
+        color: $text-tertiary;
+        font-weight: $font-weight-semibold;
+        letter-spacing: 2px;
+        font-size: $font-size-small;
+    }
+
+    &__pull-quote {
+        font-size: $font-size-large;
+        font-weight: $font-weight-semibold;
+        color: $text-primary;
+        margin: 30px 0 10px 0;
+        border-left: 4px solid $border-secondary;
+        padding-left: 25px;
+    }
+
+    &__question {
+        font-weight: $font-weight-bold;
+        color: $text-primary;
+        font-size: $font-size-large;
+        margin-top: 25px;
+    }
+
+    &__answer {
+        padding-left: 30px;
+        border-left: 3px solid $border-secondary;
+        border-radius: 0 0 0 20px;
+    }
+
+    &__speaker {
+        font-weight: $font-weight-semibold;
+        color: $background-hover;
+    }
+
+    &__accent-block {
+        background: linear-gradient(135deg, $background-color 0%, $border-secondary 100%);
+        color: $white;
+        padding: 40px 45px;
+        border-radius: 50px 8px 50px 8px;
+        margin: 40px 0;
+        box-shadow: 0px 15px 25px -5px rgba($background-hover, 0.3);
+    }
+
+    &__accent-quote {
+        font-size: $font-size-large;
+        font-style: italic;
+        font-weight: $font-weight-regular;
+        margin: 0;
+        line-height: $line-height-regular;
+    }
+
+    &__accent-author {
+        text-align: right;
+        margin-top: 20px;
+        color: $white;
+        font-weight: $font-weight-semibold;
+        letter-spacing: 2px;
+    }
+
+    &__subtitle {
+        font-size: $font-size-x-large;
+        font-weight: 500;
+        margin: 40px 0 10px 0;
+        color: $text-primary;
+        border-bottom: 2px solid $border-secondary;
+        padding-bottom: 10px;
+    }
+
+    &__tibet-block {
+        background: $text-light;
+        padding: 30px 40px;
+        border-radius: 30px 30px 8px 30px;
+        border-left: 10px solid $border-secondary;
+        margin: 20px 0;
+        box-shadow: 0 5px 15px rgba($text-primary, 0.03);
+        font-size: $font-size-regular;
+        color: $text-secondary;
+    }
+
+    &__interviewer {
+        margin-top: 40px;
+        color: $text-tertiary;
+        border-top: 2px dotted $border-secondary;
+        padding-top: 25px;
+
+        a {
+            text-decoration: none;
+            color: $text-tertiary;
+        }
+    }
+
+    &__interviewer-name {
+        font-weight: $font-weight-bold;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+        padding: 15px 0 0 0;
+        border-top: 1px solid $text-quaternary;
+        font-size: $font-size-small;
+        color: $text-quaternary-dark;
+    }
+
+    &__issue {
+        background: $text-light;
+        padding: 5px 15px;
+        border-radius: 30px;
+    }
+}

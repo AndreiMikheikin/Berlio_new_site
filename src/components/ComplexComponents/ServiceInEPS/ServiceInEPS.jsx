@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import useScrollToHash from '../../../hooks/scrollToHash';
 import PdfIcon from '../../SVGIcons/PdfIcon';
+import DocxIcon from '../../SVGIcons/DocxIcon';
 import LeftArrowIcon from '../../SVGIcons/LeftArrowIcon';
 import UpArrowInCircleIcon from '../../SVGIcons/UpArrowInCircleIcon';
 import GlobeIcon from '../../SVGIcons/GlobeIcon';
@@ -27,10 +28,10 @@ function ServiceInEPS() {
   // Конфиг документов
   const operatorDocs = [
     { title: t('signAndResignMain.cardTitle1'), link: `${baseUrl}/assets/documents/1.pdf` },
-    { title: t('signAndResignMain.cardTitle2'), link: `${baseUrl}/assets/documents/Правила обслуживания клиентов в ЭПС «Берлио».pdf` },
+    { title: t('signAndResignMain.cardTitle2'), link: `${baseUrl}/assets/documents/Правила обслуживания в электронной платежной системе «Берлио».pdf` },
     {
       title: t('signAndResignMain.cardTitle3'),
-      link: `${baseUrl}/assets/documents/Договор присоединения Клиента к обслуживанию в электронной платежной системе «Берлио».pdf`,
+      link: `${baseUrl}/assets/documents/Договор присоединения  Клиента к обслуживанию в электронной платежной системе «Берлио».pdf`,
     },
     {
       title: t('signAndResignMain.cardTitle6'),
@@ -58,6 +59,18 @@ function ServiceInEPS() {
     <ul className="aam_sign-and-resign__doc-list">
       {docs.map(({ title, link, noDownload }) => {
         const isExternal = link.startsWith("https");
+        const extension = link.split(".").pop()?.toLowerCase();
+
+        let Icon = PdfIcon;
+
+        if (isExternal) {
+          Icon = GlobeIcon;
+        } else if (extension === "docx" || extension === "doc") {
+          Icon = DocxIcon;
+        } else if (extension === "pdf") {
+          Icon = PdfIcon;
+        }
+
         return (
           <li key={title}>
             <a
@@ -71,11 +84,7 @@ function ServiceInEPS() {
               target={noDownload ? "_blank" : "_self"}
               rel="noreferrer"
             >
-              {isExternal ? (
-                <GlobeIcon className="aam_sign-and-resign__doc-icon" />
-              ) : (
-                <PdfIcon className="aam_sign-and-resign__doc-icon" />
-              )}
+              <Icon className="aam_sign-and-resign__doc-icon" />
               <span>{title}</span>
             </a>
           </li>

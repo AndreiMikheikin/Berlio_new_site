@@ -12,6 +12,8 @@ import CanvasBackground from './components/CanvasComponents/CanvasBackground3/Ca
 // Ленивые импорты страниц
 const Home = lazy(() => import('./pages/Home/Home'));
 const About = lazy(() => import('./pages/About/About'));
+const Blog = lazy(() => import('./pages/Blog/Blog'));
+const BisonsOfEconomicsPage = lazy(() => import('./pages/BisonsOfEconomicsPage/BisonsOfEconomicsPage'));
 const Contacts = lazy(() => import('./pages/Contacts/Contacts'));
 const News = lazy(() => import('./pages/News/News'));
 const DetailedNews = lazy(() => import('./pages/DetailedNews/DetailedNews'));
@@ -114,6 +116,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/about/blog" element={<Blog />} />
+            <Route path="/about/blog/bisonsOfEconomics" element={<BisonsOfEconomicsPage />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/news" element={<News />} />
             <Route path="/news/:id" element={<DetailedNews />} />

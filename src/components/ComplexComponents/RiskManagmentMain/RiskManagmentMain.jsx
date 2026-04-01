@@ -27,7 +27,7 @@ const RiskManagmentMain = () => {
             docs: [
                 {
                     title: t('riskManagmentMain.cardTitle1'),
-                    link: `${baseUrl}/assets/documents/Информация о системе управления рисками.docx`,
+                    link: `${baseUrl}/assets/documents/Информация о системе управления рисками.pdf`,
                 },
             ],
         },

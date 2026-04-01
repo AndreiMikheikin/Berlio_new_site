@@ -50,6 +50,9 @@ function MainAbout() {
       {/* Title */}
       <h1 className="aam_about-block__title">{t('aboutBlock.name')}</h1>
 
+      {/* Blog link */}
+      <h4 className="aam_about-block__blog-link"><Link to="/about/blog">{t('aboutBlock.blogLink')}</Link></h4>
+
       {/* Section Lider */}
       <section className="aam_about-block__lider-section">
         <div className="aam_about-block__lider-section--title">

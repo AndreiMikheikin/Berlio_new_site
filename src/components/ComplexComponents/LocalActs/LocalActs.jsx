@@ -28,15 +28,15 @@ function LocalActs() {
     const operatorDocs = [
         {
             title: t('signAndResignMain.cardTitle1'),
-            link: `${baseUrl}/assets/documents/Правила оператора электронной платежной системы «Берлио».pdf`
+            link: `${baseUrl}/assets/documents/Правила оператора электронной платежной системы «Берлио».docx`
         },
         {
             title: t('signAndResignMain.cardTitle2'),
-            link: `${baseUrl}/assets/documents/Правила обслуживания клиентов в ЭПС «Берлио».pdf`
+            link: `${baseUrl}/assets/documents/Правила обслуживания в электронной платежной системе «Берлио».pdf`
         },
         {
             title: t('signAndResignMain.cardTitle3'),
-            link: `${baseUrl}/assets/documents/Договор присоединения Клиента к обслуживанию в электронной платежной системе «Берлио».pdf`,
+            link: `${baseUrl}/assets/documents/Договор присоединения  Клиента к обслуживанию в электронной платежной системе «Берлио».pdf`,
         },
         {
             title: t('signAndResignMain.cardTitle6'),
